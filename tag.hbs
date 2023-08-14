@@ -1,0 +1,20 @@
+{{!< default}}
+<!-- tag.hbs -->
+{{#is "tag"}}
+{{#tag}}
+<header>
+    {{#if feature_image}}
+    <img src="{{feature_image}}" alt="{{name}}" />
+    {{/if}}
+</header>
+<section class="author-profile">
+    <h1>{{name}}</h1>
+    {{#if description}}
+    <h2>{{description}}</h2>
+    {{/if}}
+</section>
+<main role="main">{{> "loop"}}</main>
+<!-- Previous/next page links - displayed on every page -->
+{{pagination}}
+{{/tag}}
+{{/is}}

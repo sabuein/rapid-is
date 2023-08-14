@@ -1,0 +1,9 @@
+{{#if isSecondary}}
+<ul class="nav flexy row" role="menu">
+    {{#foreach navigation}}<li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}">{{label}}</a></li>{{/foreach}}
+</ul>
+{{else}}
+<ul class="nav flexy row" role="menu">
+    {{#foreach navigation}}<li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}">{{label}}</a></li>{{/foreach}}
+</ul>
+{{/if}}

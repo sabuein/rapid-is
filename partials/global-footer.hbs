@@ -1,0 +1,35 @@
+<div class="flexy">
+    {{#if @site.logo}}
+    <a href="{{@site.url}}" title="{{@site.title}}"><img src="{{@site.logo}}" alt="{{@site.title}}" /></a>
+    {{else}}
+    <figure class="rapid-logo"><a href="/" title="{{@site.title}}"><img src="{{asset 'images/rapis-is-logo.png'}}" alt="{{@site.title}}" /></a></figure>
+    {{/if}}
+</div>
+<div class="flexy">
+    <h6>Explore</h6>
+    <ul>
+        <li>Homepage</li>
+        <li>About</li>
+        <li>Platform</li>
+        <li>Work</li>
+        <li>Insights</li>
+        <li>Contact</li>
+    </ul>
+</div>
+<div class="flexy">
+    <h6>Platform</h6>
+    <ul>
+        <li>Responsive web-based applications</li>
+        <li>Mobile applications</li>
+        <li>Forms, casework, and workflow</li>
+        <li>IoT management systems</li>
+    </ul>
+</div>
+<div class="flexy">
+    <h6>Contact</h6>
+    <ul>
+        <li>+44 1707 520 711</li>
+        <li>info@rapid-is.co.uk</li>
+    </ul>
+    <div class="social-icons flexy row">{{> "social-icons"}}</div>
+</div>

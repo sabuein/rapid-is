@@ -1,0 +1,22 @@
+{{!< default}}
+<!-- page.hbs -->
+{{#is "page"}}
+{{#post}}
+<main class="{{post_class}}" role="main">
+    {{#match @page.show_title_and_feature_image}}
+    <header class="page-header">
+        <h1 class="page-title">{{title}}</h1>
+        {{#if feature_image}}
+        <figure><img src="{{feature_image}}" alt="{{name}}" /></figure>
+        {{/if}}
+        <section class="page-meta">
+            <time class="page-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+            {{tags prefix=" on "}}
+        </section>
+    </header>
+    {{/match}}
+    <section class="page-content">{{content}}</section>
+    <footer></footer>
+</main>
+{{/post}}
+{{/is}}
