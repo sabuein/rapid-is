@@ -5,6 +5,94 @@
     color: currentColor;
 }
 
+/* roboto-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/roboto-v30-latin-regular.woff2") format("woff2");
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* roboto-italic - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../fonts/roboto-v30-latin-italic.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* roboto-500 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/roboto-v30-latin-500.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* roboto-500italic - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 500;
+    src: url('../fonts/roboto-v30-latin-500italic.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* roboto-700 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/roboto-v30-latin-700.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* roboto-700italic - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 700;
+    src: url('../fonts/roboto-v30-latin-700italic.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* roboto-900 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/roboto-v30-latin-900.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* roboto-900italic - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 900;
+    src: url('../fonts/roboto-v30-latin-900italic.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
 /* General classes */
 
 .flexy {
@@ -23,24 +111,31 @@
 /* Elements */
 
 :root {
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --color-black: #000000;
-    --color-two: #14213d;
-    --color-three: #fca311;
-    --color-four: #e5e5e5;
+    --font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --color-black: #0b0c0c;
+    --color-dark-grey: #505a5f;
+    --color-mid-grey: #b1b4b6;
+    --color-light-grey: #f3f2f1;
     --color-white: #ffffff;
-    --color-red-one: #de3340;
+    --color-two: #14213d;
+    --color-four: #e5e5e5;
     --color-red-two: #ea4848;
-    --max-width: 1920px;
-    --color-focus: #ffdd00;
+    --color-yellow: #ffdd00;
     --color-purple: #4c2c92;
+    --color-light-purple: #6f72af;
+    --color-bright-purple: #912b88;
     --color-blue: #1d70b8;
+    --color-light-blue: #5694ca;
     --color-dark-blue: #003078;
     --color-pink: #d53880;
     --color-light-pink: #f499be;
     --color-orange: #f47738;
+    --color-brown: #b58840;
+    --color-green: #00703c;
+    --color-red: #d4351c;
     --color-light-green: #85994b;
     --color-turquoise: #28a197;
+    --max-width: 1920px;
 }
 
 ::selection {
@@ -67,7 +162,10 @@ body {
     margin: 0 auto;
     font-size: 18px;
     font-family: var(--font-family);
-    color: var(--color-four);
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    color: var(--color-light-grey);
     background-color: var(--color-two);
     width: 100%;
     max-width: var(--max-width);
@@ -75,21 +173,50 @@ body {
 }
 
 main.flexy {
+    position: relative;
     width: 100%;
-    padding: 5em 8em;
-    border-top-left-radius: 10em;
+    /*border-top-left-radius: 10em;
     border-top-right-radius: 20em;
     border-bottom-left-radius: 15em;
-    border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0;*/
     color: var(--color-black);
-    background-color: var(--color-four);
+    background-color: var(--color-light-grey);
     gap: 1em;
     font-size: 1.25rem;
     align-items: flex-start;
 }
 
-body > section {
+
+/* main.flexy > div:last-of-type::after {
+    content: " ";
+    background-color: var(--color-light-grey);
     width: 100%;
+    position: absolute;
+    bottom: -2em;
+    height: 3em;
+    transform: rotate(-1deg);
+} */
+
+main.flexy>div:first-of-type {
+    padding: 2em 3em;
+    gap: 1em;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+main.flexy>div:first-of-type p {
+    text-align: start;
+    width: 100%;
+}
+
+body>section.flexy {
+    width: 100%;
+    padding: 5em 2em;
+}
+
+section.ready-to-talk {
+    background-color: var(--color-light-blue);
+    gap: 2em;
 }
 
 section.knowhow.flexy {
@@ -118,19 +245,34 @@ input[type="reset"] {
     font-size: 1.25rem;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+    padding: 1em;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: var(--color-black);
+    background-color: var(--color-light-grey);
+    border-radius: 3em;
+}
+
+label+input {
+    cursor: pointer;
+}
+
 div.cta-buttons {
     align-self: center;
     gap: 2em;
+    padding-bottom: 2em;
 }
 
 :is(button[type="button"],
-input[type="button"],
-input[type="submit"],
-input[type="reset"]):hover {
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"]):hover {
     background-color: var(--color-blue);
-    outline: thick solid var(--color-focus);
+    outline: thick solid var(--color-yellow);
     font-weight: bolder;
-    scale: 1.015;
 }
 
 section.knowhow.flexy input[type="submit"] {
@@ -184,16 +326,16 @@ a {
 
 /* Elements with classes */
 
-body > header {
+body>header {
     position: relative;
     height: 6em;
-    width: 100%;
+    max-width: 100%;
     padding: 1em;
     z-index: 999;
-    
+
 }
 
-body > header > div.flexy.row {
+body>header>div.flexy.row {
     position: fixed;
     top: 0;
     padding: 1em;
@@ -207,11 +349,20 @@ figure.rapid-logo {
     max-width: 280px;
 }
 
-body > footer figure.rapid-logo {
+header figure.rapid-logo {
+    max-width: 60px;
+}
+
+header figure.rapid-logo img {
+    mix-blend-mode: multiply;
+    mix-blend-mode: hard-light;
+}
+
+body>footer figure.rapid-logo {
     max-width: 160px;
 }
 
-body > footer.flexy {
+body>footer.flexy {
     width: 100%;
     margin-bottom: 1.25em;
     padding: 4em 2em 1em;
@@ -220,7 +371,7 @@ body > footer.flexy {
     background-color: var(--color-four);
 }
 
-body > footer > section.flexy {
+body>footer>section.flexy {
     width: 100%;
     gap: 1em;
 }
@@ -229,15 +380,15 @@ section.flexy {
     padding: 5em 10em;
 }
 
-body > footer > section.flexy.row {
+body>footer>section.flexy.row {
     align-items: flex-start;
 }
 
-body > footer > section.flexy.row:nth-of-type(1) {
+body>footer>section.flexy.row:nth-of-type(1) {
     justify-content: space-between;
 }
 
-body > footer > section.flexy.row:nth-of-type(2) {
+body>footer>section.flexy.row:nth-of-type(2) {
     justify-content: space-between;
     font-size: .85rem;
 }
@@ -253,30 +404,31 @@ ul.nav.flexy.row a {
 
 ul.nav.flexy.row li.nav-get-in-touch::after {
     content: "👋";
+    animation: shake 0.5s ease-in-out 0s infinite;
 }
 
 ul.nav.flexy.row a:hover {
     text-decoration: underline;
 }
 
-body > footer > section.flexy.row {
+body>footer>section.flexy.row {
     padding: 0;
 }
 
-body > footer > section.flexy.row:nth-of-type(1) > div {
+body>footer>section.flexy.row:nth-of-type(1)>div {
     align-items: flex-start;
     gap: 1em;
 }
 
-body > footer > section.flexy.row:nth-of-type(1) h6 {
+body>footer>section.flexy.row:nth-of-type(1) h6 {
     color: var(--color-red-two)
 }
 
-body > footer > section.flexy.row:nth-of-type(1) ul {
+body>footer>section.flexy.row:nth-of-type(1) ul {
     list-style-type: none;
 }
 
-body > footer > section.flexy.row:nth-of-type(1) a {
+body>footer>section.flexy.row:nth-of-type(1) a {
     text-decoration: none;
 }
 
@@ -284,35 +436,24 @@ div.social-icons.flexy.row {
     gap: .5em;
 }
 
-div.social-icons.flexy.row > a {
+div.social-icons.flexy.row>a {
     flex: 0 0 2em;
     width: 2em;
 }
 
 section.platform.flexy {
-    position: relative;
-    overflow-x: hidden;
     color: var(--color-white);
-    background-color: var(--color-red-one);
-    border-top-left-radius: 0;
+    background-color: var(--color-red);
+    /*border-top-left-radius: 0;
     border-top-right-radius: 0;
-    border-bottom-right-radius: 10em;
-}
-
-section.platform.flexy::before {
-    content: "";
-    background-color: var(--color-four);
-    width: 101%;
-    position: absolute;
-    top: -2em;
-    height: 5em;
-    transform: rotate(-2deg);
+    border-bottom-right-radius: 10em;*/
+    gap: 1em;
 }
 
 section.clients.flexy {
-    color: var(--color-purple);
-    background-color: var(--color-light-pink);
-    border-bottom-left-radius: 10em;
+    color: var(--color-dark-blue);
+    background-color: var(--color-light-grey);
+    gap: 1em;
 }
 
 section.pre-clients.flexy.row,
@@ -322,7 +463,7 @@ section.trusted-by.flexy {
 }
 
 section.trusted-by.flexy {
-    padding: 1em 2em;
+    padding: 5em 2em;
 }
 
 section.pre-clients.flexy.row figure,
@@ -330,18 +471,88 @@ section.trusted-by.flexy figure {
     max-width: 150px;
 }
 
-section.trusted-by.flexy > div,
-section.pre-clients.flexy.row > div {
+section.trusted-by.flexy>div,
+section.pre-clients.flexy.row>div {
     gap: 1em;
+    width: 100%;
 }
 
-section.pre-clients.flexy.row > div:first-of-type > figure,
-section.pre-clients.flexy.row > div:first-of-type > p {
+section.pre-clients.flexy.row>div:first-of-type>figure,
+section.pre-clients.flexy.row>div:first-of-type>p {
     flex: 1 0 48%;
     max-width: 48%;
+    font-size: 2.25rem;
+}
+
+div.five-points {
+    padding: 2em 0;
+    gap: .25em;
+}
+
+div.five-points>div {
+    padding: 1em;
+    flex: 0 0 18%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1em;
+    height: 25em;
+}
+
+div.five-points>div>span:first-of-type {
+    font-size: 8rem;
+}
+
+div.five-points>div>span:last-of-type {
+    font-size: 2rem;
+}
+
+div.five-points>div:nth-of-type(1) {
+    background-color: var(--color-light-blue);
+}
+
+div.five-points>div:nth-of-type(2) {
+    background-color: var(--color-light-green);
+}
+
+div.five-points>div:nth-of-type(3) {
+    background-color: var(--color-light-pink);
+}
+
+div.five-points>div:nth-of-type(4) {
+    background-color: var(--color-light-purple);
+}
+
+div.five-points>div:nth-of-type(5) {
+    background-color: var(--color-turquoise);
 }
 
 section.trusted-by.flexy h3 {
     flex: 1 0 100%;
     text-align: center;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
 }
