@@ -4,6 +4,21 @@
 </ul>
 {{else}}
 <ul class="nav flexy row" role="menu">
-    {{#foreach navigation}}<li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}">{{label}}</a></li>{{/foreach}}
+    {{#foreach navigation}}
+    {{#has slug="solutions"}}
+    <li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}"><span>{{label}}</span>{{> "icons/arrow-down"}}</a></li>
+    {{else}}
+    <li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}">{{label}}</a></li>
+    {{/has}}
+    {{/foreach}}
+</ul>
+<ul class="solutions-nav flexy row">
+    <li><a href="#" title="">{{> "icons/arrow-right"}}<span>Communication tools</span></a></li>
+    <li><a href="#" title="">{{> "icons/arrow-right"}}<span>Caretaker software</span></a></li>
+    <li><a href="#" title="">{{> "icons/arrow-right"}}<span>Education &amp; welfare services</span></a></li>
+    <li><a href="#" title="">{{> "icons/arrow-right"}}<span>Smart facility</span></a></li>
+    <li><a href="#" title="">{{> "icons/arrow-right"}}<span>Housing &amp; homelessness</span></a></li>
+    <li><a href="#" title="">{{> "icons/arrow-right"}}<span>Compliance</span></a></li>
+    <li><a href="#" title="">{{> "icons/arrow-right"}}<span>Tenancy management</span></a></li>
 </ul>
 {{/if}}
