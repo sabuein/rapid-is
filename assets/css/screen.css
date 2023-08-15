@@ -20,10 +20,10 @@
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-style: italic;
     font-weight: 400;
-    src: url('../fonts/roboto-v30-latin-italic.woff2') format('woff2');
+    src: url("../fonts/roboto-v30-latin-italic.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -31,10 +31,10 @@
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-style: normal;
     font-weight: 500;
-    src: url('../fonts/roboto-v30-latin-500.woff2') format('woff2');
+    src: url("../fonts/roboto-v30-latin-500.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -42,10 +42,10 @@
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-style: italic;
     font-weight: 500;
-    src: url('../fonts/roboto-v30-latin-500italic.woff2') format('woff2');
+    src: url("../fonts/roboto-v30-latin-500italic.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -53,10 +53,10 @@
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-style: normal;
     font-weight: 700;
-    src: url('../fonts/roboto-v30-latin-700.woff2') format('woff2');
+    src: url("../fonts/roboto-v30-latin-700.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -64,10 +64,10 @@
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-style: italic;
     font-weight: 700;
-    src: url('../fonts/roboto-v30-latin-700italic.woff2') format('woff2');
+    src: url("../fonts/roboto-v30-latin-700italic.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -75,10 +75,10 @@
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-style: normal;
     font-weight: 900;
-    src: url('../fonts/roboto-v30-latin-900.woff2') format('woff2');
+    src: url("../fonts/roboto-v30-latin-900.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -86,10 +86,10 @@
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-style: italic;
     font-weight: 900;
-    src: url('../fonts/roboto-v30-latin-900italic.woff2') format('woff2');
+    src: url("../fonts/roboto-v30-latin-900italic.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -165,8 +165,8 @@ body {
     font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
-    color: var(--color-light-grey);
-    background-color: var(--color-two);
+    color: var(--color-black);
+    background-color: var(--color-light-grey);
     width: 100%;
     max-width: var(--max-width);
     gap: 0;
@@ -266,6 +266,16 @@ div.cta-buttons {
     padding-bottom: 2em;
 }
 
+div.cta-button {
+    align-self: flex-start;
+    flex: 1 0 100%;
+}
+
+div.cta-button button {
+    border-radius: 0;
+    width: 100%;
+}
+
 :is(button[type="button"],
     input[type="button"],
     input[type="submit"],
@@ -290,6 +300,8 @@ fieldset.flexy {
 
 img {
     width: 100%;
+    vertical-align: middle;
+    object-fit: contain;
 }
 
 h1 {
@@ -330,19 +342,17 @@ body>header {
     position: relative;
     height: 6em;
     max-width: 100%;
-    padding: 1em;
     z-index: 999;
-
 }
 
 body>header>div.flexy.row {
     position: fixed;
-    top: 0;
-    padding: 1em;
+    padding: 1em 2em;
     justify-content: space-between;
     gap: 1em;
-    background-color: var(--color-black);
+    background-color: var(--color-white);
     width: 100%;
+    height: inherit;
 }
 
 figure.rapid-logo {
@@ -354,82 +364,107 @@ header figure.rapid-logo {
 }
 
 header figure.rapid-logo img {
-    mix-blend-mode: multiply;
-    mix-blend-mode: hard-light;
-}
-
-body>footer figure.rapid-logo {
-    max-width: 160px;
-}
-
-body>footer.flexy {
-    width: 100%;
-    margin-bottom: 1.25em;
-    padding: 4em 2em 1em;
-    gap: 2em;
-    color: var(--color-two);
-    background-color: var(--color-four);
-}
-
-body>footer>section.flexy {
-    width: 100%;
-    gap: 1em;
+    mix-blend-mode: normal;
 }
 
 section.flexy {
     padding: 5em 10em;
 }
 
-body>footer>section.flexy.row {
-    align-items: flex-start;
-}
-
-body>footer>section.flexy.row:nth-of-type(1) {
-    justify-content: space-between;
-}
-
-body>footer>section.flexy.row:nth-of-type(2) {
-    justify-content: space-between;
-    font-size: .85rem;
-}
-
 ul.nav.flexy.row {
     list-style-type: none;
     gap: 1em;
-}
-
-ul.nav.flexy.row a {
-    text-decoration: none;
+    font-weight: bold;
 }
 
 ul.nav.flexy.row li.nav-get-in-touch::after {
     content: "👋";
-    animation: shake 0.5s ease-in-out 0s infinite;
+    position: absolute;
+    cursor: pointer;
 }
 
-ul.nav.flexy.row a:hover {
-    text-decoration: underline;
+ul.nav.flexy.row li.nav-get-in-touch:hover::after {
+    animation: shake-it 2s linear 0s infinite;
 }
 
-body>footer>section.flexy.row {
-    padding: 0;
+li.nav-solutions svg,
+ul.solutions-nav svg {
+    width: 12px;
+    vertical-align: middle;
 }
 
-body>footer>section.flexy.row:nth-of-type(1)>div {
-    align-items: flex-start;
+li.nav-solutions:focus-within svg,
+li.nav-solutions a:hover svg {
+    animation: point-down 1s linear 0s infinite;
+}
+
+ul.solutions-nav a:hover svg {
+    animation: point-right 1s linear 0s infinite;
+}
+
+li.nav-solutions span {
+    margin-right: .25em;
+}
+
+ul.solutions-nav span {
+    margin-left: .25em;
+}
+
+ul.solutions-nav {
+    display: none;
+    margin: 0 auto;
+    padding: 2em;
+    place-content: flex-start center;
+    position: absolute;
+    max-width: 50em;
+    height: fit-content;
+    inset: 0;
+    top: 5em;
     gap: 1em;
-}
-
-body>footer>section.flexy.row:nth-of-type(1) h6 {
-    color: var(--color-red-two)
-}
-
-body>footer>section.flexy.row:nth-of-type(1) ul {
     list-style-type: none;
+    background-color: inherit;
+    font-weight: bold;
+    font-size: 1rem;
+    border: thick solid currentColor;
+    border-top: none;
+    border-bottom-left-radius: 5em;
+    border-bottom-right-radius: 5em;
 }
 
-body>footer>section.flexy.row:nth-of-type(1) a {
+ul.solutions-nav li {
+    flex: 1 0 30%;
+}
+
+
+li.nav-current {
+    background-color: var(--color-light-grey);
+}
+
+ul.nav.flexy.row:has(li.nav-solutions:focus-within, li.nav-solutions > a:hover) ~ ul.solutions-nav {
+    display: flex;
+}
+
+ul.nav.flexy.row a,
+ul.solutions-nav.flexy.row a {
     text-decoration: none;
+}
+
+ul.nav.flexy.row a:hover,
+ul.solutions-nav.flexy.row a:hover,
+li.nav-solutions:focus-within {
+    text-decoration: underline;
+    color: var(--color-orange);
+}
+
+li.nav-solutions svg path,
+ul.solutions-nav.flexy.row svg path {
+    fill: var(--color-yellow);
+}
+
+li.nav-solutions a:hover path,
+li.nav-solutions:focus-within path,
+ul.solutions-nav.flexy.row a:hover path {
+    fill: var(--color-orange);
 }
 
 div.social-icons.flexy.row {
@@ -456,32 +491,97 @@ section.clients.flexy {
     gap: 1em;
 }
 
-section.pre-clients.flexy.row,
 section.trusted-by.flexy {
     padding: 2em;
     gap: 2em;
+}
+
+section.pre-clients.flexy.row {
+    color: var(--color-white);
+    background-color: var(--color-blue);
+    padding: 5em 1em;
+    gap: 1em;
+    overflow-x: hidden;
+}
+
+section.pre-clients.flexy.row>div,
+section.pre-clients.flexy.row>figure {
+    flex: 1 0 48%;
+    max-width: 48%;
+}
+
+section.the-app.flexy.row {
+    justify-content: space-between;
+    padding: 0;
+    gap: 1em;
+}
+
+section.the-app.flexy.row>div,
+section.the-app.flexy.row>figure {
+    flex: 0 0 48%;
+    max-width: 48%;
+    max-height: 100%;
+}
+
+section.the-app.flexy.row>div {
+    padding: 0;
+    padding-left: 2em;
+    gap: 1em;
+}
+
+section.the-app.flexy.row>div>h3 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+section.the-app.flexy.row>div>p {
+    font-size: 1.15rem;
+    font-weight: 300;
+    text-align: justify;
+}
+
+
+section.pre-clients.flexy.row>div {
+    gap: .5em;
+    font-size: 2rem;
+    align-items: flex-start;
+    transform: translateX(-20em);
+    animation: slide-right .5s linear .1s;
+
+}
+
+section.pre-clients.flexy.row>figure {
+    transform: translateX(20em);
+    animation: slide-left .5s linear .1s;
+}
+
+section.pre-clients.flexy.row > div,
+section.pre-clients.flexy.row > figure {
+    -webkit-transform: none;
+    transform: none;
+}
+
+section.pre-clients.flexy.row > div > h2 {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+section.five-clients {
+    background-color: var(--color-dark-blue);
+    gap: 1em;
 }
 
 section.trusted-by.flexy {
     padding: 5em 2em;
 }
 
-section.pre-clients.flexy.row figure,
 section.trusted-by.flexy figure {
     max-width: 150px;
 }
 
-section.trusted-by.flexy>div,
-section.pre-clients.flexy.row>div {
+section.trusted-by.flexy>div {
     gap: 1em;
     width: 100%;
-}
-
-section.pre-clients.flexy.row>div:first-of-type>figure,
-section.pre-clients.flexy.row>div:first-of-type>p {
-    flex: 1 0 48%;
-    max-width: 48%;
-    font-size: 2.25rem;
 }
 
 div.five-points {
@@ -531,28 +631,54 @@ section.trusted-by.flexy h3 {
     text-align: center;
 }
 
-@keyframes shake {
-    0% {
-        transform: translate(1px, 1px) rotate(0deg);
-    }
+@keyframes shake-it {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    10%, 30% { transform: translateX(2px) rotate(20deg); }
+    50%, 70%, 90% { transform: translateX(-2px) rotate(-10deg); }
+    20%, 40% { transform: translateX(2px) rotate(5deg); }
+    60%, 80% { transform: translateX(-2px) rotate(-10deg); }
+}
 
-    20% {
-        transform: translate(-3px, 0px) rotate(1deg);
-    }
+@keyframes point-down {
+    0%, 100% { transform: translateY(0); }
+    10%, 90% { transform: translateY(1px); }
+    20%, 80% { transform: translateY(2px); }
+    30%, 70% { transform: translateY(3px); }
+    40%, 60% { transform: translateY(4px); }
+    50% { transform: translateY(3px); }
+}
 
-    40% {
-        transform: translate(1px, -1px) rotate(1deg);
-    }
+@keyframes point-right {
+    0%, 100% { transform: translateX(-1px); }
+    10%, 90% { transform: translateX(0px); }
+    20%, 80% { transform: translateX(1px); }
+    30%, 70% { transform: translateX(2px); }
+    40%, 60% { transform: translateX(3px); }
+    50% { transform: translateX(2px); }
+}
 
-    60% {
-        transform: translate(-3px, 1px) rotate(0deg);
-    }
+@keyframes slide-right {
+    0%, 100% { transform: translateX(0); }
+    10% { transform: translateX(-9em); }
+    20% { transform: translateX(-8em); }
+    30% { transform: translateX(-7em); }
+    40% { transform: translateX(-6em); }
+    50% { transform: translateX(-5em); }
+    60% { transform: translateX(-4em); }
+    70% { transform: translateX(-3em); }
+    80% { transform: translateX(-2em); }
+    90% { transform: translateX(-1em); }
+}
 
-    80% {
-        transform: translate(-1px, -1px) rotate(1deg);
-    }
-
-    100% {
-        transform: translate(1px, -2px) rotate(-1deg);
-    }
+@keyframes slide-left {
+    0%, 100% { transform: translateX(0); }
+    10% { transform: translateX(18em); }
+    20% { transform: translateX(16em); }
+    30% { transform: translateX(14em); }
+    40% { transform: translateX(12em); }
+    50% { transform: translateX(10em); }
+    60% { transform: translateX(8em); }
+    70% { transform: translateX(6em); }
+    80% { transform: translateX(4em); }
+    90% { transform: translateX(2em); }
 }
