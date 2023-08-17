@@ -1,20 +1,21 @@
 {{!< default}}
 <!-- home.hbs -->
 {{#is "home"}}
-<section class="pre-clients flexy row">
-    <div class="flexy">
-        <h1>Integrate your IT systems,<br />get more done&period;</h1>
-        <h2>Rapid simplifies digital transformation&comma; enhancing services&comma; saving costs&comma; and providing structured data for efficiency&comma; accuracy&comma; and AI insights&period;</h2>
-    </div>
-    <figure><img src="{{asset 'images/responsive-showcase-presentation.png'}}" alt="" /></figure>
-</section>
-
-<section class="five-clients flexy row">
-    <figure><img src="{{asset 'images/clients/enfield.png'}}" alt="" /></figure>
-    <figure><img src="{{asset 'images/clients/camden.png'}}" alt="" /></figure>
-    <figure><img src="{{asset 'images/clients/ealing.png'}}" alt="" /></figure>
-    <figure><img src="{{asset 'images/clients/cgl.png'}}" alt="" /></figure>
-    <figure><img src="{{asset 'images/clients/eastherts.png'}}" alt="" /></figure>
+<section class="pre-clients flexy">
+    <article class="main-message flexy row">
+        <div class="flexy">
+            <h1>Integrate your IT systems&comma; get more done&period;</h1>
+            <h2>Rapid simplifies digital transformation&comma; enhancing services&comma; saving costs&comma; and providing structured data for efficiency&comma; accuracy&comma; and AI insights&period;</h2>
+        </div>
+        <figure>{{> "drawings/version-control"}}</figure>
+    </article>
+    <article class="five-clients flexy row">
+        <figure><img src="{{asset 'images/clients/enfield.png'}}" alt="" /></figure>
+        <figure><img src="{{asset 'images/clients/camden.png'}}" alt="" /></figure>
+        <figure><img src="{{asset 'images/clients/ealing.png'}}" alt="" /></figure>
+        <figure><img src="{{asset 'images/clients/cgl.png'}}" alt="" /></figure>
+        <figure><img src="{{asset 'images/clients/eastherts.png'}}" alt="" /></figure>
+    </article>
 </section>
 
 <section class="the-app flexy row">
@@ -28,20 +29,11 @@
     <figure><img src="{{asset 'images/rapid-fire.png'}}" alt="" /></figure>
 </section>
 
-<main class="flexy">
-    <div class="flexy">
-        <p>Rapid Information Systems is a young, fresh and exciting challenger software company.</p>
-        <p>We produce the Rapid low-code platform – a tool to build high-quality software very quickly, and cost-effectively. The majority of our clients are public sector organisations. We help them plug the gaps in their larger IT systems by providing highly integrated web-based applications, offline mobile applications, and sophisticated forms.</p>
-    </div>
-    <div class="cta-buttons flexy row">
-        <button type="button">Check projects</button>
-        <button type="button">Learn more</button>
-    </div>
-</main>
 <section class="platform flexy">
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis, nisi, sapiente quae molestiae quam fugit distinctio accusantium ipsa possimus officia eaque ad alias et cumque natus placeat voluptas voluptates odio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis architecto exercitationem id, porro rerum sapiente quibusdam nobis ipsam quidem quos sed voluptates illo, vitae explicabo, quasi perferendis natus incidunt facere! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, deserunt cum iste molestias ratione commodi cumque nisi hic explicabo placeat at quibusdam libero, ducimus ad, pariatur quam odio consequatur ipsam. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem tempore ea quasi laboriosam velit a id, non veritatis, labore quo sunt laudantium. Neque, deleniti veritatis veniam voluptatem aut enim asperiores?</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae deserunt velit odit suscipit! Ullam molestias libero excepturi, voluptates, aut tempore fuga architecto earum autem recusandae, ad cupiditate at ab aliquam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum possimus et ducimus ipsa cumque optio velit, fuga assumenda, odit repellendus quidem reprehenderit molestias. Dolorem quasi dolores repellendus vero, debitis facere. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, sint. Explicabo harum commodi ad quod odit tenetur doloribus at ducimus minima corrupti, voluptatibus in repellendus, quisquam eum quia veritatis impedit!</p>
 </section>
+
 <section class="trusted-by flexy">
     <h3>Trusted by 30+ providers of social housing&hellip;</h3>
     <div class="flexy row">
@@ -57,14 +49,7 @@
         <figure><img src="{{asset 'images/clients/westminster.png'}}" alt="" /></figure>
     </div>
 </section>
-<section class="clients flexy row">
-    <h3>Accreditation</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde molestiae rem adipisci cumque quis ducimus harum aspernatur placeat non, aperiam dolore incidunt numquam corrupti exercitationem! Rem ipsa debitis eos voluptatum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui eius explicabo quod voluptate atque id ipsum. Iusto explicabo ducimus alias? Non, voluptatum in dolores aut quaerat debitis vitae dolorem magni.</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium similique sed eveniet sapiente laborum corporis natus unde fugiat ipsam! Autem numquam nihil reiciendis minus nesciunt. Dolorem porro saepe ullam accusamus! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis placeat fugit accusantium voluptates veniam at repudiandae ea, ullam dicta non dolor porro exercitationem consectetur architecto culpa animi omnis inventore ipsum.</p>
-    <div class="flexy row">
-        <figure><img src="{{asset 'images/cyber-essentials-150x150.png'}}" alt="" /></figure>
-    </div>
-</section>
+
 <section class="ready-to-talk flexy">
     <h3>Ready to talk? Let&apos;s make it happen&excl;</h3>
     <form>
@@ -74,6 +59,7 @@
         <input type="submit" value="Talk to me" />
     </form>
 </section>
+
 <section class="knowhow flexy">
     <h3>The Knowhow</h3>
     <h4>Internet insights in your inbox. Often enough to be helpful but not annoying.</h4>
