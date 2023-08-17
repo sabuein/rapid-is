@@ -162,7 +162,6 @@ body {
     margin: 0 auto;
     font-size: 18px;
     font-family: var(--font-family);
-    font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
     color: var(--color-black);
@@ -172,7 +171,12 @@ body {
     gap: 0;
 }
 
+body > :is(footer) {
+    padding: 1em;
+}
+
 main.flexy {
+    padding-top: 5em;
     position: relative;
     width: 100%;
     /*border-top-left-radius: 10em;
@@ -181,9 +185,21 @@ main.flexy {
     border-bottom-right-radius: 0;*/
     color: var(--color-black);
     background-color: var(--color-light-grey);
-    gap: 1em;
+    gap: 0;
     font-size: 1.25rem;
     align-items: flex-start;
+    animation: add-padding 1s linear 0s 1 both;
+}
+
+@keyframes add-padding {
+    from { padding-top: 0em; }
+    to { padding-top: 5em; }
+}
+
+main > section {
+    padding: 1em;
+    width: 100%;
+    min-height: 100vh;
 }
 
 
@@ -207,11 +223,6 @@ main.flexy>div:first-of-type {
 main.flexy>div:first-of-type p {
     text-align: start;
     width: 100%;
-}
-
-body>section.flexy {
-    width: 100%;
-    padding: 5em 2em;
 }
 
 section.ready-to-talk {
@@ -340,19 +351,40 @@ a {
 
 body>header {
     position: relative;
-    height: 6em;
     max-width: 100%;
     z-index: 999;
 }
 
 body>header>div.flexy.row {
     position: fixed;
+    top: 0;
     padding: 1em 2em;
     justify-content: space-between;
     gap: 1em;
     background-color: var(--color-white);
     width: 100%;
-    height: inherit;
+    height: 6em;
+    animation: menu-go-down 500ms linear 0s 1 forwards;
+}
+
+body>header>div.flexy.row.loose {
+    animation: menu-go-up 500ms linear 0s 1 forwards;
+}
+
+body>header>div.flexy.row.loose:hover,
+body>header>div.flexy.row.loose:active,
+body>header>div.flexy.row.loose:focus-within {
+    animation: menu-go-down 500ms linear 0s 1 forwards;
+}
+
+ul.nav.flexy.row:has(:where(li.nav-solutions:focus-within, li.nav-solutions > a:hover)) ~ ul.solutions-nav {
+    display: flex;
+}
+
+body>header>div.flexy.row ul ~ ul.solutions-nav:focus-visible,
+body>header>div.flexy.row ul ~ ul.solutions-nav:focus-within,
+body>header>div.flexy.row ul:where(:has(li.nav-solutions):has(a:hover)) ~ ul.solutions-nav {
+    display: flex;
 }
 
 figure.rapid-logo {
@@ -367,8 +399,183 @@ header figure.rapid-logo img {
     mix-blend-mode: normal;
 }
 
-section.flexy {
-    padding: 5em 10em;
+div:has(dialog) {
+    position: relative;
+}
+
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Some animations */
+
+svg g#planet-one {
+    animation: clockwise 3s linear 0s infinite forwards;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+svg path#planet-three {
+    animation: left-right 3s linear 0s infinite forwards;
+    transform-origin: center;
+    transform-box: fill-box;
+    fill: var(--color-bright-purple);
+}
+
+svg path#rectangular-two {
+    animation: shake-it 3s linear 0s infinite forwards;
+    /*transform-origin: center;*/
+    transform-box: fill-box;
+}
+
+svg path#square-one {
+    animation: clockwise 5s linear 0s infinite forwards;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+svg path#square-two {
+    animation: anti-clockwise 5s linear 0s infinite forwards;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+/* End of some animations */
+
+g#line-one path,
+g#line-two path {
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+g#line-one path {
+    animation: opacity-orange 5s linear 0s infinite forwards;
+}
+
+g#line-two path {
+    animation: left-to-right 3s linear 0s 1 forwards, opacity-orange 6s linear 0s infinite forwards;
+}
+
+path#line-three,
+path#line-four,
+path#line-five {
+    animation: opacity-orange 5s linear 0s infinite forwards;
+}
+
+path#ellipse-one,
+path#ellipse-two,
+path#ellipse-three,
+path#ellipse-four,
+path#ellipse-five,
+path#ellipse-six,
+path#ellipse-seven,
+path#ellipse-eight,
+path#ellipse-nine {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: enlarge-one 5s linear 500ms infinite;
+}
+
+path#ellipse-four {
+    animation: enlarge-two 5s linear 2s infinite;
+}
+
+path#ellipse-three,
+path#ellipse-nine {
+    animation: enlarge-two 4s linear 2s infinite;
+}
+
+path#coffee-steam {
+    transform-origin: bottom;
+    transform-box: fill-box;
+    animation: steaming 20s linear 0s infinite;
+}
+
+@keyframes steaming {
+    0%, 100% {
+        opacity: .25;
+        scale: .25;
+        fill: var(--color-light-blue);
+    }
+
+    25%, 75% {
+        opacity: .5;
+        scale: .5;
+        fill: var(--color-light-grey);
+    }
+
+    50% {
+        opacity: .75;
+        scale: .75;
+        fill: var(--color-light-blue);
+    }
+}
+
+@keyframes enlarge-one {
+    0%, 100% { scale: .85; }
+    30% { fill: var(--color-blue); }
+    25%, 75% { scale: 1; }
+    50% { scale: 1.25; }
+    80% { fill: var(--color-light-grey); }
+    90% { fill: var(--color-light-blue); }
+}
+
+@keyframes enlarge-two {
+    0%, 100% { scale: 1; }
+    10%, 90% { scale: 1.25; }
+    25%, 75% { scale: 1.5; }
+}
+
+@keyframes left-to-right {
+    from {
+        translate: -75% 0;
+    }
+
+    to {
+        translate: none;
+    }
+}
+
+@keyframes opacity-orange {
+    0%, 100% {
+        opacity: .1;
+    }
+
+    25%, 75% {
+        opacity: .6;
+        fill: var(--color-orange);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes left-right {
+    0%, 100% { translate: none; }
+    25%, 75% { translate: 2em .5em; }
+    50% { translate: -1em -1em; }
+}
+
+@keyframes clockwise {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+
+@keyframes anti-clockwise {
+    from {
+        rotate: 360deg;
+    }
+
+    to {
+        rotate: 0deg;
+    }
 }
 
 ul.nav.flexy.row {
@@ -383,7 +590,8 @@ ul.nav.flexy.row li.nav-get-in-touch::after {
     cursor: pointer;
 }
 
-ul.nav.flexy.row li.nav-get-in-touch:hover::after {
+ul.nav.flexy.row li.nav-get-in-touch:hover::after,
+ul.nav.flexy.row li.nav-get-in-touch:focus-within::after {
     animation: shake-it 2s linear 0s infinite;
 }
 
@@ -394,6 +602,7 @@ ul.solutions-nav svg {
 }
 
 li.nav-solutions:focus-within svg,
+li.nav-solutions:focus-visible svg,
 li.nav-solutions a:hover svg {
     animation: point-down 1s linear 0s infinite;
 }
@@ -410,38 +619,45 @@ ul.solutions-nav span {
     margin-left: .25em;
 }
 
-ul.solutions-nav {
+body>header>div.flexy.row ul ~ ul.solutions-nav {
     display: none;
     margin: 0 auto;
-    padding: 2em;
+    padding: 1em;
     place-content: flex-start center;
     position: absolute;
     max-width: 50em;
     height: fit-content;
     inset: 0;
-    top: 5em;
+    top: 8em;
     gap: 1em;
     list-style-type: none;
     background-color: inherit;
     font-weight: bold;
     font-size: 1rem;
-    border: thick solid currentColor;
+    /*border: thick solid currentColor;
     border-top: none;
     border-bottom-left-radius: 5em;
-    border-bottom-right-radius: 5em;
+    border-bottom-right-radius: 5em;*/
+}
+
+ul.solutions-nav::before {
+    content: "\27A7";
+    rotate: -90deg;
+    position: absolute;
+    top: -.75em;
+    left: 6em;
+    font-size: 3rem;
+    color: var(--color-white);
+    z-index: -1;
 }
 
 ul.solutions-nav li {
     flex: 1 0 30%;
+    text-transform: capitalize;
 }
-
 
 li.nav-current {
     background-color: var(--color-light-grey);
-}
-
-ul.nav.flexy.row:has(li.nav-solutions:focus-within, li.nav-solutions > a:hover) ~ ul.solutions-nav {
-    display: flex;
 }
 
 ul.nav.flexy.row a,
@@ -450,6 +666,7 @@ ul.solutions-nav.flexy.row a {
 }
 
 ul.nav.flexy.row a:hover,
+ul.nav.flexy.row a:focus,
 ul.solutions-nav.flexy.row a:hover,
 li.nav-solutions:focus-within {
     text-decoration: underline;
@@ -465,15 +682,6 @@ li.nav-solutions a:hover path,
 li.nav-solutions:focus-within path,
 ul.solutions-nav.flexy.row a:hover path {
     fill: var(--color-orange);
-}
-
-div.social-icons.flexy.row {
-    gap: .5em;
-}
-
-div.social-icons.flexy.row>a {
-    flex: 0 0 2em;
-    width: 2em;
 }
 
 section.platform.flexy {
@@ -496,23 +704,45 @@ section.trusted-by.flexy {
     gap: 2em;
 }
 
-section.pre-clients.flexy.row {
+/* First main section */
+
+section.pre-clients {
+    padding: 0;
     color: var(--color-white);
     background-color: var(--color-blue);
-    padding: 5em 1em;
-    gap: 1em;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
-section.pre-clients.flexy.row>div,
-section.pre-clients.flexy.row>figure {
+section.pre-clients article {
+    width: 100%;
+}
+
+section.pre-clients article > div.flexy {
+    align-content: flex-start;
+    gap: 1em;
+}
+
+section.pre-clients h2 {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+article.main-message {
+    padding: 1em 2em;
+    justify-content: space-between;
+}
+
+article.main-message > :is(div, figure) {
     flex: 1 0 48%;
     max-width: 48%;
 }
 
+article.main-message svg {
+    width: 85%;
+}
+
 section.the-app.flexy.row {
     justify-content: space-between;
-    padding: 0;
     gap: 1em;
 }
 
@@ -540,35 +770,24 @@ section.the-app.flexy.row>div>p {
     text-align: justify;
 }
 
+article.main-message figure {
+    animation: slide-left 500ms linear 10ms 1 forwards;
+}
 
-section.pre-clients.flexy.row>div {
+article.main-message > div.flexy {
     gap: .5em;
     font-size: 2rem;
     align-items: flex-start;
-    transform: translateX(-20em);
-    animation: slide-right .5s linear .1s;
-
+    animation: slide-right 500ms linear 10ms 1 forwards;
 }
 
-section.pre-clients.flexy.row>figure {
-    transform: translateX(20em);
-    animation: slide-left .5s linear .1s;
-}
-
-section.pre-clients.flexy.row > div,
-section.pre-clients.flexy.row > figure {
-    -webkit-transform: none;
-    transform: none;
-}
-
-section.pre-clients.flexy.row > div > h2 {
-    font-size: 1.25rem;
-    font-weight: 400;
-}
-
-section.five-clients {
+section.pre-clients article.five-clients {
+    padding: 1em;
+    flex: 1 0 100%;
+    width: 100%;
     background-color: var(--color-dark-blue);
     gap: 1em;
+    animation: slide-up 1s linear 10ms 1 forwards;
 }
 
 section.trusted-by.flexy {
@@ -657,28 +876,45 @@ section.trusted-by.flexy h3 {
     50% { transform: translateX(2px); }
 }
 
+@keyframes slide-up {
+    from { transform: translateY(150%); }
+    to { -webkit-transform: none; transform: none; }
+}
+
+@keyframes menu-go-up {
+    from { -webkit-transform: none; transform: none; }
+    to { transform: translateY(-80%); }
+}
+
+@keyframes menu-go-down {
+    from {  transform: translateY(-80%); }
+    to { -webkit-transform: none; transform: none; }
+}
+
 @keyframes slide-right {
-    0%, 100% { transform: translateX(0); }
-    10% { transform: translateX(-9em); }
-    20% { transform: translateX(-8em); }
-    30% { transform: translateX(-7em); }
-    40% { transform: translateX(-6em); }
-    50% { transform: translateX(-5em); }
-    60% { transform: translateX(-4em); }
-    70% { transform: translateX(-3em); }
-    80% { transform: translateX(-2em); }
-    90% { transform: translateX(-1em); }
+    0% { transform: translateX(-100%); }
+    10% { transform: translateX(-90%); }
+    20% { transform: translateX(-80%); }
+    30% { transform: translateX(-70%); }
+    40% { transform: translateX(-60%); }
+    50% { transform: translateX(-50%); }
+    60% { transform: translateX(-40%); }
+    70% { transform: translateX(-30%); }
+    80% { transform: translateX(-20%); }
+    90% { transform: translateX(-10%); }
+    100% { -webkit-transform: none; transform: none; }
 }
 
 @keyframes slide-left {
-    0%, 100% { transform: translateX(0); }
-    10% { transform: translateX(18em); }
-    20% { transform: translateX(16em); }
-    30% { transform: translateX(14em); }
-    40% { transform: translateX(12em); }
-    50% { transform: translateX(10em); }
-    60% { transform: translateX(8em); }
-    70% { transform: translateX(6em); }
-    80% { transform: translateX(4em); }
-    90% { transform: translateX(2em); }
+    0% { transform: translateX(100%); }
+    10% { transform: translateX(90%); }
+    20% { transform: translateX(80%); }
+    30% { transform: translateX(70%); }
+    40% { transform: translateX(60%); }
+    50% { transform: translateX(50%); }
+    60% { transform: translateX(40%); }
+    70% { transform: translateX(30%); }
+    80% { transform: translateX(20%); }
+    90% { transform: translateX(10%); }
+    100% { -webkit-transform: none; transform: none; }
 }
