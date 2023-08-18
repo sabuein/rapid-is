@@ -5,6 +5,30 @@ const activateMagic = (item, link) => {
     }
 };
 
+const startMainModal = () => {
+    // Get the required elements for the main modal
+    const dialog = document.getElementById("get-in-touch");
+    const elements = document.querySelectorAll(".show-modal");
+
+    // Set the show dialog elements
+    elements.forEach(element => {
+        element.addEventListener("click", (event) => {
+            event.preventDefault();
+            dialog.showModal();
+        });
+    });
+
+    // Dialog
+    dialog.addEventListener("close", (event) => {
+        if (dialog.returnValue !== "submit") return;
+        console.log("Get in touch form submited!");
+        console.log(dialog.returnValue);
+        // Do something...
+        // Add to input#submit oninput="this.form.elements.submit.value=this.value;"
+    });
+    
+};
+
 document.addEventListener("DOMContentLoaded", (event) => {
     let nav = document.querySelector("body > header > div");
     nav.onclick = () => nav.focus();
@@ -29,4 +53,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     [].forEach.call(solutionsElement, (li, index) => {
         activateMagic(li, solutionsLink[index]);
     });
+
+    // Get the get in touch menu item
+    const getInTouch = document.querySelector("li.nav-get-in-touch > a");
+    if (!!getInTouch) getInTouch.classList.add("show-modal")
+    startMainModal();
 });
