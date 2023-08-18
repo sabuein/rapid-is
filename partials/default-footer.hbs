@@ -1,0 +1,38 @@
+<!-- Default footer -->
+<div class="flexy">
+    {{#if @site.logo}}
+    <figure class="rapid-logo"><a href="{{@site.url}}" title="{{@site.title}}"><img src="{{@site.logo}}" alt="{{@site.title}}" /></a></figure>
+    {{else}}
+    <figure class="rapid-logo"><a href="{{@site.url}}" title="{{@site.title}}"><img src="{{asset 'images/new-logo.png'}}" alt="{{@site.title}}" /></a></figure>
+    {{/if}}
+</div>
+<div class="flexy">
+    <h6>Explore</h6>
+    <ul class="nav flexy">
+        <li role="menuitem"><a href="#" title="Homepage">Homepage</a></li>
+        <li role="menuitem"><a href="#" title="About">About</a></li>
+        <li role="menuitem"><a href="/solutions/" title="Solutions">Solutions</a></li>
+        <li role="menuitem"><a href="#" title="Work">Work</a></li>
+        <li role="menuitem"><a href="#" title="Insights">Insights</a></li>
+        <li role="menuitem"><a href="/contact/" title="Contact">Contact</a></li>
+    </ul>
+</div>
+<div class="flexy">
+    <h6>Solutions</h6>
+    <ul class="nav flexy">
+        <li role="menuitem"><a href="#" title="Communication tools">Communication tools</a></li>
+        <li role="menuitem"><a href="#" title="Property management">Property management</a></li>
+        <li role="menuitem"><a href="#" title="Education and welfare">Education &amp; welfare</a></li>
+        <li role="menuitem"><a href="#" title="Housing and homelessness">Housing &amp; homelessness</a></li>
+        <li role="menuitem"><a href="#" title="Compliance and safety">Compliance &amp; safety</a></li>
+        <li role="menuitem"><a href="#" title="Tenancy management">Tenancy management</a></li>
+    </ul>
+</div>
+<div class="flexy">
+    <h6>Contact</h6>
+    <ul>
+        <li>+44 1707 520 711</li>
+        <li>info@rapid-is.co.uk</li>
+    </ul>
+    <div class="social-icons flexy row">{{> "social-icons"}}</div>
+</div>
