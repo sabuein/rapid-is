@@ -11,7 +11,7 @@
 </head>
 <body class="{{body_class}} flexy">
     <header class="flexy">{{> "default-header"}} </header>
-    <dialog class="flexy">{{> "default-form"}}</dialog>
+    <dialog id="get-in-touch" class="flexy">{{> "default-form"}}</dialog>
     <main id="main-content" class="{{post_class}} flexy" role="main">{{{body}}}</main>
     {{!-- Show the pagination helper when there's more than one page --}}
     {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
