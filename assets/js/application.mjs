@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         } else {
             // show full header
             nav.classList.remove("loose");
-            main.style.paddingTop = "5em";
+            main.style.paddingTop = "5.5em";
         }
         lastScrollY = window.scrollY;
     });

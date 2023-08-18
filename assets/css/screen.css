@@ -108,6 +108,17 @@
     flex-direction: row;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.disable-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.disable-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
 /* Elements */
 
 :root {
@@ -170,6 +181,7 @@ body {
     width: 100%;
     max-width: var(--max-width);
     gap: 0;
+    overflow-x: hidden;
 }
 
 body > :is(footer) {
@@ -177,7 +189,7 @@ body > :is(footer) {
 }
 
 main.flexy {
-    padding-top: 5em;
+    padding-top: 5.5em;
     position: relative;
     width: 100%;
     /*border-top-left-radius: 10em;
@@ -194,13 +206,13 @@ main.flexy {
 
 @keyframes add-padding {
     from { padding-top: 0em; }
-    to { padding-top: 5em; }
+    to { padding-top: 5.5em; }
 }
 
 main > section {
     padding: 1em;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 
@@ -232,6 +244,8 @@ section.ready-to-talk {
 }
 
 section.knowhow.flexy {
+    background-color: var(--color-yellow);
+    text-align: center;
     gap: 2em;
 }
 
@@ -240,7 +254,9 @@ section.knowhow.flexy form {
 }
 
 section.knowhow.flexy fieldset {
-    flex: 1 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    align-items: center;
     gap: 1em;
 }
 
@@ -382,6 +398,7 @@ body>header>div.flexy.row {
     padding: 1em 2em;
     justify-content: space-between;
     gap: 1em;
+    opacity: .9;
     background-color: var(--color-white);
     width: 100%;
     height: 6em;
@@ -398,7 +415,8 @@ body>header>div.flexy.row.loose:focus-within {
     animation: menu-go-down 500ms linear 0s 1 forwards;
 }
 
-ul.nav.flexy.row:has(:where(li.nav-solutions:focus-within, li.nav-solutions > a:hover)) ~ ul.solutions-nav {
+ul.nav.flexy.row:has(:where(li.nav-solutions:focus-within, li.nav-solutions > a:hover)) ~ ul.solutions-nav,
+ul.solutions-nav.flexy.row:has(a:active) {
     display: flex;
 }
 
@@ -736,18 +754,12 @@ section.clients.flexy {
     gap: 1em;
 }
 
-section.trusted-by.flexy {
-    padding: 2em;
-    gap: 2em;
-}
-
 /* First main section */
 
 section.pre-clients {
     padding: 0;
     color: var(--color-white);
     background-color: var(--color-blue);
-    overflow: hidden;
 }
 
 section.pre-clients article {
@@ -757,6 +769,41 @@ section.pre-clients article {
 section.pre-clients article > div.flexy {
     align-content: flex-start;
     gap: 1em;
+}
+
+section.pre-clients article.five-clients > div.flexy {
+    justify-content: flex-start;
+    gap: 5em;
+    overflow-x: scroll;
+    padding: 1em 3em;
+    flex-wrap: nowrap;
+}
+
+section.pre-clients article.five-clients > div.flexy::before,
+section.pre-clients article.five-clients > div.flexy::after {
+    content: "";
+    background-color: #ffffff90;
+    height: 150px;
+    min-width: 150px;
+    outline: thick solid red;
+    border-radius: 50%;
+    filter: blur(5em);
+    position: absolute;
+    z-index: 999;
+    user-select: none;
+}
+
+section.pre-clients article.five-clients > div.flexy::before {
+    left: -5em;
+}
+
+section.pre-clients article.five-clients > div.flexy::after {
+    right: -5em;
+}
+
+section.pre-clients article.five-clients > div.flexy figure {
+    max-width: 150px;
+    flex: 0 0 150px;
 }
 
 section.pre-clients h1 {
@@ -783,6 +830,8 @@ article.main-message svg {
 }
 
 section.the-app.flexy.row {
+    color: var(--color-dark-blue);
+    background-color: var(--color-light-pink);
     justify-content: space-between;
     gap: 1em;
 }
@@ -830,19 +879,7 @@ section.pre-clients article.five-clients {
     background-color: var(--color-dark-blue);
     gap: 1em;
     animation: slide-up 1s linear 10ms 1 forwards;
-}
-
-section.trusted-by.flexy {
-    padding: 5em 2em;
-}
-
-section.trusted-by.flexy figure {
-    max-width: 150px;
-}
-
-section.trusted-by.flexy>div {
-    gap: 1em;
-    width: 100%;
+    overflow-x: hidden;
 }
 
 div.five-points {
@@ -885,11 +922,6 @@ div.five-points>div:nth-of-type(4) {
 
 div.five-points>div:nth-of-type(5) {
     background-color: var(--color-turquoise);
-}
-
-section.trusted-by.flexy h3 {
-    flex: 1 0 100%;
-    text-align: center;
 }
 
 @keyframes shake-it {
