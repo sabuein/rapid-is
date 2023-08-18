@@ -705,12 +705,28 @@ ul.solutions-nav.flexy.row a:hover path {
     fill: var(--color-orange);
 }
 
-section.platform.flexy {
+section#briefly.flexy {
+    padding: 4em;
     color: var(--color-white);
     background-color: var(--color-red);
     /*border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 10em;*/
+    gap: 2em;
+}
+
+section#briefly.flexy > article {
+    flex: 1 0 58%;
+    max-width: 58%;
+}
+
+section#briefly.flexy > button {
+    flex: 0 0 38%;
+    max-width: 38%;
+}
+
+section#briefly.flexy article div {
+    align-items: flex-start;
     gap: 1em;
 }
 
