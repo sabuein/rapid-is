@@ -162,10 +162,15 @@
     box-sizing: border-box;
     color: currentColor;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 html {
     scroll-behavior: smooth;
+}
+
+html:has(dialog[open]) {
+    overflow: hidden;
 }
 
 body {
@@ -184,8 +189,27 @@ body {
     overflow-x: hidden;
 }
 
+body:has(dialog[open]) {
+    filter: blur(.1em);
+}
+
 body > :is(footer) {
     padding: 1em;
+}
+
+dialog:not([open]) {
+    pointer-events: none;
+    opacity: 0;
+}
+
+dialog {
+    border: 1em solid var(--color-bright-purple);
+    transition: opacity 500ms ;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, .7);
+    transition: backdrop-filter .5s ease;
 }
 
 main.flexy {
@@ -271,6 +295,7 @@ input[type="reset"] {
     cursor: pointer;
     font-weight: bold;
     font-size: 1.25rem;
+    width: unset;
 }
 
 input[type="text"],
@@ -297,21 +322,26 @@ div.cta-buttons {
 div.cta-button {
     align-self: flex-start;
     flex: 1 0 100%;
+    width: 100%;
 }
 
 div.cta-button button {
     border-radius: 0;
-    width: 100%;
+    width: 25%;
+    min-width: fit-content;
+    transition: width 2s ease-in 0s;
 }
 
 :is(button[type="button"],
     input[type="button"],
     input[type="submit"],
     input[type="reset"]):hover {
-    background-color: var(--color-blue);
-    outline: thick solid var(--color-yellow);
-    font-weight: bolder;
-}
+        width: 85%;
+        background-color: var(--color-blue);
+        outline: thick solid var(--color-yellow);
+        font-weight: bolder;
+        transition: width 1s ease-out 0s;
+    }
 
 section.knowhow.flexy input[type="submit"] {
     background-color: var(--color-light-green);
@@ -772,11 +802,13 @@ section.pre-clients article > div.flexy {
 }
 
 section.pre-clients article.five-clients > div.flexy {
+    padding: 1em 3em;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
     justify-content: flex-start;
     gap: 5em;
-    overflow-x: scroll;
-    padding: 1em 3em;
-    flex-wrap: nowrap;
 }
 
 section.pre-clients article.five-clients > div.flexy::before,
