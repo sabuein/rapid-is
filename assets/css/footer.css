@@ -17,6 +17,7 @@ body>footer>section.flexy {
 }
 
 body>footer>section.flexy.row {
+    padding-bottom: 3em;
     align-items: flex-start;
     justify-content: space-between;
     width: 100%;
@@ -26,6 +27,8 @@ body>footer>section.flexy.row:last-of-type {
     padding: 1em 2em;
     position: absolute;
     bottom: 1em;
+    font-weight: bold;
+    font-size: 1rem;
 }
 
 body>footer figure.rapid-logo {
@@ -38,7 +41,11 @@ body>footer>pre {
 }
 
 body>footer div.flexy {
+    flex: 1 0 20%;
+    min-width: 20%;
     align-items: flex-start;
+    align-content: flex-start;
+    text-transform: capitalize;
     gap: 1em;
 }
 
@@ -63,6 +70,7 @@ body>footer a:focus,
 body>footer a:hover {
     text-decoration: underline;
     color: var(--color-orange);
+    font-weight: bold;
 }
 
 div.social-icons.flexy.row {

@@ -164,6 +164,7 @@ body {
     font-family: var(--font-family);
     font-style: normal;
     font-weight: 400;
+    line-height: 2;
     color: var(--color-black);
     background-color: var(--color-light-grey);
     width: 100%;
@@ -316,11 +317,13 @@ img {
 }
 
 h1 {
-    font-size: 3.25rem;
+    font-size: 3.5rem;
+    line-height: 1.25;
 }
 
 h2 {
-    font-size: 3rem;
+    font-size: 2.75rem;
+    line-height: 1.25;
 }
 
 h3 {
@@ -347,7 +350,25 @@ a {
     cursor: pointer;
 }
 
+a[href="#main-content"] {
+    font-size: 3rem;
+    z-index: 999;
+    text-decoration: none;
+}
+
+a[href="#main-content"]:hover {
+    scale: 1.2;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
 /* Elements with classes */
+
+span.hearts {
+    color: var(--color-red);
+    font-size: x-large;
+    cursor: wait;
+}
 
 body>header {
     position: relative;
@@ -722,7 +743,11 @@ section.pre-clients article > div.flexy {
     gap: 1em;
 }
 
-section.pre-clients h2 {
+section.pre-clients h1 {
+    max-width: 12em;
+}
+
+section.pre-clients p {
     font-size: 1.25rem;
     font-weight: 400;
 }
@@ -754,6 +779,7 @@ section.the-app.flexy.row>figure {
 }
 
 section.the-app.flexy.row>div {
+    align-content: flex-start;
     padding: 0;
     padding-left: 2em;
     gap: 1em;
