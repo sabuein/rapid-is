@@ -58,4 +58,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const getInTouch = document.querySelector("li.nav-get-in-touch > a");
     if (!!getInTouch) getInTouch.classList.add("show-modal")
     startMainModal();
+
+});
+
+window.addEventListener("load", () => {
+    // Automatically scroll horizontally when the window load
+    const containers = document.querySelectorAll(".horizontal-scrolling");
+    self.setInterval(() => {
+        containers.forEach(container => {
+            const width = container.scrollWidth;
+            if (container.scrollLeft !== width) {
+                container.scrollTo(container.scrollLeft + 1, 0);
+            } else {
+                self.setInterval(() => {
+                    container.scrollTo(container.scrollLeft + -1, 0);
+                }, 15);
+            }
+        });
+    }, 15);
 });
