@@ -838,6 +838,19 @@ section.pre-clients article.five-clients > div.flexy figure {
     flex: 0 0 150px;
 }
 
+section.pre-clients article.five-clients > div.flexy figure img {
+    opacity: .4;
+    filter: blur(.25em);
+    transition: opacity ease-in 250ms 0s, filter ease-out 250ms 0s;
+}
+
+section.pre-clients article.five-clients > div.flexy figure img:hover {
+    cursor: pointer;
+    opacity: 1;
+    filter: none;
+    transition: opacity ease-out 250ms 0s, filter ease-in 250ms 0s, ;
+}
+
 section.pre-clients h1 {
     max-width: 12em;
 }
