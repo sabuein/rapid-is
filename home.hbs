@@ -11,22 +11,18 @@
     </article>
     <article class="five-clients flexy row">
         <h3>Trusted by 30+ providers of <a href="#social-housing" title="Social housing">social housing</a> in the UK&hellip;</h3>
-        <div class="flexy row disable-scrollbar">
-            <figure><img src="{{asset 'images/clients/enfield.png'}}" alt="" /></figure>
-            <figure><img src="{{asset 'images/clients/camden.png'}}" alt="" /></figure>
-            <figure><img src="{{asset 'images/clients/ealing.png'}}" alt="" /></figure>
-            <figure><img src="{{asset 'images/clients/cgl.png'}}" alt="" /></figure>
-            <figure><img src="{{asset 'images/clients/eastherts.png'}}" alt="" /></figure>
-            <figure><img src="{{asset 'images/clients/haringey.png'}}" alt="" /></figure>
-            <figure><img src="{{asset 'images/clients/hertfordshire.png'}}" alt="" /></figure>
-            <figure><img src="{{asset 'images/clients/islington.png'}}" alt="" /></figure>
-            <figure><img src="{{asset 'images/clients/lambeth.png'}}" alt="" /></figure>
-            <figure><img src="{{asset 'images/clients/lewisham.png'}}" alt="" /></figure>
-            <figure><img src="{{asset 'images/clients/optivo.png'}}" alt="" /></figure>
-            <figure><img src="{{asset 'images/clients/rhp.png'}}" alt="" /></figure>
-            <figure><img src="{{asset 'images/clients/stevange.png'}}" alt="" /></figure>
-            <figure><img src="{{asset 'images/clients/towerhamlets.png'}}" alt="" /></figure>
-            <figure><img src="{{asset 'images/clients/westminster.png'}}" alt="" /></figure>
+        <div class="flexy row disable-scrollbar horizontal-scrolling">
+            {{#get "posts" filter="tag:hash-clients+visibility:public" order="title asc" limit=@config.posts_per_page}}
+            {{#foreach posts}}
+            {{#if feature_image}}
+            <figure><img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" /></figure>
+            {{else}}
+            <pre>{{title}}</pre>
+            {{/if}}
+            {{/foreach}}
+            {{else}}
+            <p class="error">{{error}}</p>
+            {{/get}}
         </div>
     </article>
 </section>
