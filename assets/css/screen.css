@@ -124,6 +124,7 @@
 :root {
     --font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --color-black: #0b0c0c;
+    --color-black-40: #0b0c0c40;
     --color-dark-grey: #505a5f;
     --color-mid-grey: #b1b4b6;
     --color-light-grey: #f3f2f1;
@@ -262,9 +263,150 @@ main.flexy>div:first-of-type p {
     width: 100%;
 }
 
+/* Start of page style */
+
+main.post.flexy {
+
+}
+
+main.post.flexy > header {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    gap: 1em;
+}
+
+main.post.flexy > header > section.title-meta {
+    position: absolute;
+    padding: 1em;
+    top: 2em;
+    left: 2em;
+    background-color: #ffffff90;
+}
+
+main.post.flexy > header > section.title-meta > h1 {
+    align-self: flex-start;
+}
+
+main.post.flexy > header > figure {
+    background-color: var(--color-light-green);
+    background-image: var(--this-feature-image);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-clip: content-box;
+    width: inherit;
+    height: inherit;
+    min-height: inherit;
+    align-self: center;
+}
+
+main.post.flexy > header > figure > img {
+    display: none;
+    width: inherit;
+    max-height: inherit;
+}
+
+main.post.flexy > header > section.title-meta > div {
+    align-self: flex-start;
+}
+
+main.post.flexy > header > section.title-meta > div > time {
+
+}
+
+main.post.flexy > section.content {
+    padding: 4em 16em;
+    align-items: flex-start;
+    gap: 1em;
+}
+
+main.post.flexy > section.content h2 {
+    margin-top: 1em;
+    margin-bottom: .25em;
+}
+
+main.post.flexy > section.content ul {
+    list-style-type: disclosure-closed;
+    list-style-position: inside;
+    line-height: 2.75em;
+}
+
+main.post.flexy > section.content p {
+    line-height: 2.5em;
+}
+
+main.post.flexy > section.content a {
+    text-decoration-style: wavy;
+}
+
+main.post.flexy > section.content table tr:hover {
+    cursor: pointer;
+    background-color: #d6d6d6;
+}
+
+main.post.flexy > section.content table tr:active {
+    cursor: text;
+}
+
+main.post.flexy > section.content table tr td {
+    padding: .5em;
+    vertical-align: text-top;
+}
+
+main.post.flexy > section.content table tr td:nth-of-type(1) {
+    width: 40%;
+}
+
+main.post.flexy > section.content table tr td:nth-of-type(2) {
+    width: 60%;
+}
+
+main.post.flexy > section.content figure.kg-card.kg-image-card.kg-card-hascaption {
+    text-align: start;
+    
+}
+
+main.post.flexy > section.content figure.kg-card.kg-image-card.kg-card-hascaption img {
+    mix-blend-mode: multiply;
+    width: fit-content;
+}
+
+main.post.flexy > section.content figure.kg-card.kg-image-card.kg-card-hascaption figcaption {
+    color: var(--color-dark-grey);
+    font-size: smaller;
+}
+
+main.post.flexy > footer {
+
+}
+
+/* End of page style */
+
 section.ready-to-talk {
     background-color: var(--color-light-blue);
     gap: 2em;
+}
+
+section.ready-to-talk > form {
+    gap: 1em;
+}
+
+section.ready-to-talk > form input {
+    width: 20%;
+    border-radius: 1em;
+    outline: none;
+    transition: width 1s ease-in 0s, border-radius 500ms ease-out 0s, outline 750ms ease-in 0s;
+}
+
+section.ready-to-talk > form input:hover,
+section.ready-to-talk > form input:not(:placeholder-shown):focus {
+    width: 27%;
+    border-radius: .25em;
+    outline: thick solid var(--color-yellow);
+    transition: width 1s ease-out 0s, border-radius 500ms ease-in 0s, outline 750ms ease-out 0s;
 }
 
 section.knowhow.flexy {
@@ -336,11 +478,11 @@ div.cta-button button {
     input[type="button"],
     input[type="submit"],
     input[type="reset"]):hover {
-        width: 85%;
+        width: 100%;
         background-color: var(--color-blue);
         outline: thick solid var(--color-yellow);
         font-weight: bolder;
-        transition: width 1s ease-out 0s;
+        transition: width 3s ease-out 0s;
     }
 
 section.knowhow.flexy input[type="submit"] {
@@ -433,6 +575,7 @@ body>header>div.flexy.row {
     width: 100%;
     height: 6em;
     animation: menu-go-down 500ms linear 0s 1 forwards;
+    box-shadow: 0em .5em 1em var(--color-black-40)
 }
 
 body>header>div.flexy.row.loose {
@@ -666,8 +809,12 @@ ul.nav.flexy.row li.nav-get-in-touch:focus-within::after {
 
 li.nav-solutions svg,
 ul.solutions-nav svg {
-    width: 12px;
+    width: 1.25rem;
     vertical-align: middle;
+}
+
+ul.solutions-nav svg {
+    rotate: -90deg;
 }
 
 li.nav-solutions:focus-within svg,
@@ -744,13 +891,66 @@ li.nav-solutions:focus-within {
 
 li.nav-solutions svg path,
 ul.solutions-nav.flexy.row svg path {
-    fill: var(--color-yellow);
+    fill: var(--color-black);
 }
 
 li.nav-solutions a:hover path,
 li.nav-solutions:focus-within path,
 ul.solutions-nav.flexy.row a:hover path {
     fill: var(--color-orange);
+}
+
+section.compliance.flexy.row {
+    padding: 1em;
+    background-color: var(--color-mid-grey);
+    gap: 3em;
+}
+
+section.compliance.flexy.row > figure {
+    flex: 0 0 30%;
+    width: 30%;
+}
+
+section.compliance.flexy.row > div {
+    flex: 1 0 36%;
+    width: 36%;
+    max-width: 55%;
+    text-transform: capitalize;
+    text-transform: uppercase;
+    gap: 3em;
+}
+
+section.compliance.flexy.row h2 {
+    color: var(--color-purple);
+}
+
+section.compliance.flexy.row div.cta-button {
+    gap: 3em;
+}
+
+section.compliance.flexy.row div.cta-button button[type="button"] {
+    flex: 0 0 fit-content;
+    width: fit-content;
+    transition: all 1.5s ease-in 100ms;
+}
+
+section.compliance.flexy.row div.cta-button button[type="button"]:nth-child(1) {
+    background-color: var(--color-light-blue);
+}
+
+section.compliance.flexy.row div.cta-button button[type="button"]:nth-child(2) {
+    background-color: var(--color-light-purple);
+}
+
+section.compliance.flexy.row div.cta-button button[type="button"]:nth-child(3) {
+    background-color: var(--color-light-pink);
+}
+
+section.compliance.flexy.row div.cta-button button[type="button"]:hover {
+    flex: 1 0 30%;
+    width: 30%;
+    background-color: var(--color-dark-blue);
+    transition: all 1.5s cubic-bezier(.35, 1.25, 1, -.75) 0ms;
 }
 
 section#briefly.flexy {
