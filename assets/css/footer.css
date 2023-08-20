@@ -69,6 +69,14 @@ body>footer ul.flexy {
     align-items: flex-start;
 }
 
+body>footer ul.flexy li:has(a:focus, a:hover) {
+    list-style-type: disclosure-closed;
+}
+
+body>footer ul.nav.flexy.row li:has(a:focus, a:hover) {
+    list-style-type: none;
+}
+
 body>footer a {
     text-decoration: none;
 }

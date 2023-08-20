@@ -226,7 +226,7 @@ main.flexy {
     gap: 0;
     font-size: 1.25rem;
     align-items: flex-start;
-    animation: add-padding 1s linear 0s 1 both;
+    animation: add-padding 1500ms ease-in-out 0s 1;
 }
 
 @keyframes add-padding {
@@ -339,7 +339,17 @@ main.post.flexy > section.content p {
 }
 
 main.post.flexy > section.content a {
+    color: currentColor;
     text-decoration-style: wavy;
+    text-decoration-color: var(--color-light-green);
+    transition: color 250ms ease-in-out 0s;
+}
+
+main.post.flexy > section.content a:hover {
+    color: var(--color-dark-blue);
+    text-decoration-style: solid;
+    text-decoration-color: var(--color-green);
+    transition: color 250ms ease-in-out 0s;
 }
 
 main.post.flexy > section.content table tr:hover {
