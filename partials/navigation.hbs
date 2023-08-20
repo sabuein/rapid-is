@@ -6,18 +6,18 @@
 <ul class="nav flexy row" role="menu">
     {{#foreach navigation}}
     {{#has slug="solutions"}}
-    <li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}"><span>{{label}}</span>{{> "icons/arrow-down"}}</a></li>
+    <li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}"><span>{{label}}</span>{{> "icons/angle-down"}}</a></li>
     {{else}}
     <li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}">{{label}}</a></li>
     {{/has}}
     {{/foreach}}
 </ul>
 <ul class="solutions-nav flexy row">
-    <li><a href="#" title="Communication tools">{{> "icons/arrow-right"}}<span>Communication tools</span></a></li>
-    <li><a href="#" title="Property management">{{> "icons/arrow-right"}}<span>Property management</span></a></li>
-    <li><a href="#" title="Education and welfare">{{> "icons/arrow-right"}}<span>Education &amp; welfare</span></a></li>
-    <li><a href="#" title="Housing and homelessness">{{> "icons/arrow-right"}}<span>Housing &amp; homelessness</span></a></li>
-    <li><a href="#" title="Compliance and safety">{{> "icons/arrow-right"}}<span>Compliance &amp; safety</span></a></li>
-    <li><a href="#" title="Tenancy management">{{> "icons/arrow-right"}}<span>Tenancy management</span></a></li>
+    <li><a href="#" title="Communication tools">{{> "icons/angle-down"}}<span>Communication tools</span></a></li>
+    <li><a href="#" title="Property management">{{> "icons/angle-down"}}<span>Property management</span></a></li>
+    <li><a href="#" title="Education and welfare">{{> "icons/angle-down"}}<span>Education &amp; welfare</span></a></li>
+    <li><a href="#" title="Housing and homelessness">{{> "icons/angle-down"}}<span>Housing &amp; homelessness</span></a></li>
+    <li><a href="#" title="Compliance and safety">{{> "icons/angle-down"}}<span>Compliance &amp; safety</span></a></li>
+    <li><a href="#" title="Tenancy management">{{> "icons/angle-down"}}<span>Tenancy management</span></a></li>
 </ul>
 {{/if}}
