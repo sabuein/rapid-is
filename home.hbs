@@ -1,102 +1,101 @@
-{{!< default}} <!-- home.hbs -->
-    {{#is "home"}}
-    <section class="pre-clients flexy">
-        <article class="main-message flexy row">
-            <div class="flexy">
-                <h1>Integrate your IT systems&comma; get more done&period;</h1>
-                <p><a href="#briefly" title="">Rapid</a> simplifies digital transformation&comma; enhancing
-                    services&comma; saving costs&comma; and providing structured data for efficiency&comma;
-                    accuracy&comma; and AI insights&period;</p>
-            </div>
-            <figure>{{> "drawings/version-control"}}</figure>
-        </article>
-        <article class="five-clients flexy row">
-            <h3>Trusted by 30&plus; providers of <a href="#social-housing" title="Social housing">social housing</a> in
-                the UK&hellip;</h3>
-            <div class="flexy row disable-scrollbar horizontal-scrolling">
-                {{#get "posts" filter="tag:hash-clients+visibility:public" order="title asc"
-                limit=@config.posts_per_page}}
-                {{#foreach posts}}
-                {{#if feature_image}}
-                <figure><img src="{{img_url feature_image absolute='true'}}"
-                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                        title="{{title}}" /></figure>
-                {{else}}
-                <pre>{{title}}</pre>
-                {{/if}}
-                {{/foreach}}
-                {{else}}
-                <p class="get-error">{{error}}</p>
-                {{/get}}
-            </div>
-        </article>
-    </section>
-
-    <section class="compliance flexy row">
-        <figure>{{> "drawings/developer-activity"}}</figure>
+{{!< default}}
+<!-- home.hbs -->
+{{#is "home"}}
+<section class="pre-clients flexy">
+    <article class="main-message flexy row">
         <div class="flexy">
-            <h2>We are streamlining <a href="/safety-checks/" title="Safety checks">safety checks</a>&comma; <a
-                    href="/repairs/" title="Repairs">repairs</a>&comma; and <a href="/complaints/"
-                    title="Complaints">complaints</a> through digital solutions&colon; enhancing social housing sector
-                compliance&period;</h2>
-            <div class="cta-button flexy row">
-                <button type="button">Learn more</button>
-                <button type="button">Learn more</button>
-                <button type="button">Learn more</button>
-            </div>
+            <h1>Integrate your IT systems&comma; get more done&period;</h1>
+            <p><a href="#briefly" title="">Rapid</a> simplifies digital transformation&comma; enhancing services&comma; saving costs&comma; and providing structured data for efficiency&comma; accuracy&comma; and AI insights&period;</p>
         </div>
-    </section>
-    <section class="the-app flexy row">
+        <figure>{{> "drawings/version-control"}}</figure>
+    </article>
+    <article class="five-clients flexy row">
+        <h3>Trusted by 30&plus; providers of <a href="#social-housing" title="Social housing">social housing</a> in the UK&hellip;</h3>
+        <div class="flexy row disable-scrollbar horizontal-scrolling">
+            {{#get "posts" filter="tag:hash-clients+visibility:public" order="title asc" limit=@config.posts_per_page}}
+            {{#foreach posts}}
+            {{#if feature_image}}
+            <figure><img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" /></figure>
+            {{else}}
+            <pre>{{title}}</pre>
+            {{/if}}
+            {{/foreach}}
+            {{else}}
+            <p class="get-error">{{error}}</p>
+            {{/get}}
+        </div>
+    </article>
+</section>
+
+<section class="compliance flexy row">
+    <figure>{{> "drawings/developer-activity"}}</figure>
+    <div class="flexy">
+        <h2>We are streamlining <a href="/safety-checks/" title="Safety checks">safety checks</a>&comma; <a href="/repairs/" title="Repairs">repairs</a>&comma; and <a href="/complaints/" title="Complaints">complaints</a> through digital solutions&colon; enhancing social housing sector compliance&period;</h2>
+        <div class="cta-button flexy row">
+            <button type="button">Learn more</button>
+            <button type="button">Find out</button>
+            <button type="button">Discover that</button>
+        </div>
+    </div>
+</section>
+
+<section class="the-app flexy row">
+    <div class="flexy">
+        <h2>Introducing compliance software application: Streamline and enhance property compliance</h2>
+        <p>Our compliance software application is a robust and comprehensive solution designed to simplify and streamline property compliance processes&period; With a range of powerful features, our software empowers property managers, inspectors, and safety professionals to ensure compliance with regulations&comma; mitigate risks, and prioritize the well-being of residents. From asbestos management to fire safety inspections and health and safety monitoring, our software covers all essential compliance areas.</p>
+        <div class="cta-button flexy row">
+            <button type="button">Learn more</button>
+        </div>
+    </div>
+    <figure><img src="{{asset 'images/rapid-fire.png'}}" alt="" /></figure>
+</section>
+
+{{!-- Something short about Rapid --}}
+<section id="briefly" class="flexy row">
+    <article class="flexy row">
         <div class="flexy">
-            <h2>Introducing compliance software application: Streamline and enhance property compliance</h2>
-            <p>Our compliance software application is a robust and comprehensive solution designed to simplify and
-                streamline property compliance processes&period; With a range of powerful features, our software
-                empowers property managers, inspectors, and safety professionals to ensure compliance with regulations,
-                mitigate risks, and prioritize the well-being of residents. From asbestos management to fire safety
-                inspections and health and safety monitoring, our software covers all essential compliance areas.</p>
-            <div class="cta-button flexy row">
-                <button type="button">Learn more</button>
-            </div>
+            <p>Rapid produce an exciting and disruptive low&dash;code platform which we use to create desktop&comma; mobile&comma; and forms apps to help local authorities improve their services&comma; especially in social housing&period;</p>
+            <p>Based just North of London in Welwyn Hatfield we are a small and growing company&comma; able to offer friendly and supportive working arrangements&period; Our customers are great&comma; and the work is varied and never dull&excl;</p>
+            <a href="#main-content" title="Back to top">Back&hellip;</a>
         </div>
-        <figure><img src="{{asset 'images/rapid-fire.png'}}" alt="" /></figure>
-    </section>
+        <figure>{{!--> "drawings/version-control"--}}</figure>
+    </article>
+    <button type="button">Learn more</button>
+</section>
 
-    {{!-- Something short about Rapid --}}
-    <section id="briefly" class="flexy row">
-        <article class="flexy row">
-            <div class="flexy">
-                <p>Rapid produce an exciting and disruptive low&dash;code platform which we use to create desktop&comma;
-                    mobile&comma; and forms apps to help local authorities improve their services&comma; especially in
-                    social housing&period;</p>
-                <p>Based just North of London in Welwyn Hatfield we are a small and growing company&comma; able to offer
-                    friendly and supportive working arrangements&period; Our customers are great&comma; and the work is
-                    varied and never dull&excl;</p>
-                <a href="#main-content" title="Back to top">Back&hellip;</a>
-            </div>
-            <figure>{{!--> "drawings/version-control"--}}</figure>
-        </article>
-        <button type="button">Learn more</button>
-    </section>
+<section class="ready-to-talk flexy">
+    <h3>Ready to talk? Let&apos;s make it happen&excl;</h3>
+    <form class="flexy row">
+        <input type="text" name="company" id="talkName" placeholder="Company name&hellip;" title="Company name" />
+        <input type="tel" name="phone" id="talkTel" placeholder="Phone number&hellip;" title="Phone number" />
+        <input type="email" name="email" id="talkEmail" placeholder="Email address&hellip;" title="Email address" />
+        <input type="submit" value="Submit" title="Submit" />
+    </form>
+</section>
 
-    <section class="ready-to-talk flexy">
-        <h3>Ready to talk? Let&apos;s make it happen&excl;</h3>
-        <form class="flexy row">
-            <input type="text" name="company" id="talkName" placeholder="Company name&hellip;" title="Company name" />
-            <input type="tel" name="phone" id="talkTel" placeholder="Phone number&hellip;" title="Phone number" />
-            <input type="email" name="email" id="talkEmail" placeholder="Email address&hellip;" title="Email address" />
-            <input type="submit" value="Submit" title="Submit" />
-        </form>
-    </section>
+<section id="get-the-app" class="flexy">
+    <header>
+        <h3>Get the Rapid app&excl;</h3>
+    </header>
+    <div class="flexy row">
+        <figure><img src="{{asset 'images/badge-app-store.png'}}" alt="App Store" /></figure>
+        <figure><img src="{{asset 'images/badge-google-play.png'}}" alt="Google Play" /></figure>
+    </div>
+    <footer>
+        <pre>Apple and the Apple logo are trademarks of Apple Inc.</pre>
+        <pre>Google Play and the Google Play logo are trademarks of Google LLC.</pre>
+    </footer>
+</section>
 
-    <section class="knowhow flexy">
-        <h3>The Knowhow</h3>
-        <h4>Internet insights in your inbox. Often enough to be helpful but not annoying.</h4>
-        <form class="flexy row">
-            <figure><img src="{{asset 'images/cyber-essentials-150x150.png'}}" alt="" /></figure>
-            <fieldset class="flexy">
-                <input type="email" name="emailKnowhow" id="emailKnowhow" placeholder="My email address is&hellip;" />
-                <input type="submit" value="Join Rapid newsletter" />
-            </fieldset>
-        </form>
-    </section>
-    {{/is}}
+<section class="knowhow flexy">
+    <h3>The Knowhow</h3>
+    <h4>Internet insights in your inbox. Often enough to be helpful but not annoying.</h4>
+    <form class="flexy row">
+        <figure><img src="{{asset 'images/cyber-essentials-150x150.png'}}" alt="" /></figure>
+        <fieldset class="flexy">
+            <input type="email" name="emailKnowhow" id="emailKnowhow" placeholder="My email address is&hellip;" />
+            <input type="submit" value="Join Rapid newsletter" />
+        </fieldset>
+    </form>
+</section>
+{{/is}}
