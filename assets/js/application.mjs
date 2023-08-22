@@ -1,9 +1,32 @@
+const hideNav = (nav, main) => {
+    let offset = 250, lastScrollY = 0;
+    
+    nav.onclick = () => nav.focus();
+    window.addEventListener("scroll", () => {
+        if (window.scrollY >= offset && window.scrollY > lastScrollY) {
+            // make thin header
+            nav.classList.add("loose");
+            main.style.paddingTop = 0;
+        } else {
+            // show full header
+            nav.classList.remove("loose");
+            main.style.paddingTop = "5.5em";
+        }
+        lastScrollY = window.scrollY;
+    });
+};
+
 const activateMagic = (item, link) => {
     item.onmouseover = () => link.focus();
     if (item.classList.contains("nav-solutions")) {
         document.querySelector("ul.solutions-nav").onmouseleave = () => link.blur();
     }
 };
+
+const enableNavMenu = (nav) => {
+    let solutionsElement = nav.querySelectorAll("ul.nav li"), solutionsLink = nav.querySelectorAll("ul.nav li a");
+    [].forEach.call(solutionsElement, (li, index) => activateMagic(li, solutionsLink[index]));
+}
 
 const startMainModal = () => {
     // Get the required elements for the main modal
@@ -26,38 +49,19 @@ const startMainModal = () => {
         // Do something...
         // Add to input#submit oninput="this.form.elements.submit.value=this.value;"
     });
-    
+
 };
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    let nav = document.querySelector("body > header > div");
-    nav.onclick = () => nav.focus();
-
-    let offset = 250, lastScrollY = 0;
-    const main = document.getElementById("main-content");
-    window.addEventListener("scroll", () => {
-        if (window.scrollY >= offset && window.scrollY > lastScrollY) {
-            // make thin header
-            nav.classList.add("loose");
-            main.style.paddingTop = 0;
-        } else {
-            // show full header
-            nav.classList.remove("loose");
-            main.style.paddingTop = "5.5em";
-        }
-        lastScrollY = window.scrollY;
-    });
-
-    let solutionsElement = nav.querySelectorAll("ul.nav li");
-    let solutionsLink = nav.querySelectorAll("ul.nav li a");
-    [].forEach.call(solutionsElement, (li, index) => {
-        activateMagic(li, solutionsLink[index]);
-    });
 
     // Get the get in touch menu item
     const getInTouch = document.querySelector("li.nav-get-in-touch > a");
     if (!!getInTouch) getInTouch.classList.add("show-modal")
     startMainModal();
+
+    const nav = document.querySelector("body > header > div");
+    const main = document.getElementById("main-content");
+    enableNavMenu(nav);
 
 });
 
