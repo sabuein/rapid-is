@@ -3,25 +3,20 @@
 {{#is "page"}}
 {{#post}}
 {{#match @page.show_title_and_feature_image}}
-<header class="page-header">
-    <h1 class="page-title">{{title}}</h1>
-    {{#if feature_image}}
-    <figure><img src="{{feature_image}}" alt="{{name}}" /></figure>
-    {{/if}}
-    <section class="page-meta">
-        <time class="page-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
-        {{tags prefix=" on "}}
+<header class="flexy">
+    <section class="title-meta flexy">
+        <h1 title="{{title}}">{{title}}</h1>
+        <div>
+            <time datetime="{{date format='YYYY-MM-DD'}}">This was published on {{date format="DD MMMM YYYY"}}</time>
+            {{tags prefix=" in "}}&period;
+        </div>
     </section>
+    {{#if feature_image}}
+    <figure title="{{title}}" style="--this-feature-image: url({{img_url feature_image absolute='true'}})"><img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" /></figure>
+    {{/if}}
 </header>
 {{/match}}
-{{#if content}}
-<section class="page-content">{{content}}</section>
-{{else}}
-<article>
-    <p>Rapid produce an exciting and disruptive low&dash;code platform which we use to create desktop&comma; mobile&comma; and forms apps to help local authorities improve their services&comma; especially in social housing&period;</p>
-    <p>Based just North of London in Welwyn Hatfield we are a small and growing company&comma; able to offer friendly and supportive working arrangements&period; Our customers are great&comma; and the work is varied and never dull&excl;</p>
-</article>
-{{/if}}
+<section class="content flexy">{{content}}</section>
 <footer></footer>
 {{/post}}
 {{/is}}
