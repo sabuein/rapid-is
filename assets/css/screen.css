@@ -145,6 +145,16 @@
     --color-light-green: #85994b;
     --color-turquoise: #28a197;
     --max-width: 1920px;
+    --primary-color: oklch(.33 .13 259.56);
+    --relative-color-one: oklch(from var(--primary-color) calc(l * 160%) calc(c/3) h);
+    --relative-color-two: oklch(from var(--primary-color) calc(l * 145%) calc(c/3) h);
+    --relative-color-three: oklch(from var(--primary-color) calc(l * 130%) calc(c/3) h);
+    --relative-color-four: oklch(from var(--primary-color) calc(l * 115%) calc(c/3) h);
+    --relative-color-five: oklch(from var(--primary-color) calc(l * 100%) calc(c/3) h);
+    --relative-color-six: oklch(from var(--primary-color) calc(l * 85%) calc(c/3) h);
+    --relative-color-seven: oklch(from var(--primary-color) calc(l * 70%) calc(c/3) h);
+    --relative-color-eight: oklch(from var(--primary-color) calc(l * 55%) calc(c/3) h);
+    --relative-color-nine: oklch(from var(--primary-color) calc(l * 40%) calc(c/3) h);
 }
 
 ::selection {
@@ -1010,6 +1020,7 @@ section.pre-clients {
     padding: 0;
     color: var(--color-white);
     background-color: var(--color-blue);
+    background-color: var(--primary-color);
 }
 
 section.pre-clients article {
