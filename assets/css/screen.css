@@ -1032,6 +1032,32 @@ section.pre-clients article > div.flexy {
     gap: 1em;
 }
 
+section.pre-clients > article.more-clients > div.flexy {
+    padding: 2em 1em;
+    overflow: auto;
+    width: 100%;
+    
+    max-height: 20vb;
+}
+
+section.pre-clients > article.more-clients > div.flexy > figure {
+    flex: 1 0 10vb;
+    /*writing-mode: vertical-lr;*/
+    text-align: center;
+    mix-blend-mode: overlay;
+}
+
+section.pre-clients > article.more-clients > div.flexy > figure:hover {
+    mix-blend-mode: normal;
+}
+
+section.pre-clients > article.more-clients > div.flexy > figure svg {
+    inline-size: 40vi;
+    block-size: 10vb;
+    max-width: 50vb;
+}
+
+
 section.pre-clients article.five-clients > div.flexy {
     padding: 1em 3em;
     -moz-osx-font-smoothing: grayscale;
