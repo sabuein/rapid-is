@@ -6,9 +6,9 @@
 <header class="flexy">
     <section class="title-meta flexy">
         <h1 title="{{title}}">{{title}}</h1>
+        {{#if custom_excerpt}}<p>{{custom_excerpt}}</p>{{/if}}
         <div>
-            <time datetime="{{date format='YYYY-MM-DD'}}">This was published on {{date format="DD MMMM YYYY"}}</time>
-            {{tags prefix=" in "}}&period;
+            <time datetime="{{date format='YYYY-MM-DD'}}">This was published on {{date format="DD MMMM YYYY"}}&period;</time>
         </div>
     </section>
     {{#if feature_image}}
