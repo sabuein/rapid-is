@@ -67,15 +67,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 const shakeMe = (section) => {
-    section.onmouseover = () => {
-        section.classList.add("hi");
-        setTimeout(() => section.classList.remove("show-section"), 30000);
-    }
-
-    section.onmouseout = () => {
-        section.classList.add("bye");
-        setTimeout(() => section.classList.remove("bye"), 30000);
-    }
+    section.onmouseover = () => section.classList.add("hi");
+    section.onmouseout = () => section.classList.remove("hi");
 }
 
 // Automatically scroll horizontally when the window load
