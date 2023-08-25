@@ -248,7 +248,7 @@ body.home-template>main>section {
     height: 100dvh;
     padding: 1em;
     opacity: 0;
-    transition: opacity 1s ease-out 1s;
+    transition: opacity 1s ease-out 5s;
 }
 
 body.home-template>main>section:first-of-type {
@@ -286,10 +286,11 @@ main.post.flexy>header {
 
 main.post.flexy>header>section.title-meta {
     position: absolute;
-    padding: 1em;
-    top: 2em;
-    left: 2em;
-    background-color: #ffffff90;
+    padding: 2em 4em;
+    inset: auto;
+    background-color: #ffffff95;
+    gap: .25em;
+    width: 100%;
 }
 
 main.post.flexy>header>section.title-meta>h1 {
@@ -305,7 +306,7 @@ main.post.flexy>header>figure {
     background-size: cover;
     background-clip: content-box;
     width: inherit;
-    height: inherit;
+    height: 40dvh;
     min-height: inherit;
     align-self: center;
 }
@@ -316,8 +317,20 @@ main.post.flexy>header>figure>img {
     max-height: inherit;
 }
 
+main.post.flexy>header>section.title-meta>p {
+    font-size: 1.1rem;
+    text-align: justify;
+    padding-right: 15dvw;
+}
+
 main.post.flexy>header>section.title-meta>div {
+    border-top: thin inset currentColor;
     align-self: flex-start;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 95%;
+    padding-top: 1em;
+    margin-top: 1em;
 }
 
 main.post.flexy>header>section.title-meta>div>time {}
@@ -336,9 +349,9 @@ main.post.flexy>section.content h2 {
 }
 
 main.post.flexy>section.content ul {
-    list-style-type: disclosure-closed;
-    list-style-position: inside;
-    line-height: 2.75em;
+    list-style-type: square;
+    list-style-position: outside;
+    line-height: 2.25em;
 }
 
 main.post.flexy>section.content p {
@@ -486,7 +499,7 @@ div.cta-button button {
     border-radius: 0;
     width: 25%;
     min-width: fit-content;
-    transition: width 2s ease-in 0s;
+    transition: width 1s ease-in 0s;
 }
 
 :is(button[type="button"],
@@ -555,12 +568,15 @@ a {
 
 a[href="#main-content"] {
     font-size: 3rem;
-    z-index: 999;
+    z-index: 99;
     text-decoration: none;
+    text-align: center;
+    font-size: 1.25rem;
+    flex: 1 0 100%;
 }
 
 a[href="#main-content"]:hover {
-    scale: 1.2;
+    scale: 1;
     text-decoration: none;
     font-weight: bolder;
 }
@@ -618,6 +634,17 @@ body>header>div.flexy.row ul~ul.solutions-nav:focus-visible,
 body>header>div.flexy.row ul~ul.solutions-nav:focus-within,
 body>header>div.flexy.row ul:where(:has(li.nav-solutions):has(a:hover))~ul.solutions-nav {
     display: flex;
+}
+
+body>hr {
+    margin: 2em 0;
+    width: 45%;
+    max-width: 96%;
+    border: thin inset currentColor;
+}
+
+body.home-template>hr {
+    display: none;
 }
 
 ul.solutions-nav {
@@ -929,7 +956,7 @@ body>header>div.flexy.row ul~ul.solutions-nav {
     max-width: 50em;
     height: fit-content;
     inset: 0;
-    top: 8em;
+    top: 7em;
     gap: 1em;
     list-style-type: none;
     background-color: inherit;
@@ -940,21 +967,25 @@ body>header>div.flexy.row ul~ul.solutions-nav {
     border-bottom-left-radius: 5em;
     border-bottom-right-radius: 5em;*/
     box-shadow: 0 0 .15em var(--color-black-40);
+    box-shadow: 0 0 .25em var(--color-black-40);
 }
 
-ul.solutions-nav::before {
+/*ul.solutions-nav::before {
     content: "\27A7";
-    rotate: -90deg;
     position: absolute;
-    top: -1.1em;
-    left: 7.25em;
+    top: -0.5em;
+    left: 1.25em;
     font-size: 3rem;
     color: var(--color-white);
     z-index: -1;
-}
+    width: 7em;
+    height: 1.75em;
+    background-color: var(--color-orange);
+    rotate: 169deg;
+}*/
 
 ul.solutions-nav li {
-    flex: 1 0 30%;
+    flex: 0 0 fit-content;
     text-transform: capitalize;
 }
 
@@ -1017,7 +1048,7 @@ section.compliance.flexy.row div.cta-button {
 section.compliance.flexy.row div.cta-button button[type="button"] {
     flex: 0 0 fit-content;
     width: fit-content;
-    transition: all 1.5s ease-in 100ms;
+    transition: all 1s ease-in 100ms;
 }
 
 section.compliance.flexy.row div.cta-button button[type="button"]:nth-child(1) {
@@ -1036,7 +1067,7 @@ section.compliance.flexy.row div.cta-button button[type="button"]:hover {
     flex: 1 0 30%;
     width: 30%;
     background-color: var(--color-dark-blue);
-    transition: all 1.5s cubic-bezier(.35, 1.25, 1, -.75) 0ms;
+    transition: all 1s cubic-bezier(.35, 1.25, 1, -.75) 0ms;
 }
 
 section#briefly.flexy {
@@ -1381,6 +1412,34 @@ div.five-points>div:nth-of-type(4) {
 
 div.five-points>div:nth-of-type(5) {
     background-color: var(--color-turquoise);
+}
+
+aside.cookies {
+    display: none;
+    padding: 3em;
+    position: fixed;
+    bottom: 0;
+    color: var(--color-white);
+    background-color: var(--color-black);
+    gap: 1em;
+    opacity: .9;
+    z-index: 999;
+}
+
+aside.cookies h4,
+aside.cookies form {
+    width: 100%;
+    flex: 1 0 100%;
+}
+
+aside.cookies form {
+    gap: 2em;
+}
+
+aside.cookies button[type="button"] {
+    opacity: 1;
+    flex: 0 0 max-content;
+    border-radius: 0%;
 }
 
 @keyframes shake-it {

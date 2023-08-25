@@ -3,7 +3,7 @@ body>footer.flexy {
     padding-top: 3em;
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 90vh;
     gap: 2em;
     color: var(--color-two);
     background-color: var(--color-four);
