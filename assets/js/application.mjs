@@ -64,6 +64,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const nav = document.querySelector("body > header > div");
     const main = document.getElementById("main-content");
     enableNavMenu(nav);
+
+    const cookiesAside = document.querySelector("aside.cookies");
+    const cookiesActions = document.querySelectorAll("aside.cookies > form.actions");
+    cookiesActions.forEach((button) => {
+        const accepted = window.localStorage.getItem("cookiesAccepted") || null;
+        if (!accepted || accepted !== "true" ) {
+            cookiesAside.style.display = "flex";
+            button.onclick = () => {
+                window.localStorage.setItem("cookiesAccepted", true);
+                cookiesAside.style.display = "none";
+            }
+        }
+    });
 });
 
 const shakeMe = (section) => {
