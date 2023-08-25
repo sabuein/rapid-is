@@ -1,6 +1,7 @@
 const hideNav = (nav, main) => {
-    let offset = 250, lastScrollY = 0;
-    
+    let offset = 250,
+        lastScrollY = 0;
+
     nav.onclick = () => nav.focus();
     window.addEventListener("scroll", () => {
         if (window.scrollY >= offset && window.scrollY > lastScrollY) {
@@ -16,7 +17,7 @@ const hideNav = (nav, main) => {
     });
 };
 
-const activateMagic = (item, link) => {
+const activateMenuItem = (item, link) => {
     item.onmouseover = () => link.focus();
     if (item.classList.contains("nav-solutions")) {
         document.querySelector("ul.solutions-nav").onmouseleave = () => link.blur();
@@ -24,9 +25,12 @@ const activateMagic = (item, link) => {
 };
 
 const enableNavMenu = (nav) => {
-    let solutionsElement = nav.querySelectorAll("ul.nav li"), solutionsLink = nav.querySelectorAll("ul.nav li a");
-    [].forEach.call(solutionsElement, (li, index) => activateMagic(li, solutionsLink[index]));
-}
+    let solutionsElement = nav.querySelectorAll("ul.nav li"),
+        solutionsLink = nav.querySelectorAll("ul.nav li a");
+    [].forEach.call(solutionsElement, (li, index) =>
+        activateMenuItem(li, solutionsLink[index])
+    );
+};
 
 const startMainModal = () => {
     // Get the required elements for the main modal
@@ -34,7 +38,7 @@ const startMainModal = () => {
     const elements = document.querySelectorAll(".show-modal");
 
     // Set the show dialog elements
-    elements.forEach(element => {
+    elements.forEach((element) => {
         element.addEventListener("click", (event) => {
             event.preventDefault();
             dialog.showModal();
@@ -49,35 +53,53 @@ const startMainModal = () => {
         // Do something...
         // Add to input#submit oninput="this.form.elements.submit.value=this.value;"
     });
-
 };
 
 document.addEventListener("DOMContentLoaded", (event) => {
-
     // Get the get in touch menu item
     const getInTouch = document.querySelector("li.nav-get-in-touch > a");
-    if (!!getInTouch) getInTouch.classList.add("show-modal")
+    if (!!getInTouch) getInTouch.classList.add("show-modal");
     startMainModal();
 
     const nav = document.querySelector("body > header > div");
     const main = document.getElementById("main-content");
     enableNavMenu(nav);
-
 });
 
+const shakeMe = (section) => {
+    section.onmouseover = () => {
+        section.classList.add("hi");
+        setTimeout(() => section.classList.remove("show-section"), 30000);
+    }
+
+    section.onmouseout = () => {
+        section.classList.add("bye");
+        setTimeout(() => section.classList.remove("bye"), 30000);
+    }
+}
+
+// Automatically scroll horizontally when the window load
 window.addEventListener("load", () => {
-    // Automatically scroll horizontally when the window load
-    const containers = document.querySelectorAll(".horizontal-scrolling");
-    self.setInterval(() => {
-        containers.forEach(container => {
-            const width = container.scrollWidth;
-            if (container.scrollLeft !== width) {
-                container.scrollTo(container.scrollLeft + 1, 0);
-            } else {
-                self.setInterval(() => {
-                    container.scrollTo(container.scrollLeft + -1, 0);
-                }, 15);
-            }
-        });
-    }, 15);
+    try {
+        const containers =
+            document.querySelectorAll(".horizontal-scrollingXXX") || null;
+        self.setInterval(() => {
+            containers.forEach((container) => {
+                const width = container.scrollWidth;
+                if (container.scrollLeft !== width) {
+                    container.scrollTo(container.scrollLeft + 1, 0);
+                } else {
+                    self.setInterval(() => {
+                        container.scrollTo(container.scrollLeft + -1, 0);
+                    }, 15);
+                }
+            });
+        }, 15);
+
+        const sections = document.querySelectorAll("main > section") || null;
+        sections.forEach((section) => shakeMe(section));
+
+    } catch (error) {
+        console.error(error);
+    }
 });
