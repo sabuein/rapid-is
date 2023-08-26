@@ -1,1 +1,6 @@
-Powered by Ghost
+A theme for Ghost CMS
+
+Thanks to:
+
+- https://www.svgminify.com/
+- https://www.shapedivider.app/
