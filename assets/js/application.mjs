@@ -103,7 +103,7 @@ window.addEventListener("load", () => {
         }, 15);
 
         const sections = document.querySelectorAll("main > section") || null;
-        sections.forEach((section) => shakeMe(section));
+        // sections.forEach((section) => shakeMe(section));
 
     } catch (error) {
         console.error(error);
