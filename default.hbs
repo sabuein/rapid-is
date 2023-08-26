@@ -17,10 +17,11 @@
     {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
     <hr />
     <footer class="flexy">
+        <div class="divider-top">{{> "icons/divider-tilt"}}</div>
         <section class="flexy row">{{> "default-footer"}}</section>
         <pre>Registered in England and Wales. Company registration number 05494744. VAT registration number 881993663. ICO registration number ZA471303. D-U-N-S number 346902047.</pre>
         <pre>Made with <span class="hearts" title="unconditional love">&hearts;</span> from Welwyn Garden City and East London&period;</pre>
-        <a href="#main-content" title="Back to top">&UpArrow; Back to top</a>
+        <a href="#main-content" title="Back to top">Back to top&hellip;</a>
         <section class="flexy row">
             <p>&copy; 2005 &dash; {{date format="YYYY"}} <a href="{{@site.url}}" title="{{@site.title}} Ltd">{{@site.title}} Ltd</a>&period; All Rights Reserved&period;</p>
             {{navigation type="secondary"}}
