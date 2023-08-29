@@ -93,7 +93,7 @@
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* General classes */
+/* Helper classes */
 
 .flexy {
     display: flex;
@@ -202,10 +202,6 @@ body {
 
 body:has(dialog[open]) {
     filter: blur(.1em);
-}
-
-body> :is(footer) {
-    padding: 1em;
 }
 
 dialog:not([open]) {
@@ -1178,14 +1174,37 @@ section#get-the-app.flexy div.divider-top path.shape-fill {
 }
 
 @keyframes scrollups {
-    0% { transform: translateY(4.5em); }
-    15% { transform: translateY(3.75em); }
-    30% { transform: translateY(3em); }
-    45% { transform: translateY(2.25em); }
-    60% { transform: translateY(2.5em); }
-    75% { transform: translateY(1.75em); }
-    90% { transform: translateY(1em); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(4.5em);
+    }
+
+    15% {
+        transform: translateY(3.75em);
+    }
+
+    30% {
+        transform: translateY(3em);
+    }
+
+    45% {
+        transform: translateY(2.25em);
+    }
+
+    60% {
+        transform: translateY(2.5em);
+    }
+
+    75% {
+        transform: translateY(1.75em);
+    }
+
+    90% {
+        transform: translateY(1em);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 section#get-the-app.flexy>p {
