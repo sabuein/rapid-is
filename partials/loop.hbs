@@ -1,8 +1,9 @@
-{{#get "posts" include="tags,authors" filter="primary_tag:solutions" limit="all" order="published_at asc" limit=@config.posts_per_page as |post|}}
-{{#post}}
+<!-- loop.hbs -->
+{{#get "posts" include="tags,authors" filter="primary_tag:{{slug}}" limit="all" order="published_at asc" limit=@config.posts_per_page as |post|}}
+{{#foreach post}}
 <article class="{{#if @even}}even{{else}}odd{{/if}}">
     <h2>{{title}}</h2>
-    <p><a href="{{url}}">{{title}}</a></p>
+    <p><a href="{{url}}" title="Learn more about Rapid&apos;s {{title}} solutions">Learn more&hellip;</a></p>
 </article>
-{{/post}}
+{{/foreach}}
 {{/get}}

@@ -22,18 +22,16 @@
     <input type="color" value="{{accent_color}}" />
 </div>
 
-
-{{! Get all tags and order them by post count }}
-<section data-type="get-tags">
-    {{#get "tags" limit="all" include="count.posts" order="count.posts desc"}}
-    {{#foreach tags}}
-    <p>{{name}} ({{count.posts}})</p>
+<section class="rapid-solutions flexy row">
+    {{#get "posts" include="tags,authors" filter="primary_tag:{{slug}}" limit="all" order="published_at asc" limit=@config.posts_per_page as |post|}}
+    {{#foreach post}}
+    <article class="{{#if @even}}even{{else}}odd{{/if}}">
+        <h2>{{title}}</h2>
+        <p><a href="{{url}}" title="Learn more about Rapid&apos;s {{title}} solutions">Learn more&hellip;</a></p>
+    </article>
     {{/foreach}}
     {{/get}}
 </section>
-
-<!-- Previous/next page links - displayed on every page -->
-{{pagination}}
 
 {{/tag}}
 {{/is}}
