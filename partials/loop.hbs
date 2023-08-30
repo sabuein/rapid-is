@@ -1,12 +1,8 @@
-{{#get "posts" include="authors" filter="tags:[{{post.tags}}]+id:-{{post.id}}" limit="3" as |next|}}
-{{#if next}}
-<div class="gh-read-next gh-canvas">
-    <section class="gh-pagehead">
-        <h4 class="gh-pagehead-title">Read next</h4>
-    </section>
-    <div class="gh-topic gh-topic-grid">
-        <div class="gh-topic-content"></div>
-    </div>
-</div>
-{{/if}}
+{{#get "posts" include="tags,authors" filter="primary_tag:solutions" limit="all" order="published_at asc" limit=@config.posts_per_page as |post|}}
+{{#post}}
+<article class="{{#if @even}}even{{else}}odd{{/if}}">
+    <h2>{{title}}</h2>
+    <p><a href="{{url}}">{{title}}</a></p>
+</article>
+{{/post}}
 {{/get}}

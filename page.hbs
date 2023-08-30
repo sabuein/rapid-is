@@ -8,7 +8,7 @@
         <h1 title="{{title}}">{{title}}</h1>
         {{#if custom_excerpt}}<p>{{custom_excerpt}}</p>{{/if}}
         <div>
-            <time datetime="{{date format='YYYY-MM-DD'}}">This was published on {{date format="DD MMMM YYYY"}}&period;</time>
+            <time datetime="{{date format='YYYY-MM-DD'}}">This was published on {{date format="DD MMMM YYYY"}}</time>&period; <span>In {{tags}}</span>
         </div>
     </section>
     {{#if feature_image}}

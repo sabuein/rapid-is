@@ -1,2 +1,39 @@
+{{!< default}}
 <!-- solutions.hbs -->
 {{!-- A custom template for the solutions route --}}
+{{#is "tag"}}
+{{#tag}}
+<header>
+    {{#if feature_image}}
+    <figure data-type="feature_image">
+        <img src="{{feature_image}}" alt="{{name}}" />
+    </figure>
+    {{/if}}
+</header>
+<p data-type="url name"><a href="{{url}}" title="{{name}}">{{name}}</a></p>
+{{#if description}}
+<p data-type="description">{{description}}</p>
+{{/if}}
+<p data-type="id">{{id}}</p>
+<p data-type="slug">{{slug}}</p>
+<p data-type="meta_title">{{meta_title}}</p>
+<p data-type="meta_description">{{meta_description}}</p>
+<div data-type="accent_color">
+    <input type="color" value="{{accent_color}}" />
+</div>
+
+
+{{! Get all tags and order them by post count }}
+<section data-type="get-tags">
+    {{#get "tags" limit="all" include="count.posts" order="count.posts desc"}}
+    {{#foreach tags}}
+    <p>{{name}} ({{count.posts}})</p>
+    {{/foreach}}
+    {{/get}}
+</section>
+
+<!-- Previous/next page links - displayed on every page -->
+{{pagination}}
+
+{{/tag}}
+{{/is}}
