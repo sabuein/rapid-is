@@ -606,10 +606,8 @@ body>header {
     width: 100%;
     max-width: 100%;
     height: fit-content;
-    margin-bottom: 5.85em;
     z-index: 999;
     will-change: transform;
-    margin-bottom: 5.85em;
 }
 
 body>header>div.flexy.row {
