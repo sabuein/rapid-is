@@ -595,16 +595,18 @@ span.hearts {
 }
 
 body>header {
-    position: relative;
+    position: sticky;
+    left: 0;
+    top: 0;
     width: 100%;
     max-width: 100%;
-    height: 5.85em;
     z-index: 999;
+    will-change: transform;
 }
 
 body>header>div.flexy.row {
-    position: fixed;
-    top: 0;
+    /*position: fixed;
+    top: 0;*/
     padding: 1em 2em;
     justify-content: space-between;
     gap: 1em;
@@ -1099,7 +1101,7 @@ div.divider-bottom {
 
 div.divider-bottom {
     top: unset;
-    bottom: 0;
+    bottom: -1px;
     transform: rotate(180deg);
 }
 
@@ -1304,7 +1306,7 @@ section.pre-clients article>div.flexy {
 
 section.pre-clients>article.more-clients {
     animation: slide-up 1s linear 10ms 1 forwards;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 section.pre-clients>article.more-clients h3 {
