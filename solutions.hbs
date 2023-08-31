@@ -3,6 +3,7 @@
 {{!-- A custom template for the solutions route --}}
 {{#is "tag"}}
 {{#tag}}
+<link rel="stylesheet" href="{{asset "css/solutions.css"}}" type="text/css" media="screen" />
 <header>
     {{#if feature_image}}
     <figure data-type="feature_image">
@@ -27,7 +28,11 @@
     {{#foreach post}}
     <article class="{{#if @even}}even{{else}}odd{{/if}}">
         <h2>{{title}}</h2>
-        <p><a href="{{url}}" title="Learn more about Rapid&apos;s {{title}} solutions">Learn more&hellip;</a></p>
+        <figure>
+            <img src="{{feature_image}}" title="{{title}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
+        </figure>
+        <p>{{excerpt}}</p>
+        <p><a href="{{url}}" title="Learn more about Rapid&apos;s {{title}} solutions&hellip;">Learn more&hellip;</a></p>
     </article>
     {{/foreach}}
     {{/get}}

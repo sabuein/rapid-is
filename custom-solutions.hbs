@@ -1,1 +1,26 @@
+{{!< default}}
 <!-- custom-solutions.hbs -->
+{{#is "post"}}
+{{#post}}
+<link rel="stylesheet" href="{{asset "css/solutions.css"}}" type="text/css" media="screen" />
+<article class="{{#if @even}}even{{else}}odd{{/if}}">
+    <header>
+        <h1>{{title}}</h1>
+        <figure>
+            <img src="{{feature_image}}" title="{{title}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
+            <figcaption>{{#if feature_image_caption}}{{feature_image_caption}}{{else}}{{title}}{{/if}}</figcaption>
+        </figure>
+    </header>
+    <section class="content flexy">{{content}}</section>
+    <footer>
+        <p><time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time></p>
+        <p>Published at {{published_at}}</p>
+        <p>Updated at {{updated_at}}</p>
+        <p>primary_author {{primary_author.name}}</p>
+        {{#primary_tag}}<p><a href="{{url}}" title="{{name}}">Back to {{name}}&hellip;</a></p>{{/primary_tag}}
+    </footer>
+</article>
+
+<section>{{> "sharing"}}</section>
+{{/post}}
+{{/is}}
