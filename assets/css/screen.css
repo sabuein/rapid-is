@@ -224,7 +224,7 @@ main.flexy {
     width: 100%;
     color: var(--color-black);
     background-color: var(--color-light-grey);
-    gap: 0em;
+    gap: 0;
     font-size: 1.25rem;
     align-items: flex-start;
 }
@@ -253,6 +253,7 @@ body.home-template>main>section {
 body.home-template>main>section:first-of-type {
     margin: 0;
     padding: 0;
+    padding-top: 4em;
     opacity: 1;
 }
 
@@ -599,22 +600,16 @@ span.hearts {
 }
 
 body>header {
-<<<<<<< HEAD
     position: sticky;
-=======
-    position: relative;
->>>>>>> c4314662759e929dcb11eeedc5a206fc9c5ac9e0
     left: 0;
     top: 0;
     width: 100%;
     max-width: 100%;
-<<<<<<< HEAD
-=======
     height: fit-content;
     margin-bottom: 5.85em;
->>>>>>> c4314662759e929dcb11eeedc5a206fc9c5ac9e0
     z-index: 999;
     will-change: transform;
+    margin-bottom: 5.85em;
 }
 
 body>header>div.flexy.row {
