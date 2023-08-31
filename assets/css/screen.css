@@ -314,8 +314,12 @@ main.post.flexy>header>figure {
 
 main.post.flexy>header>figure>img {
     display: none;
-    width: inherit;
-    max-height: inherit;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    width: fit-content;
+    max-height: 100%;
+    height: auto;
 }
 
 main.post.flexy>header>section.title-meta>p {
@@ -1588,11 +1592,16 @@ aside.cookies {
     padding: 3em;
     position: fixed;
     bottom: 0;
-    color: var(--color-white);
+    color: var(--color-light-grey);
     background-color: var(--color-black);
     gap: 1em;
     opacity: .9;
     z-index: 999;
+}
+
+aside.cookies :is(h4, p, a)::selection {
+    color: var(--color-black);
+    background-color: var(--color-light-grey);
 }
 
 aside.cookies h4,
