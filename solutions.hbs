@@ -21,7 +21,7 @@
 
 <section class="rapid-solutions flexy row">
     <header title="Explore Rapid&apos;s {{slug}}" tabindex="0">
-        <h2>Explore Rapid&apos;s {{slug}}</h2>
+        <h2>Explore Rapid&apos;s {{slug}}&colon;</h2>
     </header>
     {{#get "posts" include="tags,authors" filter="primary_tag:{{slug}}" limit="all" order="published_at asc" limit=@config.posts_per_page as |post|}}
     {{#foreach post}}
