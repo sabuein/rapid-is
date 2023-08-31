@@ -6,33 +6,32 @@
 <link rel="stylesheet" href="{{asset "css/solutions.css"}}" type="text/css" media="screen" />
 <header>
     {{#if feature_image}}
-    <figure data-type="feature_image">
-        <img src="{{feature_image}}" alt="{{name}}" />
+    <figure style="--this-feature-image: url({{img_url feature_image absolute='true'}}); --this-accent-color: {{#if accent_color}}{{accent_color}}{{else}}var(--color-light-blue){{/if}};">
+        <img src="{{img_url feature_image absolute='true'}}" title="{{title}}" alt="{{name}}" />
     </figure>
     {{/if}}
+    <h1>Rapid&apos;s {{name}}</h1>
+    {{#if description}}<p>{{description}}</p>{{/if}}
 </header>
-<p data-type="url name"><a href="{{url}}" title="{{name}}">{{name}}</a></p>
-{{#if description}}
-<p data-type="description">{{description}}</p>
-{{/if}}
-<p data-type="id">{{id}}</p>
-<p data-type="slug">{{slug}}</p>
-<p data-type="meta_title">{{meta_title}}</p>
-<p data-type="meta_description">{{meta_description}}</p>
-<div data-type="accent_color">
-    <input type="color" value="{{accent_color}}" />
-</div>
+
+<section class="meta">
+    <p data-type="meta_title">{{meta_title}}</p>
+    <p data-type="meta_description">{{meta_description}}</p>
+</section>
 
 <section class="rapid-solutions flexy row">
+    <header title="Explore Rapid&apos;s {{slug}}" tabindex="0">
+        <h2>Explore Rapid&apos;s {{slug}}</h2>
+    </header>
     {{#get "posts" include="tags,authors" filter="primary_tag:{{slug}}" limit="all" order="published_at asc" limit=@config.posts_per_page as |post|}}
     {{#foreach post}}
-    <article class="{{#if @even}}even{{else}}odd{{/if}}">
-        <h2>{{title}}</h2>
+    <article class="flexy {{#if @even}}even{{else}}odd{{/if}}" title="{{title}}" tabindex="0">
+        <h3>{{title}}</h3>
+        <p>{{excerpt}}</p>
+        <a href="{{url}}" title="Learn more about Rapid&apos;s {{title}} solutions&hellip;">Learn more</a>
         <figure>
             <img src="{{feature_image}}" title="{{title}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
         </figure>
-        <p>{{excerpt}}</p>
-        <p><a href="{{url}}" title="Learn more about Rapid&apos;s {{title}} solutions&hellip;">Learn more&hellip;</a></p>
     </article>
     {{/foreach}}
     {{/get}}
