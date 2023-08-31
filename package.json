@@ -14,7 +14,7 @@
     "scripts": {
         "dev": "rollup -c --environment BUILD:development -w",
         "build": "rollup -c --environment BUILD:production",
-        "zip": "npm run build && bestzip $npm_package_name.zip assets/* partials/* members/* *.hbs package.json",
+        "zip": "zip -r /mnt/c/Users/Sala/Desktop/rapid-is.zip * -x *.zip /assets/data/* .gitignore",
         "test": "npx gscan .",
         "pretest": "npm run build"
     },
