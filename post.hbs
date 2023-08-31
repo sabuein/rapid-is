@@ -4,16 +4,6 @@
 {{#post}}
 <h1>{{title}}</h1>
 {{#match custom_excerpt}}<p>{{custom_excerpt}}</p>{{/match}}
-{{#get "posts" filter="id:-{{id}}" limit="3" as |more_posts|}}
-{{#if more_posts}}
-<aside>
-    <div>
-        {{#foreach more_posts}}
-        {{> "loop"}}
-        {{/foreach}}
-    </div>
-</aside>
-{{/if}}
-{{/get}}
+
 {{/post}}
 {{/is}}

@@ -224,9 +224,13 @@ main.flexy {
     width: 100%;
     color: var(--color-black);
     background-color: var(--color-light-grey);
-    gap: 0;
+    gap: 0em;
     font-size: 1.25rem;
     align-items: flex-start;
+}
+
+body:not(.home-template) > main.flexy {
+    gap: 1em;
 }
 
 @keyframes add-padding {
@@ -240,15 +244,15 @@ main.flexy {
 }
 
 body.home-template>main>section {
+    padding: 1em;
     width: 100%;
     height: 100dvh;
-    padding: 1em;
     transition: opacity 1s ease-out 25s;
 }
 
 body.home-template>main>section:first-of-type {
+    margin: 0;
     padding: 0;
-    padding-top: 4em;
     opacity: 1;
 }
 
@@ -595,11 +599,20 @@ span.hearts {
 }
 
 body>header {
+<<<<<<< HEAD
     position: sticky;
+=======
+    position: relative;
+>>>>>>> c4314662759e929dcb11eeedc5a206fc9c5ac9e0
     left: 0;
     top: 0;
     width: 100%;
     max-width: 100%;
+<<<<<<< HEAD
+=======
+    height: fit-content;
+    margin-bottom: 5.85em;
+>>>>>>> c4314662759e929dcb11eeedc5a206fc9c5ac9e0
     z-index: 999;
     will-change: transform;
 }
@@ -1284,6 +1297,7 @@ section.pre-clients article {
 }
 
 section.pre-clients article>div.flexy {
+    padding-top: 2em;
     align-content: flex-start;
     gap: 1em;
     color: var(--color-black);
@@ -1467,7 +1481,7 @@ section.pre-clients p {
 }
 
 article.main-message {
-    padding: 1em 2em;
+    padding: 2em;
     justify-content: space-between;
 }
 
@@ -1513,6 +1527,7 @@ section.the-app.flexy.row>div>p {
 }
 
 article.main-message figure {
+    padding-top: 2em;
     animation: slide-left 500ms linear 10ms 1 forwards;
 }
 
