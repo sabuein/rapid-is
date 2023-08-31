@@ -1,0 +1,14 @@
+section.rapid-solutions {
+    padding: 1em 2em;
+    align-items: flex-start;
+    gap: 1em;
+}
+
+section.rapid-solutions>article {
+    flex: 1 0 10em;
+    max-width: 25em;
+}
+
+section.content {
+    align-items: flex-start;
+}
