@@ -141,6 +141,7 @@ body.tag-template.tag-solutions>main#main-content article:hover>a {
 
 body.tag-template.tag-solutions>main#main-content article:hover>figure>img {
     scale: 1.05;
+    transition: scale ease-out 100ms 0s;
 }
 
 body.tag-template.tag-solutions>main#main-content article.odd:hover {
@@ -230,6 +231,8 @@ body.tag-template.tag-solutions>main#main-content article>figure>img {
     border-radius: inherit;
     display: inline-block;
     height: inherit;
+    scale: 1;
+    transition: scale ease-in 100ms 0s;
 }
 
 body.tag-template.tag-solutions>footer.flexy>div.divider-top path.shape-fill {
