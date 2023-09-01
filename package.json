@@ -12,15 +12,13 @@
         "desktop": "assets/screenshot-desktop.jpg"
     },
     "scripts": {
-        "dev": "rollup -c --environment BUILD:development -w",
-        "build": "rollup -c --environment BUILD:production",
-        "zip": "zip -r /mnt/c/Users/Sala/Desktop/rapid-is.zip * -x *.zip /assets/labs/* .gitignore",
+        "link": "ln -s /home/sabuein/my/projects/rapid-is /home/sabuein/my/instances/ghost/content/themes",
         "test": "npx gscan .",
-        "pretest": "npm run build"
+        "zip": "zip -r /mnt/c/Users/Sala/Desktop/rapid-is.zip * -x *.zip /assets/labs/* .gitignore"
     },
     "author": {
         "name": "Salaheddin AbuEin",
-        "email": "sabuein@gmail.com",
+        "email": "salaheddin.abuein@rapid-is.co.uk",
         "url": "https://sabuein.github.io/"
     },
     "gpm": {
