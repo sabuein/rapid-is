@@ -2,13 +2,13 @@
     --this-accent-color: var(--color-light-blue);
 }
 
-body.tag-solutions>main#main-content {
+body.tag-template.tag-solutions>main#main-content {
     margin: 0;
     padding: 0;    
     gap: 2em;
 }
 
-body.tag-solutions>main#main-content>figure {
+body.tag-template.tag-solutions>main#main-content>figure {
     flex: 1 0 20dvh;
     min-height: 20dvh;
     width: 100%;
@@ -16,14 +16,13 @@ body.tag-solutions>main#main-content>figure {
     background-position: bottom center;
 }
 
-body.tag-solutions>main#main-content>header {
+body.tag-template.tag-solutions>main#main-content>header {
     flex: 1 0 100%;
     text-align: justify;
-    padding-bottom: 1.5em;
     cursor: default;
 }
 
-body.tag-solutions>main#main-content>header p {
+body.tag-template.tag-solutions>main#main-content>header p {
     margin: 1em auto;
     text-align: inherit;
     font-size: 2rem;
@@ -31,7 +30,7 @@ body.tag-solutions>main#main-content>header p {
     width: 75dvw;
 }
 
-body.tag-solutions>main#main-content h1 {
+body.tag-template.tag-solutions>main#main-content h1 {
     color: var(--color-orange);
     color: currentColor;
     /*text-shadow: .05em .05em 0 var(--color-yellow);
@@ -45,21 +44,21 @@ body.tag-solutions>main#main-content h1 {
     margin-left: 2.75em;
 }
 
-body.tag-solutions>main#main-content h1:hover {
+body.tag-template.tag-solutions>main#main-content h1:hover {
     color: var(--color-red);
     text-shadow: .05em .05em 0 var(--color-light-grey);
     text-decoration-color: var(--color-blue);
 }
 
 
-body.tag-solutions>main#main-content>div {
+body.tag-template.tag-solutions>main#main-content>div {
     padding: 3em;
     padding-top: 1em;
     align-items: flex-start;
     gap: 3em;
 }
 
-body.tag-solutions>main#main-content article {
+body.tag-template.tag-solutions>main#main-content article {
     flex: 1 0 26dvw;
     max-width: 26dvw;
     padding: 0;
@@ -72,60 +71,60 @@ body.tag-solutions>main#main-content article {
     border-radius: .25em;
 }
 
-body.tag-solutions>main#main-content article:hover {
+body.tag-template.tag-solutions>main#main-content article:hover {
     border-width: .125em;
     cursor: pointer;
     transform: translateY(-.1em);
 }
 
-body.tag-solutions>main#main-content article:hover>*:is(a, p) {
+body.tag-template.tag-solutions>main#main-content article:hover>*:is(a, p) {
     display: block;
     color: var(--color-dark-blue);
     width: fit-content;
 }
 
-body.tag-solutions>main#main-content article:hover>a {
+body.tag-template.tag-solutions>main#main-content article:hover>a {
     font-weight: 700;
     text-decoration: underline;
     color: var(--color-white);
     background-color: var(--color-blue);
 }
 
-body.tag-solutions>main#main-content article:hover>figure>img {
+body.tag-template.tag-solutions>main#main-content article:hover>figure>img {
     scale: 1.05;
 }
 
-body.tag-solutions>main#main-content article.odd:hover {
+body.tag-template.tag-solutions>main#main-content article.odd:hover {
     -webkit-box-shadow-: .35em .35em 0 var(--color-turquoise);
     box-shadow: .35em .35em 0 var(--color-turquoise);
 }
 
-body.tag-solutions>main#main-content article.even:hover {
+body.tag-template.tag-solutions>main#main-content article.even:hover {
     -webkit-box-shadow: .35em .35em 0 var(--color-blue);
     box-shadow: .35em .35em 0 var(--color-blue);
 }
 
-body.tag-solutions>main#main-content article.odd:hover>h2 {
+body.tag-template.tag-solutions>main#main-content article.odd:hover>h2 {
     color: var(--color-turquoise);
 }
 
-body.tag-solutions>main#main-content article.even:hover>h2 {
+body.tag-template.tag-solutions>main#main-content article.even:hover>h2 {
     color: var(--color-blue);
 }
 
-body.tag-solutions>main#main-content article>h2 {
+body.tag-template.tag-solutions>main#main-content article>h2 {
     margin-right: auto;
     padding: .85em .75em 0;
     list-style: normal;
     color: var(--color-light-purple);
 }
 
-body.tag-solutions>main#main-content article>p {
+body.tag-template.tag-solutions>main#main-content article>p {
     padding: 0 2em;
     text-align: justify;
 }
 
-body.tag-solutions>main#main-content article>a {
+body.tag-template.tag-solutions>main#main-content article>a {
     margin-left: 2em;
     position: relative;
     display: block;
@@ -138,7 +137,7 @@ body.tag-solutions>main#main-content article>a {
     border-radius: .5em;
 }
 
-body.tag-solutions>main#main-content article>a::after {
+body.tag-template.tag-solutions>main#main-content article>a::after {
     position: absolute;
     right: 1em;
     bottom: .5em;
@@ -147,30 +146,30 @@ body.tag-solutions>main#main-content article>a::after {
     color: var(--color-light-grey);
 }
 
-body.tag-solutions>main#main-content article:hover>a::after {
+body.tag-template.tag-solutions>main#main-content article:hover>a::after {
     right: .35em;
     bottom: 0;
     font-size: 1.5em;
     color: var(--color-white);
 }
 
-body.tag-solutions>main#main-content article>figure {
+body.tag-template.tag-solutions>main#main-content article>figure {
     border-radius: inherit;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     overflow: hidden;
 }
 
-body.tag-solutions>main#main-content article>figure>img {
+body.tag-template.tag-solutions>main#main-content article>figure>img {
     border-radius: inherit;
     display: inline-block;
     height: inherit;
 }
 
-body.tag-solutions>footer.flexy>div.divider-top path.shape-fill {
+body.tag-template.tag-solutions>footer.flexy>div.divider-top path.shape-fill {
     fill: var(--this-accent-color);
 }
 
-body.tag-solutions>hr {
+body.tag-template.tag-solutions>hr {
     display: none;
 }
