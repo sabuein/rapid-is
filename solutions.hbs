@@ -4,29 +4,21 @@
 {{#is "tag"}}
 {{#tag}}
 <link rel="stylesheet" href="{{asset "css/solutions.css"}}" type="text/css" media="screen" />
-<header>
-    {{#if feature_image}}
-    <figure style="--this-feature-image: url({{img_url feature_image absolute='true'}}); --this-accent-color: {{#if accent_color}}{{accent_color}}{{else}}var(--color-light-blue){{/if}};">
-        <img src="{{img_url feature_image absolute='true'}}" title="{{title}}" alt="{{name}}" />
-    </figure>
-    {{/if}}
-    <h1>Rapid&apos;s {{name}}</h1>
+{{#if feature_image}}
+<figure style="--this-feature-image: url({{img_url feature_image absolute='true'}}); --this-accent-color: {{#if accent_color}}{{accent_color}}{{else}}var(--color-light-blue){{/if}};">
+    <img src="{{img_url feature_image absolute='true'}}" title="{{title}}" alt="{{name}}" />
+</figure>
+{{/if}}
+<header title="Explore Rapid&apos;s {{slug}}" tabindex="0">
+    <h1>{{name}}</h1>
     {{#if description}}<p>{{description}}</p>{{/if}}
 </header>
-
-<section class="meta">
-    <p data-type="meta_title">{{meta_title}}</p>
-    <p data-type="meta_description">{{meta_description}}</p>
-</section>
-
-<section class="rapid-solutions flexy row">
-    <header title="Explore Rapid&apos;s {{slug}}" tabindex="0">
-        <h2>Explore Rapid&apos;s {{slug}}&colon;</h2>
-    </header>
-    {{#get "posts" include="tags,authors" filter="primary_tag:{{slug}}" limit="all" order="published_at asc" limit=@config.posts_per_page as |post|}}
+{{#get "posts" include="tags,authors" filter="primary_tag:{{slug}}" limit="all" order="published_at asc" limit=@config.posts_per_page as |post|}}
+{{#if post}}
+<div class="flexy row">
     {{#foreach post}}
     <article class="flexy {{#if @even}}even{{else}}odd{{/if}}" title="{{title}}" tabindex="0">
-        <h3>{{title}}</h3>
+        <h2>{{title}}</h2>
         <p>{{excerpt}}</p>
         <a href="{{url}}" title="Learn more about Rapid&apos;s {{title}} solutions&hellip;">Learn more</a>
         <figure>
@@ -34,8 +26,8 @@
         </figure>
     </article>
     {{/foreach}}
-    {{/get}}
-</section>
-
+</div>
+{{/if}}
+{{/get}}
 {{/tag}}
 {{/is}}
