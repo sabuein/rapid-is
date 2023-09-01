@@ -125,6 +125,7 @@
 
 :root {
     --font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color-scheme: light dark;
     --color-blue: #1d70b8;
     --color-dark-blue: #003078;
     --color-light-blue: #5694ca;
@@ -148,16 +149,31 @@
     --color-light-green-40: #85994b40;
     --color-turquoise: #28a197;
     --max-width: 1920px;
-    --primary-color: oklch(.33 .13 259.56);
-    --relative-color-one: oklch(from var(--primary-color) calc(l * 160%) calc(c/3) h);
-    --relative-color-two: oklch(from var(--primary-color) calc(l * 145%) calc(c/3) h);
-    --relative-color-three: oklch(from var(--primary-color) calc(l * 130%) calc(c/3) h);
-    --relative-color-four: oklch(from var(--primary-color) calc(l * 115%) calc(c/3) h);
-    --relative-color-five: oklch(from var(--primary-color) calc(l * 100%) calc(c/3) h);
-    --relative-color-six: oklch(from var(--primary-color) calc(l * 85%) calc(c/3) h);
-    --relative-color-seven: oklch(from var(--primary-color) calc(l * 70%) calc(c/3) h);
-    --relative-color-eight: oklch(from var(--primary-color) calc(l * 55%) calc(c/3) h);
-    --relative-color-nine: oklch(from var(--primary-color) calc(l * 40%) calc(c/3) h);
+    --link-button-text: rgb(75,73,70);
+    --link-button-primary: rgb(47,192,82);
+    --link-button-secondary: rgb(238,237,233);
+    --link-button-tertiary: rgb(255,255,255);
+    --link-button-destructive: rgb(253,98,50);
+    --link-button-primary-secondary: rgb(30,157,187);
+    --link-button-primary-blue-300: rgb(36,183,219);
+    --link-button-primary-tertiary: rgb(246,172,47);
+    --link-button-disabled: rgb(244,243,241);
+    /* Generating accent color and de */
+    --accent-color-h: 208;
+    --accent-color-s: 73%;
+    --accent-color-l: 42%;
+    --accent-color: hsl(var(--accent-color-h), var(--accent-color-s), var(--accent-color-l));
+    --accent-color-10: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 5%));
+    --accent-color-20: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 10%));
+    --accent-color-30: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 15%));
+    --accent-color-40: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 20%));
+    --accent-color-50: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 25%));
+    --accent-color-60: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 30%));
+    --accent-color-70: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 35%));
+    --accent-color-80: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 40%));
+    --accent-color-90: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 50%));
+    --accent-color-95: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 55%));
+    --accent-color-100: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 60%));
 }
 
 ::selection {
@@ -589,6 +605,9 @@ a[href="#main-content"] {
     text-align: center;
     font-size: 1.25rem;
     flex: 1 0 100%;
+    position: absolute;
+    top: 1em;
+    right: 3em;
 }
 
 a[href="#main-content"]:hover {

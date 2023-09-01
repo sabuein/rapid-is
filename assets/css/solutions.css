@@ -1,14 +1,23 @@
+:root {
+    --ghost-accent-color: hsl(12, 15%, 40%) !important;
+    --ghost-accent-color-lighter: rgba(var(--ghost-accent-color), .85);
+    --ghost-accent-color-secondary: rgb(from var(--ghost-accent-color) h c calc(l + 5%));
+}
+
 body.tag-template.tag-solutions>main#main-content {
     margin: 0;
     padding: 0;    
-    gap: 2em;
+    gap: 1em;
+    color: var(--accent-color-10);
+    background-color: var(--accent-color-100);
 }
 
 body.tag-template.tag-solutions>main#main-content>figure {
+    margin-bottom: 2em;
     flex: 1 0 20dvh;
     min-height: 20dvh;
     width: 100%;
-    background-color: var(--ghost-accent-color);
+    background-color: var(--accent-color);
     background-position: bottom center;
 }
 
@@ -19,73 +28,115 @@ body.tag-template.tag-solutions>main#main-content>header {
 }
 
 body.tag-template.tag-solutions>main#main-content>header p {
-    margin: 1em auto 1em 4em;
+    margin: 2em auto 1em 4em;
     text-align: inherit;
     font-size: 2rem;
     max-width: 95%;
     width: 70dvw;
+    color: var(--color-black);
+}
+
+body.tag-template.tag-solutions>main#main-content>header p:hover {
+    text-shadow: .05em .05em 0 var(--accent-color-95);
 }
 
 body.tag-template.tag-solutions>main#main-content h1 {
     margin-left: 2em;
-    color: var(--color-orange);
+    color: var(--accent-color-10);
     color: currentColor;
     /*text-shadow: .05em .05em 0 var(--color-yellow);
-    text-decoration: underline wavy var(--color-light-blue);*/
+    text-decoration: underline wavy var(--ghost-accent-color-lighter);*/
     text-transform: capitalize;
     text-transform: uppercase;
     font-size: 3.25em;
     line-height: normal;
     max-width: 100%;
-    cursor: pointer;
+    cursor: default;
 }
 
 body.tag-template.tag-solutions>main#main-content h1:hover {
-    color: var(--ghost-accent-color);
-    text-shadow: .05em .05em 0 var(--color-light-grey);
-    text-decoration-color: var(--ghost-accent-color);
+    color: var(--accent-color);
+    text-shadow: .05em .05em 0 var(--accent-color-95);
+    text-decoration-color: var(--accent-color-95);
 }
 
+body.tag-template.tag-solutions>main#main-content>header>a {
+    position: absolute;
+    top: 0;
+    right: 1em;
+    max-width: 100%;
+    width: 20dvw;
+    animation: point-down 1s linear 0s infinite;
+    cursor: pointer;
+}
+
+body.tag-template.tag-solutions>main#main-content>header path {
+    fill: var(--accent-color-60);
+    transition: all 250ms ease-in 0s;
+}
+
+body.tag-template.tag-solutions>main#main-content>header svg {
+    stroke: var(--accent-color);
+    stroke-width: 1em;
+    stroke-dasharray: .9,.9;
+    stroke-linejoin: round;
+}
+
+body.tag-template.tag-solutions>main#main-content>header svg:hover>path {
+    fill: var(--accent-color-20);
+    transition: all 250ms ease-out 0s;
+}
 
 body.tag-template.tag-solutions>main#main-content>div {
-    padding: 3em;
-    padding-top: 1em;
+    padding: 2em;
+    padding-top: 5em;
     align-items: flex-start;
-    gap: 3em;
+    gap: 4em;
 }
 
 body.tag-template.tag-solutions>main#main-content article {
     flex: 1 0 26dvw;
     max-width: 26dvw;
     padding: 0;
-    border: .1em solid var(--color-black);
-    background-color: var(--color-light-grey);
+    border: thin solid currentColor;
+    background-color: var(--accent-color-95);
     align-items: flex-start;
-    gap: 1em;
-    -webkit-box-shadow: .25em .25em 0 var(--color-light-blue);
-    box-shadow: .25em .25em 0 var(--color-light-blue);
+    gap: .5em;
+    -webkit-box-shadow: .25em .25em 0 var(--accent-color-80);
+    box-shadow: .25em .25em 0 var(--accent-color-80);
     border-radius: .25em;
     overflow: hidden;
+    transition: all ease-in 75ms 0s;
 }
 
 body.tag-template.tag-solutions>main#main-content article:hover {
-    border-width: .125em;
+    border-width: .1em;
     cursor: pointer;
     transform: translateY(-.1em);
+    transition: all ease-out 75ms 0s;
 }
 
 body.tag-template.tag-solutions>main#main-content article:hover>*:is(a, p) {
     display: block;
-    color: var(--color-dark-blue);
+    color: var(--accent-color-10);
     width: fit-content;
+}
+
+body.tag-template.tag-solutions>main#main-content article:hover>p {
+    width: 100%;
+    color: var(--accent-color);
 }
 
 body.tag-template.tag-solutions>main#main-content article:hover>a {
     font-weight: 700;
     text-decoration: underline;
-    color: var(--color-white);
-    background-color: var(--ghost-accent-color);
-    text-shadow: 0 0 5em var(--color-light-blue);
+    color: var(--accent-color-100);
+    background-color: var(--accent-color);
+    text-shadow: 0 0 5em var(--accent-color-50);
+    -webkit-box-shadow: .15em .15em 0 var(--accent-color-80);
+    box-shadow: .15em .15em 0 var(--accent-color-80);
+    padding-right: 3em;
+    transition: all ease-out 250ms 0s;
 }
 
 body.tag-template.tag-solutions>main#main-content article:hover>figure>img {
@@ -93,66 +144,79 @@ body.tag-template.tag-solutions>main#main-content article:hover>figure>img {
 }
 
 body.tag-template.tag-solutions>main#main-content article.odd:hover {
-    -webkit-box-shadow-: .35em .35em 0 var(--color-turquoise);
-    box-shadow: .35em .35em 0 var(--color-turquoise);
+    -webkit-box-shadow-: .35em .35em 0 var(--accent-color-40);
+    box-shadow: .35em .35em 0 var(--accent-color-40);
+    border-color: var(--accent-color-40);
+}
+
+body.tag-template.tag-solutions>main#main-content article.odd:hover>a {
+    background-color: var(--accent-color-10);
 }
 
 body.tag-template.tag-solutions>main#main-content article.even:hover {
-    -webkit-box-shadow: .35em .35em 0 var(--ghost-accent-color);
-    box-shadow: .35em .35em 0 var(--ghost-accent-color);
+    -webkit-box-shadow: .35em .35em 0 var(--accent-color);
+    box-shadow: .35em .35em 0 var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 body.tag-template.tag-solutions>main#main-content article:hover>h2 {
-    text-shadow: 0 0 10em var(--color-light-blue);
+    text-shadow: 0 0 10em var(--accent-color-80);
 }
 
 body.tag-template.tag-solutions>main#main-content article.odd:hover>h2 {
-    color: var(--color-turquoise);
+    color: var(--accent-color-20);
 }
 
 body.tag-template.tag-solutions>main#main-content article.even:hover>h2 {
-    color: var(--ghost-accent-color);
+    color: var(--accent-color);
 }
 
 body.tag-template.tag-solutions>main#main-content article>h2 {
     margin-right: auto;
     padding: .85em .75em 0;
     list-style: normal;
-    color: var(--color-light-purple);
+    color: var(--accent-color-30);
 }
 
 body.tag-template.tag-solutions>main#main-content article>p {
-    padding: 0 2em;
+    padding: 0 1.5em;
     text-align: justify;
+    color: var(--color-black);
 }
 
 body.tag-template.tag-solutions>main#main-content article>a {
-    margin-left: 2em;
+    margin-left: 1.5em;
+    margin-bottom: .5em;
     position: relative;
     display: block;
-    padding: .5em 2em;
+    padding: .5em 1.5em;
+    padding-right: 2.5em;
     text-decoration: none;
     font-weight: 500;
     font-size: 1.5rem;
-    color: var(--color-light-grey);
-    background-color: var(--color-light-blue);
+    color: var(--accent-color);
+    background-color: var(--accent-color-80);
     border-radius: .5em;
+    transition: all ease-in 250ms 0s;
 }
 
 body.tag-template.tag-solutions>main#main-content article>a::after {
     position: absolute;
-    right: 1em;
+    right: .75em;
     bottom: .5em;
     content: "\2197";
     font-size: 1em;
-    color: var(--color-light-grey);
+    color: var(--accent-color-70);
+    background-color: transparent;
+    transition: all ease-in 100ms 0s;
 }
 
 body.tag-template.tag-solutions>main#main-content article:hover>a::after {
     right: .35em;
     bottom: 0;
     font-size: 1.5em;
-    color: var(--color-white);
+    color: var(--accent-color-80);
+    transition: all ease-out 100ms 0s;
 }
 
 body.tag-template.tag-solutions>main#main-content article>figure {
@@ -169,7 +233,7 @@ body.tag-template.tag-solutions>main#main-content article>figure>img {
 }
 
 body.tag-template.tag-solutions>footer.flexy>div.divider-top path.shape-fill {
-    fill: var(--ghost-accent-color);
+    fill: var(--accent-color-100);
 }
 
 body.tag-template.tag-solutions>hr {
