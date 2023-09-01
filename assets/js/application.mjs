@@ -77,6 +77,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
         }
     });
+
+    // Let the whole solution widget clickable!
+    const solutionsApps = document.querySelectorAll("body.tag-template.tag-solutions>main#main-content>div>article") || null;
+    if (!!solutionsApps) {
+        for (let i = 0; i < solutionsApps.length; i++) {
+            const a = document.querySelector(`body.tag-template.tag-solutions>main#main-content>div>article:nth-child(${i+1}) > a`);
+            solutionsApps[i].onclick = () => a.click();
+        }
+    }
 });
 
 const shakeMe = (section) => {
