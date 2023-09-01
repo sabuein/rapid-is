@@ -6,28 +6,24 @@
 {{else}}
 <ul class="nav flexy row" role="menu">
     {{#foreach navigation}}
-    {{#has slug="solutions"}}
-    <li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}"><span>{{label}}</span>
-    {{> "icons/angle-down"}}
-    </a></li>
-    {{else}}
-    <li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}">{{label}}</a></li>
-    {{/has}}
+    {{#has slug="solutions"}}<li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}" class="flexy row">
+        <span>{{label}}</span>
+        {{> "icons/angle-down"}}</a></li>{{else}}<li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}">{{label}}</a></li>{{/has}}
     {{/foreach}}
 </ul>
 <ul class="solutions-nav flexy row">
-    <li><a href="/solutions/billing-system/" title="Billing System">
+    <li><a href="/solutions/billing-system/" title="Billing System" class="flexy row">
     {{> "icons/angle-down"}}
     <span>Billing System</span></a></li>
-    <li><a href="/solutions/safety-and-compliance/" title="Safety and Compliance">
+    <li><a href="/solutions/safety-and-compliance/" title="Safety and Compliance" class="flexy row">
     {{> "icons/angle-down"}}<span>Safety &amp; Compliance</span></a></li>
-    <li><a href="/solutions/estates/" title="Estates">
+    <li><a href="/solutions/estates/" title="Estates" class="flexy row">
     {{> "icons/angle-down"}}
     <span>Estates</span></a></li>
-    <li><a href="/solutions/education-and-welfare/" title="Education and Welfare">
+    <li><a href="/solutions/education-and-welfare/" title="Education and Welfare" class="flexy row">
     {{> "icons/angle-down"}}
     <span>Education &amp; Welfare</span></a></li>
-    <li><a href="/solutions/communication/" title="Communication">
+    <li><a href="/solutions/communication/" title="Communication" class="flexy row">
     {{> "icons/angle-down"}}
     <span>Communication</span></a></li>
 </ul>
