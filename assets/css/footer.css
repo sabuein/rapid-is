@@ -10,7 +10,7 @@ body>footer.flexy {
 }
 
 body>footer.flexy>div.divider-top path.shape-fill {
-    fill: var(--color-yellow);
+    fill: var(--accent-color-100);
 }
 
 body>footer>section.flexy {

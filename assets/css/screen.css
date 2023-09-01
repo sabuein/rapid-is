@@ -172,8 +172,10 @@
     --accent-color-70: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 35%));
     --accent-color-80: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 40%));
     --accent-color-90: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 50%));
-    --accent-color-95: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 55%));
     --accent-color-100: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 60%));
+    --accent-color-110: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 70%));
+    --accent-color-120: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 80%));
+    --this-feature-image: url();
 }
 
 ::selection {
@@ -486,10 +488,15 @@ section.knowhow.flexy fieldset {
     gap: 1em;
 }
 
+div.cta-button {
+    text-align: center;
+}
+
 button[type="button"],
 input[type="button"],
 input[type="submit"],
-input[type="reset"] {
+input[type="reset"],
+div.cta-button a {
     border-radius: 3em;
     color: var(--color-white);
     background-color: var(--color-dark-blue);
@@ -527,6 +534,7 @@ div.cta-button {
     width: 100%;
 }
 
+div.cta-button a,
 div.cta-button button {
     border-radius: 0;
     width: 25%;
@@ -534,15 +542,27 @@ div.cta-button button {
     transition: width 1s ease-in 0s;
 }
 
+div.cta-button a {
+    display: block;
+    text-decoration: none;
+    width: 85%;
+    transition: all 1s ease-in 0s;
+}
+
 :is(button[type="button"],
     input[type="button"],
     input[type="submit"],
-    input[type="reset"]):hover {
+    input[type="reset"]):hover,
+div.cta-button a:hover {
     width: 100%;
     background-color: var(--color-blue);
     outline: thick solid var(--color-yellow);
     font-weight: bolder;
-    transition: width 3s ease-out 0s;
+    transition: all 1s ease-out 0s;
+}
+
+div.cta-button a:hover {
+    text-decoration: underline;
 }
 
 section.knowhow.flexy input[type="submit"] {
@@ -599,21 +619,29 @@ a {
 }
 
 a[href="#main-content"] {
-    font-size: 3rem;
+    margin: 0;
+    padding: .5em 3em .5em 6em;
     z-index: 99;
     text-decoration: none;
     text-align: center;
     font-size: 1.25rem;
+    font-weight: 500;
     flex: 1 0 100%;
     position: absolute;
     top: 2em;
-    right: 3em;
-}
+    right: 0;
+    color: var(--accent-color);
+    background-color: var(--accent-color-80);
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+    transition: all 150ms ease-out 0s;
+}   
 
 a[href="#main-content"]:hover {
-    scale: 1;
-    text-decoration: none;
-    font-weight: bolder;
+    color: var(--color-white);
+    background-color: var(--accent-color-20);
+    box-shadow: 0.15em 0.15em 0 var(--accent-color-90);
+    transition: all 150ms ease-in 0s;
 }
 
 /* Elements with classes */
@@ -643,7 +671,7 @@ body>header>div.flexy.row {
     align-items: center;
     gap: 1em;
     /* opacity: .9; */
-    background-color: var(--color-white);
+    background-color: var(--accent-color-100);
     width: 100%;
     animation: menu-go-down 500ms linear 0s 1 forwards;
     box-shadow: 0 0 .25em var(--color-black-40);
@@ -1125,12 +1153,16 @@ div.divider-bottom {
     margin: 0;
     padding: 0;
     position: absolute;
-    top: 0;
+    top: -1em;
     left: 0;
     width: 100%;
     overflow: hidden;
     line-height: 0;
     user-select: none;
+}
+
+body.home-template>footer.flexy>div.divider-top {
+    top: 0;
 }
 
 div.divider-bottom {
@@ -1516,6 +1548,7 @@ article.main-message svg {
 }
 
 section.the-app.flexy.row {
+    padding: 2em 0em;
     color: var(--color-dark-blue);
     background-color: var(--color-white);
     justify-content: space-between;
@@ -1529,11 +1562,17 @@ section.the-app.flexy.row>figure {
     max-height: 100%;
 }
 
+section.the-app.flexy.row>figure>img {
+    border-top-left-radius: 20em;
+    border-bottom-left-radius: 15em;
+    box-shadow: 1.25em .65em 0 var(--accent-color);
+}
+
 section.the-app.flexy.row>div {
     align-content: flex-start;
     padding: 0;
-    padding-left: 2em;
-    gap: 1em;
+    padding-left: 4em;
+    gap: 2em;
 }
 
 section.the-app.flexy.row>div>h3 {
