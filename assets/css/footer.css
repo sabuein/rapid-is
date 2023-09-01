@@ -95,6 +95,7 @@ body>footer a:hover {
 }
 
 div.social-icons.flexy.row {
+    padding: 0;
     gap: .5em;
 }
 

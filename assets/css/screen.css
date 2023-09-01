@@ -298,6 +298,7 @@ main.post.flexy>header>section.title-meta>h1 {
     align-self: flex-start;
 }
 
+main.post.flexy>figure,
 main.post.flexy>header>figure {
     background-color: var(--color-light-green);
     background-image: var(--this-feature-image);
@@ -312,6 +313,7 @@ main.post.flexy>header>figure {
     align-self: center;
 }
 
+main.post.flexy>figure>img,
 main.post.flexy>header>figure>img {
     display: none;
     margin-left: auto;
@@ -619,6 +621,7 @@ body>header>div.flexy.row {
     top: 0;*/
     padding: 1em 2em;
     justify-content: space-between;
+    align-items: center;
     gap: 1em;
     /* opacity: .9; */
     background-color: var(--color-white);
@@ -1098,8 +1101,10 @@ section#briefly.flexy {
     gap: 2em;
 }
 
-div.divider-top,
+body>footer.flexy>div.divider-top,
 div.divider-bottom {
+    margin: 0;
+    padding: 0;
     position: absolute;
     top: 0;
     left: 0;
