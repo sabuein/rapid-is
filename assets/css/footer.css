@@ -90,7 +90,7 @@ body>footer a {
 body>footer a:focus,
 body>footer a:hover {
     text-decoration: underline;
-    color: var(--color-orange);
+    color: var(--accent-color);
     font-weight: bold;
 }
 

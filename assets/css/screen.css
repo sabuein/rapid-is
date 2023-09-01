@@ -211,7 +211,7 @@ body {
     font-weight: 400;
     line-height: 2;
     color: var(--color-black);
-    background-color: var(--color-light-grey);
+    background-color: var(--accent-color-100);
     width: 100%;
     max-width: var(--max-width);
     gap: 0;
@@ -241,7 +241,7 @@ main.flexy {
     position: relative;
     width: 100%;
     color: var(--color-black);
-    background-color: var(--color-light-grey);
+    background-color: var(--accent-color-100);
     gap: 0;
     font-size: 1.25rem;
     align-items: flex-start;
@@ -264,14 +264,23 @@ body:not(.home-template) > main.flexy {
 body.home-template>main>section {
     padding: 1em;
     width: 100%;
-    height: 100dvh;
+    min-height: 100dvh;
+    height: auto;
     transition: opacity 1s ease-out 25s;
+    position: relative;
+}
+
+.masked {
+    -webkit-mask-image: url(w3logo.png);
+    mask-image: url(w3logo.png);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
 }
 
 body.home-template>main>section:first-of-type {
     margin: 0;
     padding: 0;
-    padding-top: 4em;
+    padding-top: 1em;
     opacity: 1;
 }
 
@@ -307,6 +316,7 @@ main.post.flexy>header>section.title-meta {
     position: absolute;
     padding: 2em 4em;
     inset: auto;
+    color: var(--accent-color);
     background-color: #ffffff95;
     gap: .25em;
     width: 100%;
@@ -314,6 +324,7 @@ main.post.flexy>header>section.title-meta {
 
 main.post.flexy>header>section.title-meta>h1 {
     align-self: flex-start;
+    color: inherit;
 }
 
 main.post.flexy>figure,
@@ -342,6 +353,14 @@ main.post.flexy>header>figure>img {
     height: auto;
 }
 
+main.post.flexy>header>div {
+    bottom: 0;
+}
+
+main.post.flexy>header>div path {
+    fill: var(--accent-color-100);
+}
+
 main.post.flexy>header>section.title-meta>p {
     font-size: 1.1rem;
     text-align: justify;
@@ -362,8 +381,8 @@ main.post.flexy>header>section.title-meta>div>time {}
 
 main.post.flexy>section.content {
     margin: 0 auto;
-    padding: 1em;
-    max-width: 80%;
+    padding:  0 12dvw;
+    max-width: 85%;
     align-items: flex-start;
     gap: 1em;
 }
@@ -379,8 +398,23 @@ main.post.flexy>section.content ul {
     line-height: 2.25em;
 }
 
+main.post.flexy>section.content blockquote {
+    margin:  0 auto 0 .25em;
+    padding: .25em 0 .25em 1em;
+    color: var(--accent-color);
+    border-left: thick solid var(--accent-color-90);
+    font-size: 1.5em;
+    font-style: oblique;
+    line-height: 2em;
+    text-align: start;
+    font-weight: 700;
+}
+
 main.post.flexy>section.content p {
     line-height: 2.5em;
+    text-align: justify;
+    font-size: 1.4rem;
+    font-weight: 400;
 }
 
 main.post.flexy>section.content a {
@@ -447,7 +481,7 @@ body.home-template>main>section.ready-to-talk {
     max-height: 30dvh;
 }
 
-body.home-template>main>section.ready-to-talk>h3 {
+body.home-template>main>section.ready-to-talk>h2 {
     color: var(--color-white);
 }
 
@@ -475,6 +509,10 @@ section.knowhow.flexy {
     background-color: var(--color-yellow);
     text-align: center;
     gap: 2em;
+}
+
+section.knowhow.flexy>a {
+    top: 50dvh;
 }
 
 section.knowhow.flexy form {
@@ -505,6 +543,7 @@ div.cta-button a {
     font-weight: bold;
     font-size: 1.25rem;
     width: unset;
+    user-select: none;
 }
 
 input[type="text"],
@@ -545,7 +584,8 @@ div.cta-button button {
 div.cta-button a {
     display: block;
     text-decoration: none;
-    width: 85%;
+    max-width: 90%;
+    box-shadow: .25em .25em 0 var(--accent-color-80);
     transition: all 1s ease-in 0s;
 }
 
@@ -620,7 +660,7 @@ a {
 
 a[href="#main-content"] {
     margin: 0;
-    padding: .5em 3em .5em 6em;
+    padding: .5em 2em .5em 5em;
     z-index: 99;
     text-decoration: none;
     text-align: center;
@@ -630,18 +670,18 @@ a[href="#main-content"] {
     position: absolute;
     top: 2em;
     right: 0;
-    color: var(--accent-color);
-    background-color: var(--accent-color-80);
+    color: var(--accent-color-60);
+    background-color: var(--accent-color-100);
     border-top-left-radius: 2em;
     border-bottom-left-radius: 2em;
-    transition: all 150ms ease-out 0s;
+    transition: all 250ms ease-out 0s;
 }   
 
 a[href="#main-content"]:hover {
     color: var(--color-white);
-    background-color: var(--accent-color-20);
+    background-color: var(--accent-color-30);
     box-shadow: 0.15em 0.15em 0 var(--accent-color-90);
-    transition: all 150ms ease-in 0s;
+    transition: all 250ms ease-in 0s;
 }
 
 /* Elements with classes */
@@ -728,6 +768,10 @@ figure.rapid-logo {
 
 header figure.rapid-logo {
     max-width: 10em;
+}
+
+header figure.rapid-logo>a {
+    user-select: none;
 }
 
 header figure.rapid-logo img {
@@ -1057,7 +1101,9 @@ ul.solutions-nav li {
 }
 
 li.nav-current {
-    background-color: var(--color-light-grey);
+    padding: .25em .85em;
+    background-color: var(--accent-color-90);
+    border-radius: 5em;
 }
 
 ul.nav.flexy.row a,
@@ -1070,7 +1116,7 @@ ul.nav.flexy.row a:focus,
 ul.solutions-nav.flexy.row a:hover,
 li.nav-solutions:focus-within {
     text-decoration: underline;
-    color: var(--color-orange);
+    color: var(--accent-color);
 }
 
 li.nav-solutions svg path,
@@ -1081,7 +1127,7 @@ ul.solutions-nav.flexy.row svg path {
 li.nav-solutions a:hover path,
 li.nav-solutions:focus-within path,
 ul.solutions-nav.flexy.row a:hover path {
-    fill: var(--color-orange);
+    fill: var(--accent-color);
 }
 
 section.compliance.flexy.row {
@@ -1106,6 +1152,8 @@ section.compliance.flexy.row>div {
 
 section.compliance.flexy.row h2 {
     color: var(--color-purple);
+    font-size: 2.25rem;
+    line-height: 1.5;
 }
 
 section.compliance.flexy.row div.cta-button {
@@ -1139,7 +1187,7 @@ section.compliance.flexy.row div.cta-button button[type="button"]:hover {
 
 section#briefly.flexy {
     position: relative;
-    padding: 4em;
+    padding: 1em 2em;
     color: var(--color-white);
     background-color: var(--color-red);
     /*border-top-left-radius: 0;
@@ -1188,7 +1236,9 @@ section#briefly.flexy>div.divider-bottom path.shape-fill {
 
 section#briefly.flexy>article {
     flex: 1 0 58%;
-    max-width: 58%;
+    max-width: 50%;
+    width: 58%;
+    
 }
 
 section#briefly.flexy>button {
@@ -1207,7 +1257,8 @@ section#get-the-app.flexy {
     padding: 2em 1em;
     position: relative;
     overflow: hidden;
-    min-height: 50dvh;
+    min-height: 85dvh;
+    height: auto;
     gap: 1em;
 }
 
@@ -1347,10 +1398,10 @@ section.pre-clients {
 
 section.pre-clients article {
     width: 100%;
+    gap: 2em;
 }
 
 section.pre-clients article>div.flexy {
-    padding-top: 2em;
     align-content: flex-start;
     gap: 1em;
     color: var(--color-black);
@@ -1372,23 +1423,62 @@ section.pre-clients article>div.flexy {
 }
 
 section.pre-clients>article.more-clients {
+    position: static;
     animation: slide-up 1s linear 10ms 1 forwards;
     overflow: hidden;
 }
 
-section.pre-clients>article.more-clients h3 {
-    padding: 0 2em;
+section.pre-clients>article.more-clients>h2 {
+    padding: 0;
     color: var(--color-black);
     animation: shadowing 3s linear 0s infinite normal;
+    font-size: 2.25rem;
+    cursor: default;
+}
+
+section.pre-clients>article.more-clients>a {
+    position: relative;
+    display: block;
+    flex: 1 0 10dvw;
+    max-width: 100%;
+    width: 100dvw;
+    animation: point-down 1s linear 0s infinite;
+    cursor: pointer;
+    user-select: none;
+}
+
+section.pre-clients>article.more-clients>a>svg {
+    position: absolute;
+    top: -3em;
+    max-height: 10em;
+    width: 100%;
+    animation: point-down 1s linear 0s infinite;
+}
+
+section.pre-clients>article.more-clients>a:nth-of-type(2)>svg {
+    top: unset;
+    bottom: 12em;
+}
+
+section.pre-clients>article.more-clients>a path {
+    
+    fill: var(--accent-color-80);
+    transition: all 250ms ease-out 0s;
+}
+
+section.pre-clients>article.more-clients>a:hover path {
+    fill: var(--accent-color-20);
+    transition: all 250ms ease-in 0s;
 }
 
 section.pre-clients>article.more-clients>div.flexy {
     margin-left: 20%;
     margin-right: 0%;
-    padding: .5em;
+    padding: 45dvh 1dvw;
+    padding-bottom: 55dvh;
     width: 100%;
     direction: ltr;
-    max-height: 24vb;
+    max-height: 24dvh;
     -webkit-animation-name: move;
     -webkit-animation-duration: 40s;
     -webkit-animation-timing-function: linear;
@@ -1525,22 +1615,33 @@ section.pre-clients article.five-clients>div.flexy figure img:hover {
 }
 
 section.pre-clients h1 {
-    max-width: 12em;
+    padding-left: .25em;
+    max-width: 13em;
+    font-size: 4.5rem;
+    font-weight: 900;
+    cursor: default;
 }
 
 section.pre-clients p {
-    font-size: 1.25rem;
-    font-weight: 400;
+    padding-left: 1em;
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-align: justify;
 }
 
 article.main-message {
     padding: 2em;
+    padding-top: 10%;
     justify-content: space-between;
 }
 
 article.main-message> :is(div, figure) {
-    flex: 1 0 48%;
-    max-width: 48%;
+    flex: 1 0 40%;
+    max-width: 100%;
+}
+
+article.main-message>div {
+    width: 100%;
 }
 
 article.main-message svg {
@@ -1555,6 +1656,11 @@ section.the-app.flexy.row {
     gap: 1em;
 }
 
+section.the-app.flexy.row>a {
+    top: unset;
+    bottom: 2em;
+}
+
 section.the-app.flexy.row>div,
 section.the-app.flexy.row>figure {
     flex: 0 0 48%;
@@ -1562,10 +1668,21 @@ section.the-app.flexy.row>figure {
     max-height: 100%;
 }
 
-section.the-app.flexy.row>figure>img {
+section.the-app.flexy.row>figure {
+    user-select: none;
+    cursor: pointer;
+}
+
+section.the-app.flexy.row>figure>a>img {
     border-top-left-radius: 20em;
     border-bottom-left-radius: 15em;
-    box-shadow: 1.25em .65em 0 var(--accent-color);
+    box-shadow: 1.25em .65em 0 var(--accent-color-90);
+    transition: box-shadow 250ms ease-in 0s;
+}
+
+section.the-app.flexy.row>figure>a>img:hover {
+    box-shadow: 1.25em .65em 0 var(--accent-color-80);
+    transition: box-shadow 250ms ease-out 0s;
 }
 
 section.the-app.flexy.row>div {
@@ -1575,9 +1692,11 @@ section.the-app.flexy.row>div {
     gap: 2em;
 }
 
-section.the-app.flexy.row>div>h3 {
-    font-size: 2rem;
-    font-weight: bold;
+section.the-app.flexy.row>div>h2 {
+    font-size: 2.5rem;
+    word-wrap: normal;
+    font-weight: 700;
+    cursor: default;
 }
 
 section.the-app.flexy.row>div>p {
@@ -1587,7 +1706,8 @@ section.the-app.flexy.row>div>p {
 }
 
 article.main-message figure {
-    padding-top: 2em;
+    padding-right: 1em;
+    text-align: end;
     animation: slide-left 500ms linear 10ms 1 forwards;
 }
 

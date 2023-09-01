@@ -36,7 +36,7 @@ body.tag-template.tag-solutions>main#main-content>header {
 }
 
 body.tag-template.tag-solutions>main#main-content>header p {
-    margin: 2em auto 1em 4em;
+    margin: 1em auto 1em 4em;
     text-align: inherit;
     font-size: 2rem;
     max-width: 94%;
@@ -49,6 +49,7 @@ body.tag-template.tag-solutions>main#main-content>header p:hover {
 }
 
 body.tag-template.tag-solutions>main#main-content h1 {
+    margin-top: .5em;
     margin-left: 2em;
     color: var(--accent-color-10);
     color: currentColor;
@@ -115,8 +116,8 @@ body.tag-template.tag-solutions>main#main-content article {
     background-color: var(--accent-color-100);
     align-items: flex-start;
     gap: 1em;
-    -webkit-box-shadow: .25em .25em 0 var(--accent-color-110);
-    box-shadow: .25em .25em 0 var(--accent-color-110);
+    -webkit-box-shadow: .25em .25em 0 var(--accent-color-80);
+    box-shadow: .25em .25em 0 var(--accent-color-80);
     border-radius: .25em;
     overflow: hidden;
     transition: all ease-in 75ms 0s;
@@ -159,9 +160,9 @@ body.tag-template.tag-solutions>main#main-content article:hover>figure>img {
 }
 
 body.tag-template.tag-solutions>main#main-content article.odd:hover {
-    -webkit-box-shadow-: .35em .35em 0 var(--accent-color-40);
-    box-shadow: .35em .35em 0 var(--accent-color-40);
-    border-color: var(--accent-color-40);
+    -webkit-box-shadow-: .3em .3em 0 var(--accent-color-50);
+    box-shadow: .3em .3em 0 var(--accent-color-50);
+    border-color: var(--accent-color-50);
 }
 
 body.tag-template.tag-solutions>main#main-content article.odd:hover>a {
@@ -169,9 +170,9 @@ body.tag-template.tag-solutions>main#main-content article.odd:hover>a {
 }
 
 body.tag-template.tag-solutions>main#main-content article.even:hover {
-    -webkit-box-shadow: .35em .35em 0 var(--accent-color);
-    box-shadow: .35em .35em 0 var(--accent-color);
-    border-color: var(--accent-color);
+    -webkit-box-shadow: .3em .3em 0 var(--accent-color-20);
+    box-shadow: .3em .3em 0 var(--accent-color-20);
+    border-color: var(--accent-color-20);
 }
 
 body.tag-template.tag-solutions>main#main-content article:hover>h2 {
@@ -196,6 +197,7 @@ body.tag-template.tag-solutions>main#main-content article>h2 {
 body.tag-template.tag-solutions>main#main-content article>p {
     padding: 0 1.5em;
     text-align: justify;
+    font-size: 1.35rem;
     color: var(--color-black);
 }
 
