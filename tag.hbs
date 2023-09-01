@@ -3,17 +3,17 @@
 {{#is "tag"}}
 {{#tag}}
 <header>
-    {{#if feature_image}}
-    <img src="{{feature_image}}" alt="{{name}}" />
-    {{/if}}
+    {{#if feature_image}}<figure>
+        <img src="{{feature_image}}" alt="{{name}}" />
+    </figure>{{/if}}
 </header>
 <section class="author-profile">
     <h1>{{name}}</h1>
-    {{#if description}}
-    <h2>{{description}}</h2>
-    {{/if}}
+    {{#if description}}<h2>{{description}}</h2>{{/if}}
 </section>
-<main role="main">{{> "loop"}}</main>
+<main role="main">
+    {{> "loop"}}
+</main>
 <!-- Previous/next page links - displayed on every page -->
 {{pagination}}
 {{/tag}}

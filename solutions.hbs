@@ -11,18 +11,17 @@
 </style>
 <link rel="stylesheet" href="{{asset "css/solutions.css"}}" type="text/css" media="screen" />
 <figure>
-    {{#if feature_image}}
-    <img src="{{img_url feature_image absolute='true'}}" title="{{title}}" alt="{{name}}" />
-    {{/if}}
+    {{#if feature_image}}<img src="{{img_url feature_image absolute='true'}}" title="{{title}}" alt="{{name}}" />{{/if}}
 </figure>
 <header>
     <h1 id="rapid-{{slug}}">{{name}}</h1>
-    <a href="#apps" title="Explore Rapid&apos;s {{slug}} below&hellip;">{{> "icons/angle-down"}}</a>
+    <a href="#apps" title="Explore Rapid&apos;s {{slug}} below&hellip;">
+        {{> "icons/angle-down"}}
+    </a>
     {{#if description}}<p>{{description}}</p>{{/if}}
 </header>
 {{#get "posts" include="tags,authors" filter="primary_tag:{{slug}}" limit="all" order="published_at asc" limit=@config.posts_per_page as |post|}}
-{{#if post}}
-<div id="apps" class="flexy row">
+{{#if post}}<div id="apps" class="flexy row">
     {{#foreach post}}
     <article class="flexy {{#if @even}}even{{else}}odd{{/if}}" title="{{title}}" tabindex="0">
         <h2 id="{{slug}}-app">{{title}}</h2>
@@ -33,8 +32,7 @@
         </figure>
     </article>
     {{/foreach}}
-</div>
-{{/if}}
+</div>{{/if}}
 {{/get}}
 {{/tag}}
 {{/is}}

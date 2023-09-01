@@ -1,4 +1,4 @@
-<!-- Default footer -->
+<!-- default-footer.hbs -->
 <div class="flexy">
     {{#if @site.logo}}
     <figure class="rapid-logo"><a href="{{@site.url}}" title="{{@site.title}}"><img src="{{@site.logo}}" alt="{{@site.title}}" /></a></figure>
@@ -33,5 +33,7 @@
         <li>+44 1707 520 711</li>
         <li>info@rapid-is.co.uk</li>
     </ul>
-    <div class="social-icons flexy row">{{> "social-icons"}}</div>
+    <div class="social-icons flexy row">
+        {{> "social-icons"}}
+    </div>
 </div>

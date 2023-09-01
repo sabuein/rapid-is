@@ -7,18 +7,18 @@
             <h1>Integrate your IT systems&comma; get more done&period;</h1>
             <p><a href="#briefly" title="">Rapid</a> simplifies digital transformation&comma; enhancing services&comma; saving costs&comma; and providing structured data for efficiency&comma; accuracy&comma; and AI insights&period;</p>
         </div>
-        <figure>{{> "drawings/version-control"}}</figure>
+        <figure>
+            {{> "drawings/version-control"}}
+        </figure>
     </article>
     <article class="five-clients flexy row">
         <h3>Trusted by 30&plus; providers of <a href="#social-housing" title="Social housing">social housing</a> in the UK&hellip;</h3>
         <div class="flexy row disable-scrollbar horizontal-scrolling">
             {{#get "posts" filter="tag:hash-clients+visibility:public" order="title asc" limit=@config.posts_per_page}}
             {{#foreach posts}}
-            {{#if feature_image}}
-            <figure><img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" /></figure>
-            {{else}}
-            <pre>{{title}}</pre>
-            {{/if}}
+            {{#if feature_image}}<figure>
+                <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" />
+            </figure>{{else}}<pre>{{title}}</pre>{{/if}}
             {{/foreach}}
             {{else}}
             <p class="get-error">{{error}}</p>
@@ -28,21 +28,50 @@
     <article class="more-clients flexy">
         <h3>Trusted by 30&plus; providers of <a href="#social-housing" title="Social housing">social housing</a> in the UK&hellip;</h3>
         <div class="flexy disable-scrollbar horizontal-scrolling">
-            <figure class="flexy" title="Arhag Housing Association">{{> 'clients/arhag'}}<figcaption>Arhag Housing Association</figcaption></figure>
-            <figure class="flexy" title="Ealing Council">{{> 'clients/ealing'}}<figcaption>Ealing Council</figcaption></figure>
-            <figure class="flexy" title="Westminster City Council">{{> 'clients/westminster'}}<figcaption>Westminster City Council</figcaption></figure>
-            <figure class="flexy" title="Lambeth Council">{{> 'clients/lambeth'}}<figcaption>Lambeth Council</figcaption></figure>
-            <figure class="flexy" title="Islington Council">{{> 'clients/islington'}}<figcaption>Islington Council</figcaption></figure>
-            <figure class="flexy" title="Enfield Council">{{> 'clients/enfield'}}<figcaption>Enfield Council</figcaption></figure>
-            <figure class="flexy" title="Stevenage Borough Council">{{> 'clients/stevenage'}}<figcaption>Stevenage Borough Council</figcaption></figure>
-            <figure class="flexy" title="Camden Council">{{> 'clients/camden'}}<figcaption>Camden Council</figcaption></figure>
-            <figure class="flexy" title="Haringey Council">{{> 'clients/haringey'}}<figcaption>Haringey Council</figcaption></figure>
+            <figure class="flexy" title="Arhag Housing Association">
+                {{> 'clients/arhag'}}
+                <figcaption>Arhag Housing Association</figcaption>
+            </figure>
+            <figure class="flexy" title="Ealing Council">
+                {{> 'clients/ealing'}}
+                <figcaption>Ealing Council</figcaption>
+            </figure>
+            <figure class="flexy" title="Westminster City Council">
+                {{> 'clients/westminster'}}
+                <figcaption>Westminster City Council</figcaption>
+            </figure>
+            <figure class="flexy" title="Lambeth Council">
+                {{> 'clients/lambeth'}}
+                <figcaption>Lambeth Council</figcaption>
+            </figure>
+            <figure class="flexy" title="Islington Council">
+                {{> 'clients/islington'}}
+                <figcaption>Islington Council</figcaption>
+            </figure>
+            <figure class="flexy" title="Enfield Council">
+                {{> 'clients/enfield'}}
+                <figcaption>Enfield Council</figcaption>
+            </figure>
+            <figure class="flexy" title="Stevenage Borough Council">
+                {{> 'clients/stevenage'}}
+                <figcaption>Stevenage Borough Council</figcaption>
+            </figure>
+            <figure class="flexy" title="Camden Council">
+                {{> 'clients/camden'}}
+                <figcaption>Camden Council</figcaption>
+            </figure>
+            <figure class="flexy" title="Haringey Council">
+                {{> 'clients/haringey'}}
+                <figcaption>Haringey Council</figcaption>
+            </figure>
         </div>
     </article>
 </section>
 
 <section class="compliance flexy row">
-    <figure>{{> "drawings/developer-activity"}}</figure>
+    <figure>
+        {{> "drawings/developer-activity"}}
+    </figure>
     <div class="flexy">
         <h2>We are streamlining <a href="/safety-checks/" title="Safety checks">safety checks</a>&comma; <a href="/repairs/" title="Repairs">repairs</a>&comma; and <a href="/complaints/" title="Complaints">complaints</a> through digital solutions&colon; enhancing social housing sector compliance&period;</h2>
         <div class="cta-button flexy row">
@@ -61,12 +90,16 @@
             <button type="button">Learn more</button>
         </div>
     </div>
-    <figure><img src="{{asset 'images/rapid-fire.png'}}" alt="" /></figure>
+    <figure>
+        <img src="{{asset 'images/rapid-fire.png'}}" alt="" />
+    </figure>
 </section>
 
 {{!-- Something short about Rapid --}}
 <section id="briefly" class="flexy row">
-    <div class="divider-top">{{> "icons/divider-curve-top"}}</div>
+    <div class="divider-top">
+        {{> "icons/divider-curve-top"}}
+    </div>
     <article class="flexy row">
         <div class="flexy">
             <p>Rapid produce an exciting and disruptive low&dash;code platform which we use to create desktop&comma; mobile&comma; and forms apps to help local authorities improve their services&comma; especially in social housing&period;</p>
@@ -76,7 +109,9 @@
         <figure>{{!--> "drawings/version-control"--}}</figure>
     </article>
     <button type="button">Learn more</button>
-    <div class="divider-bottom">{{> "icons/divider-curve-bottom"}}</div>
+    <div class="divider-bottom">
+        {{> "icons/divider-curve-bottom"}}
+    </div>
 </section>
 
 <section class="ready-to-talk flexy">
@@ -90,15 +125,25 @@
 </section>
 
 <section id="get-the-app" class="flexy">
-    <div class="divider-top">{{> "icons/divider-waves"}}</div>
+    <div class="divider-top">
+        {{> "icons/divider-waves"}}
+    </div>
     <header>
         <h3>Get the Rapid app&excl;</h3>
     </header>
     <p>Rapid Mobile provides additional support for Rapid apps on mobile devices&period; Your Rapid application will be downloaded to your device so it runs faster&comma; with or without a mobile signal or wifi&period; Images from your camera or gallery can also be brought into your app and uploaded to your server&period; GPS and location support is also provided&period;</p>
     <div class="flexy row">
-        <figure><a href="https://apps.apple.com/app/id1213920904" title="Download on the App Store" target="_blank" rel="noopener"><img src="{{asset 'images/badge-app-store.png'}}" alt="App Store" /></a></figure>
-        <figure><a href="https://play.google.com/store/apps/details?id=com.rapid.mobile" title="Get it on Google Play" target="_blank" rel="noopener"><img src="{{asset 'images/badge-google-play.png'}}" alt="Google Play" /></a></figure>
-        <figure><a href="https://apps.microsoft.com/store/detail/rapid-mobile-client/9NDRFQM00Q0M" title="Get it from Microsoft" target="_blank" rel="noopener">{{> "icons/microsoft"}}</a></figure>
+        <figure>
+            <a href="https://apps.apple.com/app/id1213920904" title="Download on the App Store" target="_blank" rel="noopener"><img src="{{asset 'images/badge-app-store.png'}}" alt="App Store" /></a>
+        </figure>
+        <figure>
+            <a href="https://play.google.com/store/apps/details?id=com.rapid.mobile" title="Get it on Google Play" target="_blank" rel="noopener"><img src="{{asset 'images/badge-google-play.png'}}" alt="Google Play" /></a>
+        </figure>
+        <figure>
+            <a href="https://apps.microsoft.com/store/detail/rapid-mobile-client/9NDRFQM00Q0M" title="Get it from Microsoft" target="_blank" rel="noopener">
+            {{> "icons/microsoft"}}
+            </a>
+        </figure>
     </div>
     <footer>
         <pre>Apple and the Apple logo are trademarks of Apple Inc&period;</pre>

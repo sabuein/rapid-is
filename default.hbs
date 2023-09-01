@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- default.hbs -->
 <html lang="{{@site.locale}}">
 <head>
     <meta charset="utf-8" />
@@ -10,15 +11,25 @@
     {{ghost_head}}
 </head>
 <body class="{{body_class}} flexy">
-    <header class="flexy">{{> "default-header"}} </header>
-    <dialog id="get-in-touch" class="flexy">{{> "default-form"}}</dialog>
-    <main id="main-content" class="{{post_class}} flexy" role="main">{{{body}}}</main>
+    <header class="flexy">
+        {{> "default-header"}}
+    </header>
+    <dialog id="get-in-touch" class="flexy">
+        {{> "default-form"}}
+    </dialog>
+    <main id="main-content" class="{{post_class}} flexy" role="main">
+        {{{body}}}
+    </main>
     {{!-- Show the pagination helper when there's more than one page --}}
     {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
     <hr />
     <footer class="flexy">
-        <div class="divider-top">{{> "icons/divider-tilt"}}</div>
-        <section class="flexy row">{{> "default-footer"}}</section>
+        <div class="divider-top">
+            {{> "icons/divider-tilt"}}
+        </div>
+        <section class="flexy row">
+            {{> "default-footer"}}
+        </section>
         <pre>Registered in England and Wales. Company registration number 05494744. VAT registration number 881993663. ICO registration number ZA471303. D-U-N-S number 346902047.</pre>
         <pre>Made with <span class="hearts" title="unconditional love">&hearts;</span> from Welwyn Garden City and East London&period;</pre>
         <a href="#main-content" title="Back to top">Back to top&hellip;</a>
@@ -27,7 +38,9 @@
             {{navigation type="secondary"}}
         </section>
     </footer>
-    <aside class="cookies flexy">{{> "cookies"}}</aside>
+    <aside class="cookies flexy">
+        {{> "cookies"}}
+    </aside>
     {{ghost_foot}}
 </body>
 </html>
