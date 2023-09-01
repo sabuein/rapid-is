@@ -3,14 +3,20 @@
 {{!-- A custom template for the solutions route --}}
 {{#is "tag"}}
 {{#tag}}
+<style>
+    :root {
+        --ghost-accent-color: {{#if accent_color}}{{accent_color}}{{else}}var(--color-light-blue){{/if}};
+        --this-feature-image: {{#if feature_image}}url({{img_url feature_image absolute='true'}}){{else}}none{{/if}};
+    }
+</style>
 <link rel="stylesheet" href="{{asset "css/solutions.css"}}" type="text/css" media="screen" />
-{{#if feature_image}}
-<figure style="--this-feature-image: url({{img_url feature_image absolute='true'}}); --this-accent-color: {{#if accent_color}}{{accent_color}}{{else}}var(--color-light-blue){{/if}};">
+<figure>
+    {{#if feature_image}}
     <img src="{{img_url feature_image absolute='true'}}" title="{{title}}" alt="{{name}}" />
+    {{/if}}
 </figure>
-{{/if}}
 <header title="Explore Rapid&apos;s {{slug}}" tabindex="0">
-    <h1>{{name}}</h1>
+    <h1 id="rapid-{{slug}}">{{name}}</h1>
     {{#if description}}<p>{{description}}</p>{{/if}}
 </header>
 {{#get "posts" include="tags,authors" filter="primary_tag:{{slug}}" limit="all" order="published_at asc" limit=@config.posts_per_page as |post|}}
@@ -18,7 +24,7 @@
 <div class="flexy row">
     {{#foreach post}}
     <article class="flexy {{#if @even}}even{{else}}odd{{/if}}" title="{{title}}" tabindex="0">
-        <h2>{{title}}</h2>
+        <h2 id="{{slug}}-app">{{title}}</h2>
         <p>{{excerpt}}</p>
         <a href="{{url}}" title="Learn more about Rapid&apos;s {{title}} solutions&hellip;" name="learn-more">Learn more</a>
         <figure>
