@@ -108,8 +108,8 @@ body.tag-template.tag-solutions>main#main-content>div {
 }
 
 body.tag-template.tag-solutions>main#main-content article {
-    flex: 1 0 26dvw;
-    max-width: 26dvw;
+    flex: 1 0 27dvw;
+    max-width: 27dvw;
     padding: 0;
     margin-bottom: 2em;
     border: thin solid currentColor;
