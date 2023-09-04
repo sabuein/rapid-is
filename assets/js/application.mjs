@@ -65,6 +65,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const main = document.getElementById("main-content");
     enableNavMenu(nav);
 
+    const goToTopButtons = document.querySelectorAll("a[href='#main-content']");
+    goToTopButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+            event.preventDefault();
+            window.scrollTo(0,0);
+        });
+    });
+
     const cookiesAside = document.querySelector("aside.cookies");
     const cookiesActions = document.querySelectorAll("aside.cookies > form.actions");
     cookiesActions.forEach((button) => {
