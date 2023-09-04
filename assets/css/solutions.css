@@ -6,7 +6,7 @@
 
 body.tag-template.tag-solutions>main#main-content {
     margin: 0;
-    padding: 0;    
+    padding: 0;
     gap: 1em;
     color: var(--accent-color-10);
     background-color: var(--accent-color-100);
@@ -53,8 +53,6 @@ body.tag-template.tag-solutions>main#main-content h1 {
     margin-left: 2em;
     color: var(--accent-color-10);
     color: currentColor;
-    /*text-shadow: .05em .05em 0 var(--color-yellow);
-    text-decoration: underline wavy var(--ghost-accent-color-lighter);*/
     text-transform: capitalize;
     text-transform: uppercase;
     font-size: 3.25em;
@@ -75,19 +73,19 @@ body.tag-template.tag-solutions>main#main-content>header>a {
     right: 1em;
     max-width: 100%;
     width: 15dvw;
-    animation: point-down 1s linear 0s infinite;
+    animation: point-down 750ms linear 0s infinite;
     cursor: pointer;
 }
 
 body.tag-template.tag-solutions>main#main-content>header path {
     fill: var(--accent-color-80);
-    transition: all 250ms ease-in 0s;
+    transition: all 150ms ease-in 0s;
 }
 
 body.tag-template.tag-solutions>main#main-content>header svg {
     stroke: var(--accent-color-80);
     stroke-width: 0;
-    stroke-dasharray: 1,1;
+    stroke-dasharray: 1, 1;
     stroke-linejoin: round;
 }
 
@@ -97,7 +95,7 @@ body.tag-template.tag-solutions>main#main-content>header svg:hover {
 
 body.tag-template.tag-solutions>main#main-content>header svg:hover>path {
     fill: var(--accent-color-20);
-    transition: all 250ms ease-out 0s;
+    transition: all 150ms ease-out 0s;
 }
 
 body.tag-template.tag-solutions>main#main-content>div {
@@ -120,7 +118,7 @@ body.tag-template.tag-solutions>main#main-content article {
     box-shadow: .25em .25em 0 var(--accent-color-80);
     border-radius: .25em;
     overflow: hidden;
-    transition: all ease-in 75ms 0s;
+    transition: all ease-in 150ms 0s;
 }
 
 body.tag-template.tag-solutions>main#main-content article:hover {
@@ -128,7 +126,7 @@ body.tag-template.tag-solutions>main#main-content article:hover {
     cursor: pointer;
     background-color: var(--accent-color-120);
     transform: translate(.1em, -.2em);
-    transition: all ease-out 75ms 0s;
+    transition: all ease-out 150ms 0s;
 }
 
 body.tag-template.tag-solutions>main#main-content article:hover>*:is(a, p) {
@@ -151,12 +149,12 @@ body.tag-template.tag-solutions>main#main-content article:hover>a {
     -webkit-box-shadow: .15em .15em 0 var(--accent-color-80);
     box-shadow: .15em .15em 0 var(--accent-color-80);
     padding-right: 3em;
-    transition: all ease-out 250ms 0s;
+    transition: all ease-out 200ms 0s;
 }
 
 body.tag-template.tag-solutions>main#main-content article:hover>figure>img {
     scale: 1.1;
-    transition: scale ease-out 250ms 0s;
+    transition: scale ease-out 200ms 0s;
 }
 
 body.tag-template.tag-solutions>main#main-content article.odd:hover {
@@ -214,7 +212,7 @@ body.tag-template.tag-solutions>main#main-content article>a {
     color: var(--accent-color);
     background-color: var(--accent-color-80);
     border-radius: .5em;
-    transition: all ease-in 250ms 0s;
+    transition: all ease-in 200ms 0s;
 }
 
 body.tag-template.tag-solutions>main#main-content article>a::after {
@@ -225,7 +223,7 @@ body.tag-template.tag-solutions>main#main-content article>a::after {
     font-size: 1em;
     color: var(--accent-color-70);
     background-color: transparent;
-    transition: all ease-in 100ms 0s;
+    transition: all ease-in 200ms 0s;
 }
 
 body.tag-template.tag-solutions>main#main-content article:hover>a::after {
@@ -233,7 +231,7 @@ body.tag-template.tag-solutions>main#main-content article:hover>a::after {
     bottom: 0;
     font-size: 1.5em;
     color: var(--accent-color-80);
-    transition: all ease-out 100ms 0s;
+    transition: all ease-out 200ms 0s;
 }
 
 body.tag-template.tag-solutions>main#main-content article>figure {
@@ -248,7 +246,7 @@ body.tag-template.tag-solutions>main#main-content article>figure>img {
     display: inline-block;
     height: inherit;
     scale: 1;
-    transition: scale ease-in 250ms 0s;
+    transition: scale ease-in 200ms 0s;
 }
 
 body.tag-template.tag-solutions>hr {

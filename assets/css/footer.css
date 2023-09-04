@@ -27,8 +27,6 @@ body>footer>section.flexy.row {
 
 body>footer>section.flexy.row:last-of-type {
     padding: 1em 2em;
-    /*position: absolute;
-    bottom: 1em;*/
     font-weight: bold;
     font-size: .9rem;
     text-align: center;
