@@ -112,7 +112,7 @@ body.tag-template.tag-solutions>main#main-content article {
     max-width: 27dvw;
     padding: 0;
     margin-bottom: 2em;
-    border: thin solid currentColor;
+    outline: thin solid currentColor;
     background-color: var(--accent-color-100);
     align-items: flex-start;
     gap: 1em;
@@ -124,10 +124,10 @@ body.tag-template.tag-solutions>main#main-content article {
 }
 
 body.tag-template.tag-solutions>main#main-content article:hover {
-    border-width: .1em;
+    outline-width: .1em;
     cursor: pointer;
     background-color: var(--accent-color-120);
-    transform: translateY(-.1em);
+    transform: translate(.1em, -.2em);
     transition: all ease-out 75ms 0s;
 }
 
@@ -155,14 +155,14 @@ body.tag-template.tag-solutions>main#main-content article:hover>a {
 }
 
 body.tag-template.tag-solutions>main#main-content article:hover>figure>img {
-    scale: 1.25;
+    scale: 1.1;
     transition: scale ease-out 250ms 0s;
 }
 
 body.tag-template.tag-solutions>main#main-content article.odd:hover {
     -webkit-box-shadow-: .3em .3em 0 var(--accent-color-50);
     box-shadow: .3em .3em 0 var(--accent-color-50);
-    border-color: var(--accent-color-50);
+    outline-color: var(--accent-color-50);
 }
 
 body.tag-template.tag-solutions>main#main-content article.odd:hover>a {
@@ -172,7 +172,7 @@ body.tag-template.tag-solutions>main#main-content article.odd:hover>a {
 body.tag-template.tag-solutions>main#main-content article.even:hover {
     -webkit-box-shadow: .3em .3em 0 var(--accent-color-20);
     box-shadow: .3em .3em 0 var(--accent-color-20);
-    border-color: var(--accent-color-20);
+    outline-color: var(--accent-color-20);
 }
 
 body.tag-template.tag-solutions>main#main-content article:hover>h2 {

@@ -1395,6 +1395,10 @@ section.pre-clients article>div.flexy {
 section.pre-clients>article.more-clients {
     position: static;
     animation: slide-up 1s linear 10ms 1 forwards;
+    color: var(--accent-color);
+    background-color: var(--accent-color-100);
+    overflow: hidden;
+    padding: 2em .5em;
 }
 
 section.pre-clients>article.more-clients>h2 {
@@ -1443,9 +1447,11 @@ section.pre-clients>article.more-clients>div.flexy {
     margin-right: 0%;
     padding: 45dvh 1dvw;
     padding-bottom: 55dvh;
+    max-width: 100%;
     width: 100%;
     direction: ltr;
     max-height: 24dvh;
+    gap: 4em;
     -webkit-animation-name: move;
     -webkit-animation-duration: 40s;
     -webkit-animation-timing-function: linear;
@@ -1461,7 +1467,6 @@ section.pre-clients>article.more-clients>div.flexy {
     animation-direction: alternate;
     animation: move 40s linear 1s infinite alternate;
     animation-play-state: running;
-    gap: 5em;
 }
 
 section.pre-clients>article.more-clients>div.flexy>figure {
@@ -1597,8 +1602,7 @@ section.pre-clients p {
 }
 
 article.main-message {
-    padding: 1em;
-    padding-top: 5%;
+    padding: 2em 1em;
     justify-content: space-between;
 }
 
