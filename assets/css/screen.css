@@ -227,7 +227,10 @@ dialog:not([open]) {
     opacity: 0;
 }
 
-dialog {
+dialog[open] {
+    margin: auto;
+    padding: 1em;
+    inset: 0;
     border: 1em solid var(--color-bright-purple);
     transition: opacity 500ms;
 }
@@ -316,10 +319,13 @@ main.post.flexy>header>section.title-meta {
     position: absolute;
     padding: 2em 4em;
     inset: auto;
-    color: var(--accent-color);
-    background-color: #ffffff95;
+    color: currentColor;
+    background-color: #ffffff99;
     gap: .25em;
     width: 100%;
+    align-items: flex-start;
+    align-content: flex-start;
+    z-index: 99;
 }
 
 main.post.flexy>header>section.title-meta>h1 {
@@ -372,7 +378,8 @@ main.post.flexy>header>section.title-meta>div {
     align-self: flex-start;
     font-size: 1rem;
     font-weight: bold;
-    width: 95%;
+    width: fit-content;
+    padding: 0 .35em;
     padding-top: 1em;
     margin-top: 1em;
 }
@@ -504,26 +511,15 @@ section.ready-to-talk>form input:not(:placeholder-shown):focus {
     transition: width 1s ease-out 0s, border-radius 500ms ease-in 0s, outline 750ms ease-out 0s;
 }
 
-section.knowhow.flexy {
+section.badges.flexy {
     opacity: 1;
-    background-color: var(--color-yellow);
+    background-color: var(--accent-color-90);
     text-align: center;
     gap: 2em;
 }
 
-section.knowhow.flexy>a {
+section.badges.flexy>a {
     top: 50dvh;
-}
-
-section.knowhow.flexy form {
-    gap: 1em;
-}
-
-section.knowhow.flexy fieldset {
-    flex-grow: 1;
-    flex-shrink: 0;
-    align-items: center;
-    gap: 1em;
 }
 
 div.cta-button {
@@ -603,14 +599,6 @@ div.cta-button a:hover {
 
 div.cta-button a:hover {
     text-decoration: underline;
-}
-
-section.knowhow.flexy input[type="submit"] {
-    background-color: var(--color-light-green);
-}
-
-section.knowhow.flexy input[type="submit"]:hover {
-    background-color: var(--color-turquoise);
 }
 
 fieldset.flexy {
@@ -1207,6 +1195,7 @@ div.divider-bottom {
     overflow: hidden;
     line-height: 0;
     user-select: none;
+    pointer-events: none;
 }
 
 body.home-template>footer.flexy>div.divider-top {
@@ -1388,50 +1377,28 @@ section.clients.flexy {
 
 section.pre-clients {
     color: var(--color-white);
-    background-color: var(--color-mid-grey);
-    background-color: #4c825c;
-    color: var(--color-black);
-    background-color: floralwhite;
+    background-color: var(--accent-color);
     justify-content: flex-start;
     gap: 1em;
 }
 
 section.pre-clients article {
     width: 100%;
-    gap: 2em;
+    gap: 1em;
 }
 
 section.pre-clients article>div.flexy {
     align-content: flex-start;
     gap: 1em;
-    color: var(--color-black);
-    animation: shadowing 3s linear 0s infinite normal;
-}
-
-@keyframes shadowing {
-    0% {
-        text-shadow: 0.05em 0.05em 0.25em var(--color-white);
-    }
-
-    15% {
-        text-shadow: 0.05em 0.05em 0.25em var(--color-light-grey);
-    }
-
-    85% {
-        text-shadow: 0.05em 0.05em 0.25em var(--color-white);
-    }
 }
 
 section.pre-clients>article.more-clients {
     position: static;
     animation: slide-up 1s linear 10ms 1 forwards;
-    overflow: hidden;
 }
 
 section.pre-clients>article.more-clients>h2 {
     padding: 0;
-    color: var(--color-black);
-    animation: shadowing 3s linear 0s infinite normal;
     font-size: 2.25rem;
     cursor: default;
 }
@@ -1630,8 +1597,8 @@ section.pre-clients p {
 }
 
 article.main-message {
-    padding: 2em;
-    padding-top: 10%;
+    padding: 1em;
+    padding-top: 5%;
     justify-content: space-between;
 }
 

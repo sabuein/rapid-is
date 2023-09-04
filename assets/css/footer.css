@@ -62,6 +62,10 @@ body>footer div.flexy {
     gap: 1em;
 }
 
+body>footer div.contact.flexy {
+    text-transform: none;
+}
+
 body>footer h6 {
     color: var(--color-dark-blue)
 }
