@@ -518,7 +518,28 @@ section.badges.flexy {
     gap: 2em;
 }
 
-section.badges.flexy>a {
+section.badges.flexy > div.flexy {
+    gap: 1em;
+    justify-content: flex-end;
+}
+
+section.badges.flexy figure {
+    max-height: 10em;
+    width: inherit;
+}
+
+section.badges.flexy img {
+    mix-blend-mode: multiply;
+}
+
+section.badges.flexy img,
+section.badges.flexy svg {
+    max-width: 100%;
+    width: 10em;
+    height: 10em;
+}
+
+section.badges.flexy>a[href="#main-content"] {
     top: 50dvh;
 }
 
