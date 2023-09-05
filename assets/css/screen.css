@@ -149,15 +149,15 @@
     --color-light-green-40: #85994b40;
     --color-turquoise: #28a197;
     --max-width: 1920px;
-    --link-button-text: rgb(75,73,70);
-    --link-button-primary: rgb(47,192,82);
-    --link-button-secondary: rgb(238,237,233);
-    --link-button-tertiary: rgb(255,255,255);
-    --link-button-destructive: rgb(253,98,50);
-    --link-button-primary-secondary: rgb(30,157,187);
-    --link-button-primary-blue-300: rgb(36,183,219);
-    --link-button-primary-tertiary: rgb(246,172,47);
-    --link-button-disabled: rgb(244,243,241);
+    --link-button-text: rgb(75, 73, 70);
+    --link-button-primary: rgb(47, 192, 82);
+    --link-button-secondary: rgb(238, 237, 233);
+    --link-button-tertiary: rgb(255, 255, 255);
+    --link-button-destructive: rgb(253, 98, 50);
+    --link-button-primary-secondary: rgb(30, 157, 187);
+    --link-button-primary-blue-300: rgb(36, 183, 219);
+    --link-button-primary-tertiary: rgb(246, 172, 47);
+    --link-button-disabled: rgb(244, 243, 241);
     /* Generating accent color and de */
     --accent-color-h: 208;
     --accent-color-s: 73%;
@@ -240,6 +240,23 @@ dialog::backdrop {
     transition: backdrop-filter .5s ease;
 }
 
+dialog form {
+    gap: 1em;
+}
+
+body>dialog>form>fieldset {
+    gap: 1em;
+    color: var(--color-white);
+}
+
+dialog form input {
+    max-width: fit-content;
+}
+
+dialog form input:is([type="submit"], [type="reset"]) {
+    flex: 0 1 45%
+}
+
 main.flexy {
     position: relative;
     width: 100%;
@@ -250,7 +267,7 @@ main.flexy {
     align-items: flex-start;
 }
 
-body:not(.home-template) > main.flexy {
+body:not(.home-template)>main.flexy {
     gap: 1em;
 }
 
@@ -266,6 +283,7 @@ body:not(.home-template) > main.flexy {
 
 body.home-template>main>section {
     padding: 1em;
+    min-width: 100dvw;
     width: 100%;
     min-height: 100dvh;
     height: auto;
@@ -285,6 +303,8 @@ body.home-template>main>section:first-of-type {
     padding: 0;
     padding-top: 1em;
     opacity: 1;
+    max-width: inherit;
+    width: 100dvw;
 }
 
 body.home-template>main>section,
@@ -388,7 +408,7 @@ main.post.flexy>header>section.title-meta>div>time {}
 
 main.post.flexy>section.content {
     margin: 0 auto;
-    padding:  0 12dvw;
+    padding: 0 12dvw;
     max-width: 85%;
     align-items: flex-start;
     gap: 1em;
@@ -406,7 +426,7 @@ main.post.flexy>section.content ul {
 }
 
 main.post.flexy>section.content blockquote {
-    margin:  0 auto 0 .25em;
+    margin: 0 auto 0 .25em;
     padding: .25em 0 .25em 1em;
     color: var(--accent-color);
     border-left: thick solid var(--accent-color-90);
@@ -516,15 +536,22 @@ section.badges.flexy {
     background-color: var(--accent-color-90);
     text-align: center;
     gap: 2em;
+    user-select: none;
 }
 
-section.badges.flexy > div.flexy {
-    gap: 1em;
+section.badges.flexy>h3 {
+    cursor: default;
+}
+
+section.badges.flexy>div.flexy {
+    gap: 4em;
     justify-content: flex-end;
 }
 
 section.badges.flexy figure {
-    max-height: 10em;
+    margin: 0;
+    padding: .35em;
+    max-height: 9em;
     width: inherit;
 }
 
@@ -534,13 +561,30 @@ section.badges.flexy img {
 
 section.badges.flexy img,
 section.badges.flexy svg {
+    padding: .5em;
     max-width: 100%;
-    width: 10em;
-    height: 10em;
+    width: 8em;
+    height: 8em;
+    box-shadow: none;
+    outline: none;
+    transition: all ease-in 200ms 0s;
+}
+
+section.badges.flexy figure:hover {
+    cursor: pointer;
+}
+
+section.badges.flexy figure:hover img,
+section.badges.flexy figure:hover svg {
+    scale: 1.1;
+    box-shadow: 0.15em 0.15em 0 var(--accent-color-80);
+    outline: thin solid var(--accent-color-80);
+    transition: all ease-out 200ms 0s;
 }
 
 section.badges.flexy>a[href="#main-content"] {
-    top: 50dvh;
+    top: unset;
+    bottom: 15dvh;
 }
 
 div.cta-button {
@@ -601,7 +645,7 @@ div.cta-button button {
 div.cta-button a {
     display: block;
     text-decoration: none;
-    max-width: 90%;
+    max-width: fit-content;
     box-shadow: .25em .25em 0 var(--accent-color-80);
     transition: all 1s ease-in 0s;
 }
@@ -684,7 +728,8 @@ a[href="#main-content"] {
     border-top-left-radius: 2em;
     border-bottom-left-radius: 2em;
     transition: all 250ms ease-out 0s;
-}   
+    user-select: none;
+}
 
 a[href="#main-content"]:hover {
     color: var(--color-white);
@@ -702,6 +747,7 @@ span.hearts {
 }
 
 body>header {
+    position: -webkit-sticky;
     position: sticky;
     left: 0;
     top: 0;
@@ -713,13 +759,10 @@ body>header {
 }
 
 body>header>div.flexy.row {
-    /*position: fixed;
-    top: 0;*/
     padding: 1em 2em;
     justify-content: space-between;
     align-items: center;
     gap: 1em;
-    /* opacity: .9; */
     background-color: var(--accent-color-100);
     width: 100%;
     animation: menu-go-down 500ms linear 0s 1 forwards;
@@ -1082,27 +1125,9 @@ body>header>div.flexy.row ul~ul.solutions-nav {
     background-color: inherit;
     font-weight: bold;
     font-size: 1rem;
-    /*border: thick solid currentColor;
-    border-top: none;
-    border-bottom-left-radius: 5em;
-    border-bottom-right-radius: 5em;*/
     box-shadow: 0 0 .15em var(--color-black-40);
     box-shadow: 0 0 .25em var(--color-black-40);
 }
-
-/*ul.solutions-nav::before {
-    content: "\27A7";
-    position: absolute;
-    top: -0.5em;
-    left: 1.25em;
-    font-size: 3rem;
-    color: var(--color-white);
-    z-index: -1;
-    width: 7em;
-    height: 1.75em;
-    background-color: var(--color-orange);
-    rotate: 169deg;
-}*/
 
 ul.solutions-nav li {
     flex: 0 0 fit-content;
@@ -1139,6 +1164,14 @@ ul.solutions-nav.flexy.row a:hover path {
     fill: var(--accent-color);
 }
 
+nav.pagination {
+    user-select: none;
+}
+
+nav.pagination a {
+    user-select: auto;
+}
+
 section.compliance.flexy.row {
     padding: 1em;
     background-color: var(--color-light-grey);
@@ -1170,11 +1203,12 @@ section.compliance.flexy.row div.cta-button {
 }
 
 section.compliance.flexy.row div.cta-button button[type="button"] {
-    flex: 0 0 fit-content;
+    flex: 1 0 fit-content;
     width: fit-content;
-    transition: all 1s ease-in 100ms;
+    transition: all 250ms ease-in 0ms;
 }
 
+/*
 section.compliance.flexy.row div.cta-button button[type="button"]:nth-child(1) {
     background-color: var(--color-light-blue);
 }
@@ -1186,12 +1220,12 @@ section.compliance.flexy.row div.cta-button button[type="button"]:nth-child(2) {
 section.compliance.flexy.row div.cta-button button[type="button"]:nth-child(3) {
     background-color: var(--color-light-pink);
 }
+*/
 
 section.compliance.flexy.row div.cta-button button[type="button"]:hover {
-    flex: 1 0 30%;
-    width: 30%;
-    background-color: var(--color-dark-blue);
-    transition: all 1s cubic-bezier(.35, 1.25, 1, -.75) 0ms;
+    /*flex: 1 0 30%;
+    width: 30%;*/
+    transition: all 250ms ease-out 0ms;
 }
 
 section#briefly.flexy {
@@ -1199,9 +1233,6 @@ section#briefly.flexy {
     padding: 1em 2em;
     color: var(--color-white);
     background-color: var(--color-red);
-    /*border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 10em;*/
     gap: 2em;
 }
 
@@ -1248,7 +1279,7 @@ section#briefly.flexy>article {
     flex: 1 0 58%;
     max-width: 50%;
     width: 58%;
-    
+
 }
 
 section#briefly.flexy>button {
@@ -1414,12 +1445,19 @@ section.pre-clients article>div.flexy {
 }
 
 section.pre-clients>article.more-clients {
+    margin: 0;
+    padding: 2em .5em;
     position: static;
-    animation: slide-up 1s linear 10ms 1 forwards;
     color: var(--accent-color);
     background-color: var(--accent-color-100);
     overflow: hidden;
-    padding: 2em .5em;
+    max-width: 100%;
+    width: 100dvw;
+    animation: slide-up 1s linear 100ms 1 forwards;
+}
+
+section.pre-clients>article.more-clients>* {
+    flex: 0 0 100%;
 }
 
 section.pre-clients>article.more-clients>h2 {
@@ -1433,7 +1471,7 @@ section.pre-clients>article.more-clients>a {
     display: block;
     flex: 1 0 10dvw;
     max-width: 100%;
-    width: 100dvw;
+    width: 10em;
     animation: point-down 1s linear 0s infinite;
     cursor: pointer;
     user-select: none;
@@ -1453,7 +1491,7 @@ section.pre-clients>article.more-clients>a:nth-of-type(2)>svg {
 }
 
 section.pre-clients>article.more-clients>a path {
-    
+
     fill: var(--accent-color-80);
     transition: all 250ms ease-out 0s;
 }
@@ -1464,29 +1502,29 @@ section.pre-clients>article.more-clients>a:hover path {
 }
 
 section.pre-clients>article.more-clients>div.flexy {
-    margin-left: 20%;
-    margin-right: 0%;
+    margin: 0;
     padding: 45dvh 1dvw;
     padding-bottom: 55dvh;
     max-width: 100%;
-    width: 100%;
+    width: 100dvw;
     direction: ltr;
     max-height: 24dvh;
     gap: 4em;
+    background-color: inherit;
     -webkit-animation-name: move;
-    -webkit-animation-duration: 40s;
+    -webkit-animation-duration: 30s;
     -webkit-animation-timing-function: linear;
-    -webkit-animation-delay: 1s;
+    -webkit-animation-delay: 3s;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-direction: alternate;
     -webkit-animation-play-state: running;
     animation-name: move;
-    animation-duration: 40s;
+    animation-duration: 30s;
     animation-timing-function: linear;
-    animation-delay: 1s;
+    animation-delay: 3s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    animation: move 40s linear 1s infinite alternate;
+    animation: move 30s linear 3s infinite alternate;
     animation-play-state: running;
 }
 
@@ -1499,6 +1537,8 @@ section.pre-clients>article.more-clients>div.flexy>figure {
     flex-wrap: nowrap;
     gap: .25em;
     user-select: none;
+    background-color: transparent;
+    z-index: 999;
 }
 
 section.pre-clients>article.more-clients>div.flexy>figure>figcaption {
@@ -1514,6 +1554,7 @@ section.pre-clients>article.more-clients>div.flexy>figure:hover {
     cursor: pointer;
     scale: 1.1;
     box-shadow: 0 0 0.15em var(--color-black-40);
+    background-color: var(--accent-color-90);
 }
 
 section.pre-clients>article.more-clients>div.flexy>figure:hover>figcaption {
@@ -1531,21 +1572,55 @@ section.pre-clients>article.more-clients>div.flexy>figure svg {
 
 @-webkit-keyframes move {
     0% {
-        margin-right: 0%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    5% {
+        margin-left: 5vw;
+        margin-right: 0;
+    }
+
+    10% {
+        margin-left: 10dvw;
+        margin-right: 0;
+    }
+
+    15% {
+        margin-left: 15dvw;
+        margin-right: 0;
     }
 
     100% {
-        margin-right: 270%;
+        margin-left: 0;
+        margin-right: 145dvw;
     }
 }
 
 @keyframes move {
     0% {
-        margin-right: 0%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    5% {
+        margin-left: 5vw;
+        margin-right: 0;
+    }
+
+    10% {
+        margin-left: 10dvw;
+        margin-right: 0;
+    }
+
+    15% {
+        margin-left: 15dvw;
+        margin-right: 0;
     }
 
     100% {
-        margin-right: 270%;
+        margin-left: 0;
+        margin-right: 145dvw;
     }
 }
 
@@ -1568,14 +1643,14 @@ section.pre-clients article.five-clients>div.flexy::after,
 section.pre-clients article.more-clients>div.flexy::before,
 section.pre-clients article.more-clients>div.flexy::after {
     content: "";
-    background-color: #ffffff90;
-    height: 150px;
-    min-width: 150px;
+    background-color: var(--accent-color-70);
+    height: 9em;
+    min-width: 9em;
     outline: thick solid red;
     border-radius: 50%;
     filter: blur(5em);
     position: absolute;
-    z-index: 999;
+    z-index: 99;
     user-select: none;
 }
 

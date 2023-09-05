@@ -27,8 +27,6 @@ body>footer>section.flexy.row {
 
 body>footer>section.flexy.row:last-of-type {
     padding: 1em 2em;
-    /*position: absolute;
-    bottom: 1em;*/
     font-weight: bold;
     font-size: .9rem;
     text-align: center;
@@ -36,6 +34,7 @@ body>footer>section.flexy.row:last-of-type {
 
 body>footer figure.rapid-logo {
     /* max-width: 60px; */
+    user-select: none;
 }
 
 body>footer figure.rapid-logo img {
@@ -106,6 +105,7 @@ div.social-icons.flexy.row {
 div.social-icons.flexy.row>a {
     flex: 0 0 2em;
     width: 2em;
+    user-select: none;
 }
 
 div.social-icons.flexy.row a:hover img {
