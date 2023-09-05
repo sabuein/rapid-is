@@ -183,7 +183,9 @@
     background-color: var(--color-black);
 }
 
-* {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
     border: 0;
@@ -541,6 +543,7 @@ section.badges.flexy {
 
 section.badges.flexy>h3 {
     cursor: default;
+    text-transform: capitalize;
 }
 
 section.badges.flexy>div.flexy {
