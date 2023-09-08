@@ -27,48 +27,48 @@
     </article>
     <article class="more-clients flexy">
         <h2>Trusted by 30&plus; local authorities and housing associations including&colon;</h2>
-        <a href="#social-housing-providers" title="Trusted by 30&plus; providers of social housing&hellip;">
+        <a href="#social-housing-providers" title="Continue&hellip;" class="continue">
             {{> "icons/angle-down"}}
         </a>
         <div id="social-housing-providers" class="flexy disable-scrollbar horizontal-scrolling">
-            <figure class="flexy" title="Arhag Housing Association">
+            <figure class="flexy" title="Arhag Housing Association" tabindex="0">
                 {{> 'clients/arhag'}}
                 <figcaption>Arhag Housing Association</figcaption>
             </figure>
-            <figure class="flexy" title="Ealing Council">
+            <figure class="flexy" title="Ealing Council" tabindex="0">
                 {{> 'clients/ealing'}}
                 <figcaption>Ealing Council</figcaption>
             </figure>
-            <figure class="flexy" title="Westminster City Council">
+            <figure class="flexy" title="Westminster City Council" tabindex="0">
                 {{> 'clients/westminster'}}
                 <figcaption>Westminster City Council</figcaption>
             </figure>
-            <figure class="flexy" title="Lambeth Council">
+            <figure class="flexy" title="Lambeth Council" tabindex="0">
                 {{> 'clients/lambeth'}}
                 <figcaption>Lambeth Council</figcaption>
             </figure>
-            <figure class="flexy" title="Islington Council">
+            <figure class="flexy" title="Islington Council" tabindex="0">
                 {{> 'clients/islington'}}
                 <figcaption>Islington Council</figcaption>
             </figure>
-            <figure class="flexy" title="Enfield Council">
+            <figure class="flexy" title="Enfield Council" tabindex="0">
                 {{> 'clients/enfield'}}
                 <figcaption>Enfield Council</figcaption>
             </figure>
-            <figure class="flexy" title="Stevenage Borough Council">
+            <figure class="flexy" title="Stevenage Borough Council" tabindex="0">
                 {{> 'clients/stevenage'}}
                 <figcaption>Stevenage Borough Council</figcaption>
             </figure>
-            <figure class="flexy" title="Camden Council">
+            <figure class="flexy" title="Camden Council" tabindex="0">
                 {{> 'clients/camden'}}
                 <figcaption>Camden Council</figcaption>
             </figure>
-            <figure class="flexy" title="Haringey Council">
+            <figure class="flexy" title="Haringey Council" tabindex="0">
                 {{> 'clients/haringey'}}
                 <figcaption>Haringey Council</figcaption>
             </figure>
         </div>
-        <a href="#compliance-app" title="Learn more about our Safety &amp; Compliance solutions">
+        <a href="#compliance-app" title="Continue&hellip;" class="continue">
             {{> "icons/angle-down"}}
         </a>
     </article>
@@ -85,10 +85,13 @@
     <figure>
         <a href="/solutions/safety-and-compliance/" title="Safety and compliance"><img src="{{asset 'images/rapid-fire.png'}}" alt="Rapid&apos;s Fire risk assessment application" /></a>
     </figure>
+    <a href="#streamlining-safety-checks" title="Continue&hellip;" class="continue">
+        {{> "icons/angle-down"}}
+    </a>
     <a href="#main-content" title="Back to top">Back to top&hellip;</a>
 </section>
 
-<section class="compliance flexy row">
+<section class="compliance flexy row" id="streamlining-safety-checks">
     <figure>
         {{> "drawings/developer-activity"}}
     </figure>
@@ -100,6 +103,9 @@
             <button type="button">Discover that</button>
         </div>
     </div>
+    <a href="#briefly" title="Continue&hellip;" class="continue">
+        {{> "icons/angle-down"}}
+    </a>
 </section>
 
 {{!-- Something short about Rapid --}}
@@ -118,17 +124,10 @@
     <div class="divider-bottom">
         {{> "icons/divider-curve-bottom"}}
     </div>
+    <a href="#get-the-app" title="Continue&hellip;" class="continue">
+        {{> "icons/angle-down"}}
+    </a>
     <a href="#main-content" title="Back to top">Back to top&hellip;</a>
-</section>
-
-<section class="ready-to-talk flexy">
-    <h2>Ready to talk? Let&apos;s make it happen&excl;</h2>
-    <form class="flexy row">
-        <input type="text" name="company" id="talkName" placeholder="Company name&hellip;" title="Company name" />
-        <input type="tel" name="phone" id="talkTel" placeholder="Phone number&hellip;" title="Phone number" />
-        <input type="email" name="email" id="talkEmail" placeholder="Email address&hellip;" title="Email address" />
-        <input type="submit" value="Submit" title="Submit" />
-    </form>
 </section>
 
 <section id="get-the-app" class="flexy">
@@ -161,35 +160,37 @@
         <h5>Installation link and QR builder</h5>
         <p>Make things easy for your users with a QR code or Google Play install url. Enter values for your Rapid platform into the boxes below, and hyperlinks will be generated underneath. You can scan the QR code in the Rapid Mobile app settings menu, or you can launch Google Play and Rapid Mobile will configure itself when it installs.</p>
     </aside>
+    <a href="#partner-with-leaders" title="Continue&hellip;" class="continue">
+        {{> "icons/angle-down"}}
+    </a>
     <a href="#main-content" title="Back to top">Back to top&hellip;</a>
 </section>
 
-<section class="badges flexy">
-    <h3 id="partner-with-leaders" title="Accreditation&comma; frameworks and partners">Accreditation&comma; frameworks &amp; partners</h3>
+<section class="badges flexy" id="partner-with-leaders">
+    <h3 title="Accreditation&comma; frameworks and partners">Accreditation&comma; frameworks &amp; partners</h3>
     <div class="flexy row">
-        <figure title="Cyber Essentials">
+        <figure title="Cyber Essentials" tabindex="0">
             <img src="{{asset 'images/cyber-essentials-150x150.png'}}" alt="" />
         </figure>
-        <figure title="Crown Commercial Service Supplier">
+        <figure title="Crown Commercial Service Supplier" tabindex="0">
             <img src="{{asset 'images/crown-commercial-service-supplier.png'}}" alt="" />
         </figure>
-        <figure title="Amazon Web Services">
+        <figure title="Amazon Web Services" tabindex="0">
             {{> "icons/aws"}}
         </figure>
-        <figure title="Microsoft Partner">
+        <figure title="Microsoft Partner" tabindex="0">
             <img src="{{asset 'images/ms-partner.jpeg'}}" alt="" />
         </figure>
-        <figure title="Oracle">
+        <figure title="Oracle" tabindex="0">
             {{> "icons/oracle"}}
         </figure>
-        <figure title="Java">
+        <figure title="Java" tabindex="0">
             {{> "icons/java-vertical"}}
         </figure>
     </div>
+    <a href="#newsletter" title="Continue&hellip;" class="continue">
+        {{> "icons/angle-down"}}
+    </a>
     <a href="#main-content" title="Back to top">Back to top&hellip;</a>
-</section>
-
-<section class="flexy row">
-    {{> "newsletter"}}
 </section>
 {{/is}}

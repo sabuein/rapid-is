@@ -4,5 +4,8 @@
 {{#post}}
 <h1>{{title}}</h1>
 {{#match custom_excerpt}}<p>{{custom_excerpt}}</p>{{/match}}
+<div>
+    <time datetime="{{date format='YYYY-MM-DD'}}">This was published on {{date format="DD MMMM YYYY"}}</time>&period; <span>In {{tags}}</span>
+</div>
 {{/post}}
 {{/is}}

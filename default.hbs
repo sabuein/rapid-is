@@ -19,11 +19,15 @@
     </dialog>
     <main id="main-content" class="{{post_class}} flexy" role="main">
         {{{body}}}
+        <section id="newsletter" class="flexy row">
+            {{> "newsletter"}}
+            <a href="#site-footer" title="Continue&hellip;" class="continue">
+                {{> "icons/angle-down"}}
+            </a>
+            <a href="#main-content" title="Back to top">Back to top&hellip;</a>
+        </section>
     </main>
-    {{!-- Show the pagination helper when there's more than one page --}}
-    {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
-    <hr />
-    <footer class="flexy">
+    <footer id="site-footer" class="flexy">
         <div class="divider-top">
             {{> "icons/divider-tilt"}}
         </div>
