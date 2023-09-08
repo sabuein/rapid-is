@@ -1,12 +1,12 @@
-body>footer.flexy {
+body>footer {
     padding: 1em 2em;
     padding-top: 10em;
     position: relative;
     width: 100%;
     min-height: 90vh;
     gap: 2em;
-    color: var(--color-two);
-    background-color: var(--color-four);
+    color: var(--color-black);
+    background-color: var(--accent-color-90);
 }
 
 body>footer.flexy>div.divider-top path.shape-fill {
@@ -108,6 +108,16 @@ div.social-icons.flexy.row>a {
     user-select: none;
 }
 
+figure.rapid-logo a:is(:focus, :hover) img,
+div.social-icons.flexy.row>a:is(:focus, :hover) img,
+button[data-ghost-search] {
+    outline: thick solid var(--accent-color);
+}
+
 div.social-icons.flexy.row a:hover img {
     scale: 1.1;
+}
+
+footer.flexy>div.divider-top {
+    top: -.1em;
 }

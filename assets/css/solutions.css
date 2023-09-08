@@ -23,10 +23,13 @@ body.tag-template.tag-solutions>main#main-content>figure {
 }
 
 body.tag-template.tag-solutions>main#main-content>figure>div.divider-bottom {
-    fill: var(--accent-color-100);
     rotate: 360deg;
     scale: -1 1;
     bottom: -1em;
+}
+
+body.tag-template.tag-solutions>main#main-content>figure>div.divider-bottom path {
+    fill: var(--accent-color-100);
 }
 
 body.tag-template.tag-solutions>main#main-content>header {
@@ -211,7 +214,6 @@ body.tag-template.tag-solutions>main#main-content article>a {
     font-size: 1.5rem;
     color: var(--accent-color);
     background-color: var(--accent-color-80);
-    border-radius: .5em;
     transition: all ease-in 200ms 0s;
 }
 
