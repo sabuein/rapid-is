@@ -1,12 +1,30 @@
 <!-- newsletter.hbs -->
-<form>
-    <fieldset>
+<form id="join-newsletter" class="flexy">
+    <fieldset class="flexy row">
         <legend>
             <h3>Subscribe to our newsletter</h3>
-            <h4>Be the first to learn about new Rapid resources and tips</h4>
         </legend>
-        <label>Email&colon; <input type="email" name="email" title="Email" /></label>
-        <p>Rapid needs the contact information you provide to contact you about our products and services. You may unsubscribe from these communications at anytime. For information on how to unsubscribe, as well as our privacy practices and commitment to protecting your privacy, check out our <a href="#" title="Privacy notices">Privacy notices</a>&period;</p>
-        <label>Stay up to date<input type="submit" title="Stay up to date" /></label>
-    </fieldset>
+        <div class="flexy row">
+            <label for="lead-fname" title="First name">First name&colon;<input type="text" name="fname" id="lead-fname" /></label>
+            <label for="lead-lname" title="Last name">Last name&colon;<input type="text" name="lname" id="lead-lname" /></label>
+            <label for="lead-email" title="Email address">Email address&colon;<input type="email" name="email" id="lead-email" /></label>
+            <label for="lead-industry" title="Select your industry">I work as&colon;<select name="industry" id="lead-industry" size="1" autocomplete="off" required="required">
+                <option value="na" disabled="disabled" selected="selected">Please choose an option&hellip;</option>
+                <option value="contractors">Contractors</option>
+                <option value="social-housing-landlords">Social housing landlords</option>
+                <option value="other">Other</option>
+            </select></label>
+            <label for="lead-interests" title="Select your interest&quest;">I&apos;m interested in&colon;<select name="interests" id="lead-interests" size="1" autocomplete="off" required="required">
+                <option value="na" disabled="disabled" selected="selected">Please choose an option&hellip;</option>
+                <option value="case-studies">Case studies</option>
+                <option value="latest-news">Latest news</option>
+                <option value="research">Research</option>
+            </select></label>
+        </div>
+        <div class="flexy row">
+            <input type="submit" title="Subscribe" value="Subscribe" />
+            <input type="reset" title="Reset" value="Reset" />
+        </div>
+        <p>Rapid needs the contact information you provide to contact you about our products and services. You may unsubscribe from these communications at anytime. For information on how to unsubscribe, as well as our privacy practices and commitment to protecting your privacy, check out our <a href="/privacy-notices/" title="Privacy notices">Privacy notices</a>&period;</p>
+    </fieldset>    
 </form>
