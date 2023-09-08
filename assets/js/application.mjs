@@ -62,14 +62,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     startMainModal();
 
     const nav = document.querySelector("body > header > div");
-    const main = document.getElementById("main-content");
     enableNavMenu(nav);
 
     const goToTopButtons = document.querySelectorAll("a[href='#main-content']");
     goToTopButtons.forEach((button) => {
         button.addEventListener("click", (event) => {
-            event.preventDefault();
-            window.scrollTo(0,0);
+            // event.preventDefault();
+            setTimeout(() => window.scrollTo(0,0), 0);
         });
     });
 
