@@ -110,8 +110,8 @@ div.social-icons.flexy.row>a {
 
 figure.rapid-logo a:is(:focus, :hover) img,
 div.social-icons.flexy.row>a:is(:focus, :hover) img,
-button[data-ghost-search] {
-    outline: thick solid var(--accent-color);
+button[data-ghost-search]:is(:focus, :hover) {
+    outline: thick solid var(--accent-color) !important;
 }
 
 div.social-icons.flexy.row a:hover img {

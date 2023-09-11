@@ -1,5 +1,5 @@
 :focus {
-    outline: thick solid var(--color-yellow) !important;
+    outline: thick solid var(--color-yellow);
 }
 
 /* Required by Ghost */
@@ -1410,6 +1410,10 @@ a.continue {
     user-select: none;
 }
 
+a.continue:focus {
+    outline: none;
+}
+
 article.more-clients>a.continue:nth-of-type(1) {
     top: 3em;
     bottom: unset;
@@ -2037,12 +2041,17 @@ section:has(form#join-newsletter) a[href="#main-content"] {
 }
 
 section form#join-newsletter {
+    padding: 2em 0;
     border-radius: 2em;
     background-color: var(--accent-color-90);
     box-shadow: .25em .65em 0 var(--accent-color-80);
     outline: thin solid var(--accent-color-80);
     transform: none;
     transition: all ease-in 200ms 0s;
+}
+
+section form#join-newsletter ~ a.continue {
+    bottom: 3em;
 }
 
 section form#join-newsletter:is(:focus-within, :hover) {
