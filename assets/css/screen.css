@@ -105,7 +105,7 @@
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    align-items: center;
+    align-items: safe center;
 }
 
 .flexy.row {
@@ -489,6 +489,8 @@ main.post.flexy>section.content figure.kg-card.kg-image-card.kg-card-hascaption 
 /* End of page style */
 
 section.badges.flexy {
+    /* padding: 10em 3em;
+    min-height: auto; */
     background-color: var(--accent-color-90);
     text-align: center;
     gap: 2em;
@@ -496,7 +498,7 @@ section.badges.flexy {
 
 section.badges.flexy>div.flexy {
     gap: 4em;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
 }
 
 section.badges.flexy figure {
@@ -534,7 +536,7 @@ section.badges.flexy figure:is(:focus, :hover) svg {
 }
 
 section.badges.flexy>a[href="#main-content"] {
-    bottom: 15dvh;
+    bottom: 1em;
 }
 
 div.cta-button {
@@ -1029,6 +1031,7 @@ ul.nav.flexy.row {
     list-style-type: none;
     gap: 1em;
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 li.nav-solutions svg,
@@ -1183,9 +1186,11 @@ section#briefly.flexy {
 
 section#briefly.flexy a[href="#main-content"] {
     bottom: 2em;
+    color: var(--accent-color-100);
+    background-color: var(--accent-color-60);
 }
 
-body>footer.flexy>div.divider-top,
+div.divider-top,
 div.divider-bottom {
     margin: 0;
     padding: 0;
@@ -1199,12 +1204,16 @@ div.divider-bottom {
     pointer-events: none;
 }
 
+div.divider-top {
+    top: -.1em;
+}
+
 div.divider-bottom {
     bottom: -.1em;
     transform: rotate(180deg);
 }
 
-body>footer.flexy>div.divider-top path,
+div.divider-top path,
 div.divider-bottom path {
     fill: currentColor;
 }
@@ -1213,11 +1222,11 @@ section#briefly.flexy>div.divider-top>svg {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 50px;
+    height: auto;
 }
 
 section#briefly.flexy>div.divider-top path.shape-fill {
-    fill: var(--color-white);
+    fill: var(--color-light-grey);
 }
 
 section#briefly.flexy>article {
@@ -1267,8 +1276,8 @@ section#get-the-app.flexy>aside:is(:focus, :focus-visible, :hover) {
     transition: all 200ms ease 0s;
 }
 
-section#get-the-app.flexy div.divider-top path.shape-fill {
-    fill: var(--color-light-blue);
+section#newsletter.flexy div.divider-botton path.shape-fill {
+    fill: var(--accent-color-90);
 }
 
 @keyframes scrollups {
@@ -1400,7 +1409,8 @@ a.continue {
     margin: 0;
     padding: 0;
     position: absolute;
-    right: 47dvw;
+    left: auto;
+    right: auto;
     bottom: 0;
     display: block;
     flex: 1 0 fit-content;
@@ -1451,7 +1461,7 @@ section.pre-clients>article.more-clients>div.flexy {
     width: 100dvw;
     direction: ltr;
     max-height: 24dvh;
-    gap: 4em;
+    gap: 3em;
     background-color: inherit;
     -webkit-animation-name: move;
     -webkit-animation-duration: 30s;
@@ -1660,8 +1670,7 @@ article.main-message svg {
 section.the-app.flexy.row {
     color: var(--color-dark-blue);
     background-color: var(--color-white);
-    justify-content: space-between;
-    gap: 1em;
+    gap: 2em;
 }
 
 section.the-app.flexy.row>div,
@@ -2050,10 +2059,6 @@ section form#join-newsletter {
     transition: all ease-in 200ms 0s;
 }
 
-section form#join-newsletter ~ a.continue {
-    bottom: 3em;
-}
-
 section form#join-newsletter:is(:focus-within, :hover) {
     transform: translate(0, -.25em);
     transition: all ease-out 200ms 0s;
@@ -2077,8 +2082,7 @@ form#join-newsletter legend {
 }
 
 form#join-newsletter div {
-    padding: 1em 0;
-    flex-wrap: nowrap;
+    padding: 1em;
     justify-content: center;
     max-width: 100%;
     gap: 2em;
@@ -2092,7 +2096,7 @@ form#join-newsletter div:nth-of-type(2) {
 form#join-newsletter div.divider-bottom {
     transform: none;
     top: unset;
-    bottom: -7em;
+    bottom: -7.75em;
     pointer-events: all;
 }
 
