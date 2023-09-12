@@ -218,8 +218,8 @@ body {
     line-height: 2;
     color: var(--color-black);
     background-color: var(--accent-color);
-    width: 100%;
-    max-width: var(--max-width);
+    width: var(--max-width);
+    max-width: 100dvw;
     gap: 0;
     overflow-x: hidden;
 }
@@ -232,6 +232,7 @@ dialog:not([open]) {
     pointer-events: none;
     opacity: 0;
     visibility: hidden;
+    transition: opacity 500ms ease;
 }
 
 dialog[open] {
@@ -239,12 +240,12 @@ dialog[open] {
     padding: 1em;
     inset: 0;
     border: 1em solid var(--color-bright-purple);
-    transition: opacity 500ms;
+    transition: opacity 500ms ease;
 }
 
 dialog::backdrop {
     background-color: rgba(0, 0, 0, .7);
-    transition: backdrop-filter .5s ease;
+    transition: backdrop-filter 500ms ease;
 }
 
 dialog form {
@@ -266,10 +267,16 @@ dialog form input:is([type="submit"], [type="reset"]) {
 
 main {
     position: relative;
-    width: 100%;
+    width: inherit;
+    max-width: inherit;
     color: var(--color-black);
     background-color: var(--accent-color-100);
     font-size: 1.25rem;
+}
+
+main>article {
+    width: inherit;
+    max-width: 85%;
 }
 
 body:not(.home-template)>main.flexy {
@@ -289,12 +296,15 @@ body:not(.home-template)>main.flexy {
 body>main>section {
     padding: 0 3em;
     width: 100%;
-    min-height: 100dvh;
     height: auto;
     transition: opacity 1s ease-out 25s;
     position: relative;
     overflow: hidden;
     user-select: none;
+}
+
+body.home-template.flexy>main>section {
+    min-height: 100dvh;
 }
 
 .masked {
@@ -397,26 +407,28 @@ main.post.flexy>header>section.title-meta>div {
 
 main.post.flexy>header>section.title-meta>div>time {}
 
-main.post.flexy>section.content {
+main.post.flexy section.content {
     margin: 0 auto;
     padding: 0 12dvw;
-    max-width: 85%;
+    padding: 1em;
+    min-width: 60dvw;
+    width: 100%;
     align-items: flex-start;
     gap: 1em;
 }
 
-main.post.flexy>section.content h2 {
+main.post.flexy section.content h2 {
     margin-top: 1em;
     margin-bottom: .25em;
 }
 
-main.post.flexy>section.content ul {
+main.post.flexy section.content ul {
     list-style-type: square;
     list-style-position: outside;
     line-height: 2.25em;
 }
 
-main.post.flexy>section.content blockquote {
+main.post.flexy section.content blockquote {
     margin: 0 auto 0 .25em;
     padding: .25em 0 .25em 1em;
     color: var(--accent-color);
@@ -428,62 +440,67 @@ main.post.flexy>section.content blockquote {
     font-weight: 700;
 }
 
-main.post.flexy>section.content p {
+main.post.flexy section.content p {
     line-height: 2.5em;
     text-align: justify;
     font-size: 1.4rem;
     font-weight: 400;
 }
 
-main.post.flexy>section.content a {
+main.post.flexy section.content a {
     color: currentColor;
     text-decoration-style: wavy;
     text-decoration-color: var(--color-black-40);
     transition: color 250ms ease-in-out 0s;
 }
 
-main.post.flexy>section.content a:is(:focus, :hover) {
+main.post.flexy section.content a:is(:focus, :hover) {
     color: var(--color-dark-blue);
     text-decoration-style: solid;
     text-decoration-color: var(--color-black);
     transition: color 250ms ease-in-out 0s;
 }
 
-main.post.flexy>section.content table tr:is(:focus, :hover) {
+main.post.flexy section.content table tr:is(:focus, :hover) {
     cursor: pointer;
     background-color: #d6d6d6;
 }
 
-main.post.flexy>section.content table tr:active {
+main.post.flexy section.content table tr:active {
     cursor: text;
 }
 
-main.post.flexy>section.content table tr td {
+main.post.flexy section.content table tr td {
     padding: .5em;
     vertical-align: text-top;
 }
 
-main.post.flexy>section.content table tr td:nth-of-type(1) {
+main.post.flexy section.content table tr td:nth-of-type(1) {
     width: 40%;
 }
 
-main.post.flexy>section.content table tr td:nth-of-type(2) {
+main.post.flexy section.content table tr td:nth-of-type(2) {
     width: 60%;
 }
 
-main.post.flexy>section.content figure.kg-card.kg-image-card.kg-card-hascaption {
+main.post.flexy section.content figure.kg-card.kg-image-card.kg-card-hascaption {
     text-align: start;
 
 }
 
-main.post.flexy>section.content figure.kg-card.kg-image-card.kg-card-hascaption img {
+main.post.flexy section.content figure.kg-card.kg-image-card.kg-card-hascaption img {
     mix-blend-mode: multiply;
     width: fit-content;
 }
 
-main.post.flexy>section.content figure.kg-card.kg-image-card.kg-card-hascaption figcaption {
+main.post.flexy section.content figure.kg-card.kg-image-card.kg-card-hascaption figcaption {
     color: var(--color-dark-grey);
     font-size: smaller;
+}
+
+main.post.flexy header:has(~ section.content) {
+    margin: 0 auto;
+    max-width: 100%;
 }
 
 /* End of page style */
@@ -494,6 +511,10 @@ section.badges.flexy {
     background-color: var(--accent-color-90);
     text-align: center;
     gap: 2em;
+}
+
+section.badges.flexy header {
+    padding: 2em;
 }
 
 section.badges.flexy>div.flexy {
@@ -515,8 +536,8 @@ section.badges.flexy img {
 section.badges.flexy img,
 section.badges.flexy svg {
     padding: .5em;
-    max-width: 100%;
     width: 8em;
+    max-width: 100%;
     height: 8em;
     box-shadow: none;
     outline: none;
@@ -699,14 +720,17 @@ span.hearts {
     cursor: wait;
 }
 
+header {
+    width: inherit;
+    max-width: inherit;
+    height: auto;
+}
+
 body>header {
     position: -webkit-sticky;
     position: sticky;
     left: 0;
     top: 0;
-    width: 100%;
-    max-width: 100%;
-    height: fit-content;
     z-index: 999;
     will-change: transform;
 }
@@ -788,6 +812,7 @@ div:has(dialog) {
 svg {
     max-width: 100%;
     height: auto;
+    vertical-align: middle;
 }
 
 /* Some animations */
@@ -1252,8 +1277,16 @@ section#get-the-app.flexy {
     overflow: hidden;
 }
 
+section#get-the-app.flexy a.continue {
+    bottom: 3em;
+}
+
+section#get-the-app.flexy a[href="#main-content"] {
+    bottom: 5em;
+}
+
 section#get-the-app.flexy>aside {
-    margin-left: 50dvw;
+    margin-left: 45%;
     padding: .5em 3em;
     border-top-left-radius: 5em;
     cursor: pointer;
@@ -1381,8 +1414,7 @@ section.pre-clients {
     background-color: var(--accent-color-50);
 }
 
-section.pre-clients>article {
-    padding: 2em 1em;
+section.pre-clients>article.flexy {
     width: 100%;
     gap: 1em;
 }
@@ -1400,7 +1432,7 @@ section.pre-clients>article.more-clients {
 }
 
 section.pre-clients>article.more-clients>h2 {
-    padding: 0;
+    padding: 1em;
     font-size: 2.25rem;
     cursor: default;
 }
@@ -1457,8 +1489,8 @@ section.pre-clients>article.more-clients>div.flexy {
     margin: 0;
     padding: 45dvh 1dvw;
     padding-bottom: 55dvh;
-    max-width: 100%;
     width: 100dvw;
+    max-width: 100%;
     direction: ltr;
     max-height: 24dvh;
     gap: 3em;
@@ -1635,7 +1667,6 @@ section.pre-clients article.five-clients>div.flexy figure img:is(:focus, :hover)
 }
 
 section.pre-clients h1 {
-    padding-left: 1em;
     max-width: 13em;
     font-size: 3rem;
     font-weight: 900;
@@ -1644,27 +1675,16 @@ section.pre-clients h1 {
 }
 
 section.pre-clients p {
-    padding-left: 1.5em;
-    font-size: 2rem;
+    font-size: 1.85rem;
     font-weight: 700;
     text-align: justify;
 }
 
-article.main-message {
-    justify-content: space-between;
-}
-
-article.main-message> :is(div, figure) {
-    flex: 1 0 40%;
-    max-width: 100%;
-}
-
-article.main-message>div {
+article.main-message.flexy > :is(div, figure) {
+    padding: 1em;
+    flex: 1 0 49%;
     width: 100%;
-}
-
-article.main-message svg {
-    width: 85%;
+    max-width: inherit;
 }
 
 section.the-app.flexy.row {
@@ -1717,9 +1737,12 @@ section.the-app.flexy.row>div>p {
     text-align: justify;
 }
 
+section.the-app.flexy.row a[href="#main-content"] {
+    bottom: 5em;
+}
+
 article.main-message figure {
-    padding-right: 1em;
-    text-align: end;
+    text-align: center;
     animation: slide-left 500ms linear 10ms 1 forwards;
 }
 
@@ -2042,7 +2065,8 @@ form {
 }
 
 section:has(form#join-newsletter) {
-    padding: 0 10dvw;
+    padding: 0 8dvw;
+    min-height: 100dvh;
 }
 
 section:has(form#join-newsletter) a[href="#main-content"] {
@@ -2182,4 +2206,19 @@ form#join-newsletter a {
 
 form#join-newsletter a:is(:focus, :hover) {
     text-decoration: underline;
+}
+
+@media screen and (max-width: 1520px) { /* TODO... */}
+
+section.sharing-is-caring {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    gap: 2em;
+}
+
+section.sharing-is-caring ul {
+    list-style-type: none;
+    gap: 1em;
 }
