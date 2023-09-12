@@ -617,6 +617,7 @@ div.cta-button button {
     border-radius: 0;
     width: 25%;
     min-width: fit-content;
+    text-transform: capitalize;
     transition: width 1s ease-in 0s;
 }
 
@@ -1269,6 +1270,7 @@ section#briefly.flexy>article {
 section#briefly.flexy>button {
     flex: 0 0 38%;
     max-width: 38%;
+    text-transform: capitalize;
 }
 
 section#briefly.flexy article div {
@@ -1350,6 +1352,10 @@ section#newsletter.flexy div.divider-botton path.shape-fill {
     100% {
         transform: translateY(0);
     }
+}
+
+section#get-the-app.flexy h2 {
+    padding: .25em 1.5em;
 }
 
 section#get-the-app.flexy>p {
@@ -2141,7 +2147,8 @@ form#join-newsletter p {
 }
 
 section form#join-newsletter:is(:focus-within, :hover) p {
-    color: var(--accent-color-20);
+    color: var(--accent-color);
+    user-select: text;
     transition: all ease-out 200ms 0s;
 }
 
