@@ -500,7 +500,12 @@ main.post.flexy section.content figure.kg-card.kg-image-card.kg-card-hascaption 
 
 main.post.flexy header:has(~ section.content) {
     margin: 0 auto;
+    padding: 1em;
     max-width: 100%;
+}
+
+main.post.flexy>article>footer {
+    padding: 1em;
 }
 
 /* End of page style */
@@ -2216,9 +2221,18 @@ section.sharing-is-caring {
     width: 100%;
     height: auto;
     gap: 2em;
+    user-select: text;
 }
 
 section.sharing-is-caring ul {
     list-style-type: none;
     gap: 1em;
+}
+
+section.sharing-is-caring a {
+    text-decoration: none;
+}
+
+section.sharing-is-caring a:is(:focus, :hover) {
+    text-decoration: underline;
 }
