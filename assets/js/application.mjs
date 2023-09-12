@@ -17,25 +17,21 @@ const hideNav = (nav, main) => {
     });
 };
 
-const activateMenuItem = (item, link) => {
-    item.onmouseover = () => link.focus();
-    if (item.classList.contains("nav-solutions")) {
-        document.querySelector("ul.solutions-nav").onmouseleave = () => link.blur();
-    }
-};
-
 const enableNavMenu = (nav) => {
     let solutionsElement = nav.querySelectorAll("ul.nav li"),
         solutionsLink = nav.querySelectorAll("ul.nav li a");
-    [].forEach.call(solutionsElement, (li, index) =>
-        activateMenuItem(li, solutionsLink[index])
-    );
+    [].forEach.call(solutionsElement, (li, index) => activateMenuItem(li, solutionsLink[index]));
 };
 
-const startMainModal = () => {
-    // Get the required elements for the main modal
-    const dialog = document.getElementById("get-in-touch");
-    const elements = document.querySelectorAll(".show-modal");
+const activateMenuItem = (item, link) => {
+    item.onmouseover = () => link.focus();
+    if (item.classList.contains("nav-solutions")) document.querySelector("ul.solutions-nav").onmouseleave = () => link.blur();
+};
+
+const startMainModal = (id, query) => {
+    // Get the required elements for the modal
+    const dialog = document.getElementById(id);
+    const elements = document.querySelectorAll(query);
 
     // Set the show dialog elements
     elements.forEach((element) => {
@@ -56,15 +52,15 @@ const startMainModal = () => {
 };
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    // Get the get in touch menu item
-    const getInTouch = document.querySelector("li.nav-get-in-touch > a");
+    // Get the contact main nav item
+    const getInTouch = document.querySelector(`li.nav-contact[role="menuitem"] > a`);
     if (!!getInTouch) getInTouch.classList.add("show-modal");
-    startMainModal();
+    startMainModal("get-in-touch", ".show-modal");
 
     const nav = document.querySelector("body > header > div");
     enableNavMenu(nav);
 
-    const goToTopButtons = document.querySelectorAll("a[href='#main-content']");
+    const goToTopButtons = document.querySelectorAll(`a[href="#main-content"]`);
     goToTopButtons.forEach((button) => {
         button.addEventListener("click", (event) => {
             // event.preventDefault();
@@ -98,7 +94,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 const shakeMe = (section) => {
     section.onmouseover = () => section.classList.add("hi");
     section.onmouseout = () => section.classList.remove("hi");
-}
+};
 
 // Automatically scroll horizontally when the window load
 window.addEventListener("load", () => {
