@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     goToTopButtons.forEach((button) => {
         button.addEventListener("click", (event) => {
             // event.preventDefault();
-            setTimeout(() => window.scrollTo(0,0), 0);
+            setTimeout(() => window.scrollTo(0, 0), 0);
         });
     });
 
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const cookiesActions = document.querySelectorAll("aside.cookies > form.actions");
     cookiesActions.forEach((button) => {
         const accepted = window.localStorage.getItem("cookiesAccepted") || null;
-        if (!accepted || accepted !== "true" ) {
+        if (!accepted || accepted !== "true") {
             cookiesAside.style.display = "flex";
             button.onclick = () => {
                 window.localStorage.setItem("cookiesAccepted", true);
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const solutionsApps = document.querySelectorAll("body.tag-template.tag-solutions>main#main-content>div>article") || null;
     if (!!solutionsApps) {
         for (let i = 0; i < solutionsApps.length; i++) {
-            const a = document.querySelector(`body.tag-template.tag-solutions>main#main-content>div>article:nth-child(${i+1}) > a`);
+            const a = document.querySelector(`body.tag-template.tag-solutions>main#main-content>div>article:nth-child(${i + 1}) > a`);
             solutionsApps[i].onclick = () => a.click();
         }
     }
@@ -121,3 +121,52 @@ window.addEventListener("load", () => {
         console.error(error);
     }
 });
+
+if (!!document.querySelector("#client-testimonials")) {
+    const circles = document.querySelectorAll("#client-testimonials > footer > div");
+    const articles = document.querySelectorAll("#client-testimonials > div > article");
+
+    const activateCurrent = (index) => {
+        if (index >= articles.length) currentIndex = 0;
+        else if (index < 0) currentIndex = articles.length - 1;
+        else currentIndex = index;
+        deactivateAll();
+        circles[currentIndex].classList.add("currently-active");
+        articles[currentIndex].classList.add("currently-active");
+    };
+
+    const deactivateAll = () => {
+        articles.forEach(article => article.classList.remove("currently-active"));
+        circles.forEach(circle => circle.classList.remove("currently-active"));
+    };
+
+    let currentIndex = 0;
+    activateCurrent(currentIndex);
+
+    const activateArrow = (index) => activateCurrent(currentIndex += index);
+
+    const activateTestimonialsPanel = () => {
+        try {
+            circles.forEach((circle, current) => {
+                circle.addEventListener("click", () => {
+                    // deactivateAll();
+                    activateCurrent(current);
+                });
+            });
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    activateTestimonialsPanel();
+
+    document.querySelector("#client-testimonials > a.next-testimonial").addEventListener("click", (event) => {
+        event.preventDefault();
+        activateArrow(1);
+    });
+
+    document.querySelector("#client-testimonials > a.prev-testimonial").addEventListener("click", (event) => {
+        event.preventDefault();
+        activateArrow(-1);
+    });
+}
