@@ -3,29 +3,15 @@
 {{#is "home"}}
 <section class="pre-clients flexy">
     <article class="main-message flexy row">
-        <div class="flexy">
+        <header class="flexy" title="Integrate your IT systems&comma; get more done&period;">
             <h1>Integrate your IT systems&comma; get more done&period;</h1>
             <p><a href="#briefly" title="">Rapid</a> simplifies digital transformation&comma; enhancing services&comma; saving costs&comma; and providing structured data for efficiency&comma; accuracy&comma; and AI insights&period;</p>
-        </div>
+        </header>
         <figure>
             {{> "drawings/version-control"}}
         </figure>
     </article>
-    <article class="five-clients flexy row">
-        <h2>Trusted by 30&plus; providers of <a href="#social-housing" title="Social housing">social housing</a>&hellip;</h2>
-        <div class="flexy row disable-scrollbar horizontal-scrolling">
-            {{#get "posts" filter="tag:hash-clients+visibility:public" order="title asc" limit=@config.posts_per_page}}
-            {{#foreach posts}}
-            {{#if feature_image}}<figure>
-                <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" />
-            </figure>{{else}}<pre>{{title}}</pre>{{/if}}
-            {{/foreach}}
-            {{else}}
-            <p class="get-error">{{error}}</p>
-            {{/get}}
-        </div>
-    </article>
-    <article class="more-clients flexy">
+    <article class="more-clients flexy" title="Trusted by 30&plus; local authorities and housing associations&period;">
         <h2>Trusted by 30&plus; local authorities and housing associations including&colon;</h2>
         <a href="#social-housing-providers" title="Continue to the next section&hellip;" class="continue">
             {{> "icons/angle-down"}}
@@ -132,7 +118,7 @@
 
 <section id="get-the-app" class="flexy">
     <header>
-        <h2>Get the Rapid app&excl;</h2>
+        <h2 title="Get the Rapid app">Get the Rapid <strong>app&period;</strong></h2>
     </header>
     <p>Rapid Mobile provides additional support for Rapid apps on mobile devices&period; Your Rapid application will be downloaded to your device so it runs faster&comma; with or without a mobile signal or wifi&period; Images from your camera or gallery can also be brought into your app and uploaded to your server&period; GPS and location support is also provided&period;</p>
     <div class="flexy row">
@@ -178,8 +164,8 @@
 </section>
 
 <section id="partner-with-leaders" class="badges flexy">
-    <header>
-        <h2 id="accreditation-frameworks-partners" title="Accreditation&comma; frameworks and partners">Accreditation&comma; frameworks &amp; partners</h2>
+    <header title="Accreditation&comma; frameworks and partners">
+        <h2 id="accreditation-frameworks-partners">Accreditation&comma; <strong>frameworks</strong> &amp; partners&period;</h2>
     </header>
     <div class="flexy row">
         <figure title="Cyber Essentials" tabindex="0">
