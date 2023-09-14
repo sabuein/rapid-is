@@ -52,7 +52,8 @@ body>footer>pre {
     text-align: center;
 }
 
-body>footer div.flexy {
+body>footer div.flexy,
+body>footer address.flexy {
     flex: 1 0 20%;
     min-width: 20%;
     align-items: flex-start;
@@ -61,7 +62,7 @@ body>footer div.flexy {
     gap: 1em;
 }
 
-body>footer div.contact.flexy {
+body>footer address.contact.flexy {
     text-transform: none;
 }
 

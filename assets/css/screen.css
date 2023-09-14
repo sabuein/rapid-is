@@ -202,7 +202,7 @@
     margin: 0;
     padding: 0;
     border: 0;
-    outline: none;
+    outline: 0;
     box-sizing: border-box;
     color: currentColor;
     -webkit-font-smoothing: antialiased;
@@ -530,6 +530,15 @@ section.badges.flexy header {
     padding: 2em;
 }
 
+section.badges.flexy header h2 {
+    text-transform: capitalize;
+    font-weight: normal;
+}
+
+section.badges.flexy header h2 strong {
+    font-weight: bolder;
+}
+
 section.badges.flexy>div.flexy {
     gap: 4em;
     /* justify-content: flex-end; */
@@ -553,7 +562,7 @@ section.badges.flexy svg {
     max-width: 100%;
     height: 8em;
     box-shadow: none;
-    outline: none;
+    outline: 0;
     transition: all ease-in 200ms 0s;
 }
 
@@ -1362,14 +1371,25 @@ section#newsletter.flexy div.divider-botton path.shape-fill {
     }
 }
 
+section#get-the-app.flexy header {
+    text-align: center;
+}
+
 section#get-the-app.flexy h2 {
     padding: .25em 1.5em;
+    text-transform: capitalize;
+    font-weight: normal;
+}
+
+section#get-the-app.flexy h2 strong {
+    font-weight: bolder;
 }
 
 section#get-the-app.flexy>p {
     padding: .25em 3em;
     line-height: 2em;
     font-size: larger;
+    user-select: text;
 }
 
 section#get-the-app.flexy>div.flexy.row {
@@ -1438,7 +1458,7 @@ section.pre-clients>article.flexy {
     gap: 1em;
 }
 
-section.pre-clients article>div.flexy {
+section.pre-clients article>header.flexy {
     align-content: flex-start;
     gap: 1em;
 }
@@ -1472,7 +1492,7 @@ a.continue {
 }
 
 a.continue:focus {
-    outline: none;
+    outline: 0;
 }
 
 article.more-clients>a.continue:nth-of-type(1) {
@@ -1627,22 +1647,6 @@ section.pre-clients>article.more-clients>div.flexy>figure svg {
     }
 }
 
-section.pre-clients article.five-clients {
-    display: none;
-}
-
-section.pre-clients article.five-clients>div.flexy {
-    padding: 1em 3em;
-    -moz-osx-font-smoothing: grayscale;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: scroll;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: 5em;
-}
-
-section.pre-clients article.five-clients>div.flexy::before,
-section.pre-clients article.five-clients>div.flexy::after,
 section.pre-clients article.more-clients>div.flexy::before,
 section.pre-clients article.more-clients>div.flexy::after {
     content: "";
@@ -1657,32 +1661,12 @@ section.pre-clients article.more-clients>div.flexy::after {
     user-select: none;
 }
 
-section.pre-clients article.five-clients>div.flexy::before,
 section.pre-clients article.more-clients>div.flexy::before {
     left: -5em;
 }
 
-section.pre-clients article.five-clients>div.flexy::after,
 section.pre-clients article.more-clients>div.flexy::after {
     right: -5em;
-}
-
-section.pre-clients article.five-clients>div.flexy figure {
-    max-width: 150px;
-    flex: 0 0 150px;
-}
-
-section.pre-clients article.five-clients>div.flexy figure img {
-    opacity: .4;
-    filter: blur(.25em);
-    transition: opacity ease-in 250ms 0s, filter ease-out 250ms 0s;
-}
-
-section.pre-clients article.five-clients>div.flexy figure img:is(:focus, :hover) {
-    cursor: pointer;
-    opacity: 1;
-    filter: none;
-    transition: opacity ease-out 250ms 0s, filter ease-in 250ms 0s, ;
 }
 
 section.pre-clients h1 {
@@ -1699,7 +1683,7 @@ section.pre-clients p {
     text-align: justify;
 }
 
-article.main-message.flexy > :is(div, figure) {
+article.main-message.flexy > *:is(header, figure) {
     padding: 1em;
     flex: 1 0 49%;
     width: 100%;
@@ -1765,21 +1749,11 @@ article.main-message figure {
     animation: slide-left 500ms linear 10ms 1 forwards;
 }
 
-article.main-message>div.flexy {
+article.main-message>header.flexy {
     gap: .5em;
     font-size: 2rem;
     align-items: flex-start;
     animation: slide-right 500ms linear 10ms 1 forwards;
-}
-
-section.pre-clients article.five-clients {
-    padding: 1em;
-    flex: 1 0 100%;
-    width: 100%;
-    background-color: var(--color-dark-blue);
-    gap: 1em;
-    animation: slide-up 1s linear 10ms 1 forwards;
-    overflow-x: hidden;
 }
 
 div.five-points {
@@ -2124,6 +2098,15 @@ form#join-newsletter legend {
     text-align: center;
 }
 
+form#join-newsletter legend h2 {
+    font-weight: normal;
+    text-transform: capitalize;
+}
+
+form#join-newsletter legend strong {
+    font-weight: bolder;
+}
+
 form#join-newsletter div {
     padding: 1em;
     justify-content: center;
@@ -2207,7 +2190,7 @@ form#join-newsletter input:is([type="submit"], [type="reset"]) {
     color: var(--accent-color);
     background-color: var(--accent-color-80);
     box-shadow: .15em .15em 0 var(--accent-color-80);
-    outline: none;
+    outline: 0;
     scale: 1;
     transition: all ease-in 200ms 0s;
 }
@@ -2236,7 +2219,7 @@ section.sharing-is-caring {
     width: 100%;
     height: auto;
     gap: 2em;
-    user-select: text;
+    user-select: none;
 }
 
 section.sharing-is-caring ul {
@@ -2250,6 +2233,11 @@ section.sharing-is-caring a {
 
 section.sharing-is-caring a:is(:focus, :hover) {
     text-decoration: underline;
+}
+
+section.sharing-is-caring h6::before {
+    display: none;
+    content: "\27A6";
 }
 
 /* Client's testimonials and reviews: testimonials.hbs */
@@ -2267,6 +2255,15 @@ section.sharing-is-caring a:is(:focus, :hover) {
 
 .get-testimonials > header {
     text-align: center;
+}
+
+.get-testimonials > header h2 {
+    font-weight: normal;
+    text-transform: capitalize;
+}
+
+.get-testimonials > header strong {
+    font-weight: bolder;
 }
 
 .get-testimonials > footer {
@@ -2313,10 +2310,10 @@ section.sharing-is-caring a:is(:focus, :hover) {
     display: none;
     visibility: hidden;
     opacity: 0;
-    gap: 2em;
+    gap: 1em;
     user-select: text;
     cursor: default;
-    outline-width: none;
+    outline-width: 0;
     outline-style: solid;
     outline-color: var(--accent-color-80);
     transform: none;
@@ -2363,6 +2360,10 @@ section.sharing-is-caring a:is(:focus, :hover) {
     text-align: justify;
 }
 
+.get-testimonials .container .post footer {
+    flex: 1 0 100%;
+}
+
 .get-testimonials .container .post figure {
     flex: 0 0 auto;
     max-width: 100%;
@@ -2386,7 +2387,7 @@ section.sharing-is-caring a:is(:focus, :hover) {
     font-size: 2rem;
     background-color: transparent;
     border-radius: 1dvw;
-    outline: none;
+    outline: 0;
 }
 
 .get-testimonials .next-testimonial svg,
@@ -2420,7 +2421,7 @@ section.sharing-is-caring a:is(:focus, :hover) {
     padding: 8em 1em;
     position: relative;
     min-height: 100dvh;
-    gap: 1em;
+    gap: 2em;
 }
 
 .get-team-members > header {
@@ -2429,6 +2430,7 @@ section.sharing-is-caring a:is(:focus, :hover) {
 
 .get-team-members > header h2 {
     font-weight: normal;
+    text-transform: capitalize;
 }
 
 .get-team-members > header strong {
@@ -2436,21 +2438,43 @@ section.sharing-is-caring a:is(:focus, :hover) {
 }
 
 .get-team-members .container {
-    padding: 1em;
+    padding: 1em 5em;
     gap: 1em;
 }
 
 .get-team-members .container .post {
     padding: 2em;
     flex: 1 0 33dvw;
-    max-width: 60%;
+    max-width: 75%;
     width: 33dvw;
     gap: 2em;
+    cursor: default;
+    user-select: text;
+    outline-style: dashed;
+    outline-color: var(--color-light-grey);
+    outline-width: 0;
+    transition: all 250ms ease-in-out 0s;
+}
+
+.get-team-members .container .post:is(:active, :hover) {
+    outline-width: thick;
+    transform: translate(0, -.15em);
+    transition: all 250ms ease-in-out 0s;
 }
 
 .get-team-members .post header {
     flex: 0 0 30%;
     width: 30%;
+    gap: .5em;
+    transition: all 250ms ease-in-out 0s;
+}
+
+.get-team-members .post h3 {
+    line-height: 1.25;
+    white-space: nowrap;
+    font-size: 2.15rem;
+    text-align: start;
+    width: 100%;
 }
 
 .get-team-members .post figure {
@@ -2459,7 +2483,14 @@ section.sharing-is-caring a:is(:focus, :hover) {
     max-width: 100%;
     height: 50dvh;
     max-height: 100%;
-    border: thin solid var(--accent-color);
+    filter: grayscale(.5);
+    transition: all 250ms ease-in-out 0s;
+    /*border: thin solid var(--accent-color);*/
+}
+
+.get-team-members .container .post:is(:active, :hover) figure {
+    filter: drop-shadow(.05em .1em .15em var(--color-black));
+    transition: all 250ms ease-in-out 0s;
 }
 
 .get-team-members .post figcaption {
@@ -2468,7 +2499,7 @@ section.sharing-is-caring a:is(:focus, :hover) {
     left: 0;
     bottom: 0;
     color: var(--accent-color-100);
-    background-color: var(--accent-color);
+    background-color: var(--accent-color-10);
     width: 100%;
     text-align: center;
 }
