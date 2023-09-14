@@ -1284,7 +1284,7 @@ section#get-the-app.flexy {
 }
 
 section#get-the-app.flexy a.continue {
-    bottom: 3em;
+    bottom: 5em;
 }
 
 section#get-the-app.flexy a[href="#main-content"] {
@@ -1453,7 +1453,7 @@ a.continue {
     position: absolute;
     left: auto;
     right: auto;
-    bottom: 0;
+    bottom: 2em;
     display: block;
     flex: 1 0 fit-content;
     max-width: fit-content;
@@ -1467,7 +1467,7 @@ a.continue:focus {
 }
 
 article.more-clients>a.continue:nth-of-type(1) {
-    top: 3em;
+    top: 5em;
     bottom: unset;
 }
 
@@ -1478,9 +1478,9 @@ article.more-clients>a.continue:nth-of-type(2) {
 section a.continue svg {
     margin: 0;
     padding: 0 !important;
-    max-height: 10em;
-    height: 10em !important;
-    min-width: 10em;
+    max-height: 10dvh !important;
+    height: 100%;
+    max-width: 10dvw;
     width: 100%;
     animation: point-down 1s linear 0s infinite;
 }
@@ -2361,6 +2361,7 @@ section.sharing-is-caring a:is(:focus, :hover) {
 
 .testimonial-review img {
     border-radius: 2dvw;
+    max-height: inherit;
 }
 
 .next-testimonial,
@@ -2385,7 +2386,7 @@ section.sharing-is-caring a:is(:focus, :hover) {
 .next-testimonial:is(:focus, :hover) svg,
 .prev-testimonial:is(:focus, :hover) svg {
     fill: var(--accent-color);
-    scale: 1.15;
+    scale: 1.25;
 }
 
 .next-testimonial {
