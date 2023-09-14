@@ -1,13 +1,13 @@
 <!-- testimonials.hbs -->
-{{!-- This partial requires a parent positioned relative --}}
+{{!-- This partial requires a parent with class "get-testimonials" --}}
 <header>
     <h2>Client&apos;s testimonials and reviews&hellip;</h2>
     <p>Read our client&apos;s testimonials and reviews below&period; We are extremely proud of the feedback we have received from our clients over the years&period;</p>
 </header>
-<div class="testimonials-container disable-scrollbar flexy row">
+<div class="container disable-scrollbar flexy row">
     {{#get "posts" filter="tag:testimonials+visibility:public" order="title asc" limit=5}}
     {{#foreach posts}}
-    <article class="testimonial-review {{post_class}} flexy row" data-testimonial-index="{{@index}}">
+    <article class="{{post_class}} flexy row" data-testimonial-index="{{@index}}">
         <header class="flexy">
             <h3>{{title}}</h3>
             {{#if feature_image}}<figure class="bg-image" style="background-image: url({{img_url feature_image absolute='true'}});">
