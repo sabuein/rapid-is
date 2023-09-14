@@ -451,14 +451,13 @@ main.post.flexy section.content a {
     color: currentColor;
     text-decoration-style: wavy;
     text-decoration-color: var(--color-black-40);
-    transition: color 250ms ease-in-out 0s;
+    transition: all 250ms ease-in-out 0s;
 }
 
 main.post.flexy section.content a:is(:focus, :hover) {
     color: var(--color-dark-blue);
     text-decoration-style: solid;
     text-decoration-color: var(--color-black);
-    transition: color 250ms ease-in-out 0s;
 }
 
 main.post.flexy section.content table tr:is(:focus, :hover) {
@@ -2247,14 +2246,14 @@ section.sharing-is-caring a:is(:focus, :hover) {
 /* Client's testimonials and reviews */
 
 .get-testimonials {
-    padding-top: 8em;
+    padding: 8em 1em;
     position: relative;
     min-height: 100dvh;
     height: auto;
     background-color: var(--accent-color-100);
     background-color: var(--color-light-grey);
     justify-content: flex-start;
-    gap: 1em;
+    gap: 2em;
 }
 
 .get-testimonials > header {
@@ -2278,6 +2277,7 @@ section.sharing-is-caring a:is(:focus, :hover) {
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
+    transition: all 250ms ease-in-out 0s;
 }
 
 .get-testimonials > footer > div.currently-active,
@@ -2302,6 +2302,7 @@ section.sharing-is-caring a:is(:focus, :hover) {
     height: 100%;
     min-height: 45dvh;
     display: none;
+    opacity: 0;
     gap: 2em;
     user-select: text;
     scale: 1;
@@ -2317,11 +2318,12 @@ section.sharing-is-caring a:is(:focus, :hover) {
     border: 0;
     box-shadow: .2em .2em 0 var(--accent-color-80);
     outline-width: thin;
-    transition: all 250ms ease-in-out 0s;
 }
 
 .testimonial-review.currently-active {
     display: flex;
+    opacity: 1;
+    transition: all 250ms ease-in-out 0s;
 }
 
 .testimonial-review > *:is(header, p) {
@@ -2350,7 +2352,6 @@ section.sharing-is-caring a:is(:focus, :hover) {
     position: absolute;
     top: 45dvh;
     font-size: 2rem;
-    fill: var(--color-mid-grey);
     background-color: transparent;
     border-radius: 1dvw;
     outline: none;
@@ -2360,13 +2361,15 @@ section.sharing-is-caring a:is(:focus, :hover) {
 .prev-testimonial svg {
     max-width: 100%;
     width: 6dvw;
+    fill: var(--accent-color-80);
+    scale: 1;
+    transition: all 250ms ease-in-out 0s;
 }
 
 .next-testimonial:is(:focus, :hover) svg,
 .prev-testimonial:is(:focus, :hover) svg {
-    fill: var(--color-dark-grey);
-    scale: 1.1;
-    /* ackground-color: var(--accent-color); */
+    fill: var(--accent-color);
+    scale: 1.15;
 }
 
 .next-testimonial {
