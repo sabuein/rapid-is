@@ -2278,7 +2278,7 @@ section.sharing-is-caring a:is(:focus, :hover) {
     flex: 0 0 1.5em;
     width: 1.5em;
     height: 1.5em;
-    border: thick solid var(--accent-color-50);
+    border: thin solid var(--accent-color-50);
     border-radius: 50%;
     color: currentColor;
     background-color: var(--accent-color-90);
@@ -2296,11 +2296,11 @@ section.sharing-is-caring a:is(:focus, :hover) {
     border-color: var(--accent-color-20);
 }
 
-.testimonials-container {
+.get-testimonials .container {
     gap: 1em;
 }
 
-.testimonial-review {
+.get-testimonials .container .post {
     border: 0;
     border-radius: 0;
     padding: 1em 2em;
@@ -2316,19 +2316,22 @@ section.sharing-is-caring a:is(:focus, :hover) {
     gap: 2em;
     user-select: text;
     cursor: default;
-    outline-width: thin;
+    outline-width: none;
     outline-style: solid;
     outline-color: var(--accent-color-80);
     transform: none;
-    box-shadow: .15em .15em 0 var(--accent-color-80);;
+    box-shadow: .15em .15em 0 var(--accent-color-80);
+    transition: all 250ms ease-in-out 0s;
 }
 
-.testimonial-review:is(:active, :hover) {
+.get-testimonials .container .post:is(:active, :hover) {
     transform: translate(0, -.15em);
     box-shadow: .25em .25em 0 var(--accent-color-80);
 }
 
-.testimonial-review.currently-active {
+.get-testimonials .container .post.currently-active {
+    background-color: var(--accent-color-100);
+    outline-width: thin;
     display: flex;
     visibility: visible;
     opacity: 1;
@@ -2345,22 +2348,22 @@ section.sharing-is-caring a:is(:focus, :hover) {
     100% { opacity: 1; }
 }
 
-.testimonial-review *:is(header, p) {
+.get-testimonials .container .post *:is(header, p) {
     flex: 1 0 0;
     width: 100%;
     max-width: fit-content;
 }
 
-.testimonial-review *:is(h3, p) {
+.get-testimonials .container .post *:is(h3, p) {
     cursor: text;
 }
 
-.testimonial-review p {
+.get-testimonials .container .post p {
     padding: 1em;
     text-align: justify;
 }
 
-.testimonial-review figure {
+.get-testimonials .container .post figure {
     flex: 0 0 auto;
     max-width: 100%;
     width: 15dvw;
@@ -2370,14 +2373,14 @@ section.sharing-is-caring a:is(:focus, :hover) {
     border-radius: 2dvw;
 }
 
-.testimonial-review img {
+.get-testimonials .container .post img {
     display: none;
     border-radius: 2dvw;
     max-height: inherit;
 }
 
-.next-testimonial,
-.prev-testimonial {
+.get-testimonials .next-testimonial,
+.get-testimonials .prev-testimonial {
     position: absolute;
     top: 45dvh;
     font-size: 2rem;
@@ -2386,8 +2389,8 @@ section.sharing-is-caring a:is(:focus, :hover) {
     outline: none;
 }
 
-.next-testimonial svg,
-.prev-testimonial svg {
+.get-testimonials .next-testimonial svg,
+.get-testimonials .prev-testimonial svg {
     max-width: 100%;
     width: 6dvw;
     fill: var(--accent-color-80);
@@ -2395,24 +2398,95 @@ section.sharing-is-caring a:is(:focus, :hover) {
     transition: all 250ms ease-in-out 0s;
 }
 
-.next-testimonial:is(:focus, :hover) svg,
-.prev-testimonial:is(:focus, :hover) svg {
+.get-testimonials .next-testimonial:is(:focus, :hover) svg,
+.get-testimonials .prev-testimonial:is(:focus, :hover) svg {
     fill: var(--accent-color);
     scale: 1.25;
 }
 
-.next-testimonial {
+.get-testimonials .next-testimonial {
     right: 2dvw;
     rotate: 270deg;
 }
 
-.prev-testimonial {
+.get-testimonials .prev-testimonial {
     left: 2dvw;
     rotate: 90deg;
 }
 
 /* Meet our team: team-members.hbs */
 
+.get-team-members {
+    padding: 8em 1em;
+    position: relative;
+    min-height: 100dvh;
+    gap: 1em;
+}
+
 .get-team-members > header {
     text-align: center;
+}
+
+.get-team-members > header h2 {
+    font-weight: normal;
+}
+
+.get-team-members > header strong {
+    font-weight: bolder;
+}
+
+.get-team-members .container {
+    padding: 1em;
+    gap: 1em;
+}
+
+.get-team-members .container .post {
+    padding: 2em;
+    flex: 1 0 33dvw;
+    max-width: 60%;
+    width: 33dvw;
+    gap: 2em;
+}
+
+.get-team-members .post header {
+    flex: 0 0 30%;
+    width: 30%;
+}
+
+.get-team-members .post figure {
+    position: relative;
+    width: 100dvw;
+    max-width: 100%;
+    height: 50dvh;
+    max-height: 100%;
+    border: thin solid var(--accent-color);
+}
+
+.get-team-members .post figcaption {
+    padding: .5em;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: var(--accent-color-100);
+    background-color: var(--accent-color);
+    width: 100%;
+    text-align: center;
+}
+
+.get-team-members .post img {
+    display: none;
+}
+
+.get-team-members .post div {
+    flex: 1 0 60%;
+    width: 100dvw;
+    max-width: 60%;
+}
+
+.get-team-members .post p {
+    font-size: 1.15rem;
+}
+
+.get-team-members .post p:not(:first-of-type) {
+    margin-top: .85em;
 }
