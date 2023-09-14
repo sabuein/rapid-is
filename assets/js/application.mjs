@@ -124,19 +124,19 @@ window.addEventListener("load", () => {
 
 if (!!document.querySelector("#client-testimonials")) {
     const circles = document.querySelectorAll("#client-testimonials > footer > div");
-    const articles = document.querySelectorAll("#client-testimonials > div > article");
+    const quotes = document.querySelectorAll("#client-testimonials > div > blockquote");
 
     const activateCurrent = (index) => {
-        if (index >= articles.length) currentIndex = 0;
-        else if (index < 0) currentIndex = articles.length - 1;
+        if (index >= quotes.length) currentIndex = 0;
+        else if (index < 0) currentIndex = quotes.length - 1;
         else currentIndex = index;
         deactivateAll();
         circles[currentIndex].classList.add("currently-active");
-        articles[currentIndex].classList.add("currently-active");
+        quotes[currentIndex].classList.add("currently-active");
     };
 
     const deactivateAll = () => {
-        articles.forEach(article => article.classList.remove("currently-active"));
+        quotes.forEach(quote => quote.classList.remove("currently-active"));
         circles.forEach(circle => circle.classList.remove("currently-active"));
     };
 
