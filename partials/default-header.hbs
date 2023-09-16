@@ -1,5 +1,5 @@
 <!-- default-header.hbs -->
-<div class="flexy row">
+<header class="flexy row">
     {{#if @site.logo}}
     <figure class="rapid-logo"><a href="{{@site.url}}" title="{{@site.title}}"><img src="{{@site.logo}}" alt="{{@site.title}}" /></a></figure>
     {{else}}
@@ -9,6 +9,8 @@
     </div-->
     <figure class="rapid-logo"><a href="{{@site.url}}" title="{{@site.title}}"><img src="{{asset 'images/new-logo.png'}}" alt="{{@site.title}}" /></a></figure>
     {{/if}}
-    {{navigation}}
+    <nav>
+        {{navigation}}
+    </nav>
     {{search}}
-</div>
+</header>

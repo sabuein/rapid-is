@@ -1,104 +1,110 @@
 {{!< default}}
 <!-- home.hbs -->
 {{#is "home"}}
-<section class="pre-clients flexy">
-    <article class="main-message flexy row">
-        <header class="flexy" title="Integrate your IT systems&comma; get more done&period;">
-            <h1>Integrate your IT systems&comma; get more done&period;</h1>
-            <p><a href="#briefly" title="">Rapid</a> simplifies digital transformation&comma; enhancing services&comma; saving costs&comma; and providing structured data for efficiency&comma; accuracy&comma; and AI insights&period;</p>
-        </header>
-        <figure>
-            {{> "drawings/version-control"}}
-        </figure>
-    </article>
-    <article class="more-clients flexy" title="Trusted by 30&plus; local authorities and housing associations&period;">
-        <h2>Trusted by 30&plus; local authorities and housing associations including&colon;</h2>
-        <a href="#social-housing-providers" title="Continue to the next section&hellip;" class="continue">
+<section id="main-message" class="flexy row">
+    <header class="flexy" title="Integrate your IT systems&comma; get more done&period;">
+        <h1>Integrate your IT systems&comma; get more done&period;</h1>
+        <p><a href="#briefly" title="">Rapid</a> simplifies digital transformation&comma; enhancing services&comma; saving costs&comma; and providing structured data for efficiency&comma; accuracy&comma; and AI insights&period;</p>
+    </header>
+    <figure data-play-state="running">
+        {{> "drawings/version-control"}}
+    </figure>
+    <footer class="flexy">
+        <a href="#more-clients" title="Continue to the next section&hellip;">
             {{> "icons/angle-down"}}
         </a>
-        <div id="social-housing-providers" class="flexy disable-scrollbar horizontal-scrolling">
-            <figure class="flexy" title="Arhag Housing Association" tabindex="0">
-                {{> 'clients/arhag'}}
-                <figcaption>Arhag Housing Association</figcaption>
-            </figure>
-            <figure class="flexy" title="Ealing Council" tabindex="0">
-                {{> 'clients/ealing'}}
-                <figcaption>Ealing Council</figcaption>
-            </figure>
-            <figure class="flexy" title="Westminster City Council" tabindex="0">
-                {{> 'clients/westminster'}}
-                <figcaption>Westminster City Council</figcaption>
-            </figure>
-            <figure class="flexy" title="Lambeth Council" tabindex="0">
-                {{> 'clients/lambeth'}}
-                <figcaption>Lambeth Council</figcaption>
-            </figure>
-            <figure class="flexy" title="Islington Council" tabindex="0">
-                {{> 'clients/islington'}}
-                <figcaption>Islington Council</figcaption>
-            </figure>
-            <figure class="flexy" title="Enfield Council" tabindex="0">
-                {{> 'clients/enfield'}}
-                <figcaption>Enfield Council</figcaption>
-            </figure>
-            <figure class="flexy" title="Stevenage Borough Council" tabindex="0">
-                {{> 'clients/stevenage'}}
-                <figcaption>Stevenage Borough Council</figcaption>
-            </figure>
-            <figure class="flexy" title="Camden Council" tabindex="0">
-                {{> 'clients/camden'}}
-                <figcaption>Camden Council</figcaption>
-            </figure>
-            <figure class="flexy" title="Haringey Council" tabindex="0">
-                {{> 'clients/haringey'}}
-                <figcaption>Haringey Council</figcaption>
-            </figure>
-        </div>
-        <a href="#compliance-app" title="Continue to the next section&hellip;" class="continue">
-            {{> "icons/angle-down"}}
-        </a>
-    </article>
+    </footer>
 </section>
 
-<section id="compliance-app" class="the-app flexy row">
-    <div class="flexy row">
+<section id="more-clients" class="flexy">
+    <header class="flexy" title="Trusted by 30&plus; local authorities and housing associations&period;">
+        <h2>Trusted by 30&plus; local authorities and housing associations including&colon;</h2>
+    </header>
+    <div class="container flexy disable-scrollbar horizontal-scrolling" data-play-state="running">
+        <figure class="flexy" title="Arhag Housing Association" tabindex="0">
+            {{> 'clients/arhag'}}
+            <figcaption>Arhag Housing Association</figcaption>
+        </figure>
+        <figure class="flexy" title="Ealing Council" tabindex="0">
+            {{> 'clients/ealing'}}
+            <figcaption>Ealing Council</figcaption>
+        </figure>
+        <figure class="flexy" title="Westminster City Council" tabindex="0">
+            {{> 'clients/westminster'}}
+            <figcaption>Westminster City Council</figcaption>
+        </figure>
+        <figure class="flexy" title="Lambeth Council" tabindex="0">
+            {{> 'clients/lambeth'}}
+            <figcaption>Lambeth Council</figcaption>
+        </figure>
+        <figure class="flexy" title="Islington Council" tabindex="0">
+            {{> 'clients/islington'}}
+            <figcaption>Islington Council</figcaption>
+        </figure>
+        <figure class="flexy" title="Enfield Council" tabindex="0">
+            {{> 'clients/enfield'}}
+            <figcaption>Enfield Council</figcaption>
+        </figure>
+        <figure class="flexy" title="Stevenage Borough Council" tabindex="0">
+            {{> 'clients/stevenage'}}
+            <figcaption>Stevenage Borough Council</figcaption>
+        </figure>
+        <figure class="flexy" title="Camden Council" tabindex="0">
+            {{> 'clients/camden'}}
+            <figcaption>Camden Council</figcaption>
+        </figure>
+        <figure class="flexy" title="Haringey Council" tabindex="0">
+            {{> 'clients/haringey'}}
+            <figcaption>Haringey Council</figcaption>
+        </figure>
+    </div>
+    <footer class="flexy">
+        <a href="#compliance-app" title="Continue to the next section&hellip;">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
+</section>
+
+<section id="compliance-app" class="flexy row">
+    <header class="flexy row" title="Introducing compliance software application">
         <h2>Introducing compliance software application: Streamline and enhance property compliance</h2>
         <p>Our compliance software application is a robust and comprehensive solution designed to simplify and streamline property compliance processes&period; With a range of powerful features, our software empowers property managers, inspectors, and safety professionals to ensure compliance with regulations&comma; mitigate risks, and prioritize the well-being of residents. From asbestos management to fire safety inspections and health and safety monitoring, our software covers all essential compliance areas.</p>
         <div class="cta-button flexy">
             <a href="/solutions/safety-and-compliance/" title="Learn more">Learn more</a>
         </div>
-    </div>
+    </header>
     <figure>
         <a href="/solutions/safety-and-compliance/" title="Safety and compliance"><img src="{{asset 'images/rapid-fire.png'}}" alt="Rapid&apos;s Fire risk assessment application" /></a>
     </figure>
-    <a href="#streamlining-safety-checks" title="Continue to the next section&hellip;" class="continue">
-        {{> "icons/angle-down"}}
-    </a>
-    <a href="#main-content" title="Back to top">Back to top&hellip;</a>
+    <footer class="flexy">
+        <a href="#main-content" title="Back to top">Back to top&hellip;</a>
+        <a href="#streamlining-safety-checks" title="Continue to the next section&hellip;">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
 </section>
 
-<section id="streamlining-safety-checks" class="compliance flexy row">
-    <figure>
-        {{> "drawings/developer-activity"}}
-    </figure>
-    <div class="flexy">
+<section id="streamlining-safety-checks" class="flexy row">
+    <header class="flexy" title="Streamlining safety checks&comma; repairs&comma; and complaints through digital solutions">
         <h2>We are streamlining <a href="/safety-checks/" title="Safety checks">safety checks</a>&comma; <a href="/repairs/" title="Repairs">repairs</a>&comma; and <a href="/complaints/" title="Complaints">complaints</a> through digital solutions&colon; enhancing social housing sector compliance&period;</h2>
         <div class="cta-button flexy row">
             <button type="button">Learn more</button>
             <button type="button">Find out</button>
             <button type="button">Discover that</button>
         </div>
-    </div>
-    <a href="#briefly" title="Continue to the next section&hellip;" class="continue">
-        {{> "icons/angle-down"}}
-    </a>
+    </header>
+    <figure>
+        {{> "drawings/developer-activity"}}
+    </figure>
+    <footer class="flexy">
+        <a href="#briefly" title="Continue to the next section&hellip;">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
 </section>
 
 {{!-- Something short about Rapid --}}
 <section id="briefly" class="flexy row">
-    <div class="divider-top">
-        {{> "icons/divider-curve-top"}}
-    </div>
     <article class="flexy row">
         <div class="flexy">
             <p>Rapid produce an exciting and disruptive low&dash;code platform which we use to create desktop&comma; mobile&comma; and forms apps to help local authorities improve their services&comma; especially in social housing&period;</p>
@@ -107,21 +113,26 @@
         <figure>{{!--> "drawings/version-control"--}}</figure>
     </article>
     <button type="button">Learn more</button>
-    <div class="divider-bottom">
+    <div data-divider="top">
+        {{> "icons/divider-curve-top"}}
+    </div>
+    <div data-divider="bottom">
         {{> "icons/divider-curve-bottom"}}
     </div>
-    <a href="#get-the-app" title="Continue to the next section&hellip;" class="continue">
-        {{> "icons/angle-down"}}
-    </a>
-    <a href="#main-content" title="Back to top">Back to top&hellip;</a>
+    <footer class="flexy">
+        <a href="#main-content" title="Back to top">Back to top&hellip;</a>
+        <a href="#get-the-app" title="Continue to the next section&hellip;">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
 </section>
 
 <section id="get-the-app" class="flexy">
-    <header>
-        <h2 title="Get the Rapid app">Get the Rapid <strong>app&period;</strong></h2>
+    <header class="flexy" title="Get the Rapid app">
+        <h2>Get the Rapid <strong>app&period;</strong></h2>
+        <p>Rapid Mobile provides additional support for Rapid apps on mobile devices&period; Your Rapid application will be downloaded to your device so it runs faster&comma; with or without a mobile signal or wifi&period; Images from your camera or gallery can also be brought into your app and uploaded to your server&period; GPS and location support is also provided&period;</p>
     </header>
-    <p>Rapid Mobile provides additional support for Rapid apps on mobile devices&period; Your Rapid application will be downloaded to your device so it runs faster&comma; with or without a mobile signal or wifi&period; Images from your camera or gallery can also be brought into your app and uploaded to your server&period; GPS and location support is also provided&period;</p>
-    <div class="flexy row">
+    <div class="container flexy row">
         <figure>
             <a href="https://apps.apple.com/app/id1213920904" title="Download on the App Store" target="_blank" rel="noopener"><img src="{{asset 'images/badge-app-store.png'}}" alt="App Store" /></a>
         </figure>
@@ -134,40 +145,45 @@
             </a>
         </figure>
     </div>
-    <footer>
-        <pre>Apple and the Apple logo are trademarks of Apple Inc&period;</pre>
-        <pre>Google Play and the Google Play logo are trademarks of Google LLC&period;</pre>
-        <pre>Microsoft and the Microsoft Store logo are trademarks of the Microsoft group of companies&period;</pre>
-    </footer>
     <aside tabindex="0">
         <h5>Installation link and QR builder</h5>
         <p>Make things easy for your users with a QR code or Google Play install url. Enter values for your Rapid platform into the boxes below, and hyperlinks will be generated underneath. You can scan the QR code in the Rapid Mobile app settings menu, or you can launch Google Play and Rapid Mobile will configure itself when it installs.</p>
     </aside>
-    <a href="#client-testimonials" title="Continue to the next section&hellip;" class="continue">
-        {{> "icons/angle-down"}}
-    </a>
-    <a href="#main-content" title="Back to top">Back to top&hellip;</a>
+    <footer class="flexy">
+        <pre>Apple and the Apple logo are trademarks of Apple Inc&period;</pre>
+        <pre>Google Play and the Google Play logo are trademarks of Google LLC&period;</pre>
+        <pre>Microsoft and the Microsoft Store logo are trademarks of the Microsoft group of companies&period;</pre>
+        <a href="#main-content" title="Back to top">Back to top&hellip;</a>
+        <a href="#client-testimonials" title="Continue to the next section&hellip;">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
 </section>
 
-<section id="client-testimonials" class="get-testimonials flexy">
+<section id="client-testimonials" class="flexy">
     {{> "testimonials"}}
-    <a href="#meet-our-team" title="Continue to the next section&hellip;" class="continue">
-        {{> "icons/angle-down"}}
-    </a>
+    <footer class="flexy">
+        <a href="#meet-our-team" title="Continue to the next section&hellip;">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
 </section>
 
-<section id="meet-our-team" class="get-team-members flexy">
+<section id="meet-our-team" class="flexy">
     {{> "team-members"}}
-    <a href="#partner-with-leaders" title="Continue to the next section&hellip;" class="continue">
-        {{> "icons/angle-down"}}
-    </a>
+    <footer class="flexy">
+        <a href="#partner-with-leaders" title="Continue to the next section&hellip;">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
 </section>
 
-<section id="partner-with-leaders" class="badges flexy">
-    <header title="Accreditation&comma; frameworks and partners">
+<section id="partner-with-leaders" class="flexy">
+    <header class="flexy" title="Accreditation&comma; frameworks and partners">
         <h2 id="accreditation-frameworks-partners">Accreditation&comma; <strong>frameworks</strong> &amp; partners&period;</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod est expedita animi optio dignissimos possimus, eveniet minus sunt? Ab perferendis suscipit accusamus nobis inventore nostrum facilis quisquam impedit quo dolores. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus labore, suscipit neque blanditiis in ratione. Repudiandae asperiores doloremque, sint ab saepe esse accusantium cumque! Natus sint nulla sed modi non.</p>
     </header>
-    <div class="flexy row">
+    <div class="container flexy row">
         <figure title="Cyber Essentials" tabindex="0">
             <img src="{{asset 'images/cyber-essentials-150x150.png'}}" alt="" />
         </figure>
@@ -187,9 +203,11 @@
             {{> "icons/java-vertical"}}
         </figure>
     </div>
-    <a href="#newsletter" title="Continue to the next section&hellip;" class="continue">
-        {{> "icons/angle-down"}}
-    </a>
-    <a href="#main-content" title="Back to top">Back to top&hellip;</a>
+    <footer class="flexy">
+        <a href="#main-content" title="Back to top">Back to top&hellip;</a>
+        <a href="#newsletter" title="Continue to the next section&hellip;">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
 </section>
 {{/is}}

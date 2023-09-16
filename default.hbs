@@ -11,9 +11,7 @@
         {{ghost_head}}
     </head>
     <body class="{{body_class}} flexy">
-        <header class="flexy">
-            {{> "default-header"}}
-        </header>
+        {{> "default-header"}}
         <dialog id="get-in-touch" class="flexy">
             {{> "default-form"}}
         </dialog>
@@ -21,14 +19,16 @@
             {{{body}}}
             <section id="newsletter" class="flexy row">
                 {{> "newsletter"}}
-                <a href="#site-footer" title="Continue to the site footer&hellip;" class="continue">
-                    {{> "icons/angle-down"}}
-                </a>
-                <a href="#main-content" title="Back to top">Back to top&hellip;</a>
+                <footer class="flexy">
+                    <a href="#main-content" title="Back to top">Back to top&hellip;</a>
+                    <a href="#site-footer" title="Continue to the site footer&hellip;" class="continue">
+                        {{> "icons/angle-down"}}
+                    </a>
+                </footer>
             </section>
         </main>
-        <footer id="site-footer" class="flexy">
-            <div class="divider-top">
+        <footer id="site-footer" class="flexy" role="contentinfo">
+            <div data-divider="top">
                 {{> "icons/divider-tilt"}}
             </div>
             <section class="flexy row">
