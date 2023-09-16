@@ -1,13 +1,13 @@
 <!-- testimonials.hbs -->
 {{!-- This partial requires a parent with class "get-testimonials" --}}
-<header title="Client&apos;s testimonials and reviews">
-    <h2>Client&apos;s <strong>testimonials</strong> &amp; <strong>reviews&period;</strong></h2>
+<hgroup class="flexy" title="Client&apos;s testimonials and reviews">
+    <h2>Client&apos;s <strong>testimonials</strong> &amp; <strong>reviews</strong>&period;</h2>
     <p>Read our client&apos;s testimonials and reviews below&period; We are extremely proud of the feedback we have received from our clients over the years&colon;</p>
-</header>
+</hgroup>
 <div class="container disable-scrollbar flexy row">
     {{#get "posts" filter="tag:testimonials+visibility:public" order="title asc" limit=5}}
     {{#foreach posts}}
-    <blockquote class="{{post_class}} flexy row" data-index="{{@index}}" cite="https://www.stevenage.gov.uk/">
+    <blockquote class="{{post_class}} flexy row" data-index="{{@index}}" data-play-state="running" cite="https://www.stevenage.gov.uk/">
         <header class="flexy" title="{{title}}">
             <h3>{{title}}</h3>
             {{#if feature_image}}<figure class="bg-image" style="background-image: url({{img_url feature_image absolute='true'}});">
@@ -22,16 +22,18 @@
     <p class="get-posts-error">{{error}}</p>
     {{/get}}
 </div>
-<footer class="flexy row">
-    <div class="currently-active">&nbsp;</div>
-    <div>&nbsp;</div>
-    <div>&nbsp;</div>
-    <div>&nbsp;</div>
-    <div>&nbsp;</div>
-</footer>
-<a href="#" class="next-testimonial" title="Next&hellip;">
-    {{> "icons/angle-down"}}
-</a>
-<a href="#" class="prev-testimonial" title="Previous&hellip;">
-    {{> "icons/angle-down"}}
-</a>
+<div>
+    <a href="#" class="next-testimonial" title="Next&hellip;">
+        {{> "icons/angle-down"}}
+    </a>
+    <a href="#" class="prev-testimonial" title="Previous&hellip;">
+        {{> "icons/angle-down"}}
+    </a>
+</div>
+<ol class="flexy row">
+    <li class="currently-active">&nbsp;</li>
+    <li>&nbsp;</li>
+    <li>&nbsp;</li>
+    <li>&nbsp;</li>
+    <li>&nbsp;</li>
+</ol>

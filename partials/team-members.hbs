@@ -1,13 +1,13 @@
 <!-- team-members.hbs -->
 {{!-- This partial requires a parent with class "get-team-members" --}}
-<header title="Meet our team">
-    <h2>Meet our <strong>team&period;</strong></h2>
-    <p>From the original open-source software developed in 2015&comma; Rapid is now a team of motivated, creative and hard-working experts&colon;</p>
-</header>
+<hgroup class="flexy" title="Meet our team">
+    <h2>Meet our <strong>team</strong>&period;</h2>
+    <p>From the original open-source software developed in 2015&comma; Rapid is now a team of motivated, creative and hard-working experts&period;</p>
+</hgroup>
 <div class="container disable-scrollbar flexy row">
     {{#get "posts" filter="tag:hash-team-members+visibility:public" order="featured desc, published_at asc" limit=@config.posts_per_page}}
     {{#foreach posts}}
-    <article class="{{post_class}} flexy row" data-index="{{@index}}" title="{{title}}">
+    <article class="{{post_class}} flexy row" data-index="{{@index}}" data-play-state="running" title="{{title}}">
         <header class="flexy">
             <h3>{{title}}</h3>
             {{#if feature_image}}<figure class="bg-image" style="background-image: url({{img_url feature_image absolute='true'}});">
@@ -16,7 +16,7 @@
             </figure>{{/if}}
         </header>
         <div class="flexy">
-            {{content words="60"}}
+            {{content words="116"}}
             <a href="{{url}}" title="Learn more about {{title}}&hellip;">Learn more about <strong>{{title}}&hellip;</strong></a>
         </div>
     </article>
