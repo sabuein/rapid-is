@@ -1,3 +1,9 @@
+/*
+    Some extra documentation, maybe?
+*/
+
+/* Web accessibility */
+
 :focus {
     outline: thick solid var(--color-yellow);
 }
@@ -8,6 +14,26 @@
 .kg-width-full {
     color: currentColor;
 }
+
+/* Ghost auto classes */
+
+.home-template main section {
+    padding: 10vb 5vb;
+    padding-top: 15vb;
+    min-height: 100dvh;
+    /*scale: .5;
+    scale: 1;
+    border-radius: 25vb;
+    outline: thick dashed var(--accent-color-50);
+    transition: all 500ms ease-in-out 0s;
+    animation: shake-it 3s linear 0s infinite forwards;*/
+}
+
+.home-template main section:is(:active, :focus, :focus-within, :hover) {
+    animation: none;
+}
+
+/* Some fonts */
 
 /* roboto-regular - latin */
 @font-face {
@@ -204,7 +230,8 @@
     border: 0;
     outline: 0;
     box-sizing: border-box;
-    color: currentColor;
+    color: inherit;
+    background-color: transparent;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -217,9 +244,13 @@ html:has(dialog[open]) {
     overflow: hidden;
 }
 
+head {
+    display: none;
+}
+
 body {
-    position: relative;
     margin: 0 auto;
+    position: relative;
     font-size: 18px;
     font-family: var(--font-family);
     font-style: normal;
@@ -227,8 +258,11 @@ body {
     line-height: 2;
     color: var(--color-black);
     background-color: var(--accent-color);
-    width: var(--max-width);
-    max-width: 100dvw;
+    background-color: var(--color-black);
+    width: 100dvw;
+    max-width: var(--max-width);
+    height: auto;
+    min-height: 100dvh;
     gap: 0;
     overflow-x: hidden;
 }
@@ -237,83 +271,76 @@ body:has(dialog[open]) {
     filter: blur(.1em);
 }
 
-dialog:not([open]) {
-    pointer-events: none;
+body:has(dialog[open]) #more-clients .container {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+dialog::backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, .7);
+    transition: backdrop-filter 500ms ease-in-out;
+}
+
+dialog {
+    display: none;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 500ms ease;
+    pointer-events: none;
+    position: fixed;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    width: fit-content;
+    height: fit-content;
+    transition: all 500ms ease-in-out 0s;
 }
 
 dialog[open] {
     margin: auto;
     padding: 1em;
     inset: 0;
-    border: 1em solid var(--color-bright-purple);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    color: var(--accent-color);
+    background-color: var(--accent-color-100);
+    border: 1em solid var(--accent-color);
+    user-select: none;
+    cursor: default;
     transition: opacity 500ms ease;
 }
 
-dialog::backdrop {
-    background-color: rgba(0, 0, 0, .7);
-    transition: backdrop-filter 500ms ease;
-}
-
-dialog form {
+form[method="dialog"] {
+    color: inherit;
     gap: 1em;
 }
 
-body>dialog>form>fieldset {
+form[method="dialog"] fieldset {
     gap: 1em;
-    color: var(--color-white);
+    user-select: text;
 }
 
-dialog form input {
+form[method="dialog"] input {
     max-width: fit-content;
 }
 
-dialog form input:is([type="submit"], [type="reset"]) {
+form[method="dialog"] input:is([type="submit"], [type="reset"]) {
     flex: 0 1 45%
 }
 
 main {
-    position: relative;
-    width: inherit;
-    max-width: inherit;
-    color: var(--color-black);
-    background-color: var(--accent-color-100);
     font-size: 1.25rem;
+    min-height: 90dvh;
+    gap: 0;
 }
 
 main>article {
-    width: inherit;
-    max-width: 85%;
+    max-width: 85dvw;
 }
 
 body:not(.home-template)>main.flexy {
     gap: 1em;
-}
-
-@keyframes add-padding {
-    from {
-        padding-top: 0em;
-    }
-
-    to {
-        padding-top: 0em;
-    }
-}
-
-body>main>section {
-    padding: 0 3em;
-    width: 100%;
-    height: auto;
-    transition: opacity 1s ease-out 25s;
-    position: relative;
-    overflow: hidden;
-    user-select: none;
-}
-
-body.home-template.flexy>main>section {
-    min-height: 100dvh;
 }
 
 .masked {
@@ -321,6 +348,10 @@ body.home-template.flexy>main>section {
     mask-image: url(w3logo.png);
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
+}
+
+address a {
+    text-transform: none;
 }
 
 main.flexy>div:first-of-type {
@@ -338,9 +369,6 @@ main.flexy>div:first-of-type p {
 /* Start of page style */
 
 main.post.flexy>header {
-    position: relative;
-    width: 100%;
-    height: 100%;
     min-height: 30dvh;
     gap: 1em;
 }
@@ -378,9 +406,7 @@ main.post.flexy>header>figure {
     align-self: center;
 }
 
-main.post.flexy>figure>img,
-main.post.flexy>header>figure>img {
-    display: none;
+main.post figure img {
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
@@ -389,12 +415,8 @@ main.post.flexy>header>figure>img {
     height: auto;
 }
 
-main.post.flexy>header>div {
+main.post header div {
     bottom: -.1em;
-}
-
-main.post.flexy>header>div path {
-    fill: var(--accent-color-100);
 }
 
 main.post.flexy>header>section.title-meta>p {
@@ -413,8 +435,6 @@ main.post.flexy>header>section.title-meta>div {
     padding-top: 1em;
     margin-top: 1em;
 }
-
-main.post.flexy>header>section.title-meta>div>time {}
 
 main.post.flexy section.content {
     margin: 0 auto;
@@ -518,45 +538,32 @@ main.post.flexy>article>footer {
 
 /* End of page style */
 
-section.badges.flexy {
-    /* padding: 10em 3em;
-    min-height: auto; */
+#partner-with-leaders {
     background-color: var(--accent-color-90);
     text-align: center;
     gap: 2em;
 }
 
-section.badges.flexy header {
-    padding: 2em;
+#partner-with-leaders .container {
+    padding: 1em;
+    width: 100%;
+    gap: 2em;
 }
 
-section.badges.flexy header h2 {
-    text-transform: capitalize;
-    font-weight: normal;
+#partner-with-leaders figure {
+    flex: 0 0 fit-content;
+    width: fit-content;
+    max-width: 100%;
+    max-height: 10dvw;
+    user-select: none;
 }
 
-section.badges.flexy header h2 strong {
-    font-weight: bolder;
-}
-
-section.badges.flexy>div.flexy {
-    gap: 4em;
-    /* justify-content: flex-end; */
-}
-
-section.badges.flexy figure {
-    margin: 0;
-    padding: .35em;
-    max-height: 9em;
-    width: inherit;
-}
-
-section.badges.flexy img {
+#partner-with-leaders img {
     mix-blend-mode: multiply;
 }
 
-section.badges.flexy img,
-section.badges.flexy svg {
+#partner-with-leaders img,
+#partner-with-leaders svg {
     padding: .5em;
     width: 8em;
     max-width: 100%;
@@ -566,31 +573,27 @@ section.badges.flexy svg {
     transition: all ease-in 200ms 0s;
 }
 
-section.badges.flexy figure:is(:focus, :hover) {
+#partner-with-leaders figure:is(:focus, :hover) {
     cursor: pointer;
 }
 
-section.badges.flexy figure:is(:focus, :hover) img,
-section.badges.flexy figure:is(:focus, :hover) svg {
+#partner-with-leaders figure:is(:focus, :hover) img,
+#partner-with-leaders figure:is(:focus, :hover) svg {
     scale: 1.1;
     box-shadow: 0.15em 0.15em 0 var(--accent-color-80);
     outline: thin solid var(--accent-color-80);
     transition: all ease-out 200ms 0s;
 }
 
-section.badges.flexy>a[href="#main-content"] {
+#partner-with-leaders a[href*="main-content"] {
     bottom: 1em;
-}
-
-div.cta-button {
-    text-align: center;
 }
 
 button[type="button"],
 input[type="button"],
 input[type="submit"],
 input[type="reset"],
-div.cta-button a {
+.cta-button a {
     border-radius: 3em;
     color: var(--color-white);
     background-color: var(--color-dark-blue);
@@ -617,20 +620,20 @@ label+input {
     cursor: pointer;
 }
 
-div.cta-buttons {
+.cta-buttons {
     align-self: center;
     gap: 2em;
     padding-bottom: 2em;
 }
 
-div.cta-button {
+.cta-button {
     align-self: flex-start;
-    flex: 1 0 100%;
-    width: 100%;
+    flex: 1 0 fit-content;
+    width: 100dvw;
 }
 
-div.cta-button a,
-div.cta-button button {
+.cta-button a,
+.cta-button button {
     border-radius: 0;
     width: 25%;
     min-width: fit-content;
@@ -638,7 +641,7 @@ div.cta-button button {
     transition: width 1s ease-in 0s;
 }
 
-div.cta-button a {
+.cta-button a {
     display: block;
     text-decoration: none;
     max-width: fit-content;
@@ -650,7 +653,7 @@ div.cta-button a {
     input[type="button"],
     input[type="submit"],
     input[type="reset"]):is(:focus, :hover),
-div.cta-button a:is(:focus, :hover) {
+.cta-button a:is(:focus, :hover) {
     width: 100%;
     background-color: var(--color-blue);
     outline: thick solid var(--color-yellow);
@@ -658,11 +661,11 @@ div.cta-button a:is(:focus, :hover) {
     transition: all 1s ease-out 0s;
 }
 
-div.cta-button a:is(:focus, :hover) {
+.cta-button a:is(:focus, :hover) {
     text-decoration: underline;
 }
 
-fieldset.flexy {
+fieldset {
     flex-wrap: nowrap;
     align-items: flex-start;
 }
@@ -675,17 +678,19 @@ img {
 
 h1 {
     font-size: 3.5rem;
-    line-height: 1.25;
+    line-height: 1.5;
 }
 
 h2 {
     font-size: 2.75rem;
-    line-height: 1.25;
+    line-height: 1.5;
+    word-wrap: normal;
+    text-transform: capitalize;
+    font-weight: normal;
 }
 
 h3 {
     font-size: 2.5rem;
-    cursor: default;
     text-transform: capitalize;
 }
 
@@ -709,7 +714,7 @@ a {
     cursor: pointer;
 }
 
-a[href="#main-content"] {
+a[href*="main-content"] {
     margin: 0;
     padding: .5em 2em .5em 5em;
     z-index: 99;
@@ -728,7 +733,7 @@ a[href="#main-content"] {
     user-select: none;
 }
 
-a[href="#main-content"]:is(:focus, :hover) {
+a[href*="main-content"]:is(:focus, :hover) {
     color: var(--color-white);
     background-color: var(--accent-color-30);
     box-shadow: 0.15em 0.15em 0 var(--accent-color-90);
@@ -737,48 +742,73 @@ a[href="#main-content"]:is(:focus, :hover) {
 
 /* Elements with classes */
 
-span.hearts {
+.hearts {
     color: var(--color-red);
     font-size: x-large;
     cursor: wait;
 }
 
-header {
+:is(header, main, section, article, footer) {
     width: inherit;
     max-width: inherit;
     height: auto;
+    will-change: contents;
+    position: relative;
+    overflow: hidden;
+    user-select: text;
+    color: currentColor;
+    background-color: var(--accent-color);
 }
 
-body>header {
-    position: -webkit-sticky;
-    position: sticky;
-    left: 0;
-    top: 0;
-    z-index: 999;
-    will-change: transform;
-}
-
-body>header>div.flexy.row {
-    padding: 1em 2em;
-    justify-content: space-between;
-    align-items: center;
+header {
     gap: 1em;
+    text-align: center;
+    background-color: transparent;
+}
+
+footer {
+    position: static;
+}
+
+article {
+    padding: 1em 2em;
+    background-color: transparent;
+}
+
+div {
+    max-width: 100%;
+    height: auto;
+}
+
+div:has(dialog) {
+    position: relative;
+}
+
+strong {
+    font-weight: bolder;
+}
+
+header:has(nav) {
+    padding: 1em 2em;
+    justify-content: space-between !important;
     background-color: var(--accent-color-100);
     width: 100%;
     animation: menu-go-down 500ms linear 0s 1 forwards;
     box-shadow: 0 0 .25em var(--color-black-40);
-    pointer-events: none;
-}
-
-body>header>div.flexy.row>* {
+    flex: 0 0 10dvh;
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 9999;
     pointer-events: auto;
 }
 
-body>header>div.flexy.row.loose {
+header.loose {
     animation: menu-go-up 500ms linear 0s 1 forwards;
 }
 
-body>header>div.flexy.row.loose:is(:active, :focus-within, :hover) {
+header.loose:is(:active, :focus-within, :hover) {
     animation: menu-go-down 500ms linear 0s 1 forwards;
 }
 
@@ -787,55 +817,49 @@ ul.solutions-nav.flexy.row:has(a:active) {
     display: flex;
 }
 
-body>header>div.flexy.row ul~ul.solutions-nav:focus-visible,
-body>header>div.flexy.row ul~ul.solutions-nav:focus-within,
-body>header>div.flexy.row ul:where(:has(li.nav-solutions):has(a:is(:focus, :hover)))~ul.solutions-nav {
+nav ul~ul.solutions-nav:focus-visible,
+nav ul~ul.solutions-nav:focus-within,
+nav ul:where(:has(li.nav-solutions):has(a:is(:focus, :hover)))~ul.solutions-nav {
     display: flex;
 }
 
-body>hr {
+hr {
+    display: none;
     margin: 2em 0;
     width: 45%;
     max-width: 96%;
     border: thin inset currentColor;
 }
 
-body.home-template>hr {
-    display: none;
-}
-
-ul.solutions-nav {
+.solutions-nav {
     pointer-events: none;
 }
 
-ul.solutions-nav:is(:focus, :hover) {
+.solutions-nav:is(:focus, :hover) {
     pointer-events: auto;
 }
 
-figure.rapid-logo {
-    max-width: 280px;
-}
-
-header figure.rapid-logo {
+.rapid-logo {
+    user-select: none;
     max-width: 10em;
 }
 
-header figure.rapid-logo>a {
-    user-select: none;
-}
-
-header figure.rapid-logo img {
+.rapid-logo img {
     mix-blend-mode: normal;
 }
 
-div:has(dialog) {
-    position: relative;
+footer .rapid-logo {
+    max-width: 280px;
 }
 
 svg {
     max-width: 100%;
     height: auto;
     vertical-align: middle;
+}
+
+[data-play-state="running"] {
+    will-change: animation;
 }
 
 /* Some animations */
@@ -875,20 +899,6 @@ svg path#square-two {
 
 g#version-control path#cup {
     animation: cup-color 12s ease-in-out 0s infinite forwards;
-}
-
-@keyframes cup-color {
-    0% {
-        fill: var(--color-yellow);
-    }
-
-    25% {
-        fill: var(--color-orange);
-    }
-
-    85% {
-        fill: var(--color-red);
-    }
 }
 
 g#line-one path,
@@ -940,8 +950,31 @@ path#coffee-steam {
     animation: steaming 20s linear 0s infinite;
 }
 
-@keyframes steaming {
+@keyframes add-padding {
+    from {
+        padding-top: 0em;
+    }
 
+    to {
+        padding-top: 0em;
+    }
+}
+
+@keyframes cup-color {
+    0% {
+        fill: var(--color-yellow);
+    }
+
+    25% {
+        fill: var(--color-orange);
+    }
+
+    85% {
+        fill: var(--color-red);
+    }
+}
+
+@keyframes steaming {
     0%,
     100% {
         opacity: .25;
@@ -964,7 +997,6 @@ path#coffee-steam {
 }
 
 @keyframes enlarge-one {
-
     0%,
     100% {
         scale: .85;
@@ -993,7 +1025,6 @@ path#coffee-steam {
 }
 
 @keyframes enlarge-two {
-
     0%,
     100% {
         scale: 1;
@@ -1021,7 +1052,6 @@ path#coffee-steam {
 }
 
 @keyframes opacity-orange {
-
     0%,
     100% {
         opacity: .1;
@@ -1039,7 +1069,6 @@ path#coffee-steam {
 }
 
 @keyframes left-right {
-
     0%,
     100% {
         translate: none;
@@ -1110,7 +1139,7 @@ ul.solutions-nav span {
     margin-left: .25em;
 }
 
-body>header>div.flexy.row ul~ul.solutions-nav {
+nav ul~ul.solutions-nav {
     display: none;
     margin: 0 auto;
     padding: 1em;
@@ -1134,7 +1163,7 @@ ul.solutions-nav li {
     text-transform: capitalize;
 }
 
-li.nav-current {
+nav li.nav-current {
     padding: .25em .85em;
     background-color: var(--accent-color-90);
     border-radius: 5em;
@@ -1163,83 +1192,73 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
     fill: var(--accent-color);
 }
 
-nav.pagination {
-    user-select: none;
-}
-
-nav.pagination a {
+.pagination {
     user-select: auto;
 }
 
-section.compliance.flexy.row {
+#streamlining-safety-checks {
     background-color: var(--color-light-grey);
     gap: 3em;
 }
 
-section.compliance.flexy.row>figure {
-    flex: 0 0 30%;
-    width: 30%;
+#streamlining-safety-checks header {
+    flex: 1 0 50vb;
+    width: 50vb;
+    max-width: 100%;
 }
 
-section.compliance.flexy.row>div {
-    flex: 1 0 36%;
-    width: 36%;
-    max-width: 55%;
+#streamlining-safety-checks figure {
+    flex: 0 0 75vb;
+    width: 75vb;
+    max-width: 100%;
+}
+
+#streamlining-safety-checks header {
     text-transform: capitalize;
     text-transform: uppercase;
     gap: 3em;
 }
 
-section.compliance.flexy.row h2 {
+#streamlining-safety-checks h2 {
     color: var(--color-purple);
     font-size: 2.25rem;
-    line-height: 1.5;
+    font-weight: bold;
 }
 
-section.compliance.flexy.row div.cta-button {
+#streamlining-safety-checks .cta-button {
     gap: 3em;
 }
 
-section.compliance.flexy.row div.cta-button button[type="button"] {
+#streamlining-safety-checks .cta-button button[type="button"] {
     flex: 1 0 fit-content;
     width: fit-content;
     transition: all 250ms ease-in 0ms;
 }
 
-/*
-section.compliance.flexy.row div.cta-button button[type="button"]:nth-child(1) {
-    background-color: var(--color-light-blue);
-}
-
-section.compliance.flexy.row div.cta-button button[type="button"]:nth-child(2) {
-    background-color: var(--color-light-purple);
-}
-
-section.compliance.flexy.row div.cta-button button[type="button"]:nth-child(3) {
-    background-color: var(--color-light-pink);
-}
-*/
-
-section.compliance.flexy.row div.cta-button button[type="button"]:is(:focus, :hover) {
-    /*flex: 1 0 30%;
-    width: 30%;*/
+#streamlining-safety-checks .cta-button button[type="button"]:is(:focus, :hover) {
     transition: all 250ms ease-out 0ms;
 }
 
-section#briefly.flexy {
+#briefly {
     color: var(--color-white);
-    background-color: var(--color-red);
+    background-color: var(--color-black);
     gap: 2em;
 }
 
-section#briefly.flexy a[href="#main-content"] {
-    bottom: 2em;
-    color: var(--accent-color-100);
-    background-color: var(--accent-color-60);
+#briefly [data-divider="top"] path {
+    fill: var(--color-light-grey);
 }
 
-div.divider-top,
-div.divider-bottom {
+#briefly [data-divider="bottom"] path {
+    fill: oldlace;
+}
+
+#briefly a[href*="main-content"] {
+    bottom: 15vb;
+}
+
+[data-divider="top"],
+[data-divider="bottom"] {
     margin: 0;
     padding: 0;
     position: absolute;
@@ -1252,64 +1271,59 @@ div.divider-bottom {
     pointer-events: none;
 }
 
-div.divider-top {
+[data-divider="top"] {
     top: -.1em;
 }
 
-div.divider-bottom {
+[data-divider="bottom"] {
     bottom: -.1em;
     transform: rotate(180deg);
 }
 
-div.divider-top path,
-div.divider-bottom path {
-    fill: currentColor;
+[data-divider="top"] path,
+[data-divider="bottom"] path {
+    fill: var(--accent-color);
 }
 
-section#briefly.flexy>div.divider-top>svg {
+#briefly [data-divider="top"] svg {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
     height: auto;
 }
 
-section#briefly.flexy>div.divider-top path.shape-fill {
-    fill: var(--color-light-grey);
-}
-
-section#briefly.flexy>article {
+#briefly article {
     flex: 1 0 58%;
     max-width: 50%;
     width: 58%;
 
 }
 
-section#briefly.flexy>button {
+#briefly button {
     flex: 0 0 38%;
     max-width: 38%;
     text-transform: capitalize;
 }
 
-section#briefly.flexy article div {
+#briefly article div {
     align-items: flex-start;
     gap: 1em;
 }
 
-/* Get the app section */
-section#get-the-app.flexy {
+#get-the-app {
+    background-color: oldlace;
     gap: 1em;
-    overflow: hidden;
 }
 
-section#get-the-app.flexy a.continue {
-    bottom: 5em;
+#get-the-app a[href*="main-content"] {
+    bottom: 15dvh;
 }
 
-section#get-the-app.flexy a[href="#main-content"] {
-    bottom: 5em;
+#get-the-app a[title~="Continue"] {
+    bottom: 10vb;
 }
 
-section#get-the-app.flexy>aside {
+#get-the-app aside {
     margin-left: 45%;
     padding: .5em 3em;
     border-top-left-radius: 5em;
@@ -1325,7 +1339,7 @@ section#get-the-app.flexy>aside {
     transition: all 200ms ease 0s;
 }
 
-section#get-the-app.flexy>aside:is(:focus, :focus-visible, :hover) {
+#get-the-app aside:is(:focus, :focus-visible, :hover) {
     margin-left: 0;
     border-top-left-radius: 0;
     background-color: var(--color-blue);
@@ -1333,7 +1347,7 @@ section#get-the-app.flexy>aside:is(:focus, :focus-visible, :hover) {
     transition: all 200ms ease 0s;
 }
 
-section#newsletter.flexy div.divider-botton path.shape-fill {
+#newsletter.flexy [data-divider="bottom"] .shape-fill {
     fill: var(--accent-color-90);
 }
 
@@ -1371,41 +1385,20 @@ section#newsletter.flexy div.divider-botton path.shape-fill {
     }
 }
 
-section#get-the-app.flexy header {
-    text-align: center;
-}
-
-section#get-the-app.flexy h2 {
-    padding: .25em 1.5em;
-    text-transform: capitalize;
-    font-weight: normal;
-}
-
-section#get-the-app.flexy h2 strong {
-    font-weight: bolder;
-}
-
-section#get-the-app.flexy>p {
-    padding: .25em 3em;
-    line-height: 2em;
-    font-size: larger;
-    user-select: text;
-}
-
-section#get-the-app.flexy>div.flexy.row {
+#get-the-app div {
     width: 100%;
     gap: 3em;
 }
 
-section#get-the-app.flexy>div.flexy.row>figure:nth-of-type(1) {
+#get-the-app figure:nth-of-type(1) {
     max-width: 10em;
 }
 
-section#get-the-app.flexy>div.flexy.row>figure:nth-of-type(2) {
+#get-the-app figure:nth-of-type(2) {
     max-width: 12.75em;
 }
 
-section#get-the-app.flexy>div.flexy.row>figure:nth-of-type(3) {
+#get-the-app figure:nth-of-type(3) {
     padding-top: .65em;
     scale: 1;
     width: 100%;
@@ -1413,182 +1406,167 @@ section#get-the-app.flexy>div.flexy.row>figure:nth-of-type(3) {
     transition: scale 250ms ease 0s;
 }
 
-section#get-the-app.flexy>div.flexy.row>figure {
+#get-the-app figure {
     cursor: pointer;
     user-select: none;
 }
 
-section#get-the-app.flexy>div.flexy.row>figure:hover,
-section#get-the-app.flexy>div.flexy.row>figure:has(a:focus, a:hover) {
+#get-the-app figure:hover,
+#get-the-app figure:has(a:focus, a:hover) {
     scale: 1.05;
     transition: scale 250ms ease-out 0s;
 }
 
-section#get-the-app.flexy>footer>pre {
+#get-the-app pre {
     opacity: .5;
     color: var(--color-mid-grey);
     font-size: .85rem;
     transition: all 250ms ease-out 0s;
 }
 
-section#get-the-app.flexy>div.flexy.row:has(figure:nth-of-type(1):is(:focus, :focus-within, :hover))~footer>pre:nth-of-type(1),
-section#get-the-app.flexy>div.flexy.row:has(figure:nth-of-type(2):is(:focus, :focus-within, :hover))~footer>pre:nth-of-type(2),
-section#get-the-app.flexy>div.flexy.row:has(figure:nth-of-type(3):is(:focus, :focus-within, :hover))~footer>pre:nth-of-type(3) {
+#get-the-app div:has(figure:nth-of-type(1):is(:focus, :focus-within, :hover))~footer>pre:nth-of-type(1),
+#get-the-app div:has(figure:nth-of-type(2):is(:focus, :focus-within, :hover))~footer>pre:nth-of-type(2),
+#get-the-app div:has(figure:nth-of-type(3):is(:focus, :focus-within, :hover))~footer>pre:nth-of-type(3) {
     opacity: 1;
     color: var(--color-black);
     transition: all 250ms ease-out 0s;
 }
 
-section.clients.flexy {
+.clients {
     color: var(--color-dark-blue);
     background-color: var(--color-light-grey);
     gap: 1em;
 }
 
-/* First main section */
-
-section.pre-clients {
-    padding: 0;
+#main-message {
     color: var(--color-white);
-    background-color: var(--accent-color-50);
+    background-color: var(--accent-color-30);
 }
 
-section.pre-clients>article.flexy {
-    width: 100%;
-    gap: 1em;
-}
-
-section.pre-clients article>header.flexy {
+#main-message header {
     align-content: flex-start;
     gap: 1em;
+    font-size: 2rem;
+    align-items: flex-start;
+    animation: slide-right 500ms linear 10ms 1 forwards;
 }
 
-section.pre-clients>article.more-clients {
-    position: relative;
+#main-message figure {
+    text-align: center;
+    animation: slide-left 500ms linear 10ms 1 forwards;
+}
+
+#more-clients {
     color: var(--accent-color);
-    background-color: var(--accent-color-100);
+    background-color: floralwhite;
+    text-align: center;
+    gap: 5vb;
     animation: slide-up 1s linear 100ms 1 forwards;
 }
 
-section.pre-clients>article.more-clients>h2 {
-    padding: 1em;
-    font-size: 2.25rem;
-    cursor: default;
+#more-clients h2 {
+    font-size: 2rem;
+    font-weight: bold;
 }
 
-a.continue {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    left: auto;
-    right: auto;
-    bottom: 2em;
+a[title~="Continue"] {
     display: block;
-    flex: 1 0 fit-content;
+    flex: 0 0 fit-content;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     max-width: fit-content;
     animation: point-down 1s linear 0s infinite;
     cursor: pointer;
     user-select: none;
+    z-index: 999;
 }
 
-a.continue:focus {
+a[title~="Continue"]:focus {
     outline: 0;
 }
 
-article.more-clients>a.continue:nth-of-type(1) {
-    top: 5em;
-    bottom: unset;
-}
-
-article.more-clients>a.continue:nth-of-type(2) {
-    bottom: 2em;
-}
-
-section a.continue svg {
+a[title~="Continue"] svg {
     margin: 0;
     padding: 0 !important;
-    max-height: 10dvh !important;
     height: 100%;
-    max-width: 10dvw;
+    max-height: 10dvh !important;
     width: 100%;
+    max-width: 10dvw;
     animation: point-down 1s linear 0s infinite;
 }
 
-a.continue path {
+a[title~="Continue"] path {
     fill: var(--accent-color-80);
     transition: all 250ms ease-out 0s;
 }
 
-a.continue:is(:focus, :hover) path {
+a[title~="Continue"]:is(:focus, :hover) path {
     fill: var(--accent-color-20);
     transition: all 250ms ease-in 0s;
 }
 
-section.pre-clients>article.more-clients>div.flexy {
-    margin: 0;
-    padding: 45dvh 1dvw;
-    padding-bottom: 55dvh;
-    width: 100dvw;
-    max-width: 100%;
+#more-clients .container {
+    width: inherit;
+    max-width: inherit;
     direction: ltr;
-    max-height: 24dvh;
-    gap: 3em;
-    background-color: inherit;
+    height: 100%;
+    min-height: 25vb;
+    max-height: 25vb;
+    align-content: flex-start;
+    gap: 15vb;
     -webkit-animation-name: move;
-    -webkit-animation-duration: 30s;
+    -webkit-animation-duration: 24s;
     -webkit-animation-timing-function: linear;
     -webkit-animation-delay: 3s;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-direction: alternate;
     -webkit-animation-play-state: running;
     animation-name: move;
-    animation-duration: 30s;
+    animation-duration: 24s;
     animation-timing-function: linear;
     animation-delay: 3s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    animation: move 30s linear 3s infinite alternate;
+    animation: move 24s linear 3s infinite alternate;
     animation-play-state: running;
 }
 
-section.pre-clients>article.more-clients>div.flexy>figure {
+#more-clients figure {
     padding: 1em;
-    flex: 1 0 14vb;
+    flex: 0 0 20vb;
     text-align: center;
     mix-blend-mode: normal;
-    height: 14vb;
+    height: 20vb;
     flex-wrap: nowrap;
-    gap: .25em;
+    gap: 1vb;
     user-select: none;
-    background-color: transparent;
     z-index: 999;
 }
 
-section.pre-clients>article.more-clients>div.flexy>figure>figcaption {
+#more-clients figcaption {
     display: none;
 }
 
-section.pre-clients>article.more-clients>div.flexy:has(figure:is(:focus, :hover)) {
+#more-clients .container:has(figure:is(:focus, :hover)) {
     -webkit-animation-play-state: paused;
     animation-play-state: paused;
 }
 
-section.pre-clients>article.more-clients>div.flexy>figure:is(:focus, :hover) {
+#more-clients figure:is(:focus, :hover) {
     cursor: pointer;
     scale: 1.1;
     box-shadow: 0 0 0.15em var(--color-black-40);
     background-color: var(--accent-color-90);
 }
 
-section.pre-clients>article.more-clients>div.flexy>figure:is(:focus, :hover)>figcaption {
+#more-clients figure:is(:focus, :hover) figcaption {
     display: block;
     font-size: .85rem;
     color: var(--color-dark-grey);
 }
 
-section.pre-clients>article.more-clients>div.flexy>figure svg {
-    /*inline-size: 36vb;
-    block-size: 12vb;*/
+#more-clients svg {
     height: 75%;
     width: 100%;
 }
@@ -1600,23 +1578,23 @@ section.pre-clients>article.more-clients>div.flexy>figure svg {
     }
 
     5% {
-        margin-left: 5vw;
+        margin-left: 12vw;
         margin-right: 0;
     }
 
     10% {
-        margin-left: 10dvw;
+        margin-left: 16dvw;
         margin-right: 0;
     }
 
     15% {
-        margin-left: 15dvw;
+        margin-left: 20dvw;
         margin-right: 0;
     }
 
     100% {
         margin-left: 0;
-        margin-right: 145dvw;
+        margin-right: 160dvw;
     }
 }
 
@@ -1627,28 +1605,28 @@ section.pre-clients>article.more-clients>div.flexy>figure svg {
     }
 
     5% {
-        margin-left: 5vw;
+        margin-left: 12vw;
         margin-right: 0;
     }
 
     10% {
-        margin-left: 10dvw;
+        margin-left: 16dvw;
         margin-right: 0;
     }
 
     15% {
-        margin-left: 15dvw;
+        margin-left: 20dvw;
         margin-right: 0;
     }
 
     100% {
         margin-left: 0;
-        margin-right: 145dvw;
+        margin-right: 160dvw;
     }
 }
 
-section.pre-clients article.more-clients>div.flexy::before,
-section.pre-clients article.more-clients>div.flexy::after {
+#more-clients .container::before,
+#more-clients .container::after {
     content: "";
     background-color: var(--accent-color-70);
     height: 9em;
@@ -1661,107 +1639,91 @@ section.pre-clients article.more-clients>div.flexy::after {
     user-select: none;
 }
 
-section.pre-clients article.more-clients>div.flexy::before {
+#more-clients .container::before {
     left: -5em;
 }
 
-section.pre-clients article.more-clients>div.flexy::after {
+#more-clients .container::after {
     right: -5em;
 }
 
-section.pre-clients h1 {
+#main-message h1 {
     max-width: 13em;
     font-size: 3rem;
     font-weight: 900;
     cursor: default;
-    line-height: 1.5    ;
+    line-height: 1.5;
+    text-align: start;
 }
 
-section.pre-clients p {
+#main-message p {
     font-size: 1.85rem;
     font-weight: 700;
     text-align: justify;
 }
 
-article.main-message.flexy > *:is(header, figure) {
+#main-message>*:is(header, figure) {
     padding: 1em;
-    flex: 1 0 49%;
-    width: 100%;
+    flex: 1 0 50vb;
+    width: 50vb;
     max-width: inherit;
 }
 
-section.the-app.flexy.row {
+#compliance-app {
     color: var(--color-dark-blue);
     background-color: var(--color-white);
-    gap: 2em;
+    justify-content: space-between;
+    gap: 1vb;
 }
 
-section.the-app.flexy.row>div,
-section.the-app.flexy.row>figure {
-    flex: 0 0 48%;
-    max-width: 48%;
-    max-height: 100%;
+#compliance-app :is(header, figure) {
+    flex: 0 0 75vb;
+    width: 75vb;
+    max-width: 100%;
 }
 
-section.the-app.flexy.row>figure {
+#compliance-app figure {
     user-select: none;
-    cursor: pointer;
 }
 
-section.the-app.flexy.row>figure>a>img {
+#compliance-app>figure>a>img {
     border-top-left-radius: 20em;
     border-bottom-left-radius: 15em;
     box-shadow: 1.25em .65em 0 var(--accent-color-90);
     transition: box-shadow 250ms ease-in 0s;
 }
 
-section.the-app.flexy.row>figure>a:is(:focus, :hover)>img {
+#compliance-app>figure>a:is(:focus, :hover)>img {
     box-shadow: 1.25em .65em 0 var(--accent-color-80);
     transition: box-shadow 250ms ease-out 0s;
 }
 
-section.the-app.flexy.row>div {
+#compliance-app header {
     align-content: flex-start;
-    padding: 0;
-    padding-left: 4em;
-    gap: 2em;
+    gap: 5vb;
 }
 
-section.the-app.flexy.row>div>h2 {
-    font-size: 2.5rem;
-    word-wrap: normal;
-    font-weight: 700;
-    cursor: default;
+#compliance-app h2 {
+    font-weight: bold;
+    text-align: start;
 }
 
-section.the-app.flexy.row>div>p {
+#compliance-app>header>p {
     font-size: 1.15rem;
     font-weight: 300;
     text-align: justify;
 }
 
-section.the-app.flexy.row a[href="#main-content"] {
-    bottom: 5em;
+#compliance-app a[href*="main-content"] {
+    bottom: 10vb;
 }
 
-article.main-message figure {
-    text-align: center;
-    animation: slide-left 500ms linear 10ms 1 forwards;
-}
-
-article.main-message>header.flexy {
-    gap: .5em;
-    font-size: 2rem;
-    align-items: flex-start;
-    animation: slide-right 500ms linear 10ms 1 forwards;
-}
-
-div.five-points {
+.five-points {
     padding: 2em 0;
     gap: .25em;
 }
 
-div.five-points>div {
+.five-points div {
     padding: 1em;
     flex: 0 0 18%;
     align-items: flex-start;
@@ -1770,35 +1732,35 @@ div.five-points>div {
     height: 25em;
 }
 
-div.five-points>div>span:first-of-type {
+.five-points span:first-of-type {
     font-size: 8rem;
 }
 
-div.five-points>div>span:last-of-type {
+.five-points span:last-of-type {
     font-size: 2rem;
 }
 
-div.five-points>div:nth-of-type(1) {
+.five-points div:nth-of-type(1) {
     background-color: var(--color-light-blue);
 }
 
-div.five-points>div:nth-of-type(2) {
+.five-points div:nth-of-type(2) {
     background-color: var(--color-light-green);
 }
 
-div.five-points>div:nth-of-type(3) {
+.five-points div:nth-of-type(3) {
     background-color: var(--color-light-pink);
 }
 
-div.five-points>div:nth-of-type(4) {
+.five-points div:nth-of-type(4) {
     background-color: var(--color-light-purple);
 }
 
-div.five-points>div:nth-of-type(5) {
+.five-points div:nth-of-type(5) {
     background-color: var(--color-turquoise);
 }
 
-aside.cookies {
+.cookies {
     display: none;
     padding: 3em;
     position: fixed;
@@ -1810,29 +1772,29 @@ aside.cookies {
     z-index: 999;
 }
 
-aside.cookies :is(h4, p, a)::selection {
+.cookies :is(h4, p, a)::selection {
     color: var(--color-black);
     background-color: var(--color-light-grey);
 }
 
-aside.cookies h4,
-aside.cookies form {
-    width: 100%;
-    flex: 1 0 100%;
+.cookies h4,
+.cookies form {
+    flex: 0 0 75dvw;
+    width: 75dvw;
+    max-width: 100%;
 }
 
-aside.cookies form {
+.cookies form {
     gap: 2em;
 }
 
-aside.cookies button[type="button"] {
+.cookies button[type="button"] {
     opacity: 1;
     flex: 0 0 max-content;
     border-radius: 0%;
 }
 
 @keyframes shake-it {
-
     0%,
     100% {
         transform: translateX(0) rotate(0deg);
@@ -1861,7 +1823,6 @@ aside.cookies button[type="button"] {
 }
 
 @keyframes point-down {
-
     0%,
     100% {
         transform: translateY(0);
@@ -1893,7 +1854,6 @@ aside.cookies button[type="button"] {
 }
 
 @keyframes point-right {
-
     0%,
     100% {
         transform: translateX(-1px);
@@ -2052,31 +2012,34 @@ aside.cookies button[type="button"] {
 }
 
 form {
-    width: 100%;
-    flex: 1 0 100%;
     position: relative;
+    flex: 0 0 85vb;
+    width: 85vb;
+    max-width: 100%;
 }
 
 section:has(form#join-newsletter) {
-    padding: 0 8dvw;
+    color: royalblue;
+    height: auto;
     min-height: 100dvh;
 }
 
-section:has(form#join-newsletter) a[href="#main-content"] {
-    bottom: 3em;
+section:has(form#join-newsletter) a[href*="main-content"] {
+    bottom: 5dvh;
 }
 
-section form#join-newsletter {
-    padding: 2em 0;
-    border-radius: 2em;
+form#join-newsletter {
+    padding: 1vb;
     background-color: var(--accent-color-90);
     box-shadow: .25em .65em 0 var(--accent-color-80);
     outline: thin solid var(--accent-color-80);
+    scale: 1;
     transform: none;
     transition: all ease-in 200ms 0s;
 }
 
-section form#join-newsletter:is(:focus-within, :hover) {
+form#join-newsletter:is(:focus-within, :hover) {
+    scale: 1.05;
     transform: translate(0, -.25em);
     transition: all ease-out 200ms 0s;
 }
@@ -2098,35 +2061,27 @@ form#join-newsletter legend {
     text-align: center;
 }
 
-form#join-newsletter legend h2 {
-    font-weight: normal;
-    text-transform: capitalize;
-}
-
-form#join-newsletter legend strong {
-    font-weight: bolder;
-}
-
 form#join-newsletter div {
-    padding: 1em;
+    padding: 2vb;
     justify-content: center;
     max-width: 100%;
-    gap: 2em;
+    gap: 2vb;
 }
 
 form#join-newsletter div:nth-of-type(2) {
     flex: 1 0 100%;
-    gap: 1em;
+    gap: 1vb;
 }
 
-form#join-newsletter div.divider-bottom {
+form#join-newsletter div[data-divider="bottom"]{
+    padding: 0;
     transform: none;
     top: unset;
-    bottom: -7.75em;
+    bottom: -7.9vb;
     pointer-events: all;
 }
 
-form#join-newsletter div.divider-bottom path {
+form#join-newsletter div[data-divider="bottom"] path {
     fill: var(--accent-color-90);
 }
 
@@ -2137,7 +2092,7 @@ form#join-newsletter p {
     transition: all ease-in 200ms 0s;
 }
 
-section form#join-newsletter:is(:focus-within, :hover) p {
+form#join-newsletter:is(:focus-within, :hover) p {
     color: var(--accent-color);
     user-select: text;
     transition: all ease-out 200ms 0s;
@@ -2187,9 +2142,9 @@ form#join-newsletter input:is([type="submit"], [type="reset"]) {
     position: relative;
     display: block;
     text-decoration: none;
-    color: var(--accent-color);
-    background-color: var(--accent-color-80);
-    box-shadow: .15em .15em 0 var(--accent-color-80);
+    color: royalblue;
+    background-color: #4169e160;
+    box-shadow: .15em .15em 0 #4169e180;
     outline: 0;
     scale: 1;
     transition: all ease-in 200ms 0s;
@@ -2197,9 +2152,9 @@ form#join-newsletter input:is([type="submit"], [type="reset"]) {
 
 form#join-newsletter input:is([type="submit"], [type="reset"]):is(:focus, :hover) {
     color: var(--accent-color-100);
-    background-color: var(--accent-color);
-    box-shadow: .15em .15em 0 var(--accent-color-80);
-    outline: thin solid var(--accent-color-80);
+    background-color: royalblue;
+    box-shadow: .15em .15em 0 #4169e180;
+    outline: thin solid #4169e180;
     scale: 1.1;
 }
 
@@ -2211,9 +2166,7 @@ form#join-newsletter a:is(:focus, :hover) {
     text-decoration: underline;
 }
 
-@media screen and (max-width: 1520px) { /* TODO... */}
-
-section.sharing-is-caring {
+.sharing-is-caring {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -2222,56 +2175,38 @@ section.sharing-is-caring {
     user-select: none;
 }
 
-section.sharing-is-caring ul {
+.sharing-is-caring ul {
     list-style-type: none;
     gap: 1em;
 }
 
-section.sharing-is-caring a {
+.sharing-is-caring a {
     text-decoration: none;
 }
 
-section.sharing-is-caring a:is(:focus, :hover) {
+.sharing-is-caring a:is(:focus, :hover) {
     text-decoration: underline;
 }
 
-section.sharing-is-caring h6::before {
+.sharing-is-caring h6::before {
     display: none;
     content: "\27A6";
 }
 
-/* Client's testimonials and reviews: testimonials.hbs */
+/* Client's testimonials and reviews: /partials/testimonials.hbs */
 
-.get-testimonials {
-    padding: 8em 1em;
-    position: relative;
-    min-height: 100dvh;
-    height: auto;
-    background-color: var(--accent-color-100);
-    background-color: var(--color-light-grey);
+#client-testimonials {
+    background-color: mintcream;
     justify-content: flex-start;
     gap: 1.25em;
 }
 
-.get-testimonials > header {
-    text-align: center;
-}
-
-.get-testimonials > header h2 {
-    font-weight: normal;
-    text-transform: capitalize;
-}
-
-.get-testimonials > header strong {
-    font-weight: bolder;
-}
-
-.get-testimonials > footer {
+#client-testimonials>footer {
     gap: 1em;
     z-index: 9999;
 }
 
-.get-testimonials > footer > div {
+#client-testimonials>footer>div {
     flex: 0 0 1.5em;
     width: 1.5em;
     height: 1.5em;
@@ -2286,22 +2221,21 @@ section.sharing-is-caring h6::before {
     transition: all 250ms ease-in-out 0s;
 }
 
-.get-testimonials > footer > div.currently-active,
-.get-testimonials > footer > div:is(:focus, :hover) {
+#client-testimonials>footer>div.currently-active,
+#client-testimonials>footer>div:is(:focus, :hover) {
     color: var(--accent-color);
     background-color: var(--accent-color-20);
     border-color: var(--accent-color-20);
 }
 
-.get-testimonials .container {
+#client-testimonials .container {
     gap: 1em;
 }
 
-.get-testimonials .container .post {
+#client-testimonials .container .post {
     border: 0;
     border-radius: 0;
     padding: 1em 2em;
-    background-color: transparent;
     flex: 0 0 70dvw;
     width: 100%;
     max-width: 70dvw;
@@ -2321,13 +2255,13 @@ section.sharing-is-caring h6::before {
     transition: all 250ms ease-in-out 0s;
 }
 
-.get-testimonials .container .post:is(:active, :hover) {
+#client-testimonials .container .post:is(:active, :hover) {
     transform: translate(0, -.15em);
     box-shadow: .25em .25em 0 var(--accent-color-80);
 }
 
-.get-testimonials .container .post.currently-active {
-    background-color: var(--accent-color-100);
+#client-testimonials .container .post.currently-active {
+    background-color: aliceblue;
     outline-width: thin;
     display: flex;
     visibility: visible;
@@ -2337,34 +2271,52 @@ section.sharing-is-caring h6::before {
 }
 
 @keyframes display-none-to-flex {
-    0% { display: flex; }
-    1% { visibility: visible; opacity: .1; }
-    25% { opacity: .25; }
-    50% { opacity: .5; }
-    75% { opacity: .75; }
-    100% { opacity: 1; }
+    0% {
+        display: flex;
+    }
+
+    1% {
+        visibility: visible;
+        opacity: .1;
+    }
+
+    25% {
+        opacity: .25;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    75% {
+        opacity: .75;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
-.get-testimonials .container .post *:is(header, p) {
+#client-testimonials .container .post *:is(header, p) {
     flex: 1 0 0;
     width: 100%;
     max-width: fit-content;
 }
 
-.get-testimonials .container .post *:is(h3, p) {
+#client-testimonials .container .post *:is(h3, p) {
     cursor: text;
 }
 
-.get-testimonials .container .post p {
+#client-testimonials .container .post p {
     padding: 1em;
     text-align: justify;
 }
 
-.get-testimonials .container .post footer {
+#client-testimonials .container .post footer {
     flex: 1 0 100%;
 }
 
-.get-testimonials .container .post figure {
+#client-testimonials .container .post figure {
     flex: 0 0 auto;
     max-width: 100%;
     width: 15dvw;
@@ -2374,24 +2326,23 @@ section.sharing-is-caring h6::before {
     border-radius: 2dvw;
 }
 
-.get-testimonials .container .post img {
+#client-testimonials .container .post img {
     display: none;
     border-radius: 2dvw;
     max-height: inherit;
 }
 
-.get-testimonials .next-testimonial,
-.get-testimonials .prev-testimonial {
+#client-testimonials .next-testimonial,
+#client-testimonials .prev-testimonial {
     position: absolute;
     top: 45dvh;
     font-size: 2rem;
-    background-color: transparent;
     border-radius: 1dvw;
     outline: 0;
 }
 
-.get-testimonials .next-testimonial svg,
-.get-testimonials .prev-testimonial svg {
+#client-testimonials .next-testimonial svg,
+#client-testimonials .prev-testimonial svg {
     max-width: 100%;
     width: 6dvw;
     fill: var(--accent-color-80);
@@ -2399,85 +2350,79 @@ section.sharing-is-caring h6::before {
     transition: all 250ms ease-in-out 0s;
 }
 
-.get-testimonials .next-testimonial:is(:focus, :hover) svg,
-.get-testimonials .prev-testimonial:is(:focus, :hover) svg {
+#client-testimonials .next-testimonial:is(:focus, :hover) svg,
+#client-testimonials .prev-testimonial:is(:focus, :hover) svg {
     fill: var(--accent-color);
     scale: 1.25;
 }
 
-.get-testimonials .next-testimonial {
+#client-testimonials .next-testimonial {
     right: 2dvw;
     rotate: 270deg;
 }
 
-.get-testimonials .prev-testimonial {
+#client-testimonials .prev-testimonial {
     left: 2dvw;
     rotate: 90deg;
 }
 
-/* Meet our team: team-members.hbs */
+/* Meet our team: /partials/team-members.hbs */
 
-.get-team-members {
-    padding: 8em 1em;
-    position: relative;
-    min-height: 100dvh;
-    gap: 2em;
+#meet-our-team {
+    background-color: var(--color-light-grey);
+    gap: 5vb;
 }
 
-.get-team-members > header {
-    text-align: center;
-}
-
-.get-team-members > header h2 {
-    font-weight: normal;
-    text-transform: capitalize;
-}
-
-.get-team-members > header strong {
-    font-weight: bolder;
-}
-
-.get-team-members .container {
+#meet-our-team .container {
     padding: 1em 5em;
-    gap: 1em;
+    gap: 2vb;
 }
 
-.get-team-members .container .post {
-    padding: 2em;
-    flex: 1 0 33dvw;
-    max-width: 75%;
-    width: 33dvw;
-    gap: 2em;
+#meet-our-team .container .post {
+    padding: 2vb;
+    flex: 0 0 50vb;
+    max-width: 100%;
+    width: 50vb;
+    gap: 5vb;
     cursor: default;
     user-select: text;
+    background-color: transparent;
     outline-style: dashed;
-    outline-color: var(--color-light-grey);
+    outline-color: var(--accent-color);
     outline-width: 0;
+    scale: .85;
+    transform: translate(0, 0);
     transition: all 250ms ease-in-out 0s;
 }
 
-.get-team-members .container .post:is(:active, :hover) {
+#meet-our-team .container .post:is(:active, :hover) {
     outline-width: thick;
-    transform: translate(0, -.15em);
-    transition: all 250ms ease-in-out 0s;
+    scale: 1;
+    transform: translate(0, -.25em);
+    transition: all 500ms ease-out 0s;
 }
 
-.get-team-members .post header {
-    flex: 0 0 30%;
-    width: 30%;
-    gap: .5em;
-    transition: all 250ms ease-in-out 0s;
+#meet-our-team .post :is(header, div) {
+    flex: 0 0 48vb;
+    width: 48vb;
+    max-width: 100%;
+    gap: 1vb;
+    transition-timing-function: ease-in;
 }
 
-.get-team-members .post h3 {
+#meet-our-team .post div {
+    align-items: flex-start;
+}
+
+#meet-our-team .post h3 {
     line-height: 1.25;
     white-space: nowrap;
-    font-size: 2.15rem;
+    font-size: 2rem;
     text-align: start;
     width: 100%;
 }
 
-.get-team-members .post figure {
+#meet-our-team .post figure {
     position: relative;
     width: 100dvw;
     max-width: 100%;
@@ -2485,39 +2430,36 @@ section.sharing-is-caring h6::before {
     max-height: 100%;
     filter: grayscale(.5);
     transition: all 250ms ease-in-out 0s;
-    /*border: thin solid var(--accent-color);*/
 }
 
-.get-team-members .container .post:is(:active, :hover) figure {
+#meet-our-team .container .post:is(:active, :hover) figure {
     filter: drop-shadow(.05em .1em .15em var(--color-black));
     transition: all 250ms ease-in-out 0s;
 }
 
-.get-team-members .post figcaption {
+#meet-our-team .post figcaption {
     padding: .5em;
     position: absolute;
     left: 0;
     bottom: 0;
     color: var(--accent-color-100);
-    background-color: var(--accent-color-10);
+    background-color: var(--accent-color);
     width: 100%;
     text-align: center;
 }
 
-.get-team-members .post img {
+#meet-our-team .post img {
     display: none;
 }
 
-.get-team-members .post div {
-    flex: 1 0 60%;
-    width: 100dvw;
-    max-width: 60%;
-}
-
-.get-team-members .post p {
+#meet-our-team .post p {
     font-size: 1.15rem;
 }
 
-.get-team-members .post p:not(:first-of-type) {
+#meet-our-team .post p:not(:first-of-type) {
     margin-top: .85em;
+}
+
+@media screen and (max-width: 1520px) {
+    /* TODO... */
 }

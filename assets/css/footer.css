@@ -1,3 +1,7 @@
+footer {
+    background-color: transparent;
+}
+
 body>footer {
     padding: 1em 2em;
     padding-top: 10em;
@@ -9,61 +13,49 @@ body>footer {
     background-color: var(--accent-color-90);
 }
 
-body>footer.flexy>div.divider-top path.shape-fill {
-    fill: var(--accent-color-100);
-}
-
-body>footer>section.flexy {
-    width: 100%;
+body>footer section {
+    padding: 1em;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: transparent;
     gap: 1em;
 }
 
-body>footer>section.flexy.row {
-    padding-bottom: 3em;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 100%;
-}
-
-body>footer>section.flexy.row:last-of-type {
+body>footer section.flexy:last-of-type {
     padding: 1em 2em;
     font-weight: bold;
     font-size: .9rem;
     text-align: center;
 }
 
-body>footer figure.rapid-logo {
-    /* max-width: 60px; */
-    user-select: none;
-}
-
-body>footer figure.rapid-logo img {
+footer .rapid-logo img {
     mix-blend-mode: darken;
 }
 
-body>footer>section:nth-of-type(2),
-body>footer>pre {
-    font-size: .85rem;
-}
-
-body>footer>pre {
+footer pre {
     text-wrap: balance;
     text-align: -webkit-center;
     text-align: center;
+    font-size: .9rem;
 }
 
-body>footer div.flexy,
-body>footer address.flexy {
+main > section > footer {
+    flex: 0 0 fit-content;
+    width: 100dvw;
+    max-width: 100%;
+}
+
+main > section.row > footer {
+    flex: 1 0 100dvw;
+}
+
+body>footer *:is(div, address):is(.flexy) {
     flex: 1 0 20%;
     min-width: 20%;
     align-items: flex-start;
     align-content: flex-start;
     text-transform: capitalize;
     gap: 1em;
-}
-
-body>footer address.contact.flexy {
-    text-transform: none;
 }
 
 body>footer h6 {
@@ -98,27 +90,22 @@ body>footer a:hover {
     font-weight: bold;
 }
 
-div.social-icons.flexy.row {
-    padding: 0;
+.social-icons {
     gap: .5em;
 }
 
-div.social-icons.flexy.row>a {
+.social-icons a {
     flex: 0 0 2em;
     width: 2em;
     user-select: none;
 }
 
-figure.rapid-logo a:is(:focus, :hover) img,
-div.social-icons.flexy.row>a:is(:focus, :hover) img,
+.rapid-logo a:is(:focus, :hover) img,
+.social-icons a:is(:focus, :hover) img,
 button[data-ghost-search]:is(:focus, :hover) {
     outline: thick solid var(--accent-color) !important;
 }
 
-div.social-icons.flexy.row a:hover img {
+.social-icons a:is(:focus, :hover) img {
     scale: 1.1;
-}
-
-footer.flexy>div.divider-top {
-    top: -.1em;
 }

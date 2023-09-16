@@ -22,13 +22,13 @@ body.tag-template.tag-solutions>main#main-content>figure {
     background-position: bottom center;
 }
 
-body.tag-template.tag-solutions>main#main-content>figure>div.divider-bottom {
+body.tag-template.tag-solutions>main#main-content>figure>div[data-divider="bottom"] {
     rotate: 360deg;
     scale: -1 1;
     bottom: -1em;
 }
 
-body.tag-template.tag-solutions>main#main-content>figure>div.divider-bottom path {
+body.tag-template.tag-solutions>main#main-content>figure>div[data-divider="bottom"] path {
     fill: var(--accent-color-100);
 }
 
@@ -224,7 +224,6 @@ body.tag-template.tag-solutions>main#main-content article>a::after {
     content: "\2197";
     font-size: 1em;
     color: var(--accent-color-70);
-    background-color: transparent;
     transition: all ease-in 200ms 0s;
 }
 
