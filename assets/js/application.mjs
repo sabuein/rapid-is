@@ -1,3 +1,5 @@
+"use strict";
+
 const hideNav = (nav, main) => {
     let offset = 250,
         lastScrollY = 0;
@@ -51,46 +53,6 @@ const startMainModal = (id, query) => {
     });
 };
 
-document.addEventListener("DOMContentLoaded", (event) => {
-    // Get the contact main nav item
-    const getInTouch = document.querySelector(`li.nav-contact[role="menuitem"] > a`);
-    if (!!getInTouch) getInTouch.classList.add("show-modal");
-    startMainModal("get-in-touch", ".show-modal");
-
-    const nav = document.querySelector("body > header > div");
-    enableNavMenu(nav);
-
-    const goToTopButtons = document.querySelectorAll(`a[href="#main-content"]`);
-    goToTopButtons.forEach((button) => {
-        button.addEventListener("click", (event) => {
-            // event.preventDefault();
-            setTimeout(() => window.scrollTo(0, 0), 0);
-        });
-    });
-
-    const cookiesAside = document.querySelector("aside.cookies");
-    const cookiesActions = document.querySelectorAll("aside.cookies > form.actions");
-    cookiesActions.forEach((button) => {
-        const accepted = window.localStorage.getItem("cookiesAccepted") || null;
-        if (!accepted || accepted !== "true") {
-            cookiesAside.style.display = "flex";
-            button.onclick = () => {
-                window.localStorage.setItem("cookiesAccepted", true);
-                cookiesAside.style.display = "none";
-            }
-        }
-    });
-
-    // Let the whole solution widget clickable!
-    const solutionsApps = document.querySelectorAll("body.tag-template.tag-solutions>main#main-content>div>article") || null;
-    if (!!solutionsApps) {
-        for (let i = 0; i < solutionsApps.length; i++) {
-            const a = document.querySelector(`body.tag-template.tag-solutions>main#main-content>div>article:nth-child(${i + 1}) > a`);
-            solutionsApps[i].onclick = () => a.click();
-        }
-    }
-});
-
 const shakeMe = (section) => {
     section.onmouseover = () => section.classList.add("hi");
     section.onmouseout = () => section.classList.remove("hi");
@@ -122,51 +84,91 @@ window.addEventListener("load", () => {
     }
 });
 
-if (!!document.querySelector("#client-testimonials")) {
-    const circles = document.querySelectorAll("#client-testimonials > footer > div");
-    const quotes = document.querySelectorAll("#client-testimonials > div > blockquote");
+document.addEventListener("DOMContentLoaded", () => {
+    // Get the contact main nav item
+    const getInTouch = document.querySelector(`li.nav-contact[role="menuitem"] > a`);
+    if (!!getInTouch) getInTouch.classList.add("show-modal");
+    startMainModal("get-in-touch", ".show-modal");
 
-    const activateCurrent = (index) => {
-        if (index >= quotes.length) currentIndex = 0;
-        else if (index < 0) currentIndex = quotes.length - 1;
-        else currentIndex = index;
-        deactivateAll();
-        circles[currentIndex].classList.add("currently-active");
-        quotes[currentIndex].classList.add("currently-active");
-    };
+    const nav = document.querySelector("body > nav");
+    enableNavMenu(nav);
 
-    const deactivateAll = () => {
-        quotes.forEach(quote => quote.classList.remove("currently-active"));
-        circles.forEach(circle => circle.classList.remove("currently-active"));
-    };
+    const goToTopButtons = document.querySelectorAll(`a[href="#main-content"]`);
+    goToTopButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+            // event.preventDefault();
+            setTimeout(() => window.scrollTo(0, 0), 0);
+        });
+    });
 
-    let currentIndex = 0;
-    activateCurrent(currentIndex);
-
-    const activateArrow = (index) => activateCurrent(currentIndex += index);
-
-    const activateTestimonialsPanel = () => {
-        try {
-            circles.forEach((circle, current) => {
-                circle.addEventListener("click", () => {
-                    // deactivateAll();
-                    activateCurrent(current);
-                });
-            });
-        } catch (error) {
-            console.error(error);
+    const cookiesAside = document.querySelector("aside.cookies");
+    const cookiesActions = document.querySelectorAll("aside.cookies > form.actions");
+    cookiesActions.forEach((button) => {
+        const accepted = window.localStorage.getItem("cookiesAccepted") || null;
+        if (!accepted || accepted !== "true") {
+            cookiesAside.style.display = "flex";
+            button.onclick = () => {
+                window.localStorage.setItem("cookiesAccepted", true);
+                cookiesAside.style.display = "none";
+            }
         }
-    };
-
-    activateTestimonialsPanel();
-
-    document.querySelector("#client-testimonials > a.next-testimonial").addEventListener("click", (event) => {
-        event.preventDefault();
-        activateArrow(1);
     });
 
-    document.querySelector("#client-testimonials > a.prev-testimonial").addEventListener("click", (event) => {
-        event.preventDefault();
-        activateArrow(-1);
-    });
-}
+    // Let the whole solution widget clickable!
+    const solutionsApps = document.querySelectorAll("body.tag-template.tag-solutions>main#main-content>div>article") || null;
+    if (!!solutionsApps) {
+        for (let i = 0; i < solutionsApps.length; i++) {
+            const a = document.querySelector(`body.tag-template.tag-solutions>main#main-content>div>article:nth-child(${i + 1}) > a`);
+            solutionsApps[i].onclick = () => a.click();
+        }
+    }
+
+    if (!!document.querySelector("#client-testimonials")) {
+        const circles = document.querySelectorAll("#client-testimonials > footer > div");
+        const quotes = document.querySelectorAll("#client-testimonials > div > blockquote");
+    
+        const activateCurrent = (index) => {
+            if (index >= quotes.length) currentIndex = 0;
+            else if (index < 0) currentIndex = quotes.length - 1;
+            else currentIndex = index;
+            deactivateAll();
+            circles[currentIndex].classList.add("currently-active");
+            quotes[currentIndex].classList.add("currently-active");
+        };
+    
+        const deactivateAll = () => {
+            quotes.forEach(quote => quote.classList.remove("currently-active"));
+            circles.forEach(circle => circle.classList.remove("currently-active"));
+        };
+    
+        let currentIndex = 0;
+        activateCurrent(currentIndex);
+    
+        const activateArrow = (index) => activateCurrent(currentIndex += index);
+    
+        const activateTestimonialsPanel = () => {
+            try {
+                circles.forEach((circle, current) => {
+                    circle.addEventListener("click", () => {
+                        // deactivateAll();
+                        activateCurrent(current);
+                    });
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        };
+    
+        activateTestimonialsPanel();
+    
+        document.querySelector("#client-testimonials > a.next-testimonial").addEventListener("click", (event) => {
+            event.preventDefault();
+            activateArrow(1);
+        });
+    
+        document.querySelector("#client-testimonials > a.prev-testimonial").addEventListener("click", (event) => {
+            event.preventDefault();
+            activateArrow(-1);
+        });
+    }
+});
