@@ -18,19 +18,8 @@
 /* Ghost auto classes */
 
 .home-template main section {
-    padding: 10vb 5vb;
-    padding-top: 15vb;
+    padding: 2dvh 6dvw;
     min-height: 100dvh;
-    /*scale: .5;
-    scale: 1;
-    border-radius: 25vb;
-    outline: thick dashed var(--accent-color-50);
-    transition: all 500ms ease-in-out 0s;
-    animation: shake-it 3s linear 0s infinite forwards;*/
-}
-
-.home-template main section:is(:active, :focus, :focus-within, :hover) {
-    animation: none;
 }
 
 /* Some fonts */
@@ -158,6 +147,43 @@
     /* IE and Edge */
     scrollbar-width: none;
     /* Firefox */
+}
+
+.masked {
+    -webkit-mask-image: url(w3logo.png);
+    mask-image: url(w3logo.png);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+
+/* Elements with data attributes */
+
+[data-divider="top"],
+[data-divider="bottom"] {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+[data-divider="top"] {
+    top: -.1em;
+}
+
+[data-divider="bottom"] {
+    bottom: -.1em;
+    transform: rotate(180deg);
+}
+
+[data-divider="top"] path,
+[data-divider="bottom"] path {
+    fill: var(--accent-color);
 }
 
 /* Elements */
@@ -298,14 +324,14 @@ dialog {
 
 dialog[open] {
     margin: auto;
-    padding: 1em;
+    padding: 1vb;
     inset: 0;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
     color: var(--accent-color);
     background-color: var(--accent-color-100);
-    border: 1em solid var(--accent-color);
+    border: 1vb solid var(--accent-color);
     user-select: none;
     cursor: default;
     transition: opacity 500ms ease;
@@ -313,20 +339,42 @@ dialog[open] {
 
 form[method="dialog"] {
     color: inherit;
-    gap: 1em;
+    gap: 1vb;
 }
 
 form[method="dialog"] fieldset {
-    gap: 1em;
+    flex-wrap: nowrap;
+    align-items: flex-start;
     user-select: text;
+    gap: 1vb;
+}
+
+form[method="dialog"] legend {
+    padding-bottom: 1vb;
+    align-content: flex-start;
+    gap: 1vb;
+}
+
+form[method="dialog"] h2 {
+    font-size: 2.5rem;
+}
+
+form[method="dialog"] p {
+    font-size: 1.25rem;
+}
+
+form[method="dialog"] div {
+    padding: 2vb;
+    gap: 2vb;
 }
 
 form[method="dialog"] input {
-    max-width: fit-content;
+    max-width: 100%;
 }
 
 form[method="dialog"] input:is([type="submit"], [type="reset"]) {
-    flex: 0 1 45%
+    flex: 0 0 fit-content;
+    width: fit-content;
 }
 
 main {
@@ -341,13 +389,6 @@ main>article {
 
 body:not(.home-template)>main.flexy {
     gap: 1em;
-}
-
-.masked {
-    -webkit-mask-image: url(w3logo.png);
-    mask-image: url(w3logo.png);
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
 }
 
 address a {
@@ -389,6 +430,12 @@ main.post.flexy>header>section.title-meta {
 main.post.flexy>header>section.title-meta>h1 {
     align-self: flex-start;
     color: inherit;
+}
+
+figure {
+    width: fit-content;
+    max-width: 100%;
+    height: auto;
 }
 
 main.post.flexy>figure,
@@ -622,14 +669,18 @@ label+input {
 
 .cta-buttons {
     align-self: center;
-    gap: 2em;
-    padding-bottom: 2em;
+    gap: 2vb;
+    padding-bottom: 2vb;
 }
 
 .cta-button {
+    margin: 1vb 4vb;
+    padding: 1vb;
     align-self: flex-start;
     flex: 1 0 fit-content;
-    width: 100dvw;
+    width: fit-content;
+    max-width: 100%;
+    align-content: flex-start;
 }
 
 .cta-button a,
@@ -665,33 +716,37 @@ label+input {
     text-decoration: underline;
 }
 
-fieldset {
-    flex-wrap: nowrap;
-    align-items: flex-start;
-}
-
 img {
     width: 100%;
     vertical-align: middle;
     object-fit: contain;
 }
 
+:is(h1, h2, h3, h4, h5, h6) {
+    word-wrap: normal;
+    text-transform: none;
+    font-weight: normal;
+    line-height: 1.5;
+    width: 100%;
+    text-wrap: balance;
+    text-align: start;
+}
+
+:is(h1, h2, h3, h4, h5, h6) strong {
+    text-transform: capitalize;
+    font-weight: bolder;
+}
+
 h1 {
     font-size: 3.5rem;
-    line-height: 1.5;
 }
 
 h2 {
     font-size: 2.75rem;
-    line-height: 1.5;
-    word-wrap: normal;
-    text-transform: capitalize;
-    font-weight: normal;
 }
 
 h3 {
     font-size: 2.5rem;
-    text-transform: capitalize;
 }
 
 h4 {
@@ -704,10 +759,21 @@ h5 {
 
 h6 {
     font-size: 1.5rem;
+    font-weight: bold;
 }
 
 p {
-    font-size: inherit;
+    font-size: 1.5rem;
+    width: 100%;
+}
+
+hgroup :is(h1, h2, h3) {
+    padding: 1vb;
+}
+
+hgroup p {
+    padding: 1vb 2vb;
+    text-align: justify;
 }
 
 a {
@@ -748,22 +814,31 @@ a[href*="main-content"]:is(:focus, :hover) {
     cursor: wait;
 }
 
-:is(header, main, section, article, footer) {
+:is(header, hgroup, main, section, article, footer) {
     width: inherit;
     max-width: inherit;
     height: auto;
     will-change: contents;
     position: relative;
     overflow: hidden;
+    cursor: default;
     user-select: text;
     color: currentColor;
     background-color: var(--accent-color);
 }
 
-header {
-    gap: 1em;
+header,
+hgroup {
     text-align: center;
+    color: var(--color-black);
     background-color: transparent;
+    width: 100dvw;
+    max-width: 100%;
+    gap: 1vb;
+}
+
+section hgroup {
+    padding: 1vb;
 }
 
 footer {
@@ -789,10 +864,9 @@ strong {
 }
 
 header:has(nav) {
-    padding: 1em 2em;
+    padding: 2vb 5vb;
     justify-content: space-between !important;
     background-color: var(--accent-color-100);
-    width: 100%;
     animation: menu-go-down 500ms linear 0s 1 forwards;
     box-shadow: 0 0 .25em var(--color-black-40);
     flex: 0 0 10dvh;
@@ -802,6 +876,8 @@ header:has(nav) {
     top: 0;
     z-index: 9999;
     pointer-events: auto;
+    height: 10dvh;
+    max-height: 10dvh; 
 }
 
 header.loose {
@@ -1198,31 +1274,22 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 
 #streamlining-safety-checks {
     background-color: var(--color-light-grey);
-    gap: 3em;
+    gap: 5vb;
 }
 
-#streamlining-safety-checks header {
+#streamlining-safety-checks hgroup {
     flex: 1 0 50vb;
     width: 50vb;
-    max-width: 100%;
+}
+
+#streamlining-safety-checks p {
+    text-align: justify;
 }
 
 #streamlining-safety-checks figure {
     flex: 0 0 75vb;
     width: 75vb;
     max-width: 100%;
-}
-
-#streamlining-safety-checks header {
-    text-transform: capitalize;
-    text-transform: uppercase;
-    gap: 3em;
-}
-
-#streamlining-safety-checks h2 {
-    color: var(--color-purple);
-    font-size: 2.25rem;
-    font-weight: bold;
 }
 
 #streamlining-safety-checks .cta-button {
@@ -1240,13 +1307,16 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 }
 
 #briefly {
-    color: var(--color-white);
     background-color: var(--color-black);
     gap: 2em;
 }
 
-#briefly [data-divider="top"] path {
-    fill: var(--color-light-grey);
+#briefly hgroup {
+    padding: 1vb;
+    color: var(--color-white);
+    flex: 1 0 58%;
+    max-width: 50%;
+    width: 58%;
 }
 
 #briefly [data-divider="bottom"] path {
@@ -1257,46 +1327,11 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
     bottom: 15vb;
 }
 
-[data-divider="top"],
-[data-divider="bottom"] {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    user-select: none;
-    pointer-events: none;
-}
-
-[data-divider="top"] {
-    top: -.1em;
-}
-
-[data-divider="bottom"] {
-    bottom: -.1em;
-    transform: rotate(180deg);
-}
-
-[data-divider="top"] path,
-[data-divider="bottom"] path {
-    fill: var(--accent-color);
-}
-
 #briefly [data-divider="top"] svg {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
     height: auto;
-}
-
-#briefly article {
-    flex: 1 0 58%;
-    max-width: 50%;
-    width: 58%;
-
 }
 
 #briefly button {
@@ -1305,7 +1340,7 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
     text-transform: capitalize;
 }
 
-#briefly article div {
+#briefly div {
     align-items: flex-start;
     gap: 1em;
 }
@@ -1319,35 +1354,29 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
     bottom: 15dvh;
 }
 
-#get-the-app a[title~="Continue"] {
-    bottom: 10vb;
-}
-
-#get-the-app aside {
-    margin-left: 45%;
-    padding: .5em 3em;
-    border-top-left-radius: 5em;
+#get-the-app details {
+    padding: 1vb;
+    flex: 1 0 fit-content;
+    width: 100dvw;
+    max-width: 100%;
     cursor: pointer;
-    position: absolute;
-    inset: 0;
-    top: unset;
-    color: var(--color-white);
-    background-color: var(--color-light-blue);
-    z-index: 9;
-    box-sizing: 0 0 0.25em var(--color-black-40);
-    transform: translateY(8.5em);
-    transition: all 200ms ease 0s;
+    transition: all 250ms ease-out 0s;
 }
 
-#get-the-app aside:is(:focus, :focus-visible, :hover) {
-    margin-left: 0;
-    border-top-left-radius: 0;
-    background-color: var(--color-blue);
-    transform: translateY(0);
-    transition: all 200ms ease 0s;
+#get-the-app summary {
+    justify-content: flex-start;
 }
 
-#newsletter.flexy [data-divider="bottom"] .shape-fill {
+#get-the-app details:is(:focus, :focus-visible, :hover) {
+    transition-timing-function: ease-in;
+}
+
+#get-the-app details[open] p {
+    padding: 1vb;
+    font-size: 1.1rem;
+}
+
+#newsletter [data-divider="bottom"] .shape-fill {
     fill: var(--accent-color-90);
 }
 
@@ -1385,6 +1414,13 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
     }
 }
 
+pre {
+    text-wrap: wrap;
+    text-align: -webkit-center;
+    text-align: center;
+    font-size: .85rem;
+}
+
 #get-the-app div {
     width: 100%;
     gap: 3em;
@@ -1399,7 +1435,6 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 }
 
 #get-the-app figure:nth-of-type(3) {
-    padding-top: .65em;
     scale: 1;
     width: 100%;
     max-width: 9.25em;
@@ -1439,14 +1474,12 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 }
 
 #main-message {
-    color: var(--color-white);
     background-color: var(--accent-color-30);
 }
 
-#main-message header {
+#main-message hgroup {
+    color: var(--color-white);
     align-content: flex-start;
-    gap: 1em;
-    font-size: 2rem;
     align-items: flex-start;
     animation: slide-right 500ms linear 10ms 1 forwards;
 }
@@ -1464,16 +1497,11 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
     animation: slide-up 1s linear 100ms 1 forwards;
 }
 
-#more-clients h2 {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
 a[title~="Continue"] {
     display: block;
     flex: 0 0 fit-content;
     position: absolute;
-    bottom: 0;
+    bottom: 1vb;
     width: 100%;
     max-width: fit-content;
     animation: point-down 1s linear 0s infinite;
@@ -1649,21 +1677,11 @@ a[title~="Continue"]:is(:focus, :hover) path {
 
 #main-message h1 {
     max-width: 13em;
-    font-size: 3rem;
-    font-weight: 900;
-    cursor: default;
-    line-height: 1.5;
-    text-align: start;
+    font-weight: normal;
 }
 
-#main-message p {
-    font-size: 1.85rem;
-    font-weight: 700;
-    text-align: justify;
-}
-
-#main-message>*:is(header, figure) {
-    padding: 1em;
+#main-message>*:is(hgroup, figure) {
+    padding: 1vb;
     flex: 1 0 50vb;
     width: 50vb;
     max-width: inherit;
@@ -1672,11 +1690,13 @@ a[title~="Continue"]:is(:focus, :hover) path {
 #compliance-app {
     color: var(--color-dark-blue);
     background-color: var(--color-white);
-    justify-content: space-between;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
     gap: 1vb;
 }
 
-#compliance-app :is(header, figure) {
+#compliance-app :is(hgroup, figure) {
+    padding: 1vb;
     flex: 0 0 75vb;
     width: 75vb;
     max-width: 100%;
@@ -1698,20 +1718,8 @@ a[title~="Continue"]:is(:focus, :hover) path {
     transition: box-shadow 250ms ease-out 0s;
 }
 
-#compliance-app header {
+#compliance-app hgroup {
     align-content: flex-start;
-    gap: 5vb;
-}
-
-#compliance-app h2 {
-    font-weight: bold;
-    text-align: start;
-}
-
-#compliance-app>header>p {
-    font-size: 1.15rem;
-    font-weight: 300;
-    text-align: justify;
 }
 
 #compliance-app a[href*="main-content"] {
@@ -1785,7 +1793,7 @@ a[title~="Continue"]:is(:focus, :hover) path {
 }
 
 .cookies form {
-    gap: 2em;
+    gap: 2vb;
 }
 
 .cookies button[type="button"] {
@@ -2012,9 +2020,12 @@ a[title~="Continue"]:is(:focus, :hover) path {
 }
 
 form {
+    padding: 1vb;
     position: relative;
-    flex: 0 0 85vb;
-    width: 85vb;
+    flex: 0 0 fit-content;
+    height: fit-content;
+    max-height: 100%;
+    width: 90vb;
     max-width: 100%;
 }
 
@@ -2034,14 +2045,32 @@ form#join-newsletter {
     box-shadow: .25em .65em 0 var(--accent-color-80);
     outline: thin solid var(--accent-color-80);
     scale: 1;
+    border-top-left-radius: 5vb;
+    border-bottom-right-radius: 5vb;
     transform: none;
     transition: all ease-in 200ms 0s;
 }
 
 form#join-newsletter:is(:focus-within, :hover) {
-    scale: 1.05;
+    scale: 1.01;
     transform: translate(0, -.25em);
     transition: all ease-out 200ms 0s;
+}
+
+form#join-newsletter:is(:focus-within, :hover) legend p {
+    font-size: 1rem;
+}
+
+form#join-newsletter:is(:focus-within, :hover) pre {
+    font-size: .9rem;
+    transition: all 500ms ease-in-out 0s;
+}
+
+form#join-newsletter pre {
+    padding: 3vb;
+    text-align: start;
+    font-size: 0;
+    transition: all 500ms ease-in-out 0s;
 }
 
 form#join-newsletter fieldset {
@@ -2056,46 +2085,55 @@ form#join-newsletter :is(fieldset, legend, div, p, label, input) {
 }
 
 form#join-newsletter legend {
-    padding: 1em;
-    padding-bottom: 2em;
-    text-align: center;
+    padding: 2vb;
+    text-align: start;
 }
 
 form#join-newsletter div {
-    padding: 2vb;
+    padding: 1vb;
     justify-content: center;
     max-width: 100%;
-    gap: 2vb;
+    gap: 3vb;
 }
 
-form#join-newsletter div:nth-of-type(2) {
-    flex: 1 0 100%;
-    gap: 1vb;
-}
-
-form#join-newsletter div[data-divider="bottom"]{
+form#join-newsletter div[data-divider="bottom"] {
     padding: 0;
     transform: none;
     top: unset;
     bottom: -7.9vb;
     pointer-events: all;
+    border-top-right-radius: 5vb;
 }
 
 form#join-newsletter div[data-divider="bottom"] path {
     fill: var(--accent-color-90);
 }
 
+form#join-newsletter .controls {
+    gap: 5vb;
+}
+
+form#join-newsletter legend p {
+    padding: 0;
+    font-size: 0;
+    color: var(--accent-color);
+}
+
 form#join-newsletter p {
     padding: 1em 4em;
     font-size: 1rem;
     color: var(--accent-color-80);
-    transition: all ease-in 200ms 0s;
+    transition: all 500ms ease-in-out 0s;
 }
 
 form#join-newsletter:is(:focus-within, :hover) p {
     color: var(--accent-color);
     user-select: text;
-    transition: all ease-out 200ms 0s;
+    transition: all 500ms ease-in-out 0s;
+}
+
+form#join-newsletter:is(:focus-within, :hover) legend p {
+    color: inherit;
 }
 
 form#join-newsletter label {
@@ -2105,6 +2143,7 @@ form#join-newsletter label {
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
+    color: var(--color-black);
     scale: 1;
     transition: all ease-in 200ms 0s;
 }
@@ -2197,16 +2236,15 @@ form#join-newsletter a:is(:focus, :hover) {
 
 #client-testimonials {
     background-color: mintcream;
-    justify-content: flex-start;
-    gap: 1.25em;
+    gap: 2vb;
 }
 
 #client-testimonials>footer {
-    gap: 1em;
+    gap: 1vb;
     z-index: 9999;
 }
 
-#client-testimonials>footer>div {
+#client-testimonials ol {
     flex: 0 0 1.5em;
     width: 1.5em;
     height: 1.5em;
@@ -2221,8 +2259,8 @@ form#join-newsletter a:is(:focus, :hover) {
     transition: all 250ms ease-in-out 0s;
 }
 
-#client-testimonials>footer>div.currently-active,
-#client-testimonials>footer>div:is(:focus, :hover) {
+#client-testimonials li.currently-active,
+#client-testimonials li:is(:focus, :hover) {
     color: var(--accent-color);
     background-color: var(--accent-color-20);
     border-color: var(--accent-color-20);
@@ -2369,28 +2407,30 @@ form#join-newsletter a:is(:focus, :hover) {
 /* Meet our team: /partials/team-members.hbs */
 
 #meet-our-team {
+    padding-top: 10vb;
+    padding-bottom: 5vb;
     background-color: var(--color-light-grey);
-    gap: 5vb;
 }
 
 #meet-our-team .container {
-    padding: 1em 5em;
-    gap: 2vb;
+    padding: 1vb;
+    padding-bottom: 10vb;
+    gap: 1vb;
 }
 
 #meet-our-team .container .post {
-    padding: 2vb;
-    flex: 0 0 50vb;
+    padding: 1vb;
+    flex: 1 0 40vb;
     max-width: 100%;
-    width: 50vb;
-    gap: 5vb;
+    width: 40vb;
+    gap: 1vb;
     cursor: default;
     user-select: text;
     background-color: transparent;
     outline-style: dashed;
     outline-color: var(--accent-color);
     outline-width: 0;
-    scale: .85;
+    scale: .9;
     transform: translate(0, 0);
     transition: all 250ms ease-in-out 0s;
 }
@@ -2403,8 +2443,8 @@ form#join-newsletter a:is(:focus, :hover) {
 }
 
 #meet-our-team .post :is(header, div) {
-    flex: 0 0 48vb;
-    width: 48vb;
+    flex: 1 0 40vb;
+    width: 40vb;
     max-width: 100%;
     gap: 1vb;
     transition-timing-function: ease-in;
@@ -2454,6 +2494,7 @@ form#join-newsletter a:is(:focus, :hover) {
 
 #meet-our-team .post p {
     font-size: 1.15rem;
+    line-height: 1.5;
 }
 
 #meet-our-team .post p:not(:first-of-type) {

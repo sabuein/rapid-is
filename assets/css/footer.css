@@ -3,40 +3,37 @@ footer {
 }
 
 body>footer {
-    padding: 1em 2em;
-    padding-top: 10em;
+    padding: 1vb 2vb;
+    padding-top: 10vb;
     position: relative;
     width: 100%;
-    min-height: 90vh;
-    gap: 2em;
+    min-height: 90dvh;
+    gap: 2vb;
     color: var(--color-black);
     background-color: var(--accent-color-90);
 }
 
 body>footer section {
     padding: 1em;
-    align-items: flex-start;
-    justify-content: space-between;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
     background-color: transparent;
-    gap: 1em;
+    gap: 1vb;
 }
 
 body>footer section.flexy:last-of-type {
-    padding: 1em 2em;
+    padding: 1vb 2vb;
     font-weight: bold;
     font-size: .9rem;
     text-align: center;
 }
 
-footer .rapid-logo img {
-    mix-blend-mode: darken;
+body>footer p {
+    font-size: inherit;
 }
 
-footer pre {
-    text-wrap: balance;
-    text-align: -webkit-center;
-    text-align: center;
-    font-size: .9rem;
+footer .rapid-logo img {
+    mix-blend-mode: darken;
 }
 
 main > section > footer {
