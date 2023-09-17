@@ -30,6 +30,7 @@ body>footer section.flexy:last-of-type {
 
 body>footer p {
     font-size: inherit;
+    width: fit-content;
 }
 
 footer .rapid-logo img {
