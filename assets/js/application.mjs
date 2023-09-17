@@ -20,8 +20,7 @@ const hideNav = (nav, main) => {
 };
 
 const enableNavMenu = (nav) => {
-    let solutionsElement = nav.querySelectorAll("ul.nav li"),
-        solutionsLink = nav.querySelectorAll("ul.nav li a");
+    let solutionsElement = nav.querySelectorAll("ul.nav li"), solutionsLink = nav.querySelectorAll("ul.nav li a");
     [].forEach.call(solutionsElement, (li, index) => activateMenuItem(li, solutionsLink[index]));
 };
 
@@ -44,10 +43,11 @@ const startMainModal = (id, query) => {
     });
 
     // Dialog
-    dialog.addEventListener("close", (event) => {
-        if (dialog.returnValue !== "submit") return;
-        console.log("Get in touch form submited!");
-        console.log(dialog.returnValue);
+    dialog.addEventListener("close", () => {
+        if (dialog.returnValue.toLowerCase() === "cancel") return console.log("Contact form was canceled by the user.");
+        if (dialog.returnValue.toLowerCase() !== "send") return false;
+        console.log("Contact form has been submitted.");
+        console.log("Value: ", dialog.returnValue);
         // Do something...
         // Add to input#submit oninput="this.form.elements.submit.value=this.value;"
     });
@@ -61,8 +61,7 @@ const shakeMe = (section) => {
 // Automatically scroll horizontally when the window load
 window.addEventListener("load", () => {
     try {
-        const containers =
-            document.querySelectorAll(".horizontal-scrollingXXX") || null;
+        const containers = document.querySelectorAll(".horizontal-scrollingXXX") || null;
         self.setInterval(() => {
             containers.forEach((container) => {
                 const width = container.scrollWidth;
@@ -86,16 +85,18 @@ window.addEventListener("load", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     // Get the contact main nav item
-    const getInTouch = document.querySelector(`li.nav-contact[role="menuitem"] > a`);
-    if (!!getInTouch) getInTouch.classList.add("show-modal");
+    const getInTouchLinks = document.querySelectorAll(`a[href$="/contact/" i]`);
+    getInTouchLinks.forEach((link) => {
+        link.classList.add("show-modal");
+    });
     startMainModal("get-in-touch", ".show-modal");
 
-    const nav = document.querySelector("body > nav");
+    const nav = document.querySelector("body > header > nav");
     enableNavMenu(nav);
 
-    const goToTopButtons = document.querySelectorAll(`a[href="#main-content"]`);
-    goToTopButtons.forEach((button) => {
-        button.addEventListener("click", (event) => {
+    const goToTopLinks = document.querySelectorAll(`a[href*="main-content"]`);
+    goToTopLinks.forEach((link) => {
+        link.addEventListener("click", () => {
             // event.preventDefault();
             setTimeout(() => window.scrollTo(0, 0), 0);
         });
@@ -103,14 +104,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const cookiesAside = document.querySelector("aside.cookies");
     const cookiesActions = document.querySelectorAll("aside.cookies > form.actions");
-    cookiesActions.forEach((button) => {
+    cookiesActions.forEach((input) => {
         const accepted = window.localStorage.getItem("cookiesAccepted") || null;
         if (!accepted || accepted !== "true") {
             cookiesAside.style.display = "flex";
-            button.onclick = () => {
+            input.addEventListener("click", () => {
                 window.localStorage.setItem("cookiesAccepted", true);
                 cookiesAside.style.display = "none";
-            }
+            });
         }
     });
 
@@ -124,9 +125,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (!!document.querySelector("#client-testimonials")) {
-        const circles = document.querySelectorAll("#client-testimonials > footer > div");
-        const quotes = document.querySelectorAll("#client-testimonials > div > blockquote");
-    
+        const circles = document.querySelectorAll("#client-testimonials ol li");
+        const quotes = document.querySelectorAll("#client-testimonials .container blockquote");
+
         const activateCurrent = (index) => {
             if (index >= quotes.length) currentIndex = 0;
             else if (index < 0) currentIndex = quotes.length - 1;
@@ -143,32 +144,32 @@ document.addEventListener("DOMContentLoaded", () => {
     
         let currentIndex = 0;
         activateCurrent(currentIndex);
-    
+
         const activateArrow = (index) => activateCurrent(currentIndex += index);
-    
+
+        const autoPlay = setInterval(() => document.querySelector(".next-testimonial").click(), 5000);
         const activateTestimonialsPanel = () => {
-            try {
+            try {                
+                quotes.forEach(quote => quote.addEventListener("mouseenter", () => clearInterval(autoPlay), { once: true }));
+
                 circles.forEach((circle, current) => {
-                    circle.addEventListener("click", () => {
-                        // deactivateAll();
-                        activateCurrent(current);
-                    });
+                    circle.addEventListener("click", () => activateCurrent(current));
+                });
+
+                document.querySelector(".next-testimonial").addEventListener("click", (event) => {
+                    event.preventDefault();
+                    activateArrow(+1);
+                });
+            
+                document.querySelector(".prev-testimonial").addEventListener("click", (event) => {
+                    event.preventDefault();
+                    activateArrow(-1);
                 });
             } catch (error) {
                 console.error(error);
             }
         };
-    
+
         activateTestimonialsPanel();
-    
-        document.querySelector("#client-testimonials > a.next-testimonial").addEventListener("click", (event) => {
-            event.preventDefault();
-            activateArrow(1);
-        });
-    
-        document.querySelector("#client-testimonials > a.prev-testimonial").addEventListener("click", (event) => {
-            event.preventDefault();
-            activateArrow(-1);
-        });
     }
 });
