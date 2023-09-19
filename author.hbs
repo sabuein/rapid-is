@@ -20,6 +20,13 @@
     <section>{{> "loop"}}</section>
     <footer></footer>
 </main>
-<!-- Previous/next page links - displayed on every page -->
-{{pagination}}
+<footer>
+    {{!-- Show the pagination helper when there's more than one page --}}
+    {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
+    {{!-- Previous/next page links - displayed on every page --}}
+    {{#if pagination}}{{pagination}}{{/if}}
+    <a href="#main-content" title="Back to top">
+        {{> "icons/angle-down"}}
+    </a>
+</footer>
 {{/is}}

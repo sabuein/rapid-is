@@ -1,6 +1,30 @@
 {{!< default}}
 <!-- page-about.hbs -->
-
-<section id="meet-our-team" class="get-team-members flexy">
-    {{> "team-members"}}
+{{#is "page"}}
+{{#post}}
+{{#match @page.show_title_and_feature_image}}<hgroup class="flexy">
+    <h1 title="About Rapid">About <strong>Rapid</strong>&period;</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo qui, maiores atque corrupti iusto minus, quos nostrum placeat ratione molestiae laborum aspernatur voluptatum cupiditate, excepturi veritatis hic. Nulla, repellendus.</p>
+</hgroup>{{/match}}
+<section id="content" class="flexy row">
+    <hgroup class="flexy">
+        <h2 id="{{slug}}-h2" title="{{title}}">{{title}}</h2>
+        <p>Rapid produce an exciting and disruptive low&dash;code platform which we use to create desktop&comma; mobile&comma; and forms apps to help local authorities improve their services&comma; especially in social housing&period; Based just North of London in Welwyn Hatfield we are a small and growing company&comma; able to offer friendly and supportive working arrangements&period; Our customers are great&comma; and the work is varied and never dull&excl;</p>
+    </hgroup>
+    <button type="button">Learn more</button>
+    <div data-divider="bottom">
+        {{> "icons/divider-curve-bottom"}}
+    </div>
+    <footer class="flexy">
+        {{!-- Show the pagination helper when there's more than one page --}}
+        {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
+        {{!-- Previous/next page links - displayed on every page --}}
+        {{#if pagination}}{{pagination}}{{/if}}
+        <a href="#default-footer" title="Continue to the site footer&hellip;">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
 </section>
+{{> "tabs-about"}}
+{{/post}}
+{{/is}}

@@ -2,10 +2,27 @@
 <!-- post.hbs -->
 {{#is "post"}}
 {{#post}}
-<h1>{{title}}</h1>
+<h1 title="{{title}}">{{title}}</h1>
 {{#match custom_excerpt}}<p>{{custom_excerpt}}</p>{{/match}}
 <div>
     <time datetime="{{date format='YYYY-MM-DD'}}">This was published on {{date format="DD MMMM YYYY"}}</time>&period; <span>In {{tags}}</span>
 </div>
+<section id="content" class="flexy">
+    <hgroup>
+        <h2 id="{{slug}}-h2" title="{{title}}">{{title}}</h2>
+        {{#if excerpt}}<p>{{excerpt}}</p>{{/if}}
+    </hgroup>
+    {{content}}
+    <footer class="flexy">
+        {{!-- Show the pagination helper when there's more than one page --}}
+        {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
+        {{!-- Previous/next page links - displayed on every page --}}
+        {{#if pagination}}{{pagination}}{{/if}}
+        {{> "sharing"}}
+        <a href="#default-footer" title="Continue to the site footer&hellip;">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
+</section>
 {{/post}}
 {{/is}}

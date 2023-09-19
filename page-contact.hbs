@@ -1,18 +1,50 @@
 {{!< default}}
 <!-- page-contact.hbs -->
-<p>We&apos;re here to help</p>
-<div>
-    <figure>
-        <img src="" alt="Chat" />
-        <figcaption>Chat</figcaption>
-    </figure>
-    <figure>
-        <img src="" alt="Call" />
-        <figcaption>Call</figcaption>
-    </figure>
-    <figure>
-        <img src="" alt="Email" />
-        <figcaption>Email</figcaption>
-    </figure>
-</div>
-<p>Think it's too early to fill out the form? Let's talk about it over a coffee someday&period; Schedule Appointment&period;</p>
+{{#is "page"}}
+{{#post}}
+{{#match @page.show_title_and_feature_image}}
+<hgroup class="flexy">
+    <h1 title="{{title}}">{{title}}</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo qui, maiores atque corrupti iusto minus, quos nostrum placeat ratione molestiae laborum aspernatur voluptatum cupiditate, excepturi veritatis hic. Nulla, repellendus.</p>
+</hgroup>
+{{/match}}
+<section class="flexy">
+    <hgroup class="flexy">
+        <h2>We&apos;re here to help</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate dolorem voluptatem quidem rerum voluptates nihil molestiae iste iusto exercitationem ratione sapiente molestias voluptatum cumque non, doloremque aliquam animi blanditiis dolorum.</p>
+    </hgroup>
+    <div class="container flexy row">
+        <figure>
+            <img src="" alt="Chat" />
+            <figcaption>Chat</figcaption>
+        </figure>
+        <figure>
+            <img src="" alt="Call" />
+            <figcaption>Call</figcaption>
+        </figure>
+        <figure>
+            <img src="" alt="Email" />
+            <figcaption>Email</figcaption>
+        </figure>
+    </div>
+</section>
+<section id="content" class="flexy">
+    <hgroup>
+        <h2 id="{{slug}}-h2" title="{{title}}">{{title}}</h2>
+        {{#if excerpt}}<p>{{excerpt}}</p>{{/if}}
+    </hgroup>
+    {{content}}
+    <p>Think it&apos;s too early to fill out the form? Let&apos;s talk about it over a coffee someday&period; Schedule Appointment&period;</p>
+    <footer class="flexy">
+        {{!-- Show the pagination helper when there's more than one page --}}
+        {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
+        {{!-- Previous/next page links - displayed on every page --}}
+        {{#if pagination}}{{pagination}}{{/if}}
+        {{> "sharing"}}
+        <a href="#default-footer" title="Continue to the site footer&hellip;">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
+</section>
+{{/post}}
+{{/is}}

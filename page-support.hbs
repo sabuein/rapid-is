@@ -1,9 +1,9 @@
 {{!< default}}
-<!-- page-careers.hbs -->
+<!-- page-support.hbs -->
 {{#is "page"}}
 {{#post}}
 {{#match @page.show_title_and_feature_image}}<hgroup class="flexy">
-    <h1 title="Work at Rapid">Work at <strong>Rapid</strong>&period;</h1>
+    <h1 id="{{slug}}-h1" title="{{title}}">{{title}}</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo qui, maiores atque corrupti iusto minus, quos nostrum placeat ratione molestiae laborum aspernatur voluptatum cupiditate, excepturi veritatis hic. Nulla, repellendus.</p>
 </hgroup>{{/match}}
 <section id="content" class="flexy row">
@@ -25,7 +25,6 @@
         </a>
     </footer>
 </section>
-{{> "team"}}
-{{> "vacancies"}}
+{{> "app"}}
 {{/post}}
 {{/is}}

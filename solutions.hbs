@@ -10,32 +10,36 @@
     }
 </style>
 <link rel="stylesheet" href="{{asset "css/solutions.css"}}" type="text/css" media="screen" />
-<figure>
-    <div class="divider-bottom">
+<section class="flexy">
+    <div data-divider="bottom">
         {{> "icons/divider-tilt"}}
     </div>
-    {{#if feature_image}}<img src="{{img_url feature_image absolute='true'}}" title="{{title}}" alt="{{name}}" />{{/if}}
-</figure>
-<header>
-    <h1 id="rapid-{{slug}}">{{name}}</h1>
-    <a href="#apps" title="Explore Rapid&apos;s {{slug}} below&hellip;">
-        {{> "icons/angle-down"}}
-    </a>
-    {{#if description}}<p>{{description}}</p>{{/if}}
-</header>
-{{#get "posts" include="tags,authors" filter="primary_tag:{{slug}}" limit="all" order="published_at asc" limit=@config.posts_per_page as |post|}}
-{{#if post}}<div id="apps" class="flexy row">
-    {{#foreach post}}
-    <article class="flexy {{#if @even}}even{{else}}odd{{/if}}" title="{{title}}" tabindex="0">
-        <h2 id="{{slug}}-app">{{title}}</h2>
-        <p>{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{excerpt characters="140"}}{{/if}}</p>
-        <a href="{{url}}" title="Learn more about Rapid&apos;s {{title}} solutions&hellip;" name="learn-more">Learn more</a>
-        <figure>
-            <img src="{{feature_image}}" title="{{title}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
-        </figure>
-    </article>
-    {{/foreach}}
-</div>{{/if}}
+    {{#if feature_image}}<figure class="flexy">
+        <img src="{{img_url feature_image absolute='true'}}" title="{{title}}" alt="{{name}}" />
+    </figure>{{/if}}
+    <hgroup>
+        <h1 id="{{slug}}-h1" title="{{name}}">{{name}}</h1>
+        {{#if description}}<p>{{description}}</p>{{/if}}
+    </hgroup>
+    {{#get "posts" include="tags,authors" filter="primary_tag:{{slug}}" limit="all" order="published_at asc" limit=@config.posts_per_page as |post|}}
+    {{#if post}}<div id="apps" class="container flexy row">
+        {{#foreach post}}
+        <article class="flexy {{#if @even}}even{{else}}odd{{/if}}" title="{{title}}" tabindex="0">
+            <h2 id="{{slug}}-h2" title="{{title}}">{{title}}</h2>
+            <p>{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{excerpt characters="140"}}{{/if}}</p>
+            <a href="{{url}}" title="Learn more about Rapid&apos;s {{title}} solutions&hellip;" name="learn-more">Learn more</a>
+            <figure>
+                <img src="{{feature_image}}" title="{{title}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
+            </figure>
+        </article>
+        {{/foreach}}
+    </div>{{/if}}
+    <footer>
+        <a href="#apps" title="Explore Rapid&apos;s {{slug}} below&hellip;">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
+</section>
 {{/get}}
 {{/tag}}
 {{/is}}

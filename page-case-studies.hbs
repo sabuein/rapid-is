@@ -1,0 +1,11 @@
+{{!< default}}
+<!-- page-case-studies.hbs -->
+{{#is "page"}}
+{{#post}}
+{{#match @page.show_title_and_feature_image}}<hgroup class="flexy">
+    <h1 title="{{title}}">{{title}}</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo qui, maiores atque corrupti iusto minus, quos nostrum placeat ratione molestiae laborum aspernatur voluptatum cupiditate, excepturi veritatis hic. Nulla, repellendus.</p>
+</hgroup>{{/match}}
+{{> "partners"}}
+{{/post}}
+{{/is}}

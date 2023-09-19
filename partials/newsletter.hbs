@@ -1,36 +1,43 @@
 <!-- newsletter.hbs -->
-<form id="join-newsletter" class="flexy" method="dialog" data-play-state="running">
-    <fieldset class="flexy">
-        <legend title="Subscribe to our newsletter">
-            <h2 id="subscribe-to-our-newsletter">Subscribe to our <strong>newsletter</strong>&period;</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid dolorum maiores eaque, officiis dolorem repellendus impedit recusandae est ad! Maiores dolorem ducimus voluptatibus minus?</p>
-        </legend>
-        <div class="flexy row">
-            <label for="lead-fname" title="First name">First name&colon;<input type="text" name="fname" id="lead-fname" autocomplete="given-name" required="required" /></label>
-            <label for="lead-lname" title="Last name">Last name&colon;<input type="text" name="lname" id="lead-lname" autocomplete="family-name" required="required" /></label>
-            <label for="lead-email" title="Email address">Email address&colon;<input type="email" name="email" id="lead-email" autocomplete="email" required="required" /></label>
-        </div>
-        <div class="flexy row">
-            <label for="lead-industry" title="Please select your industry">I work as&colon;<select name="industry" id="lead-industry" size="1" autocomplete="off" required="required">
-                <option value="" disabled="disabled" selected="selected">Please select an option&hellip;</option>
-                <option value="contractors">Contractors</option>
-                <option value="social&dash;housing&dash;landlords">Social housing landlords</option>
-                <option value="other">Other</option>
-            </select></label>
-            <label for="lead-interest" title="Please select your interest">I&apos;m interested in&colon;<select name="interest" id="lead-interest" size="1" autocomplete="off" required="required">
-                <option value="" disabled="disabled" selected="selected">Please select an option&hellip;</option>
-                <option value="case&dash;studies">Case studies</option>
-                <option value="latest&dash;news">Latest news</option>
-                <option value="research">Research</option>
-            </select></label>
-        </div>
-        <div class="controls flexy row">
-            <input type="submit" value="Subscribe" title="Subscribe" />
-            <input type="reset" value="Reset" title="Reset" />
-        </div>
-        <pre>Rapid needs the contact information you provide to contact you about our products and services. You may unsubscribe from these communications at anytime. For information on how to unsubscribe, as well as our privacy practices and commitment to protecting your privacy, check out our <a href="/privacy-notices/" title="Privacy notices">Privacy notices</a>&period;</pre>
-    </fieldset>  
-    <div data-divider="bottom">
+<section id="newsletter" class="flexy">
+    <form id="join-newsletter" class="flexy" method="dialog" data-play-state="running">
+        <fieldset class="flexy">
+            <legend class="flexy" title="Subscribe to our newsletter">
+                <h2 id="subscribe-to-our-newsletter">Subscribe to our <strong>newsletter</strong>&period;</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid dolorum maiores eaque, officiis dolorem repellendus impedit recusandae est ad! Maiores dolorem ducimus voluptatibus minus?</p>
+            </legend>
+            <div class="flexy row">
+                <label for="lead-fname" title="First name">First name&colon;<input type="text" name="fname" id="lead-fname" autocomplete="given-name" required="required" /></label>
+                <label for="lead-lname" title="Last name">Last name&colon;<input type="text" name="lname" id="lead-lname" autocomplete="family-name" required="required" /></label>
+                <label for="lead-email" title="Email address">Email address&colon;<input type="email" name="email" id="lead-email" autocomplete="email" required="required" /></label>
+            </div>
+            <div class="flexy row">
+                <label for="lead-industry" title="Please select your industry">I work as&colon;<select name="industry" id="lead-industry" size="1" autocomplete="off" required="required">
+                    <option value="" disabled="disabled" selected="selected">Please select an option&hellip;</option>
+                    <option value="contractors">Contractors</option>
+                    <option value="social&dash;housing&dash;landlords">Social housing landlords</option>
+                    <option value="other">Other</option>
+                </select></label>
+                <label for="lead-interest" title="Please select your interest">I&apos;m interested in&colon;<select name="interest" id="lead-interest" size="1" autocomplete="off" required="required">
+                    <option value="" disabled="disabled" selected="selected">Please select an option&hellip;</option>
+                    <option value="case&dash;studies">Case studies</option>
+                    <option value="latest&dash;news">Latest news</option>
+                    <option value="research">Research</option>
+                </select></label>
+            </div>
+            <pre>Rapid needs the contact information you provide to contact you about our products and services. You may unsubscribe from these communications at anytime. For information on how to unsubscribe, as well as our privacy practices and commitment to protecting your privacy, check out our <a href="/privacy-notices/" title="Privacy notices">Privacy notices</a>&period;</pre>
+            <div class="controls flexy row">
+                <input type="submit" value="Subscribe" title="Subscribe" />
+                <input type="reset" value="Reset" title="Reset" />
+            </div>
+        </fieldset>  
+    </form>
+    <div data-divider="top">
         {{> "icons/divider-waves"}}
     </div>
-</form>
+    <footer class="flexy">
+        <a href="#default-footer" title="Continue to the site footer&hellip;">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
+</section>

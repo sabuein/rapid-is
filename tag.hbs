@@ -8,13 +8,18 @@
     </figure>{{/if}}
 </header>
 <section class="author-profile">
-    <h1>{{name}}</h1>
+    <h1 title="{{name}}">{{name}}</h1>
     {{#if description}}<h2>{{description}}</h2>{{/if}}
 </section>
 <main role="main">
     {{> "loop"}}
 </main>
-<!-- Previous/next page links - displayed on every page -->
-{{pagination}}
+<footer>
+    {{!-- Previous/next page links - displayed on every page --}}
+    {{#if pagination}}{{pagination}}{{/if}}
+    <a href="#main-content" title="Back to top">
+        {{> "icons/angle-down"}}
+    </a>
+</footer>
 {{/tag}}
 {{/is}}

@@ -1,0 +1,22 @@
+<!-- tabs-about.hbs -->
+<section class="tabs about flexy">
+    <header class="flexy">
+        <h2>Why we&apos;re trusted</h2>
+        <div class="buttons flexy row">
+            <a href="#our-people-tab" title="Our people">Our people</a>
+            <a href="#our-promise-tab" title="Our promise">Our promise</a>
+            <a href="#our-purpose-tab" title="Our purpose">Our purpose</a>
+        </div>
+    </header>
+    <article class="flexy">
+        {{#get "posts" filter="tag:hash-about-tabs+visibility:public" order="title asc" limit=3}}{{#if posts}}{{#foreach posts}}<hgroup class="flexy row" data-play-state="running" data-tab-number="{{@number}}">
+            <h3 id="{{slug}}-tab" title="{{title}}">{{title}}</h3>
+            {{content}}
+        </hgroup>{{/foreach}}{{else}}<pre>There is no content to return&period;</pre>{{/if}}{{else}}<pre class="get-posts-error">{{error}}</pre>{{/get}}
+    </article>
+    <footer class="flexy">
+        <a href="#newsletter" title="Continue to the next section&hellip;">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
+</section>
