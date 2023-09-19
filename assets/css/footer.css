@@ -1,106 +1,122 @@
 footer {
-    background-color: transparent;
+    position: static;
 }
 
-body>footer {
-    padding: 1vb 2vb;
-    padding-top: 10vb;
+#default-footer {
+    padding: 5vb;
+    padding-top: 20dvh;
     position: relative;
-    width: 100%;
+    width: 100dvw;
+    max-width: 100%;
     min-height: 90dvh;
     gap: 2vb;
     color: var(--color-black);
     background-color: var(--accent-color-90);
+    overflow: hidden;
+    font-size: 1.1rem;
 }
 
-body>footer section {
-    padding: 1em;
-    align-items: flex-start !important;
-    justify-content: space-between !important;
-    background-color: transparent;
+#default-footer [href*="main-content"] {
+    right: unset;
+    bottom: 0;
+}
+
+#default-footer [data-divider="top"] path {
+    fill: royalblue;
+}
+
+#default-footer div {
+    flex: 1 0 100%;
+    width: 100%;
+}
+ 
+#default-footer > div:first-child {
+    padding: 1vb;
+    min-height: fit-content;
+    z-index: 333;
     gap: 1vb;
 }
 
-body>footer section.flexy:last-of-type {
+#default-footer > div.row {
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#default-footer > div:nth-child(4) {
     padding: 1vb 2vb;
     font-weight: bold;
     font-size: .9rem;
     text-align: center;
 }
 
-body>footer p {
+#default-footer p {
     font-size: inherit;
     width: fit-content;
 }
 
-footer .rapid-logo img {
+#default-footer .rapid-logo img {
     mix-blend-mode: darken;
-}
-
-main > section > footer {
-    flex: 0 0 fit-content;
-    width: 100dvw;
-    max-width: 100%;
 }
 
 main > section.row > footer {
     flex: 1 0 100dvw;
 }
 
-body>footer *:is(div, address):is(.flexy) {
-    flex: 1 0 20%;
+#default-footer > div:first-child :is(figure, div, address) {
+    flex: 0 0 20%;
     min-width: 20%;
     align-items: flex-start;
     align-content: flex-start;
     text-transform: capitalize;
-    gap: 1em;
+    gap: 1vb;
 }
 
-body>footer h6 {
+#default-footer h6 {
+    font-style: italic;
     color: var(--color-dark-blue)
 }
 
-body>footer ul {
+#default-footer ul {
     list-style-type: none;
-}
-
-body>footer ul.flexy {
-    gap: .5em;
     align-items: flex-start;
+    gap: 1vb;
 }
 
-body>footer ul.flexy li:has(a:focus, a:hover) {
+#default-footer ul[itemscope] {
+    gap: 0;
+}
+
+#default-footer li:has(a:focus, a:hover) {
     list-style-type: disclosure-closed;
 }
 
-body>footer ul.nav.flexy.row li:has(a:focus, a:hover) {
+#default-footer ul.row li:has(a:focus, a:hover) {
     list-style-type: none;
 }
 
-body>footer a {
+#default-footer a {
     text-decoration: none;
 }
 
-body>footer a:focus,
-body>footer a:hover {
-    text-decoration: underline;
-    color: var(--accent-color);
+#default-footer a:is(:focus, :hover) {
+    color: var(--color-orange);
     font-weight: bold;
 }
 
-.social-icons {
-    gap: .5em;
+#default-footer .social-icons {
+    justify-content: flex-start;
+    gap: 1vb;
 }
 
-.social-icons a {
+#default-footer .social-icons a {
     flex: 0 0 2em;
     width: 2em;
     user-select: none;
 }
 
-.rapid-logo a:is(:focus, :hover) img,
-.social-icons a:is(:focus, :hover) img,
-button[data-ghost-search]:is(:focus, :hover) {
+.rapid-logo a:focus img,
+.social-icons a:focus img,
+button[data-ghost-search]:focus {
     outline: thick solid var(--accent-color) !important;
 }
 

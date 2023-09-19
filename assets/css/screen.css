@@ -15,17 +15,6 @@
     color: currentColor;
 }
 
-/* Ghost auto classes */
-
-.home-template main section {
-    padding: 2dvh 6dvw;
-    min-height: 100dvh;
-}
-
-.home-template main section:first-of-type {
-    min-height: 90dvh;
-}
-
 /* Some fonts */
 
 /* roboto-regular - latin */
@@ -260,10 +249,18 @@
     border: 0;
     outline: 0;
     box-sizing: border-box;
-    color: inherit;
-    background-color: transparent;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: inherit;
+}
+
+* {
+    background-color: inherit;
+}
+
+*::after,
+*::before {
+    background-color: transparent;
 }
 
 html {
@@ -302,7 +299,7 @@ body:has(dialog[open]) {
 }
 
 body:has(dialog[open]) path,
-body:has(dialog[open]) a[title~="Continue"],
+body:has(dialog[open]) [title~="Continue"],
 body:has(dialog[open]) .container {
     -webkit-animation-play-state: paused !important;
     animation-play-state: paused !important;
@@ -374,14 +371,10 @@ form[method="dialog"] button[formnovalidate]:hover {
     rotate: 45deg;
 }
 
-form[method="dialog"] legend {
-    padding-bottom: 1vb;
-    align-content: flex-start;
-    gap: 1vb;
-}
-
 form[method="dialog"] h2 {
+    padding: .5vb;
     font-size: 2.5rem;
+    color: royalblue;
 }
 
 form[method="dialog"] p {
@@ -409,17 +402,13 @@ form[method="dialog"] input:is([type="submit"], [type="reset"]) {
 }
 
 main {
+    color: var(--color-black);
+    background-color: var(--color-white);
     font-size: 1.25rem;
     min-height: 90dvh;
+    width: 100dvw;
+    max-width: 100%;
     gap: 0;
-}
-
-main>article {
-    max-width: 85dvw;
-}
-
-body:not(.home-template)>main.flexy {
-    gap: 1em;
 }
 
 address a {
@@ -467,6 +456,7 @@ figure {
     width: fit-content;
     max-width: 100%;
     height: auto;
+    background-color: transparent;
 }
 
 main.post.flexy>figure,
@@ -487,10 +477,10 @@ main.post.flexy>header>figure {
 main.post figure img {
     margin-left: auto;
     margin-right: auto;
-    max-width: 100%;
-    width: fit-content;
-    max-height: 100%;
-    height: auto;
+    width: 100%;
+    max-width: fit-content;
+    height: 100%;
+    max-height: fit-content;
 }
 
 main.post header div {
@@ -514,28 +504,51 @@ main.post.flexy>header>section.title-meta>div {
     margin-top: 1em;
 }
 
-main.post.flexy section.content {
+main #content {
     margin: 0 auto;
-    padding: 0 12dvw;
-    padding: 1em;
+    padding: 0 15dvw;
+    padding-bottom: 10vb;
     min-width: 60dvw;
     width: 100%;
     align-items: flex-start;
-    gap: 1em;
+    min-height: 100dvh;
+    gap: 2vb;
 }
 
-main.post.flexy section.content h2 {
+main #content [data-divider="bottom"] path {
+    fill: royalblue;
+}
+
+main #content hgroup {
+    padding: 0;
+    flex: 0 0 fit-content;
+}
+
+main #content hgroup :is(h2, p) {
+    margin: 0;
+    padding: 0;
+}
+
+main #content hgroup p {
+    line-height: 1.85;
+}
+
+main #content footer {
+    width: 100%;
+}
+
+main #content h2 {
     margin-top: 1em;
     margin-bottom: .25em;
 }
 
-main.post.flexy section.content ul {
+main #content ul {
     list-style-type: square;
     list-style-position: outside;
     line-height: 2.25em;
 }
 
-main.post.flexy section.content blockquote {
+main #content blockquote {
     margin: 0 auto 0 .25em;
     padding: .25em 0 .25em 1em;
     color: var(--accent-color);
@@ -547,59 +560,59 @@ main.post.flexy section.content blockquote {
     font-weight: 700;
 }
 
-main.post.flexy section.content p {
-    line-height: 2.5em;
+main #content p {
+    line-height: 2.5;
     text-align: justify;
     font-size: 1.4rem;
     font-weight: 400;
 }
 
-main.post.flexy section.content a {
+main #content a {
     color: currentColor;
     text-decoration-style: wavy;
     text-decoration-color: var(--color-black-40);
     transition: all 250ms ease-in-out 0s;
 }
 
-main.post.flexy section.content a:is(:focus, :hover) {
+main #content a:is(:focus, :hover) {
     color: var(--color-dark-blue);
     text-decoration-style: solid;
     text-decoration-color: var(--color-black);
 }
 
-main.post.flexy section.content table tr:is(:focus, :hover) {
+main #content table tr:is(:focus, :hover) {
     cursor: pointer;
     background-color: #d6d6d6;
 }
 
-main.post.flexy section.content table tr:active {
+main #content table tr:active {
     cursor: text;
 }
 
-main.post.flexy section.content table tr td {
+main #content table tr td {
     padding: .5em;
     vertical-align: text-top;
 }
 
-main.post.flexy section.content table tr td:nth-of-type(1) {
+main #content table tr td:nth-of-type(1) {
     width: 40%;
 }
 
-main.post.flexy section.content table tr td:nth-of-type(2) {
+main #content table tr td:nth-of-type(2) {
     width: 60%;
 }
 
-main.post.flexy section.content figure.kg-card.kg-image-card.kg-card-hascaption {
+main #content figure.kg-card.kg-image-card.kg-card-hascaption {
     text-align: start;
 
 }
 
-main.post.flexy section.content figure.kg-card.kg-image-card.kg-card-hascaption img {
+main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
     mix-blend-mode: multiply;
     width: fit-content;
 }
 
-main.post.flexy section.content figure.kg-card.kg-image-card.kg-card-hascaption figcaption {
+main #content figure.kg-card.kg-image-card.kg-card-hascaption figcaption {
     color: var(--color-dark-grey);
     font-size: smaller;
 }
@@ -610,17 +623,7 @@ main.post.flexy header:has(~ section.content) {
     max-width: 100%;
 }
 
-main.post.flexy>article>footer {
-    padding: 1em;
-}
-
 /* End of page style */
-
-#partner-with-leaders {
-    background-color: var(--accent-color-90);
-    text-align: center;
-    gap: 2em;
-}
 
 #partner-with-leaders .container {
     padding: 1em;
@@ -642,13 +645,9 @@ main.post.flexy>article>footer {
 
 #partner-with-leaders img,
 #partner-with-leaders svg {
-    padding: .5em;
-    width: 8em;
-    max-width: 100%;
-    height: 8em;
-    box-shadow: none;
-    outline: 0;
-    transition: all ease-in 200ms 0s;
+    width: 10vb;
+    height: 10vb;
+    transition: all ease-in 250ms 0s;
 }
 
 #partner-with-leaders figure:is(:focus, :hover) {
@@ -657,14 +656,15 @@ main.post.flexy>article>footer {
 
 #partner-with-leaders figure:is(:focus, :hover) img,
 #partner-with-leaders figure:is(:focus, :hover) svg {
+    padding: .5em;
     scale: 1.1;
     box-shadow: 0.15em 0.15em 0 var(--accent-color-80);
     outline: thin solid var(--accent-color-80);
-    transition: all ease-out 200ms 0s;
+    transition: all ease-out 250ms 0s;
 }
 
-#partner-with-leaders a[href*="main-content"] {
-    bottom: 1em;
+#partner-with-leaders [href*="main-content"] {
+    bottom: 1vb;
 }
 
 button[type="button"],
@@ -748,9 +748,20 @@ label+input {
 }
 
 img {
+    display: inline-block;
     width: 100%;
     vertical-align: middle;
     object-fit: contain;
+    background-color: transparent;
+}
+
+:is(header, hgroup, main, section, article, footer) {
+    height: auto;
+    will-change: contents;
+    position: relative;
+    cursor: default;
+    user-select: text;
+    overflow: hidden;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
@@ -761,6 +772,7 @@ img {
     width: 100%;
     text-wrap: balance;
     text-align: start;
+    background-color: transparent;
 }
 
 :is(h1, h2, h3, h4, h5, h6) strong {
@@ -796,6 +808,7 @@ h6 {
 p {
     font-size: 1.5rem;
     width: 100%;
+    background-color: transparent;
 }
 
 hgroup :is(h1, h2, h3) {
@@ -809,30 +822,24 @@ hgroup p {
 
 a {
     cursor: pointer;
+    background-color: transparent;
 }
 
-a[href*="main-content"] {
-    margin: 0;
-    padding: .5em 2em .5em 5em;
-    z-index: 99;
+[href*="main-content"] {
     text-decoration: none;
     text-align: center;
     font-size: 1.25rem;
     font-weight: 500;
     flex: 1 0 100%;
-    position: absolute;
-    right: 0;
+    right: 1vb;
     color: var(--accent-color-60);
-    background-color: var(--accent-color-100);
-    border-top-left-radius: 2em;
-    border-bottom-left-radius: 2em;
+    background-color: transparent;
     transition: all 250ms ease-out 0s;
     user-select: none;
 }
 
-a[href*="main-content"]:is(:focus, :hover) {
-    color: var(--color-white);
-    background-color: var(--accent-color-30);
+[href*="main-content"]:is(:focus, :hover) {
+    color: var(--accent-color);
     box-shadow: 0.15em 0.15em 0 var(--accent-color-90);
     transition: all 250ms ease-in 0s;
 }
@@ -845,45 +852,20 @@ a[href*="main-content"]:is(:focus, :hover) {
     cursor: wait;
 }
 
-:is(header, hgroup, main, section, article, footer) {
-    width: inherit;
-    max-width: inherit;
-    height: auto;
-    will-change: contents;
-    position: relative;
-    overflow: hidden;
-    cursor: default;
-    user-select: text;
-    color: currentColor;
-    background-color: var(--accent-color);
-}
-
-header,
-hgroup {
-    text-align: center;
-    color: var(--color-black);
+article {
+    padding: 1vb 2vb;
     background-color: transparent;
-    width: 100dvw;
-    max-width: 100%;
-    gap: 1vb;
+    max-width: 85dvw;
 }
 
-section hgroup {
+article footer {
     padding: 1vb;
 }
 
-footer {
-    position: static;
-}
-
-article {
-    padding: 1em 2em;
-    background-color: transparent;
-}
-
-div {
+:is(div, p, ul, ol, menu) {
     max-width: 100%;
     height: auto;
+    background-color: transparent;
 }
 
 div:has(dialog) {
@@ -897,7 +879,7 @@ strong {
 header:has(nav) {
     padding: 2vb 5vb;
     justify-content: space-between !important;
-    background-color: var(--accent-color-100);
+    background-color: var(--color-white);
     animation: menu-go-down 500ms linear 0s 1 forwards;
     box-shadow: 0 0 .25em var(--color-black-40);
     flex: 0 0 10dvh;
@@ -913,7 +895,7 @@ header:has(nav) {
 }
 
 nav {
-    background-color: inherit;
+    background-color: transparent;
 }
 
 header.loose {
@@ -967,7 +949,11 @@ footer .rapid-logo {
 svg {
     max-width: 100%;
     height: auto;
+    max-height: 100%;
     vertical-align: middle;
+    box-shadow: none;
+    outline: 0;
+    background-color: transparent;
 }
 
 [data-play-state="running"] {
@@ -1262,10 +1248,10 @@ nav ul~ul.solutions-nav {
     width: 100vb;
     height: fit-content;
     list-style-type: none;
-    background-color: inherit;
     font-weight: bold;
     font-size: 1rem;
     box-shadow: 0 0 .25em var(--color-black-40);
+    background-color: var(--color-white);
     pointer-events: auto;
 }
 
@@ -1288,13 +1274,13 @@ ul.solutions-nav.flexy.row a {
 ul.nav.flexy.row a:is(:focus, :hover),
 ul.solutions-nav.flexy.row a:is(:focus, :hover),
 li.nav-solutions:focus-within {
-    text-decoration: underline;
-    color: var(--accent-color);
+    color: var(--color-orange);
+    font-weight: bold;
 }
 
 li.nav-solutions svg path,
 ul.solutions-nav.flexy.row svg path {
-    fill: var(--color-black);
+    fill: var(--color-orange);
 }
 
 li.nav-solutions a:is(:focus, :hover) path,
@@ -1308,13 +1294,10 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 }
 
 #streamlining-safety-checks {
+    padding: 0 10dvw;
     background-color: var(--color-light-grey);
-    gap: 5vb;
-}
-
-#streamlining-safety-checks hgroup {
-    flex: 1 0 50vb;
-    width: 50vb;
+    justify-content: space-evenly;
+    gap: 1vb;
 }
 
 #streamlining-safety-checks p {
@@ -1343,7 +1326,6 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 
 #briefly {
     background-color: var(--color-black);
-    gap: 2em;
 }
 
 #briefly hgroup {
@@ -1355,11 +1337,7 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 }
 
 #briefly [data-divider="bottom"] path {
-    fill: oldlace;
-}
-
-#briefly a[href*="main-content"] {
-    bottom: 15vb;
+    fill: var(--color-light-grey);
 }
 
 #briefly [data-divider="top"] svg {
@@ -1380,18 +1358,14 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
     gap: 1em;
 }
 
-#get-the-app {
-    background-color: oldlace;
-    gap: 1em;
-}
-
-#get-the-app a[href*="main-content"] {
-    bottom: 15dvh;
+#get-the-app footer {
+    flex: 0 0 100%;
+    width: 100%;
 }
 
 #get-the-app details {
     padding: 1vb;
-    flex: 1 0 fit-content;
+    flex: 0 0 fit-content;
     width: 100dvw;
     max-width: 100%;
     cursor: pointer;
@@ -1458,7 +1432,7 @@ pre {
 
 #get-the-app div {
     width: 100%;
-    gap: 3em;
+    gap: 2vb;
 }
 
 #get-the-app figure:nth-of-type(1) {
@@ -1470,6 +1444,7 @@ pre {
 }
 
 #get-the-app figure:nth-of-type(3) {
+    flex: 1 0 0;
     scale: 1;
     width: 100%;
     max-width: 9.25em;
@@ -1508,8 +1483,21 @@ pre {
     gap: 1em;
 }
 
+#main-content > hgroup {
+    padding: 2vb;
+}
+
+#main-content > section.flexy.row:has(~section.odd) {
+    flex-direction: row-reverse;
+}
+
 #main-message {
+    padding: 5vb;
+    color: var(--color-white);
     background-color: var(--accent-color-30);
+    min-height: 90dvh;
+    justify-content: space-evenly;
+    gap: 1vb;
 }
 
 #main-message hgroup {
@@ -1525,18 +1513,19 @@ pre {
 }
 
 #more-clients {
-    color: var(--accent-color);
+    padding: 0 5dvw;
     background-color: floralwhite;
     text-align: center;
-    gap: 5vb;
+    gap: 4vb;
     animation: slide-up 1s linear 100ms 1 forwards;
 }
 
-a[title~="Continue"] {
+[title~="Continue"],
+[href*="main-content"] {
     display: block;
     flex: 0 0 fit-content;
     position: absolute;
-    bottom: 1vb;
+    bottom: 0;
     width: 100%;
     max-width: fit-content;
     cursor: pointer;
@@ -1545,27 +1534,35 @@ a[title~="Continue"] {
     animation: point-down 1s linear 0s infinite;
 }
 
-a[title~="Continue"]:focus {
+[title~="Continue"]:focus,
+[href*="main-content"]:focus {
     outline: 0;
 }
 
-a[title~="Continue"] svg {
-    margin: 0;
-    padding: 0 !important;
-    height: 100%;
-    max-height: 10dvh !important;
-    width: 100%;
-    max-width: 10dvw;
+[title~="Continue"] svg,
+[href*="main-content"] svg {
+    height: 10vb;
+    width: 10vb;
 }
 
-a[title~="Continue"] path {
+[href*="main-content"] svg {
+    rotate: -180deg;
+}
+
+[title~="Continue"]:is(:any-link, :focus, :hover) path,
+[href*="main-content"]:is(:any-link, :focus, :hover) path {
     fill: var(--accent-color-80);
     transition: all 250ms ease-out 0s;
 }
 
-a[title~="Continue"]:is(:focus, :hover) path {
+[title~="Continue"]:is(:focus, :hover) path,
+[href*="main-content"]:is(:focus, :hover) path {
     fill: var(--accent-color-20);
     transition: all 250ms ease-in 0s;
+}
+
+[href*="main-content"]:is(:focus, :hover) path {
+    fill: var(--accent-color);
 }
 
 #more-clients .container {
@@ -1632,7 +1629,7 @@ a[title~="Continue"]:is(:focus, :hover) path {
     color: var(--color-dark-grey);
 }
 
-#more-clients svg {
+#more-clients .container svg {
     height: 75%;
     width: 100%;
 }
@@ -1718,15 +1715,8 @@ a[title~="Continue"]:is(:focus, :hover) path {
     font-weight: normal;
 }
 
-#main-message>*:is(hgroup, figure) {
-    padding: 1vb;
-    flex: 1 0 50vb;
-    width: 50vb;
-    max-width: inherit;
-}
-
 #compliance-app {
-    color: var(--color-dark-blue);
+    padding: 0 10dvw;
     background-color: var(--color-white);
     flex-direction: row-reverse;
     justify-content: space-evenly;
@@ -1758,10 +1748,6 @@ a[title~="Continue"]:is(:focus, :hover) path {
 
 #compliance-app hgroup {
     align-content: flex-start;
-}
-
-#compliance-app a[href*="main-content"] {
-    bottom: 10vb;
 }
 
 .five-points {
@@ -2067,74 +2053,219 @@ form {
     max-width: 100%;
 }
 
-section:has(form#join-newsletter) {
-    color: royalblue;
-    height: auto;
+section {
+    flex: 1 0 100%;
+    width: 100dvw;
+    max-width: 100%;
     min-height: 100dvh;
+    max-height: 100%;
 }
 
-section:has(form#join-newsletter) a[href*="main-content"] {
-    bottom: 5dvh;
+header,
+hgroup {
+    text-align: center;
+    width: 100dvw;
+    max-width: 100%;
+    gap: 1vb;
+    background-color: transparent;
 }
+
+
+/* Start of general partials styles */
+
+section:is(#briefly,
+#partner-with-leaders,
+#client-testimonials,
+#check-our-vacancies,
+#newsletter,
+#get-the-app,
+#briefly) {
+    padding: 0 10dvw;
+    gap: 1vb;
+}
+
+
+section :is(hgroup, figure) {
+    padding: 1vb;
+    flex: 1 0 40dvw;
+}
+
+section#get-the-app :is(hgroup, figure),
+section#more-clients :is(hgroup, figure),
+section#client-testimonials :is(hgroup, figure),
+section#partner-with-leaders :is(hgroup, figure) {
+    flex: 0 0 fit-content;
+}
+
+section#briefly {
+    color: royalblue;
+    background-color: royalblue;
+}
+
+section#partner-with-leaders {
+    background-color: var(--accent-color-90);
+}
+
+section#client-testimonials {
+    background-color: var(--accent-color-90);
+    gap: 2vb;
+}
+
+#newsletter {
+    padding: 0 10dvw;
+    color: royalblue !important;
+    background-color: royalblue !important;
+}
+
+#get-the-app {
+    color: var(--color-black);
+    background-color: oldlace;
+}
+
+#check-our-vacancies {
+    color: var(--color-black);
+    background-color: var(--accent-color-100);
+}
+
+/* End of general partials styles */
+
+/* Start of tabs-about partial styles */
+
+.tabs.about {
+    padding: 15dvh 15dvw;
+    min-height: 50dvh;
+    width: 100dvw;
+    max-width: 100%;
+}
+
+.tabs.about .buttons {
+    width: 100dvw;
+    justify-content: space-between;
+    gap: 0;
+}
+
+.tabs.about .buttons a {
+    flex: 1 0 fit-content;
+    padding: 1vb 4vb;
+    width: fit-content;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: lightsteelblue;
+    transition: all ease-in-out 250ms 0s;
+}
+
+.tabs.about .buttons a:hover {
+    flex-grow: 2;
+    background-color: whitesmoke;
+}
+
+.tabs.about .buttons a:active,
+.tabs.about .buttons a:nth-of-type(2) {
+    flex-grow: 3;
+    background-color: ghostwhite;
+}
+
+.tabs.about article {
+    min-height: 30dvh;
+    width: 100dvw;
+    max-width: 100%;
+    background-color: ghostwhite;
+}
+
+.tabs.about article :is(hgroup, pre, p) {
+    padding: .75vb;
+    background-color: inherit;
+    width: inherit;
+    max-width: inherit
+}
+
+.tabs.about article hgroup {
+    padding: 2vb;
+    flex: 1 0 100%;
+    display: none;
+    width: 100dvw;
+    max-width: 100%;
+    gap: 0;
+}
+
+.tabs.about hgroup h3 {
+    font-weight: 500;
+    font-size: 2.15rem;
+}
+
+.tabs.about hgroup p {
+    font-size: 1.05rem;
+    font-weight: 400;
+}
+
+.tabs.about header:has(.buttons a:nth-of-type(1):is(:active, :hover)) ~ article [data-tab-number="1"],
+.tabs.about header:has(.buttons a:nth-of-type(2):is(:active, :hover)) ~ article [data-tab-number="2"],
+.tabs.about header:has(.buttons a:nth-of-type(3):is(:active, :hover)) ~ article [data-tab-number="3"] {
+    display: flex;
+}
+
+.tabs.about article > p {
+    text-align: center;
+}
+
+/* End of tabs-about partial styles */
 
 form#join-newsletter {
-    padding: 1vb;
+    flex: 0;
+    padding: 4vb 2vb;
     background-color: var(--accent-color-90);
     box-shadow: .25em .65em 0 var(--accent-color-80);
     outline: thin solid var(--accent-color-80);
-    scale: 1;
     border-top-left-radius: 5vb;
     border-bottom-right-radius: 5vb;
     transform: none;
-    transition: all ease-in 200ms 0s;
+    transition: all ease-in 250ms 0s;
 }
 
-form#join-newsletter:is(:focus-within, :hover) {
-    scale: 1.01;
+form#join-newsletter:is(:focus, :focus-within, :hover) {
     transform: translate(0, -.25em);
-    transition: all ease-out 200ms 0s;
-}
-
-form#join-newsletter:is(:focus-within, :hover) legend p {
-    font-size: 1rem;
-}
-
-form#join-newsletter:is(:focus-within, :hover) pre {
-    font-size: .9rem;
-    transition: all 500ms ease-in-out 0s;
+    transition: all ease-out 250ms 0s;
 }
 
 form#join-newsletter pre {
-    padding: 3vb;
+    padding: 1vb;
     text-align: start;
-    font-size: 0;
+    opacity: 1;
+    font-size: initial;
+    color: inherit;
     transition: all 500ms ease-in-out 0s;
 }
 
 form#join-newsletter fieldset {
     flex-wrap: wrap;
     align-content: stretch;
+    width: 100dvw;
+    max-width: 100% !important;
+    color: var(--color-black);
     z-index: 1;
 }
 
 form#join-newsletter :is(fieldset, legend, div, p, label, input) {
     max-width: max-content;
     align-self: stretch;
-}
-
-form#join-newsletter legend {
-    padding: 2vb;
     text-align: start;
+    align-content: flex-start;
 }
 
-form#join-newsletter div {
+form#join-newsletter fieldset div {
     padding: 1vb;
     justify-content: center;
     max-width: 100%;
-    gap: 3vb;
+    gap: 2vb;
 }
 
-form#join-newsletter div[data-divider="bottom"] {
+form#join-newsletter fieldset .controls {
+    gap: 4vb;
+}
+
+form#join-newsletter [data-divider="bottom"] {
     padding: 0;
     transform: none;
     top: unset;
@@ -2143,31 +2274,17 @@ form#join-newsletter div[data-divider="bottom"] {
     border-top-right-radius: 5vb;
 }
 
-form#join-newsletter div[data-divider="bottom"] path {
+form#join-newsletter [data-divider="bottom"] path {
     fill: var(--accent-color-90);
 }
 
-form#join-newsletter legend p {
-    padding: 0;
-    font-size: 0;
-    color: var(--accent-color);
-}
-
 form#join-newsletter p {
-    padding: 1em 4em;
+    padding: 1vb;
+    opacity: 1;
     font-size: 1rem;
-    color: var(--accent-color-80);
-    transition: all 500ms ease-in-out 0s;
-}
-
-form#join-newsletter:is(:focus-within, :hover) p {
-    color: var(--accent-color);
-    user-select: text;
-    transition: all 500ms ease-in-out 0s;
-}
-
-form#join-newsletter:is(:focus-within, :hover) legend p {
     color: inherit;
+    user-select: text;
+    transition: all 250ms ease-in-out 0s;
 }
 
 form#join-newsletter label {
@@ -2178,13 +2295,7 @@ form#join-newsletter label {
     font-size: 1rem;
     font-weight: bold;
     color: var(--color-black);
-    scale: 1;
-    transition: all ease-in 200ms 0s;
-}
-
-form#join-newsletter label:is(:focus-within, :hover) {
-    scale: 1.1;
-    transition: all ease-out 200ms 0s;
+    transition: all ease-in 250ms 0s;
 }
 
 form#join-newsletter input,
@@ -2209,18 +2320,18 @@ form#join-newsletter option:disabled {
 }
 
 form#join-newsletter input:is([type="submit"], [type="reset"]) {
-    padding: 1em .75em;
+    padding: 1vb 2vb;
     font-weight: 500;
     align-self: center;
     position: relative;
     display: block;
     text-decoration: none;
+    font-weight: bold;
     color: royalblue;
     background-color: #4169e160;
     box-shadow: .15em .15em 0 #4169e180;
     outline: 0;
-    scale: 1;
-    transition: all ease-in 200ms 0s;
+    transition: all ease-in 250ms 0s;
 }
 
 form#join-newsletter input:is([type="submit"], [type="reset"]):is(:focus, :hover) {
@@ -2228,7 +2339,7 @@ form#join-newsletter input:is([type="submit"], [type="reset"]):is(:focus, :hover
     background-color: royalblue;
     box-shadow: .15em .15em 0 #4169e180;
     outline: thin solid #4169e180;
-    scale: 1.1;
+    transition: all ease-out 250ms 0s;
 }
 
 form#join-newsletter a {
@@ -2239,39 +2350,39 @@ form#join-newsletter a:is(:focus, :hover) {
     text-decoration: underline;
 }
 
-.sharing-is-caring {
-    margin: 0;
-    padding: 0;
+/* Sharing page/post */
+
+#content #sharing-is-caring {
+    padding: 5vb 0;
     width: 100%;
     height: auto;
-    gap: 2em;
+    gap: 4vb;
     user-select: none;
 }
 
-.sharing-is-caring ul {
-    list-style-type: none;
-    gap: 1em;
+#content #sharing-is-caring h6 {
+    width: fit-content;
 }
 
-.sharing-is-caring a {
-    text-decoration: none;
-}
-
-.sharing-is-caring a:is(:focus, :hover) {
-    text-decoration: underline;
-}
-
-.sharing-is-caring h6::before {
+#content #sharing-is-caring h6::before {
     display: none;
     content: "\27A6";
 }
 
-/* Client's testimonials and reviews: /partials/testimonials.hbs */
-
-#client-testimonials {
-    background-color: mintcream;
-    gap: 1vb;
+#content #sharing-is-caring ul {
+    list-style-type: none;
+    gap: 2vb;
 }
+
+#content #sharing-is-caring a {
+    text-decoration: none;
+}
+
+#content #sharing-is-caring a:is(:focus, :hover) {
+    text-decoration: underline;
+}
+
+/* Client's testimonials and reviews: /partials/testimonials.hbs */
 
 #client-testimonials ol {
     list-style: none;
@@ -2292,7 +2403,8 @@ form#join-newsletter a:is(:focus, :hover) {
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: all 250ms ease-in-out 0s;
+    scale: 1;
+    transition: all 250ms ease-out 0s;
 }
 
 #client-testimonials li.currently-active,
@@ -2300,16 +2412,19 @@ form#join-newsletter a:is(:focus, :hover) {
     color: var(--accent-color);
     background-color: var(--accent-color-20);
     border-color: var(--accent-color-20);
+    scale: 1.25;
+    transition: all 250ms ease-in 0s;
 }
 
-#client-testimonials .container {
-    gap: 1em;
+.container.flexy {
+    will-change: contents;
+    gap: 1vb;
 }
 
 #client-testimonials .container .post {
     border: 0;
     border-radius: 0;
-    padding: 2vb 5vb;
+    padding: 1vb 2vb;
     flex: 0 0 70dvw;
     width: 100%;
     max-width: 70dvw;
@@ -2325,13 +2440,11 @@ form#join-newsletter a:is(:focus, :hover) {
     outline-style: solid;
     outline-color: var(--accent-color-80);
     transform: none;
-    scale: .95;
     box-shadow: .15em .15em 0 var(--accent-color-80);
     transition: all 250ms ease-in-out 0s;
 }
 
 #client-testimonials .container .post:is(:active, :hover) {
-    scale: 1;
     transform: translate(0, -.15em);
     box-shadow: .25em .25em 0 var(--accent-color-80);
 }
@@ -2442,6 +2555,8 @@ form#join-newsletter a:is(:focus, :hover) {
 #client-testimonials .prev-testimonial:is(:focus, :hover) svg {
     fill: var(--accent-color);
     scale: 1.25;
+    animation: point-down 1s linear 0s infinite;
+    transition: all 250ms ease-in-out 0s;
 }
 
 #client-testimonials .next-testimonial {

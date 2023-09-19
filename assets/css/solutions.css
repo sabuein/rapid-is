@@ -1,10 +1,19 @@
+/* Index:
+- Page template
+- Post template
+*/
+
+/* Root */
+
 :root {
     --ghost-accent-color: hsl(12, 15%, 40%) !important;
     --ghost-accent-color-lighter: rgba(var(--ghost-accent-color), .85);
     --ghost-accent-color-secondary: rgb(from var(--ghost-accent-color) h c calc(l + 5%));
 }
 
-body.tag-template.tag-solutions>main#main-content {
+/* Page template */
+
+.tag-template.tag-solutions #main-content {
     margin: 0;
     padding: 0;
     gap: 1em;
@@ -12,7 +21,7 @@ body.tag-template.tag-solutions>main#main-content {
     background-color: var(--accent-color-100);
 }
 
-body.tag-template.tag-solutions>main#main-content>figure {
+.tag-template.tag-solutions #main-content figure {
     position: relative;
     margin-bottom: 1em;
     flex: 1 0 40dvh;
@@ -22,23 +31,27 @@ body.tag-template.tag-solutions>main#main-content>figure {
     background-position: bottom center;
 }
 
-body.tag-template.tag-solutions>main#main-content>figure>div[data-divider="bottom"] {
+.tag-template.tag-solutions #main-content [data-divider="bottom"] {
     rotate: 360deg;
     scale: -1 1;
     bottom: -1em;
 }
 
-body.tag-template.tag-solutions>main#main-content>figure>div[data-divider="bottom"] path {
+.tag-template.tag-solutions #main-content [data-divider="bottom"] path {
     fill: var(--accent-color-100);
 }
 
-body.tag-template.tag-solutions>main#main-content>header {
+.tag-template.tag-solutions #main-content [data-divider="bottom"] ~ img {
+    display: none;
+}
+
+.tag-template.tag-solutions #main-content header {
     flex: 1 0 100%;
     text-align: justify;
     cursor: default;
 }
 
-body.tag-template.tag-solutions>main#main-content>header p {
+.tag-template.tag-solutions #main-content header p {
     margin: 1em auto 1em 4em;
     text-align: inherit;
     font-size: 2rem;
@@ -47,11 +60,11 @@ body.tag-template.tag-solutions>main#main-content>header p {
     color: var(--color-black);
 }
 
-body.tag-template.tag-solutions>main#main-content>header p:hover {
+.tag-template.tag-solutions #main-content header p:hover {
     text-shadow: .05em .05em 0 var(--accent-color-100);
 }
 
-body.tag-template.tag-solutions>main#main-content h1 {
+.tag-template.tag-solutions #main-content h1 {
     margin-top: .5em;
     margin-left: 2em;
     color: var(--accent-color-10);
@@ -64,51 +77,51 @@ body.tag-template.tag-solutions>main#main-content h1 {
     cursor: default;
 }
 
-body.tag-template.tag-solutions>main#main-content h1:hover {
+.tag-template.tag-solutions #main-content h1:hover {
     color: var(--accent-color);
     text-shadow: .05em .05em 0 var(--accent-color-100);
     text-decoration-color: var(--accent-color-100);
 }
 
-body.tag-template.tag-solutions>main#main-content>header>a {
+.tag-template.tag-solutions #main-content header a {
     position: absolute;
-    top: -12em;
-    right: 1em;
+    top: 0;
+    right: 10vb;
     max-width: 100%;
     width: 15dvw;
     animation: point-down 750ms linear 0s infinite;
     cursor: pointer;
 }
 
-body.tag-template.tag-solutions>main#main-content>header path {
+.tag-template.tag-solutions #main-content header path {
     fill: var(--accent-color-80);
     transition: all 150ms ease-in 0s;
 }
 
-body.tag-template.tag-solutions>main#main-content>header svg {
+.tag-template.tag-solutions #main-content header svg {
     stroke: var(--accent-color-80);
     stroke-width: 0;
     stroke-dasharray: 1, 1;
     stroke-linejoin: round;
 }
 
-body.tag-template.tag-solutions>main#main-content>header svg:hover {
+.tag-template.tag-solutions #main-content header svg:hover {
     stroke: var(--accent-color-20);
 }
 
-body.tag-template.tag-solutions>main#main-content>header svg:hover>path {
+.tag-template.tag-solutions #main-content header svg:hover path {
     fill: var(--accent-color-20);
     transition: all 150ms ease-out 0s;
 }
 
-body.tag-template.tag-solutions>main#main-content>div {
+.tag-template.tag-solutions #main-content .container {
     padding: 2em;
     padding-top: 8em;
     align-items: flex-start;
     gap: 4em;
 }
 
-body.tag-template.tag-solutions>main#main-content article {
+.tag-template.tag-solutions #main-content article {
     flex: 1 0 27dvw;
     max-width: 27dvw;
     padding: 0;
@@ -116,7 +129,7 @@ body.tag-template.tag-solutions>main#main-content article {
     outline: thin solid currentColor;
     background-color: var(--accent-color-100);
     align-items: flex-start;
-    gap: 1em;
+    gap: 1vb;
     -webkit-box-shadow: .25em .25em 0 var(--accent-color-80);
     box-shadow: .25em .25em 0 var(--accent-color-80);
     border-radius: .25em;
@@ -124,7 +137,7 @@ body.tag-template.tag-solutions>main#main-content article {
     transition: all ease-in 150ms 0s;
 }
 
-body.tag-template.tag-solutions>main#main-content article:hover {
+.tag-template.tag-solutions #main-content article:hover {
     outline-width: .1em;
     cursor: pointer;
     background-color: var(--accent-color-120);
@@ -132,18 +145,18 @@ body.tag-template.tag-solutions>main#main-content article:hover {
     transition: all ease-out 150ms 0s;
 }
 
-body.tag-template.tag-solutions>main#main-content article:hover>*:is(a, p) {
+.tag-template.tag-solutions #main-content article:hover>*:is(a, p) {
     display: block;
     color: var(--accent-color-10);
     width: fit-content;
 }
 
-body.tag-template.tag-solutions>main#main-content article:hover>p {
+.tag-template.tag-solutions #main-content article:hover p {
     width: 100%;
     color: var(--accent-color);
 }
 
-body.tag-template.tag-solutions>main#main-content article:hover>a {
+.tag-template.tag-solutions #main-content article:hover>a {
     font-weight: 700;
     text-decoration: underline;
     color: var(--accent-color-100);
@@ -155,54 +168,54 @@ body.tag-template.tag-solutions>main#main-content article:hover>a {
     transition: all ease-out 200ms 0s;
 }
 
-body.tag-template.tag-solutions>main#main-content article:hover>figure>img {
+.tag-template.tag-solutions #main-content article:hover figure img {
     scale: 1.1;
-    transition: scale ease-out 200ms 0s;
+    transition: scale ease-out 250ms 0s;
 }
 
-body.tag-template.tag-solutions>main#main-content article.odd:hover {
+.tag-template.tag-solutions #main-content article.odd:hover {
     -webkit-box-shadow-: .3em .3em 0 var(--accent-color-50);
     box-shadow: .3em .3em 0 var(--accent-color-50);
     outline-color: var(--accent-color-50);
 }
 
-body.tag-template.tag-solutions>main#main-content article.odd:hover>a {
+.tag-template.tag-solutions #main-content article.odd:hover>a {
     background-color: var(--accent-color-10);
 }
 
-body.tag-template.tag-solutions>main#main-content article.even:hover {
+.tag-template.tag-solutions #main-content article.even:hover {
     -webkit-box-shadow: .3em .3em 0 var(--accent-color-20);
     box-shadow: .3em .3em 0 var(--accent-color-20);
     outline-color: var(--accent-color-20);
 }
 
-body.tag-template.tag-solutions>main#main-content article:hover>h2 {
+.tag-template.tag-solutions #main-content article:hover h2 {
     text-shadow: 0 0 10em var(--accent-color-80);
 }
 
-body.tag-template.tag-solutions>main#main-content article.odd:hover>h2 {
+.tag-template.tag-solutions #main-content article.odd:hover h2 {
     color: var(--accent-color-20);
 }
 
-body.tag-template.tag-solutions>main#main-content article.even:hover>h2 {
+.tag-template.tag-solutions #main-content article.even:hover h2 {
     color: var(--accent-color);
 }
 
-body.tag-template.tag-solutions>main#main-content article>h2 {
+.tag-template.tag-solutions #main-content article h2 {
     margin-right: auto;
     padding: .85em .75em 0;
     list-style: normal;
     color: var(--accent-color-30);
 }
 
-body.tag-template.tag-solutions>main#main-content article>p {
+.tag-template.tag-solutions #main-content article>p {
     padding: 0 1.5em;
     text-align: justify;
     font-size: 1.35rem;
     color: var(--color-black);
 }
 
-body.tag-template.tag-solutions>main#main-content article>a {
+.tag-template.tag-solutions #main-content article>a {
     margin-left: 1.5em;
     margin-bottom: 1.25em;
     position: relative;
@@ -217,7 +230,7 @@ body.tag-template.tag-solutions>main#main-content article>a {
     transition: all ease-in 200ms 0s;
 }
 
-body.tag-template.tag-solutions>main#main-content article>a::after {
+.tag-template.tag-solutions #main-content article>a::after {
     position: absolute;
     right: .75em;
     bottom: .5em;
@@ -227,7 +240,7 @@ body.tag-template.tag-solutions>main#main-content article>a::after {
     transition: all ease-in 200ms 0s;
 }
 
-body.tag-template.tag-solutions>main#main-content article:hover>a::after {
+.tag-template.tag-solutions #main-content article:hover>a::after {
     right: .35em;
     bottom: 0;
     font-size: 1.5em;
@@ -235,21 +248,44 @@ body.tag-template.tag-solutions>main#main-content article:hover>a::after {
     transition: all ease-out 200ms 0s;
 }
 
-body.tag-template.tag-solutions>main#main-content article>figure {
+.tag-template.tag-solutions #main-content article>figure {
     border-radius: inherit;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     overflow: hidden;
+    margin-bottom: 0;
 }
 
-body.tag-template.tag-solutions>main#main-content article>figure>img {
+.tag-template.tag-solutions #main-content article>figure>img {
     border-radius: inherit;
-    display: inline-block;
-    height: inherit;
     scale: 1;
-    transition: scale ease-in 200ms 0s;
+    transition: scale ease-in 250ms 0s;
 }
 
-body.tag-template.tag-solutions>hr {
-    display: none;
+/* Post template */
+
+.post-template.tag-solutions #main-content section {
+    color: var(--color-black);
+    background-color: var(--accent-color-100);
+    min-height: 100dvh;
+}
+
+.post-template.tag-solutions #main-content #content {
+    padding-top: 15vb;
+}
+
+.post-template.tag-solutions #main-content section:first-of-type {
+    min-height: 90dvh;
+    background-color: var(--accent-color-30);
+    justify-content: space-evenly;
+    gap: 1vb;
+}
+
+.post-template.tag-solutions #main-content section:first-of-type :is(hgroup, figure) {
+    flex: 0 0 45dvw;
+}
+
+.post-template.tag-solutions #main-content [data-slug="communication"],
+.post-template.tag-solutions #main-content [data-slug="estates"] {
+    flex-direction: row-reverse;
 }
