@@ -31,7 +31,6 @@ footer {
 }
  
 #default-footer > div:first-child {
-    padding: 1vb;
     min-height: fit-content;
     z-index: 333;
     gap: 1vb;

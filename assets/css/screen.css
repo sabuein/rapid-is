@@ -397,7 +397,7 @@ form[method="dialog"] input {
 }
 
 form[method="dialog"] input:is([type="submit"], [type="reset"]) {
-    flex: 0 0 fit-content;
+    flex: 0 1 fit-content;
     width: fit-content;
 }
 
@@ -460,9 +460,9 @@ figure {
 }
 
 main.post.flexy>figure,
-main.post.flexy>header>figure {
+main.post.flexy>hgroup>figure {
     background-color: var(--color-light-green);
-    background-image: var(--this-feature-image);
+    background-image: var(--this-cover-bg);
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -470,8 +470,12 @@ main.post.flexy>header>figure {
     background-clip: content-box;
     width: inherit;
     height: 40dvh;
-    min-height: inherit;
+    min-height: 50dvh;
     align-self: center;
+}
+
+main.post>figure>img {
+    display: none;
 }
 
 main.post figure img {
@@ -504,15 +508,21 @@ main.post.flexy>header>section.title-meta>div {
     margin-top: 1em;
 }
 
+main > hgroup:first-of-type {
+    padding: 5dvh 15dvw;
+    gap: 0;
+    flex: 0 1 fit-content;
+    border-bottom: thin solid var(--color-black-40);
+}
+
 main #content {
-    margin: 0 auto;
-    padding: 0 15dvw;
-    padding-bottom: 10vb;
+    padding: 5dvh 15dvw;
+    padding-bottom: 20dvh;
     min-width: 60dvw;
     width: 100%;
     align-items: flex-start;
     min-height: 100dvh;
-    gap: 2vb;
+    gap: 1em;
 }
 
 main #content [data-divider="bottom"] path {
@@ -520,32 +530,17 @@ main #content [data-divider="bottom"] path {
 }
 
 main #content hgroup {
-    padding: 0;
-    flex: 0 0 fit-content;
-}
-
-main #content hgroup :is(h2, p) {
-    margin: 0;
-    padding: 0;
-}
-
-main #content hgroup p {
-    line-height: 1.85;
+    flex: 0 1 fit-content;
+    gap: 2vb;
 }
 
 main #content footer {
     width: 100%;
 }
 
-main #content h2 {
-    margin-top: 1em;
-    margin-bottom: .25em;
-}
-
 main #content ul {
     list-style-type: square;
-    list-style-position: outside;
-    line-height: 2.25em;
+    list-style-position: inside;
 }
 
 main #content blockquote {
@@ -560,8 +555,8 @@ main #content blockquote {
     font-weight: 700;
 }
 
-main #content p {
-    line-height: 2.5;
+main #content :is(p, ul, ol) {
+    line-height: 2.25;
     text-align: justify;
     font-size: 1.4rem;
     font-weight: 400;
@@ -632,7 +627,7 @@ main.post.flexy header:has(~ section.content) {
 }
 
 #partner-with-leaders figure {
-    flex: 0 0 fit-content;
+    flex: 0 1 fit-content;
     width: fit-content;
     max-width: 100%;
     max-height: 10dvw;
@@ -777,7 +772,7 @@ img {
 
 :is(h1, h2, h3, h4, h5, h6) strong {
     text-transform: capitalize;
-    font-weight: bolder;
+    font-weight: bold;
 }
 
 h1 {
@@ -811,12 +806,7 @@ p {
     background-color: transparent;
 }
 
-hgroup :is(h1, h2, h3) {
-    padding: 1vb;
-}
-
 hgroup p {
-    padding: 1vb 2vb;
     text-align: justify;
 }
 
@@ -882,7 +872,7 @@ header:has(nav) {
     background-color: var(--color-white);
     animation: menu-go-down 500ms linear 0s 1 forwards;
     box-shadow: 0 0 .25em var(--color-black-40);
-    flex: 0 0 10dvh;
+    flex: 0 1 10dvh;
     overflow: visible;
     position: -webkit-sticky;
     position: sticky;
@@ -1256,7 +1246,7 @@ nav ul~ul.solutions-nav {
 }
 
 ul.solutions-nav li {
-    flex: 0 0 fit-content;
+    flex: 0 1 fit-content;
     text-transform: capitalize;
 }
 
@@ -1305,7 +1295,7 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 }
 
 #streamlining-safety-checks figure {
-    flex: 0 0 75vb;
+    flex: 0 1 75vb;
     width: 75vb;
     max-width: 100%;
 }
@@ -1348,7 +1338,7 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 }
 
 #briefly button {
-    flex: 0 0 38%;
+    flex: 0 1 38%;
     max-width: 38%;
     text-transform: capitalize;
 }
@@ -1359,13 +1349,13 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 }
 
 #get-the-app footer {
-    flex: 0 0 100%;
+    flex: 0 1 100%;
     width: 100%;
 }
 
 #get-the-app details {
     padding: 1vb;
-    flex: 0 0 fit-content;
+    flex: 0 1 fit-content;
     width: 100dvw;
     max-width: 100%;
     cursor: pointer;
@@ -1483,10 +1473,6 @@ pre {
     gap: 1em;
 }
 
-#main-content > hgroup {
-    padding: 2vb;
-}
-
 #main-content > section.flexy.row:has(~section.odd) {
     flex-direction: row-reverse;
 }
@@ -1523,7 +1509,7 @@ pre {
 [title~="Continue"],
 [href*="main-content"] {
     display: block;
-    flex: 0 0 fit-content;
+    flex: 0 1 fit-content;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -1593,7 +1579,7 @@ pre {
 
 #more-clients figure {
     padding: 1em;
-    flex: 0 0 20vb;
+    flex: 0 1 20vb;
     text-align: center;
     mix-blend-mode: normal;
     height: 20vb;
@@ -1725,7 +1711,7 @@ pre {
 
 #compliance-app :is(hgroup, figure) {
     padding: 1vb;
-    flex: 0 0 75vb;
+    flex: 0 1 75vb;
     width: 75vb;
     max-width: 100%;
 }
@@ -1757,7 +1743,7 @@ pre {
 
 .five-points div {
     padding: 1em;
-    flex: 0 0 18%;
+    flex: 0 1 18%;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 1em;
@@ -1811,7 +1797,7 @@ pre {
 
 .cookies h4,
 .cookies form {
-    flex: 0 0 75dvw;
+    flex: 0 1 75dvw;
     width: 75dvw;
     max-width: 100%;
 }
@@ -1822,7 +1808,7 @@ pre {
 
 .cookies button[type="button"] {
     opacity: 1;
-    flex: 0 0 max-content;
+    flex: 0 1 fit-content;
     border-radius: 0%;
 }
 
@@ -2046,7 +2032,7 @@ pre {
 form {
     padding: 1vb;
     position: relative;
-    flex: 0 0 fit-content;
+    flex: 0 1 fit-content;
     height: fit-content;
     max-height: 100%;
     width: 90vb;
@@ -2068,6 +2054,7 @@ hgroup {
     max-width: 100%;
     gap: 1vb;
     background-color: transparent;
+    flex: 1 0 40dvw;
 }
 
 
@@ -2080,21 +2067,16 @@ section:is(#briefly,
 #newsletter,
 #get-the-app,
 #briefly) {
-    padding: 0 10dvw;
+    padding: 15dvh 15dvw;
+    padding-bottom: 20dvh;
     gap: 1vb;
-}
-
-
-section :is(hgroup, figure) {
-    padding: 1vb;
-    flex: 1 0 40dvw;
 }
 
 section#get-the-app :is(hgroup, figure),
 section#more-clients :is(hgroup, figure),
 section#client-testimonials :is(hgroup, figure),
 section#partner-with-leaders :is(hgroup, figure) {
-    flex: 0 0 fit-content;
+    flex: 0 1 fit-content;
 }
 
 section#briefly {
@@ -2111,40 +2093,55 @@ section#client-testimonials {
     gap: 2vb;
 }
 
-#newsletter {
+section#newsletter {
     padding: 0 10dvw;
     color: royalblue !important;
     background-color: royalblue !important;
 }
 
-#get-the-app {
+section#get-the-app {
     color: var(--color-black);
     background-color: oldlace;
 }
 
-#check-our-vacancies {
+section#check-our-vacancies {
+    min-height: 25dvh;
     color: var(--color-black);
     background-color: var(--accent-color-100);
+}
+
+#check-our-vacancies hgroup {
+    flex: 0 1 fit-content;
 }
 
 /* End of general partials styles */
 
 /* Start of tabs-about partial styles */
 
-.tabs.about {
+section#tabs-about {
     padding: 15dvh 15dvw;
     min-height: 50dvh;
     width: 100dvw;
     max-width: 100%;
+    background-color: gold;
 }
 
-.tabs.about .buttons {
+#tabs-about header {
+    flex: 0;
+}
+
+#tabs-about h2 {
+    text-transform: capitalize;
+}
+
+#tabs-about .buttons {
+    border: thick solid currentColor;
     width: 100dvw;
     justify-content: space-between;
     gap: 0;
 }
 
-.tabs.about .buttons a {
+#tabs-about .buttons a {
     flex: 1 0 fit-content;
     padding: 1vb 4vb;
     width: fit-content;
@@ -2152,62 +2149,84 @@ section#client-testimonials {
     font-size: 1rem;
     font-weight: bold;
     text-decoration: none;
-    background-color: lightsteelblue;
+    color: var(--color-white);
+    background-color: var(--color-black);
     transition: all ease-in-out 250ms 0s;
 }
 
-.tabs.about .buttons a:hover {
+#tabs-about .buttons a:hover {
     flex-grow: 2;
-    background-color: whitesmoke;
+    color: var(--color-black);
+    background-color: goldenrod;
 }
 
-.tabs.about .buttons a:active,
-.tabs.about .buttons a:nth-of-type(2) {
+#tabs-about .buttons a.active {
     flex-grow: 3;
-    background-color: ghostwhite;
+    color: var(--color-black);
+    background-color: gold;
 }
 
-.tabs.about article {
+#tabs-about article {
     min-height: 30dvh;
     width: 100dvw;
     max-width: 100%;
-    background-color: ghostwhite;
+    background-color: gold;
 }
 
-.tabs.about article :is(hgroup, pre, p) {
+#tabs-about article :is(hgroup, pre, p) {
     padding: .75vb;
     background-color: inherit;
     width: inherit;
     max-width: inherit
 }
 
-.tabs.about article hgroup {
+#tabs-about article hgroup {
     padding: 2vb;
     flex: 1 0 100%;
     display: none;
+    opacity: 0;
     width: 100dvw;
     max-width: 100%;
+    z-index: 0;
     gap: 0;
+    transition: all ease-in-out 250ms 0s;
 }
 
-.tabs.about hgroup h3 {
+#tabs-about hgroup h3 {
+    padding: .75vb;
     font-weight: 500;
     font-size: 2.15rem;
 }
 
-.tabs.about hgroup p {
+#tabs-about hgroup p {
     font-size: 1.05rem;
     font-weight: 400;
 }
 
-.tabs.about header:has(.buttons a:nth-of-type(1):is(:active, :hover)) ~ article [data-tab-number="1"],
-.tabs.about header:has(.buttons a:nth-of-type(2):is(:active, :hover)) ~ article [data-tab-number="2"],
-.tabs.about header:has(.buttons a:nth-of-type(3):is(:active, :hover)) ~ article [data-tab-number="3"] {
+#tabs-about article hgroup.active {
     display: flex;
+    opacity: 1;
+    z-index: 1;
+    transition: all ease-in-out 250ms 0s;
 }
 
-.tabs.about article > p {
+#tabs-about article > p {
     text-align: center;
+}
+
+body.page-about #content [data-divider="bottom"] path,
+body.page-about #default-footer [data-divider="top"] path {
+    fill: gold;
+}
+
+#tabs-about [title~="Continue"]:any-link path,
+body.page-about #content [title~="Continue"]:any-link path {
+    fill: goldenrod;
+}
+
+#tabs-about [title~="Continue"]:is(:focus, :hover) path,
+body.page-about #content [title~="Continue"]:is(:focus, :hover) path {
+    fill: var(--color-black);
 }
 
 /* End of tabs-about partial styles */
@@ -2392,7 +2411,7 @@ form#join-newsletter a:is(:focus, :hover) {
 }
 
 #client-testimonials ol li {
-    flex: 0 0 1.5em;
+    flex: 0 1 1.5em;
     width: 1.5em;
     height: 1.5em;
     border: thin solid var(--accent-color-50);
@@ -2425,7 +2444,7 @@ form#join-newsletter a:is(:focus, :hover) {
     border: 0;
     border-radius: 0;
     padding: 1vb 2vb;
-    flex: 0 0 70dvw;
+    flex: 0 1 70dvw;
     width: 100%;
     max-width: 70dvw;
     height: 100%;
@@ -2493,7 +2512,7 @@ form#join-newsletter a:is(:focus, :hover) {
 }
 
 #client-testimonials .post header {
-    flex: 0 0 40vb;
+    flex: 0 1 40vb;
 }
 
 #client-testimonials .post *:is(h3, p) {
@@ -2518,7 +2537,7 @@ form#join-newsletter a:is(:focus, :hover) {
 }
 
 #client-testimonials .post figure {
-    flex: 0 0 auto;
+    flex: 0 1 auto;
     width: 40vb;
     max-width: 100%;
     height: 15vb;
@@ -2571,9 +2590,8 @@ form#join-newsletter a:is(:focus, :hover) {
 
 /* Meet our team: /partials/team-members.hbs */
 
-#meet-our-team {
-    padding-top: 10vb;
-    padding-bottom: 5vb;
+section#meet-our-team {
+    padding: 15dvh 15dvw;
     background-color: var(--color-light-grey);
 }
 
@@ -2664,6 +2682,10 @@ form#join-newsletter a:is(:focus, :hover) {
 
 #meet-our-team .post p:not(:first-of-type) {
     margin-top: .85em;
+}
+
+#meet-our-team hgroup {
+    flex: 0 1 fit-content;
 }
 
 @media screen and (max-width: 1520px) {
