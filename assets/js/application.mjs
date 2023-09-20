@@ -1,66 +1,18 @@
 "use strict";
 
-const hideNav = (nav, main) => {
-    let offset = 250,
-        lastScrollY = 0;
-
-    nav.onclick = () => nav.focus();
-    window.addEventListener("scroll", () => {
-        if (window.scrollY >= offset && window.scrollY > lastScrollY) {
-            // make thin header
-            nav.classList.add("loose");
-            main.style.paddingTop = 0;
-        } else {
-            // show full header
-            nav.classList.remove("loose");
-            main.style.paddingTop = "5.5em";
-        }
-        lastScrollY = window.scrollY;
-    });
-};
-
-const enableNavMenu = (nav) => {
-    let solutionsElement = nav.querySelectorAll("ul.nav li"), solutionsLink = nav.querySelectorAll("ul.nav li a");
-    [].forEach.call(solutionsElement, (li, index) => activateMenuItem(li, solutionsLink[index]));
-};
-
-const activateMenuItem = (item, link) => {
-    item.onmouseover = () => link.focus();
-    if (item.classList.contains("nav-solutions")) document.querySelector("ul.solutions-nav").onmouseleave = () => link.blur();
-};
-
-const startMainModal = (id, query) => {
-    // Get the required elements for the modal
-    const dialog = document.getElementById(id);
-    const elements = document.querySelectorAll(query);
-
-    // Set the show dialog elements
-    elements.forEach((element) => {
-        element.addEventListener("click", (event) => {
-            event.preventDefault();
-            dialog.showModal();
-        });
-    });
-
-    // Dialog
-    dialog.addEventListener("close", () => {
-        if (dialog.returnValue.toLowerCase() === "cancel") return console.log("Contact form was canceled by the user.");
-        if (dialog.returnValue.toLowerCase() !== "send") return false;
-        console.log("Contact form has been submitted.");
-        console.log("Value: ", dialog.returnValue);
-        // Do something...
-        // Add to input#submit oninput="this.form.elements.submit.value=this.value;"
-    });
-};
-
-const shakeMe = (section) => {
-    section.onmouseover = () => section.classList.add("hi");
-    section.onmouseout = () => section.classList.remove("hi");
-};
+import {
+    id,
+    deployTabs,
+    shakeMe,
+    startMainModal,
+    enableNavMenu,
+} from "./modules/view.mjs";
 
 // Automatically scroll horizontally when the window load
 window.addEventListener("load", () => {
     try {
+        // const sections = document.querySelectorAll("main > section") || null;
+        // sections.forEach((section) => shakeMe(section));
         const containers = document.querySelectorAll(".horizontal-scrollingXXX") || null;
         self.setInterval(() => {
             containers.forEach((container) => {
@@ -74,10 +26,6 @@ window.addEventListener("load", () => {
                 }
             });
         }, 15);
-
-        const sections = document.querySelectorAll("main > section") || null;
-        // sections.forEach((section) => shakeMe(section));
-
     } catch (error) {
         console.error(error);
     }
@@ -85,22 +33,17 @@ window.addEventListener("load", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     // Get the contact main nav item
-    const getInTouchLinks = document.querySelectorAll(`a[href$="/contact/" i]`);
-    getInTouchLinks.forEach((link) => {
-        link.classList.add("show-modal");
-    });
-    startMainModal("get-in-touch", ".show-modal");
+    const getInTouchLinks = document.querySelectorAll(`a[href$="/contact/" i]`) || null;
+    if (!!getInTouchLinks) {
+        getInTouchLinks.forEach(link => link.classList.add("show-modal"));
+        startMainModal("get-in-touch", ".show-modal");
+    }
 
     const nav = document.querySelector("body > header > nav");
-    enableNavMenu(nav);
+    if (!!nav) enableNavMenu(nav);
 
     const goToTopLinks = document.querySelectorAll(`a[href*="main-content"]`);
-    goToTopLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-            // event.preventDefault();
-            setTimeout(() => window.scrollTo(0, 0), 0);
-        });
-    });
+    if (!!goToTopLinks) goToTopLinks.forEach(link => link.addEventListener("click", () => setTimeout(() => window.scrollTo(0, 0), 0)));
 
     const cookiesAside = document.querySelector("aside.cookies");
     const cookiesActions = document.querySelectorAll("aside.cookies > form.actions");
@@ -124,9 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    if (!!document.querySelector("#client-testimonials")) {
-        const circles = document.querySelectorAll("#client-testimonials ol li");
-        const quotes = document.querySelectorAll("#client-testimonials .container blockquote");
+    const tabs = id("tabs-about");
+    if (!!tabs) deployTabs(tabs);
+
+    const testimonials = id("client-testimonials");
+    if (!!testimonials) {
+        const circles = testimonials.querySelectorAll("ol li");
+        const quotes = testimonials.querySelectorAll("blockquote");
 
         const activateCurrent = (index) => {
             if (index >= quotes.length) currentIndex = 0;
@@ -151,18 +98,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const activateTestimonialsPanel = () => {
             try {                
                 quotes.forEach(quote => quote.addEventListener("mouseenter", () => clearInterval(autoPlay), { once: true }));
+                circles.forEach((circle, index) => circle.addEventListener("click", () => activateCurrent(index)));
 
-                circles.forEach((circle, current) => {
-                    circle.addEventListener("click", () => activateCurrent(current));
-                });
-
-                document.querySelector(".next-testimonial").addEventListener("click", (event) => {
-                    event.preventDefault();
+                document.querySelector(".next-testimonial").addEventListener("click", (e) => {
+                    e.preventDefault();
                     activateArrow(+1);
                 });
             
-                document.querySelector(".prev-testimonial").addEventListener("click", (event) => {
-                    event.preventDefault();
+                document.querySelector(".prev-testimonial").addEventListener("click", (e) => {
+                    e.preventDefault();
                     activateArrow(-1);
                 });
             } catch (error) {
