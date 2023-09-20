@@ -1,0 +1,12 @@
+<!-- integration.hbs -->
+<article id="rapid-integration" class="flexy">
+    {{#get "posts" filter="tag:hash-core+visibility:public" order="title asc" limit=@config.posts_per_page}}{{#if posts}}{{#foreach posts}}{{#has slug="integration"}}<hgroup class="flexy">
+        <h3 id="learn-{{slug}}" title="{{title}}">{{title}}</h3>
+    </hgroup>{{/has}}{{/foreach}}{{else}}<pre>There is no content to return&period;</pre>{{/if}}{{else}}<pre class="get-posts-error">{{error}}</pre>{{/get}}
+    {{content}}
+    <footer class="flexy">
+        <a href="#default-footer" title="Continue to the site footer&hellip;">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
+</article>
