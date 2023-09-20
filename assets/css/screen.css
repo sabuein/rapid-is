@@ -621,16 +621,17 @@ main.post.flexy header:has(~ section.content) {
 /* End of page style */
 
 #partner-with-leaders .container {
-    padding: 1em;
     width: 100%;
-    gap: 2em;
+    justify-content: space-evenly;
+    gap: 1em;
 }
 
 #partner-with-leaders figure {
-    flex: 0 1 fit-content;
-    width: fit-content;
+    flex: 1 0 10dvw;
+    width: 10dvw;
     max-width: 100%;
-    max-height: 10dvw;
+    height: 20dvh;
+    max-height: 100%;
     user-select: none;
 }
 
@@ -640,9 +641,18 @@ main.post.flexy header:has(~ section.content) {
 
 #partner-with-leaders img,
 #partner-with-leaders svg {
-    width: 10vb;
-    height: 10vb;
+    padding: .5em;
+    width: inherit;
+    max-width: inherit;
+    height: inherit;
+    max-height: inherit;
+    scale: 1;
     transition: all ease-in 250ms 0s;
+}
+
+#partner-with-leaders [title~="Continue"] svg {
+    height: 10vb;
+    width: 10vb;
 }
 
 #partner-with-leaders figure:is(:focus, :hover) {
@@ -651,7 +661,6 @@ main.post.flexy header:has(~ section.content) {
 
 #partner-with-leaders figure:is(:focus, :hover) img,
 #partner-with-leaders figure:is(:focus, :hover) svg {
-    padding: .5em;
     scale: 1.1;
     box-shadow: 0.15em 0.15em 0 var(--accent-color-80);
     outline: thin solid var(--accent-color-80);
@@ -808,6 +817,7 @@ p {
 
 hgroup p {
     text-align: justify;
+    font-size: 1.25rem;
 }
 
 a {
@@ -843,9 +853,7 @@ a {
 }
 
 article {
-    padding: 1vb 2vb;
     background-color: transparent;
-    max-width: 85dvw;
 }
 
 article footer {
@@ -2052,7 +2060,6 @@ hgroup {
     text-align: center;
     width: 100dvw;
     max-width: 100%;
-    gap: 1vb;
     background-color: transparent;
     flex: 1 0 40dvw;
 }
@@ -2061,7 +2068,6 @@ hgroup {
 /* Start of general partials styles */
 
 section:is(#briefly,
-#partner-with-leaders,
 #client-testimonials,
 #check-our-vacancies,
 #newsletter,
@@ -2069,7 +2075,7 @@ section:is(#briefly,
 #briefly) {
     padding: 15dvh 15dvw;
     padding-bottom: 20dvh;
-    gap: 1vb;
+    gap: 1em;
 }
 
 section#get-the-app :is(hgroup, figure),
@@ -2085,12 +2091,13 @@ section#briefly {
 }
 
 section#partner-with-leaders {
+    padding: 15dvh 10dvw;
     background-color: var(--accent-color-90);
+    gap: 2em;
 }
 
 section#client-testimonials {
     background-color: var(--accent-color-90);
-    gap: 2vb;
 }
 
 section#newsletter {
@@ -2596,33 +2603,26 @@ section#meet-our-team {
 }
 
 #meet-our-team .container {
-    padding: 1vb;
-    padding-bottom: 10vb;
-    gap: 1vb;
+    padding: 1em;
+    padding-bottom: 5em;
+    gap: 2em;
 }
 
 #meet-our-team .container .post {
-    padding: 1vb;
     flex: 1 0 40vb;
     max-width: 100%;
     width: 40vb;
-    gap: 2vb;
+    gap: 1em;
     cursor: default;
     user-select: text;
     background-color: transparent;
-    outline-style: dashed;
-    outline-color: var(--accent-color);
-    outline-width: 0;
-    scale: .9;
     transform: translate(0, 0);
-    transition: all 250ms ease-in-out 0s;
+    transition: all 250ms ease-out 0s;
 }
 
 #meet-our-team .container .post:is(:active, :hover) {
-    outline-width: thick;
-    scale: 1;
     transform: translate(0, -.25em);
-    transition: all 500ms ease-out 0s;
+    transition: all 250ms ease-in 0s;
 }
 
 #meet-our-team .post :is(header, div) {
