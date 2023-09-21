@@ -12,11 +12,6 @@
         <img src="{{feature_image}}" title="{{title}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
         <figcaption>{{#if feature_image_caption}}{{feature_image_caption}}{{else}}{{title}}{{/if}}</figcaption>
     </figure>
-    <footer class="flexy">
-        <a href="#content" title="Continue and learn more&hellip;">
-            {{> "icons/angle-down"}}
-        </a>
-    </footer>
 </section>
 <section id="content" class="flexy">
     <hgroup class="flexy">
@@ -30,9 +25,6 @@
         {{!-- Previous/next page links - displayed on every page --}}
         {{#if pagination}}{{pagination}}{{/if}}
         {{> "sharing"}}
-        <a href="#default-footer" title="Continue to the site footer&hellip;">
-            {{> "icons/angle-down"}}
-        </a>
     </footer>
 </section>
 {{/post}}

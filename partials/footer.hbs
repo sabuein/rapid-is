@@ -3,11 +3,10 @@
     <div class="flexy row">
         {{#if @site.logo}}<figure class="rapid-logo flexy"><a href="{{@site.url}}" title="{{@site.title}}"><img src="{{@site.logo}}" alt="{{@site.title}}" /></a></figure>{{else}}<figure class="rapid-logo"><a href="{{@site.url}}" title="{{@site.title}}"><img src="{{asset 'images/new-logo.png'}}" alt="{{@site.title}}" /></a></figure>{{/if}}
         <div class="flexy">
-            <h6>Explore</h6>
+            <h6 title="Explore">Explore</h6>
             <ul class="nav flexy">
                 <li role="menuitem"><a href="/" title="Homepage">Homepage</a></li>
                 <li role="menuitem"><a href="/about/" title="About">About</a></li>
-                <li role="menuitem"><a href="/integration/" title="Integration">Integration</a></li>
                 <li role="menuitem"><a href="/solutions/" title="Solutions">Solutions</a></li>
                 <li role="menuitem"><a href="/case-studies/" title="Case studies">Case studies</a></li>
                 <li role="menuitem"><a href="/careers/" title="Careers">Careers</a></li>
@@ -15,7 +14,7 @@
             </ul>
         </div>
         <div class="flexy">
-            <h6>Solutions</h6>
+            <h6 title="Solutions">Solutions</h6>
             <ul class="nav flexy">
                 <li role="menuitem"><a href="/solutions/billing-system/" title="Billing System">Billing System</a></li>
                 <li role="menuitem"><a href="/solutions/communication/" title="Communication">Communication</a></li>
@@ -25,7 +24,7 @@
             </ul>
         </div>
         <address class="contact flexy">
-            <h6>Contact</h6>
+            <h6 title="Contact">Contact</h6>
             <ul itemscope itemtype="https://schema.org/LocalBusiness" class="nav flexy">
                 <li><a href="tel:+441707520711" title="Telephone number" target="_blank" itemprop="telephone">+44 1707 520 711</a></li>
                 <li><a href="mailto:info@rapid-is.co.uk&subject={{encode @site.title}}" title="Email address" target="_blank" itemprop="email">info@rapid-is.co.uk</a></li>

@@ -3,29 +3,23 @@
 {{#is "page"}}
 {{#post}}
 {{#match @page.show_title_and_feature_image}}<hgroup class="flexy">
-    <h1 title="Work at Rapid">Work at <strong>Rapid</strong>&period;</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo qui, maiores atque corrupti iusto minus, quos nostrum placeat ratione molestiae laborum aspernatur voluptatum cupiditate, excepturi veritatis hic. Nulla, repellendus.</p>
+    <h1 id="{{slug}}" title="{{title}}">{{title}}</h1>
+    {{#if custom_excerpt}}<p>{{custom_excerpt}}</p>{{else}}{{excerpt words="50"}}{{/if}}
 </hgroup>{{/match}}
-<section id="content" class="flexy row">
-    <hgroup class="flexy">
-        <h2 id="{{slug}}-h2" title="{{title}}">{{title}}</h2>
-        <p>Rapid produce an exciting and disruptive low&dash;code platform which we use to create desktop&comma; mobile&comma; and forms apps to help local authorities improve their services&comma; especially in social housing&period; Based just North of London in Welwyn Hatfield we are a small and growing company&comma; able to offer friendly and supportive working arrangements&period; Our customers are great&comma; and the work is varied and never dull&excl;</p>
-    </hgroup>
-    <button type="button">Learn more</button>
-    <div data-divider="bottom">
-        {{> "icons/divider-curve-bottom"}}
-    </div>
-    <footer class="flexy">
-        {{!-- Show the pagination helper when there's more than one page --}}
-        {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
-        {{!-- Previous/next page links - displayed on every page --}}
-        {{#if pagination}}{{pagination}}{{/if}}
-        <a href="#meet-our-team" title="Continue to the next section&hellip;">
-            {{> "icons/angle-down"}}
-        </a>
-    </footer>
+<section id="content" class="flexy">
+    {{content}}
 </section>
 {{> "team"}}
 {{> "vacancies"}}
+<footer class="flexy">
+    {{!-- Show the pagination helper when there's more than one page --}}
+    {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
+    {{!-- Previous/next page links - displayed on every page --}}
+    {{#if pagination}}{{pagination}}{{/if}}
+    {{> "sharing"}}
+</footer>
+<div data-divider="bottom">
+    {{> "icons/divider-wavey"}}
+</div>
 {{/post}}
 {{/is}}

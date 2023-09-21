@@ -2,12 +2,10 @@
 <!-- page-contact.hbs -->
 {{#is "page"}}
 {{#post}}
-{{#match @page.show_title_and_feature_image}}
-<hgroup class="flexy">
-    <h1 title="{{title}}">{{title}}</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quo qui, maiores atque corrupti iusto minus, quos nostrum placeat ratione molestiae laborum aspernatur voluptatum cupiditate, excepturi veritatis hic. Nulla, repellendus.</p>
-</hgroup>
-{{/match}}
+{{#match @page.show_title_and_feature_image}}<hgroup class="flexy">
+    <h1 id="{{slug}}" title="{{title}}">{{title}}</h1>
+    {{#if custom_excerpt}}<p>{{custom_excerpt}}</p>{{else}}{{excerpt words="50"}}{{/if}}
+</hgroup>{{/match}}
 <section class="flexy">
     <hgroup class="flexy">
         <h2>We&apos;re here to help</h2>
@@ -35,16 +33,16 @@
     </hgroup>
     {{content}}
     <p>Think it&apos;s too early to fill out the form? Let&apos;s talk about it over a coffee someday&period; Schedule Appointment&period;</p>
-    <footer class="flexy">
-        {{!-- Show the pagination helper when there's more than one page --}}
-        {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
-        {{!-- Previous/next page links - displayed on every page --}}
-        {{#if pagination}}{{pagination}}{{/if}}
-        {{> "sharing"}}
-        <a href="#default-footer" title="Continue to the site footer&hellip;">
-            {{> "icons/angle-down"}}
-        </a>
-    </footer>
 </section>
+<footer class="flexy">
+    {{!-- Show the pagination helper when there's more than one page --}}
+    {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
+    {{!-- Previous/next page links - displayed on every page --}}
+    {{#if pagination}}{{pagination}}{{/if}}
+    {{> "sharing"}}
+</footer>
+<div data-divider="bottom">
+    {{> "icons/divider-wavey"}}
+</div>
 {{/post}}
 {{/is}}

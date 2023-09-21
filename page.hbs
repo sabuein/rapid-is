@@ -9,19 +9,16 @@
 {{#if feature_image}}<figure style="--this-cover-bg: url({{img_url feature_image absolute='true'}});"><img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" /></figure>{{/if}}{{/match}}
 <section id="content" class="flexy">
     {{content}}
-    <footer class="flexy">
-        {{!-- Show the pagination helper when there's more than one page --}}
-        {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
-        {{!-- Previous/next page links - displayed on every page --}}
-        {{#if pagination}}{{pagination}}{{/if}}
-        {{> "sharing"}}
-        <div data-divider="bottom">
-            {{> "icons/divider-wavey"}}
-        </div>
-        <a href="#default-footer" title="Continue to the site footer&hellip;">
-            {{> "icons/angle-down"}}
-        </a>
-    </footer>
 </section>
+<footer class="flexy">
+    {{!-- Show the pagination helper when there's more than one page --}}
+    {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
+    {{!-- Previous/next page links - displayed on every page --}}
+    {{#if pagination}}{{pagination}}{{/if}}
+    {{> "sharing"}}
+</footer>
+<div data-divider="bottom">
+    {{> "icons/divider-wavey"}}
+</div>
 {{/post}}
 {{/is}}
