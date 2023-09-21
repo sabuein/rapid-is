@@ -415,18 +415,6 @@ address a {
     text-transform: none;
 }
 
-main.flexy>div:first-of-type {
-    padding: 2em 3em;
-    gap: 1em;
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-main.flexy>div:first-of-type p {
-    text-align: start;
-    width: 100%;
-}
-
 /* Start of page style */
 
 main.post.flexy>header {
@@ -450,6 +438,15 @@ main.post.flexy>header>section.title-meta {
 main.post.flexy>header>section.title-meta>h1 {
     align-self: flex-start;
     color: inherit;
+}
+
+#compliance-app,
+#main-message,
+#streamlining-safety-checks,
+#newsletter {
+    padding: 0 10dvw;
+    justify-content: space-evenly;
+    gap: 1em;
 }
 
 figure {
@@ -1292,10 +1289,8 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 }
 
 #streamlining-safety-checks {
-    padding: 0 10dvw;
     background-color: var(--color-light-grey);
-    justify-content: space-evenly;
-    gap: 1vb;
+    flex-direction: row-reverse;
 }
 
 #streamlining-safety-checks p {
@@ -1303,9 +1298,8 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 }
 
 #streamlining-safety-checks figure {
-    flex: 0 1 75vb;
-    width: 75vb;
-    max-width: 100%;
+    flex: 0 1 35dvw;
+    width: 35dvw;
 }
 
 #streamlining-safety-checks .cta-button {
@@ -1486,12 +1480,10 @@ pre {
 }
 
 #main-message {
-    padding: 5vb;
+    padding: 2dvh 2dvw;
     color: var(--color-white);
     background-color: var(--accent-color-30);
     min-height: 90dvh;
-    justify-content: space-evenly;
-    gap: 1vb;
 }
 
 #main-message hgroup {
@@ -1506,11 +1498,10 @@ pre {
     animation: slide-left 500ms linear 10ms 1 forwards;
 }
 
-#more-clients {
+section#more-clients {
     padding: 0 5dvw;
     background-color: floralwhite;
     text-align: center;
-    gap: 4vb;
     animation: slide-up 1s linear 100ms 1 forwards;
 }
 
@@ -1710,11 +1701,8 @@ pre {
 }
 
 #compliance-app {
-    padding: 0 10dvw;
     background-color: var(--color-white);
     flex-direction: row-reverse;
-    justify-content: space-evenly;
-    gap: 1vb;
 }
 
 #compliance-app :is(hgroup, figure) {
@@ -2061,7 +2049,7 @@ hgroup {
     width: 100dvw;
     max-width: 100%;
     background-color: transparent;
-    flex: 1 0 40dvw;
+    flex: 0 1 35dvw;
 }
 
 
@@ -2070,18 +2058,17 @@ hgroup {
 section:is(#briefly,
 #client-testimonials,
 #check-our-vacancies,
-#newsletter,
 #get-the-app,
 #briefly) {
     padding: 15dvh 15dvw;
-    padding-bottom: 20dvh;
     gap: 1em;
 }
 
 section#get-the-app :is(hgroup, figure),
 section#more-clients :is(hgroup, figure),
 section#client-testimonials :is(hgroup, figure),
-section#partner-with-leaders :is(hgroup, figure) {
+section#partner-with-leaders :is(hgroup, figure),
+section#rapid-integration :is(hgroup, figure) {
     flex: 0 1 fit-content;
 }
 
@@ -2101,9 +2088,9 @@ section#client-testimonials {
 }
 
 section#newsletter {
-    padding: 0 10dvw;
-    color: royalblue !important;
-    background-color: royalblue !important;
+    color: royalblue;
+    background-color: royalblue;
+    justify-content: center;
 }
 
 section#get-the-app {
@@ -2125,11 +2112,13 @@ section#check-our-vacancies {
 
 /* Start of tabs-about partial styles */
 
-section#tabs-about {
+section#tabs-about,
+section#rapid-integration {
     padding: 15dvh 15dvw;
     min-height: 50dvh;
-    width: 100dvw;
-    max-width: 100%;
+}
+
+section#tabs-about {
     background-color: gold;
 }
 
@@ -2188,24 +2177,24 @@ section#tabs-about {
 }
 
 #tabs-about article hgroup {
-    padding: 2vb;
+    padding: 1em;
     flex: 1 0 100%;
     display: none;
     opacity: 0;
-    width: 100dvw;
-    max-width: 100%;
     z-index: 0;
-    gap: 0;
-    transition: all ease-in-out 250ms 0s;
+    width: 100dvw;
+    gap: .5em;
+    transition: all ease-out 250ms 0s;
 }
 
-#tabs-about hgroup h3 {
+#tabs-about hgroup h2 {
     padding: .75vb;
     font-weight: 500;
     font-size: 2.15rem;
 }
 
 #tabs-about hgroup p {
+    padding: 0;
     font-size: 1.05rem;
     font-weight: 400;
 }
@@ -2214,7 +2203,7 @@ section#tabs-about {
     display: flex;
     opacity: 1;
     z-index: 1;
-    transition: all ease-in-out 250ms 0s;
+    transition: all ease-in 250ms 0s;
 }
 
 #tabs-about article > p {
@@ -2378,7 +2367,12 @@ form#join-newsletter a:is(:focus, :hover) {
 
 /* Sharing page/post */
 
-#content #sharing-is-caring {
+footer:has(#sharing-is-caring) {
+    width: 100%;
+    z-index: 3;
+}
+
+#main-content #sharing-is-caring {
     padding: 5vb 0;
     width: 100%;
     height: auto;
@@ -2386,25 +2380,25 @@ form#join-newsletter a:is(:focus, :hover) {
     user-select: none;
 }
 
-#content #sharing-is-caring h6 {
+#main-content #sharing-is-caring h6 {
     width: fit-content;
 }
 
-#content #sharing-is-caring h6::before {
+#main-content #sharing-is-caring h6::before {
     display: none;
     content: "\27A6";
 }
 
-#content #sharing-is-caring ul {
+#main-content #sharing-is-caring ul {
     list-style-type: none;
     gap: 2vb;
 }
 
-#content #sharing-is-caring a {
+#main-content #sharing-is-caring a {
     text-decoration: none;
 }
 
-#content #sharing-is-caring a:is(:focus, :hover) {
+#main-content #sharing-is-caring a:is(:focus, :hover) {
     text-decoration: underline;
 }
 

@@ -1,15 +1,16 @@
 footer {
     position: static;
+    background-color: transparent;
 }
 
 #default-footer {
-    padding: 5vb;
+    padding: 2em;
     padding-top: 20dvh;
     position: relative;
     width: 100dvw;
     max-width: 100%;
     min-height: 90dvh;
-    gap: 2vb;
+    gap: 1em;
     color: var(--color-black);
     background-color: var(--accent-color-90);
     overflow: hidden;
@@ -32,7 +33,6 @@ footer {
  
 #default-footer > div:first-child {
     min-height: fit-content;
-    z-index: 333;
     gap: 1vb;
 }
 
@@ -78,7 +78,7 @@ main > section.row > footer {
 #default-footer ul {
     list-style-type: none;
     align-items: flex-start;
-    gap: 1vb;
+    gap: .5em;
 }
 
 #default-footer ul[itemscope] {
