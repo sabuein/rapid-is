@@ -120,13 +120,21 @@
     flex-direction: row;
 }
 
+.flexy.row.reverse {
+    flex-direction: row-reverse;
+}
+
 .bg-image {
-    background-color: currentColor;
+    background-color: var(--accent-color);
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
     background-clip: content-box;
+}
+
+.bg-image img {
+    display: none;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -153,12 +161,10 @@
 
 [data-divider="top"],
 [data-divider="bottom"] {
-    margin: 0;
-    padding: 0;
     position: absolute;
     left: 0;
     right: 0;
-    width: 100%;
+    width: 100dvw;
     overflow: hidden;
     line-height: 0;
     user-select: none;
@@ -166,23 +172,22 @@
 }
 
 [data-divider="top"] {
-    top: -.1em;
+    top: -.1rem;
 }
 
 [data-divider="bottom"] {
-    bottom: -.1em;
+    bottom: -.1rem;
     transform: rotate(180deg);
 }
 
 [data-divider="top"] path,
 [data-divider="bottom"] path {
-    fill: var(--accent-color);
+    fill: var(--color-white)
 }
 
 /* Elements */
 
 :root {
-    --font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     color-scheme: light dark;
     --color-blue: #1d70b8;
     --color-dark-blue: #003078;
@@ -233,7 +238,7 @@
     --accent-color-100: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 60%));
     --accent-color-110: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 70%));
     --accent-color-120: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 80%));
-    --this-feature-image: url();
+    --font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 ::selection {
@@ -265,37 +270,34 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 18px;
 }
 
 html:has(dialog[open]) {
     overflow: hidden;
 }
 
-head {
+head,
+link,
+style,
+script {
     display: none;
 }
 
 body {
     margin: 0 auto;
-    position: relative;
-    font-size: 18px;
     font-family: var(--font-family);
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 2;
-    color: var(--color-black);
-    background-color: var(--accent-color);
+    color: var(--color-white);
     background-color: var(--color-black);
-    width: 100dvw;
-    max-width: var(--max-width);
-    height: auto;
+    max-width: var(--max-width) !important;
     min-height: 100dvh;
-    gap: 0;
-    overflow-x: hidden;
 }
 
 body:has(dialog[open]) {
-    filter: blur(.1em);
+    filter: blur(.1rem);
 }
 
 body:has(dialog[open]) path,
@@ -328,14 +330,14 @@ dialog {
 dialog[open] {
     display: flex;
     margin: auto;
-    padding: 1vb;
+    padding: 1rem;
     inset: 0;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
     color: var(--accent-color);
     background-color: var(--accent-color-100);
-    border: 1vb solid var(--accent-color);
+    border: 1rem solid var(--accent-color);
     user-select: none;
     cursor: default;
     transition: opacity 250ms ease-in-out 0s;
@@ -343,20 +345,20 @@ dialog[open] {
 
 form[method="dialog"] {
     color: inherit;
-    gap: 1vb;
+    gap: 1rem;
 }
 
 form[method="dialog"] fieldset {
     flex-wrap: nowrap;
     align-items: flex-start;
     user-select: text;
-    gap: 1vb;
+    gap: 1rem;
 }
 
 form[method="dialog"] button[formnovalidate] {
     position: absolute;
-    top: 1vb;
-    right: 1vb;
+    top: 1rem;
+    right: 1rem;
     cursor: pointer;
     user-select: none;
     font-size: 1.5rem;
@@ -369,22 +371,6 @@ form[method="dialog"] button[formnovalidate] {
 form[method="dialog"] button[formnovalidate]:hover {
     scale: 1.2;
     rotate: 45deg;
-}
-
-form[method="dialog"] h2 {
-    padding: .5vb;
-    font-size: 2.5rem;
-    color: royalblue;
-}
-
-form[method="dialog"] p {
-    font-size: 1.1rem;
-}
-
-form[method="dialog"] div {
-    padding: 2vb;
-    gap: 2vb;
-    width: 100%;
 }
 
 form[method="dialog"] label {
@@ -401,14 +387,20 @@ form[method="dialog"] input:is([type="submit"], [type="reset"]) {
     width: fit-content;
 }
 
-main {
+.post {
     color: var(--color-black);
     background-color: var(--color-white);
     font-size: 1.25rem;
     min-height: 90dvh;
-    width: 100dvw;
-    max-width: 100%;
-    gap: 0;
+    overflow: hidden;
+}
+
+.post > section:nth-of-type(odd) {
+    background-color: var(--color-light-grey);
+}
+
+.post > section:nth-of-type(even) {
+    background-color: var(--color-white);
 }
 
 address a {
@@ -417,25 +409,25 @@ address a {
 
 /* Start of page style */
 
-main.post.flexy>header {
+.post.flexy>header {
     min-height: 30dvh;
-    gap: 1em;
+    gap: 1rem;
 }
 
-main.post.flexy>header>section.title-meta {
+.post.flexy>header>section.title-meta {
     position: absolute;
     padding: 2em 4em;
     inset: auto;
     color: currentColor;
     background-color: #ffffff99;
-    gap: .25em;
+    gap: .25rem;
     width: 100%;
     align-items: flex-start;
     align-content: flex-start;
     z-index: 99;
 }
 
-main.post.flexy>header>section.title-meta>h1 {
+.post.flexy>header>section.title-meta>h1 {
     align-self: flex-start;
     color: inherit;
 }
@@ -444,38 +436,20 @@ main.post.flexy>header>section.title-meta>h1 {
 #main-message,
 #streamlining-safety-checks,
 #newsletter {
-    padding: 0 10dvw;
-    justify-content: space-evenly;
-    gap: 1em;
+    padding: 1dvh 10dvw;
+    justify-content: space-between;
+    gap: 2rem;
 }
 
-figure {
-    width: fit-content;
-    max-width: 100%;
-    height: auto;
-    background-color: transparent;
-}
-
-main.post.flexy>figure,
-main.post.flexy>hgroup>figure {
-    background-color: var(--color-light-green);
-    background-image: var(--this-cover-bg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-clip: content-box;
+.post > figure {
+    flex: 0 1 35dvh;
+    height: 35dvh;
     width: inherit;
-    height: 40dvh;
-    min-height: 50dvh;
-    align-self: center;
 }
 
-main.post>figure>img {
-    display: none;
-}
+/*
 
-main.post figure img {
+.post figure img {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -483,80 +457,80 @@ main.post figure img {
     height: 100%;
     max-height: fit-content;
 }
+*/
 
-main.post header div {
-    bottom: -.1em;
+.post header div {
+    bottom: -.1rem;
 }
 
-main.post.flexy>header>section.title-meta>p {
+.post.flexy>header>section.title-meta>p {
     font-size: 1.1rem;
     text-align: justify;
     padding-right: 20dvw;
 }
 
-main.post.flexy>header>section.title-meta>div {
+.post.flexy>header>section.title-meta>div {
     border-top: thin inset currentColor;
     align-self: flex-start;
     font-size: 1rem;
     font-weight: bold;
     width: fit-content;
     padding: 0 .35em;
-    padding-top: 1em;
-    margin-top: 1em;
+    padding-top: 1rem;
+    margin-top: 1rem;
 }
 
-main > hgroup:first-of-type {
-    padding: 5dvh 15dvw;
-    gap: 0;
+.post > hgroup:first-of-type {
+    padding: 2dvh 10dvw;
+    padding: 4.5dvh 21dvw;
     flex: 0 1 fit-content;
     border-bottom: thin solid var(--color-black-40);
-}
-
-main #content {
-    padding: 5dvh 15dvw;
-    padding-bottom: 20dvh;
-    min-width: 60dvw;
-    width: 100%;
     align-items: flex-start;
-    min-height: 100dvh;
-    gap: 1em;
+    align-content: flex-start;
 }
 
-main #content [data-divider="bottom"] path {
+.post #content {
+    padding: 1dvh 21dvw;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.post #content > :first-child {
+    padding-top: 8dvh;
+}
+
+.post #content > :last-child {
+    padding-bottom: 8dvh;
+}
+
+.post #content [data-divider="bottom"] path {
     fill: royalblue;
 }
 
-main #content hgroup {
+.post #content hgroup {
     flex: 0 1 fit-content;
     gap: 2vb;
 }
 
-main #content footer {
+.post #content footer {
     width: 100%;
 }
 
-main #content ul {
+.post #content ul {
     list-style-type: square;
     list-style-position: inside;
 }
 
-main #content blockquote {
-    margin: 0 auto 0 .25em;
-    padding: .25em 0 .25em 1em;
-    color: var(--accent-color);
-    border-left: thick solid var(--accent-color-90);
-    font-size: 1.5em;
+.post blockquote {
+    margin: 0 auto 0 .25rem;
+    padding: .25rem 0 .25rem 1rem;
+    color: currentColor;
+    border-left: thick solid var(--color-mid-grey);
+    font-size: 1.5rem;
     font-style: oblique;
     line-height: 2em;
     text-align: start;
     font-weight: 700;
-}
-
-main #content :is(p, ul, ol) {
-    line-height: 2.25;
-    text-align: justify;
-    font-size: 1.4rem;
-    font-weight: 400;
 }
 
 main #content a {
@@ -582,7 +556,7 @@ main #content table tr:active {
 }
 
 main #content table tr td {
-    padding: .5em;
+    padding: .5rem;
     vertical-align: text-top;
 }
 
@@ -604,23 +578,22 @@ main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
     width: fit-content;
 }
 
-main #content figure.kg-card.kg-image-card.kg-card-hascaption figcaption {
-    color: var(--color-dark-grey);
-    font-size: smaller;
-}
-
-main.post.flexy header:has(~ section.content) {
+.post.flexy header:has(~ section.content) {
     margin: 0 auto;
-    padding: 1em;
+    padding: 1rem;
     max-width: 100%;
 }
 
 /* End of page style */
 
+#partner-with-leaders hgroup {
+    padding: 1dvh 11dvw;
+}
+
 #partner-with-leaders .container {
     width: 100%;
     justify-content: space-evenly;
-    gap: 1em;
+    gap: 1rem;
 }
 
 #partner-with-leaders figure {
@@ -638,7 +611,7 @@ main.post.flexy header:has(~ section.content) {
 
 #partner-with-leaders img,
 #partner-with-leaders svg {
-    padding: .5em;
+    padding: .5rem;
     width: inherit;
     max-width: inherit;
     height: inherit;
@@ -648,8 +621,8 @@ main.post.flexy header:has(~ section.content) {
 }
 
 #partner-with-leaders [title~="Continue"] svg {
-    height: 10vb;
-    width: 10vb;
+    height: 10dvh;
+    width: 5dvw;
 }
 
 #partner-with-leaders figure:is(:focus, :hover) {
@@ -659,13 +632,34 @@ main.post.flexy header:has(~ section.content) {
 #partner-with-leaders figure:is(:focus, :hover) img,
 #partner-with-leaders figure:is(:focus, :hover) svg {
     scale: 1.1;
-    box-shadow: 0.15em 0.15em 0 var(--accent-color-80);
+    box-shadow: 0.15rem 0.15rem 0 var(--accent-color-80);
     outline: thin solid var(--accent-color-80);
     transition: all ease-out 250ms 0s;
 }
 
+:is(footer, div):has(>[href*="main-content"], >[title~="Continue"]) {
+    height: 10dvh;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
 #partner-with-leaders [href*="main-content"] {
-    bottom: 1vb;
+    bottom: 1rem;
+}
+
+input {
+    font-size: inherit;
+    color: currentColor;
+    background-color: transparent;
+}
+
+:is(input, select):required {
+    outline: 0;
+}
+
+:is(input, select):focus {
+    outline: thick solid var(--color-black);
 }
 
 button[type="button"],
@@ -674,12 +668,10 @@ input[type="submit"],
 input[type="reset"],
 .cta-button a {
     border-radius: 3em;
-    color: var(--color-white);
     background-color: var(--color-dark-blue);
-    padding: 1em;
+    padding: 1rem;
     cursor: pointer;
     font-weight: bold;
-    font-size: 1.25rem;
     width: unset;
     user-select: none;
 }
@@ -687,10 +679,8 @@ input[type="reset"],
 input[type="text"],
 input[type="email"],
 input[type="tel"] {
-    padding: 1em;
+    padding: 1rem;
     font-weight: bold;
-    font-size: 1.25rem;
-    color: var(--color-black);
     background-color: var(--color-light-grey);
     border-radius: 3em;
 }
@@ -706,8 +696,8 @@ label+input {
 }
 
 .cta-button {
-    margin: 1vb 4vb;
-    padding: 1vb;
+    margin: 1rem 4vb;
+    padding: 1rem;
     align-self: flex-start;
     flex: 1 0 fit-content;
     width: fit-content;
@@ -728,7 +718,7 @@ label+input {
     display: block;
     text-decoration: none;
     max-width: fit-content;
-    box-shadow: .25em .25em 0 var(--accent-color-80);
+    box-shadow: .25rem .25rem 0 var(--accent-color-80);
     transition: all 1s ease-in 0s;
 }
 
@@ -756,13 +746,32 @@ img {
     background-color: transparent;
 }
 
-:is(header, hgroup, main, section, article, footer) {
-    height: auto;
+:is(body, header, hgroup, figure, main, section, article, footer) {
     will-change: contents;
     position: relative;
     cursor: default;
     user-select: text;
-    overflow: hidden;
+    width: 100dvw;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    color: inherit;
+    background-color: transparent;
+}
+
+:is(header, hgroup, figure) {
+    align-self: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.post .row :is(header, hgroup, figure) {
+    flex: 1 1 35dvw;
+    width: 35dvw;
+}
+
+:is(header, hgroup, section) {
+    gap: .5rem;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
@@ -770,7 +779,7 @@ img {
     text-transform: none;
     font-weight: normal;
     line-height: 1.5;
-    width: 100%;
+    max-width: 100%;
     text-wrap: balance;
     text-align: start;
     background-color: transparent;
@@ -782,39 +791,28 @@ img {
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: 3.25rem;
 }
 
 h2 {
-    font-size: 2.75rem;
-}
-
-h3 {
     font-size: 2.5rem;
 }
 
-h4 {
-    font-size: 2rem;
+h3 {
+    font-size: 2.25rem;
 }
 
-h5 {
+h4 {
     font-size: 1.75rem;
 }
 
+h5 {
+    font-size: 1.5rem;
+}
+
 h6 {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-p {
-    font-size: 1.5rem;
-    width: 100%;
-    background-color: transparent;
-}
-
-hgroup p {
-    text-align: justify;
     font-size: 1.25rem;
+    font-weight: bold;
 }
 
 a {
@@ -827,17 +825,14 @@ a {
     text-align: center;
     font-size: 1.25rem;
     font-weight: 500;
-    flex: 1 0 100%;
-    right: 1vb;
     color: var(--accent-color-60);
     background-color: transparent;
     transition: all 250ms ease-out 0s;
-    user-select: none;
 }
 
 [href*="main-content"]:is(:focus, :hover) {
     color: var(--accent-color);
-    box-shadow: 0.15em 0.15em 0 var(--accent-color-90);
+    box-shadow: 0.15rem 0.15rem 0 var(--accent-color-90);
     transition: all 250ms ease-in 0s;
 }
 
@@ -845,7 +840,7 @@ a {
 
 .hearts {
     color: var(--color-red);
-    font-size: x-large;
+    font-size: 1.5rem;
     cursor: wait;
 }
 
@@ -854,13 +849,42 @@ article {
 }
 
 article footer {
-    padding: 1vb;
+    padding: 1rem;
 }
 
-:is(div, p, ul, ol, menu) {
+:is(div, p, ul, ol, menu, figcaption) {
+    line-height: 2;
+    text-align: justify;
+    font-weight: 400;
+    font-size: inherit;
+    width: fit-content;
     max-width: 100%;
     height: auto;
+    color: currentColor;
     background-color: transparent;
+    user-select: text;
+}
+
+figcaption {
+    padding: 1dvh 2dvw;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: var(--color-white);
+    background-color: var(--accent-color);
+    font-size: .85rem;
+}
+
+figcaption a:any-link {
+    text-decoration: none;
+}
+
+figcaption a:is(:active, :hover) {
+    text-decoration: underline;
+}
+
+p {
+    font-size: 1rem;
 }
 
 div:has(dialog) {
@@ -868,7 +892,7 @@ div:has(dialog) {
 }
 
 strong {
-    font-weight: bolder;
+    font-weight: 600;
 }
 
 header:has(nav) {
@@ -876,7 +900,7 @@ header:has(nav) {
     justify-content: space-between !important;
     background-color: var(--color-white);
     animation: menu-go-down 500ms linear 0s 1 forwards;
-    box-shadow: 0 0 .25em var(--color-black-40);
+    box-shadow: 0 0 .25rem var(--color-black-40);
     flex: 0 1 10dvh;
     overflow: visible;
     position: -webkit-sticky;
@@ -930,7 +954,8 @@ hr {
 
 .rapid-logo {
     user-select: none;
-    max-width: 10em;
+    max-height: 10rem;
+    max-width: 10rem;
 }
 
 .rapid-logo img {
@@ -1169,11 +1194,11 @@ path#coffee-steam {
 
     25%,
     75% {
-        translate: 2em .5em;
+        translate: 2em .5rem;
     }
 
     50% {
-        translate: -1em -1em;
+        translate: -1rem -1rem;
     }
 }
 
@@ -1199,7 +1224,7 @@ path#coffee-steam {
 
 ul.nav.flexy.row {
     list-style-type: none;
-    gap: 1em;
+    gap: 1rem;
     font-weight: bold;
     text-transform: capitalize;
 }
@@ -1225,27 +1250,27 @@ ul.solutions-nav a:is(:focus, :hover) svg {
 }
 
 li.nav-solutions span {
-    margin-right: .25em;
+    margin-right: .25rem;
 }
 
 ul.solutions-nav span {
-    margin-left: .25em;
+    margin-left: .25rem;
 }
 
 nav ul~ul.solutions-nav {
     flex: 1 0 100vb;
     display: none;
-    padding: 1vb;
+    padding: 1rem;
     place-content: flex-start center;
     position: absolute;
     top: 10vb;
-    gap: 1vb;
+    gap: 1rem;
     width: 100vb;
     height: fit-content;
     list-style-type: none;
     font-weight: bold;
     font-size: 1rem;
-    box-shadow: 0 0 .25em var(--color-black-40);
+    box-shadow: 0 0 .25rem var(--color-black-40);
     background-color: var(--color-white);
     pointer-events: auto;
 }
@@ -1256,7 +1281,7 @@ ul.solutions-nav li {
 }
 
 nav li.nav-current {
-    padding: .25em .85em;
+    padding: .25rem .85em;
     background-color: var(--accent-color-90);
     border-radius: 5em;
 }
@@ -1270,7 +1295,7 @@ ul.nav.flexy.row a:is(:focus, :hover),
 ul.solutions-nav.flexy.row a:is(:focus, :hover),
 li.nav-solutions:focus-within {
     color: var(--color-orange);
-    font-weight: bold;
+    font-weight: 500;
 }
 
 li.nav-solutions svg path,
@@ -1288,9 +1313,39 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
     user-select: auto;
 }
 
-#streamlining-safety-checks {
-    background-color: var(--color-light-grey);
-    flex-direction: row-reverse;
+#streamlining-safety-checks g#ring {
+    animation: spinning 20s ease-in-out 0s infinite alternate forwards;
+    animation-direction: normal;
+    transform-origin: center;
+    transform-box: fill-box;
+    scale: .9;
+}
+
+#streamlining-safety-checks g#ring :is([id="Vector_18"],
+[id="Vector_19"],
+[id="Vector_20"],
+[id="Vector_21"],
+[id="Vector_22"]):hover {
+    cursor: pointer;
+    scale: 1.25;
+    transition: all 250ms ease-in-out 0s;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+#streamlining-safety-checks svg:is(:focus, :focus-within, :hover) g#ring {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+@keyframes spinning {
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 360deg;
+    }
 }
 
 #streamlining-safety-checks p {
@@ -1321,7 +1376,7 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 }
 
 #briefly hgroup {
-    padding: 1vb;
+    padding: 1rem;
     color: var(--color-white);
     flex: 1 0 58%;
     max-width: 50%;
@@ -1347,7 +1402,7 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 
 #briefly div {
     align-items: flex-start;
-    gap: 1em;
+    gap: 1rem;
 }
 
 #get-the-app footer {
@@ -1356,7 +1411,7 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 }
 
 #get-the-app details {
-    padding: 1vb;
+    padding: 1rem;
     flex: 0 1 fit-content;
     width: 100dvw;
     max-width: 100%;
@@ -1373,7 +1428,7 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 }
 
 #get-the-app details[open] p {
-    padding: 1vb;
+    padding: 1rem;
     font-size: 1.1rem;
 }
 
@@ -1383,11 +1438,11 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 
 @keyframes scrollups {
     0% {
-        transform: translateY(4.5em);
+        transform: translateY(4.5rem);
     }
 
     15% {
-        transform: translateY(3.75em);
+        transform: translateY(3.75rem);
     }
 
     30% {
@@ -1395,19 +1450,19 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
     }
 
     45% {
-        transform: translateY(2.25em);
+        transform: translateY(2.25rem);
     }
 
     60% {
-        transform: translateY(2.5em);
+        transform: translateY(2.5rem);
     }
 
     75% {
-        transform: translateY(1.75em);
+        transform: translateY(1.75rem);
     }
 
     90% {
-        transform: translateY(1em);
+        transform: translateY(1rem);
     }
 
     100% {
@@ -1420,6 +1475,7 @@ pre {
     text-align: -webkit-center;
     text-align: center;
     font-size: .85rem;
+    line-height: 2;
 }
 
 #get-the-app div {
@@ -1428,18 +1484,18 @@ pre {
 }
 
 #get-the-app figure:nth-of-type(1) {
-    max-width: 10em;
+    max-width: 10rem;
 }
 
 #get-the-app figure:nth-of-type(2) {
-    max-width: 12.75em;
+    max-width: 12.75rem;
 }
 
 #get-the-app figure:nth-of-type(3) {
     flex: 1 0 0;
     scale: 1;
     width: 100%;
-    max-width: 9.25em;
+    max-width: 9.25rem;
     transition: scale 250ms ease 0s;
 }
 
@@ -1472,22 +1528,20 @@ pre {
 .clients {
     color: var(--color-dark-blue);
     background-color: var(--color-light-grey);
-    gap: 1em;
+    gap: 1rem;
 }
 
-#main-content > section.flexy.row:has(~section.odd) {
+.post > section.flexy.row:has(~section.odd) {
     flex-direction: row-reverse;
 }
 
 #main-message {
-    padding: 2dvh 2dvw;
     color: var(--color-white);
     background-color: var(--accent-color-30);
     min-height: 90dvh;
 }
 
 #main-message hgroup {
-    color: var(--color-white);
     align-content: flex-start;
     align-items: flex-start;
     animation: slide-right 500ms linear 10ms 1 forwards;
@@ -1499,9 +1553,8 @@ pre {
 }
 
 section#more-clients {
-    padding: 0 5dvw;
-    background-color: floralwhite;
-    text-align: center;
+    padding: 1dvh 1dvw;
+    gap: 2rem;
     animation: slide-up 1s linear 100ms 1 forwards;
 }
 
@@ -1515,7 +1568,7 @@ section#more-clients {
     max-width: fit-content;
     cursor: pointer;
     user-select: none;
-    z-index: 99;
+    z-index: 999;
     animation: point-down 1s linear 0s infinite;
 }
 
@@ -1526,39 +1579,42 @@ section#more-clients {
 
 [title~="Continue"] svg,
 [href*="main-content"] svg {
-    height: 10vb;
-    width: 10vb;
+    height: 10dvh;
+    width: 5dvw;
 }
 
 [href*="main-content"] svg {
     rotate: -180deg;
 }
 
-[title~="Continue"]:is(:any-link, :focus, :hover) path,
-[href*="main-content"]:is(:any-link, :focus, :hover) path {
-    fill: var(--accent-color-80);
+[title~="Continue"]:any-link path,
+[href*="main-content"]:any-link path {
+    fill: var(--color-mid-grey);
     transition: all 250ms ease-out 0s;
 }
 
 [title~="Continue"]:is(:focus, :hover) path,
 [href*="main-content"]:is(:focus, :hover) path {
-    fill: var(--accent-color-20);
+    fill: var(--color-black);
     transition: all 250ms ease-in 0s;
 }
 
-[href*="main-content"]:is(:focus, :hover) path {
-    fill: var(--accent-color);
+#more-clients hgroup,
+#client-testimonials hgroup {
+    width: 100%;
+    max-width: 75dvw;
+    align-items: flex-start;
 }
 
 #more-clients .container {
+    flex-wrap: nowrap;
     width: inherit;
     max-width: inherit;
     direction: ltr;
-    height: 100%;
-    min-height: 25vb;
-    max-height: 25vb;
+    height: 25dvh;
+    max-height: 100%;
     align-content: flex-start;
-    gap: 15vb;
+    gap: 4em;
     -webkit-animation-name: move;
     -webkit-animation-duration: 24s;
     -webkit-animation-timing-function: linear;
@@ -1577,13 +1633,13 @@ section#more-clients {
 }
 
 #more-clients figure {
-    padding: 1em;
-    flex: 0 1 20vb;
+    padding: 1rem;
+    flex: 0 0 15dvw;
+    width: 15dvw;
+    flex-wrap: nowrap;
     text-align: center;
     mix-blend-mode: normal;
-    height: 20vb;
-    flex-wrap: nowrap;
-    gap: 1vb;
+    gap: .25rem;
     user-select: none;
     z-index: 999;
 }
@@ -1604,7 +1660,7 @@ section#more-clients {
 #more-clients figure:is(:focus, :hover) {
     cursor: pointer;
     scale: 1.1;
-    box-shadow: 0 0 0.15em var(--color-black-40);
+    box-shadow: 0 0 0.15rem var(--color-black-40);
     background-color: var(--accent-color-90);
 }
 
@@ -1688,28 +1744,11 @@ section#more-clients {
 }
 
 #more-clients .container::before {
-    left: -5em;
+    left: 0;
 }
 
 #more-clients .container::after {
-    right: -5em;
-}
-
-#main-message h1 {
-    max-width: 13em;
-    font-weight: normal;
-}
-
-#compliance-app {
-    background-color: var(--color-white);
-    flex-direction: row-reverse;
-}
-
-#compliance-app :is(hgroup, figure) {
-    padding: 1vb;
-    flex: 0 1 75vb;
-    width: 75vb;
-    max-width: 100%;
+    right: 0;
 }
 
 #compliance-app figure {
@@ -1718,32 +1757,28 @@ section#more-clients {
 
 #compliance-app>figure>a>img {
     border-top-left-radius: 20em;
-    border-bottom-left-radius: 15em;
-    box-shadow: 1.25em .65em 0 var(--accent-color-90);
+    border-bottom-left-radius: 15rem;
+    box-shadow: 1.25rem .65rem 0 var(--accent-color-90);
     transition: box-shadow 250ms ease-in 0s;
 }
 
 #compliance-app>figure>a:is(:focus, :hover)>img {
-    box-shadow: 1.25em .65em 0 var(--accent-color-80);
+    box-shadow: 1.25rem .65rem 0 var(--accent-color-80);
     transition: box-shadow 250ms ease-out 0s;
-}
-
-#compliance-app hgroup {
-    align-content: flex-start;
 }
 
 .five-points {
     padding: 2em 0;
-    gap: .25em;
+    gap: .25rem;
 }
 
 .five-points div {
-    padding: 1em;
+    padding: 1rem;
     flex: 0 1 18%;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 1em;
-    height: 25em;
+    gap: 1rem;
+    height: 25rem;
 }
 
 .five-points span:first-of-type {
@@ -1781,7 +1816,7 @@ section#more-clients {
     bottom: 0;
     color: var(--color-light-grey);
     background-color: var(--color-black);
-    gap: 1em;
+    gap: 1rem;
     opacity: .9;
     z-index: 999;
 }
@@ -2026,7 +2061,7 @@ section#more-clients {
 }
 
 form {
-    padding: 1vb;
+    padding: 1rem;
     position: relative;
     flex: 0 1 fit-content;
     height: fit-content;
@@ -2037,39 +2072,26 @@ form {
 
 section {
     flex: 1 0 100%;
-    width: 100dvw;
-    max-width: 100%;
     min-height: 100dvh;
-    max-height: 100%;
 }
-
-header,
-hgroup {
-    text-align: center;
-    width: 100dvw;
-    max-width: 100%;
-    background-color: transparent;
-    flex: 0 1 35dvw;
-}
-
 
 /* Start of general partials styles */
 
 section:is(#briefly,
-#client-testimonials,
 #check-our-vacancies,
 #get-the-app,
 #briefly) {
     padding: 15dvh 15dvw;
-    gap: 1em;
+    gap: 1rem;
 }
 
 section#get-the-app :is(hgroup, figure),
-section#more-clients :is(hgroup, figure),
 section#client-testimonials :is(hgroup, figure),
 section#partner-with-leaders :is(hgroup, figure),
 section#rapid-integration :is(hgroup, figure) {
     flex: 0 1 fit-content;
+    align-content: flex-start;
+    align-items: flex-start
 }
 
 section#briefly {
@@ -2079,18 +2101,7 @@ section#briefly {
 
 section#partner-with-leaders {
     padding: 15dvh 10dvw;
-    background-color: var(--accent-color-90);
     gap: 2em;
-}
-
-section#client-testimonials {
-    background-color: var(--accent-color-90);
-}
-
-section#newsletter {
-    color: royalblue;
-    background-color: royalblue;
-    justify-content: center;
 }
 
 section#get-the-app {
@@ -2106,6 +2117,14 @@ section#check-our-vacancies {
 
 #check-our-vacancies hgroup {
     flex: 0 1 fit-content;
+    align-items: flex-start;
+}
+
+#check-our-vacancies .container {
+    align-self: center;
+    outline: thin dashed black;
+    padding: 2dvh 2dvw;
+    width: 100dvw;
 }
 
 /* End of general partials styles */
@@ -2114,7 +2133,7 @@ section#check-our-vacancies {
 
 section#tabs-about,
 section#rapid-integration {
-    padding: 15dvh 15dvw;
+    padding: 8dvh 20dvw;
     min-height: 50dvh;
 }
 
@@ -2123,10 +2142,17 @@ section#tabs-about {
 }
 
 #tabs-about header {
-    flex: 0;
+    align-items: start;
 }
 
-#tabs-about h2 {
+#rapid-integration article {
+    padding: 1dvh 1dvw;
+    gap: 1rem;
+}
+
+#tabs-about h2,
+#rapid-integration h2 {
+    padding: 1dvh 1dvw;
     text-transform: capitalize;
 }
 
@@ -2139,7 +2165,7 @@ section#tabs-about {
 
 #tabs-about .buttons a {
     flex: 1 0 fit-content;
-    padding: 1vb 4vb;
+    padding: 1rem 4vb;
     width: fit-content;
     text-align: center;
     font-size: 1rem;
@@ -2153,13 +2179,15 @@ section#tabs-about {
 #tabs-about .buttons a:hover {
     flex-grow: 2;
     color: var(--color-black);
-    background-color: goldenrod;
+    background-color: var(--color-yellow);
+    transition: all ease-in-out 250ms 0s;
 }
 
 #tabs-about .buttons a.active {
     flex-grow: 3;
     color: var(--color-black);
     background-color: gold;
+    transition: all ease-in-out 250ms 0s;
 }
 
 #tabs-about article {
@@ -2169,21 +2197,14 @@ section#tabs-about {
     background-color: gold;
 }
 
-#tabs-about article :is(hgroup, pre, p) {
-    padding: .75vb;
-    background-color: inherit;
-    width: inherit;
-    max-width: inherit
-}
-
 #tabs-about article hgroup {
-    padding: 1em;
+    border: 0;
+    padding: 1dvh 1dvw;
     flex: 1 0 100%;
+    justify-content: flex-start;
     display: none;
     opacity: 0;
     z-index: 0;
-    width: 100dvw;
-    gap: .5em;
     transition: all ease-out 250ms 0s;
 }
 
@@ -2193,13 +2214,8 @@ section#tabs-about {
     font-size: 2.15rem;
 }
 
-#tabs-about hgroup p {
-    padding: 0;
-    font-size: 1.05rem;
-    font-weight: 400;
-}
-
 #tabs-about article hgroup.active {
+    border: thick dashed currentColor;
     display: flex;
     opacity: 1;
     z-index: 1;
@@ -2210,42 +2226,32 @@ section#tabs-about {
     text-align: center;
 }
 
-body.page-about #content [data-divider="bottom"] path,
-body.page-about #default-footer [data-divider="top"] path {
-    fill: gold;
-}
-
-#tabs-about [title~="Continue"]:any-link path,
-body.page-about #content [title~="Continue"]:any-link path {
-    fill: goldenrod;
-}
-
-#tabs-about [title~="Continue"]:is(:focus, :hover) path,
-body.page-about #content [title~="Continue"]:is(:focus, :hover) path {
-    fill: var(--color-black);
-}
-
 /* End of tabs-about partial styles */
 
+section#newsletter {
+    padding: 1dvh 4dvw;
+    padding-bottom: 10dvh;
+    justify-content: center;
+}
+
 form#join-newsletter {
-    flex: 0;
-    padding: 4vb 2vb;
+    padding: 2dvh 2dvw;
     background-color: var(--accent-color-90);
-    box-shadow: .25em .65em 0 var(--accent-color-80);
+    box-shadow: .15rem .25rem 0 var(--accent-color-80);
     outline: thin solid var(--accent-color-80);
     border-top-left-radius: 5vb;
     border-bottom-right-radius: 5vb;
+    width: 85dvw;
     transform: none;
     transition: all ease-in 250ms 0s;
 }
 
 form#join-newsletter:is(:focus, :focus-within, :hover) {
-    transform: translate(0, -.25em);
+    transform: translate(0, -.25rem);
     transition: all ease-out 250ms 0s;
 }
 
 form#join-newsletter pre {
-    padding: 1vb;
     text-align: start;
     opacity: 1;
     font-size: initial;
@@ -2257,27 +2263,25 @@ form#join-newsletter fieldset {
     flex-wrap: wrap;
     align-content: stretch;
     width: 100dvw;
-    max-width: 100% !important;
+    max-width: 100%;
     color: var(--color-black);
     z-index: 1;
 }
 
 form#join-newsletter :is(fieldset, legend, div, p, label, input) {
-    max-width: max-content;
-    align-self: stretch;
     text-align: start;
     align-content: flex-start;
 }
 
-form#join-newsletter fieldset div {
-    padding: 1vb;
-    justify-content: center;
-    max-width: 100%;
-    gap: 2vb;
+form#join-newsletter legend {
+    padding-bottom: .5rem;
+    align-items: flex-start;
+    gap: .5rem;
 }
 
-form#join-newsletter fieldset .controls {
-    gap: 4vb;
+form#join-newsletter fieldset div {
+    width: 100%;
+    gap: 2rem;
 }
 
 form#join-newsletter [data-divider="bottom"] {
@@ -2294,18 +2298,13 @@ form#join-newsletter [data-divider="bottom"] path {
 }
 
 form#join-newsletter p {
-    padding: 1vb;
-    opacity: 1;
     font-size: 1rem;
-    color: inherit;
-    user-select: text;
-    transition: all 250ms ease-in-out 0s;
 }
 
 form#join-newsletter label {
     display: flex;
     flex-direction: column;
-    gap: .25em;
+    gap: .25rem;
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
@@ -2315,7 +2314,7 @@ form#join-newsletter label {
 
 form#join-newsletter input,
 form#join-newsletter select {
-    padding: .5em;
+    padding: .5rem;
     font-size: 1.1rem;
     font-weight: normal;
     border-radius: 0;
@@ -2335,25 +2334,25 @@ form#join-newsletter option:disabled {
 }
 
 form#join-newsletter input:is([type="submit"], [type="reset"]) {
-    padding: 1vb 2vb;
+    padding: 1rem 2vb;
     font-weight: 500;
     align-self: center;
     position: relative;
     display: block;
     text-decoration: none;
     font-weight: bold;
-    color: royalblue;
-    background-color: #4169e160;
-    box-shadow: .15em .15em 0 #4169e180;
+    color: var(--accent-color);
+    background-color: var(--accent-color-80);
+    box-shadow: .15rem .15rem 0 var(--accent-color-70);
     outline: 0;
     transition: all ease-in 250ms 0s;
 }
 
 form#join-newsletter input:is([type="submit"], [type="reset"]):is(:focus, :hover) {
     color: var(--accent-color-100);
-    background-color: royalblue;
-    box-shadow: .15em .15em 0 #4169e180;
-    outline: thin solid #4169e180;
+    background-color: var(--accent-color);
+    box-shadow: .15rem .15rem 0 var(--accent-color-80);
+    outline: thin solid var(--accent-color-80);
     transition: all ease-out 250ms 0s;
 }
 
@@ -2369,10 +2368,9 @@ form#join-newsletter a:is(:focus, :hover) {
 
 footer:has(#sharing-is-caring) {
     width: 100%;
-    z-index: 3;
 }
 
-#main-content #sharing-is-caring {
+.post #sharing-is-caring {
     padding: 5vb 0;
     width: 100%;
     height: auto;
@@ -2380,45 +2378,57 @@ footer:has(#sharing-is-caring) {
     user-select: none;
 }
 
-#main-content #sharing-is-caring h6 {
+.post #sharing-is-caring h6 {
+    padding: 0;
     width: fit-content;
 }
 
-#main-content #sharing-is-caring h6::before {
+.post #sharing-is-caring h6::before {
     display: none;
     content: "\27A6";
 }
 
-#main-content #sharing-is-caring ul {
+.post #sharing-is-caring ul {
+    padding: 0;
     list-style-type: none;
     gap: 2vb;
 }
 
-#main-content #sharing-is-caring a {
+.post #sharing-is-caring li {
+    padding: 0;
+}
+
+.post #sharing-is-caring a:any-link {
+    padding: 0;
     text-decoration: none;
 }
 
-#main-content #sharing-is-caring a:is(:focus, :hover) {
+.post #sharing-is-caring a:is(:focus, :hover) {
     text-decoration: underline;
 }
 
 /* Client's testimonials and reviews: /partials/testimonials.hbs */
 
+section#client-testimonials {
+    padding: 1dvh 4dvw;
+    padding-bottom: 10dvh;
+    gap: 1rem;
+}
+
 #client-testimonials ol {
     list-style: none;
-    gap: 2vb;
+    gap: 1rem;
     z-index: 999;
     user-select: none;
 }
 
 #client-testimonials ol li {
-    flex: 0 1 1.5em;
-    width: 1.5em;
-    height: 1.5em;
-    border: thin solid var(--accent-color-50);
+    flex: 0 1 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: thin solid var(--color-black-40);
     border-radius: 50%;
-    color: currentColor;
-    background-color: var(--accent-color-90);
+    background-color: var(--color-mid-grey);
     text-align: center;
     font-size: 1rem;
     font-weight: bold;
@@ -2429,22 +2439,22 @@ footer:has(#sharing-is-caring) {
 
 #client-testimonials li.currently-active,
 #client-testimonials li:is(:focus, :hover) {
-    color: var(--accent-color);
-    background-color: var(--accent-color-20);
-    border-color: var(--accent-color-20);
+    background-color: var(--color-black);
+    border-color: var(--color-black);
     scale: 1.25;
     transition: all 250ms ease-in 0s;
 }
 
 .container.flexy {
     will-change: contents;
-    gap: 1vb;
+    gap: 1rem;
 }
 
 #client-testimonials .container .post {
+    margin: 1dvh 1dvw;
     border: 0;
     border-radius: 0;
-    padding: 1vb 2vb;
+    padding: 1dvh 2dvw;
     flex: 0 1 70dvw;
     width: 100%;
     max-width: 70dvw;
@@ -2453,20 +2463,20 @@ footer:has(#sharing-is-caring) {
     display: none;
     visibility: hidden;
     opacity: 0;
-    gap: 1vb;
+    gap: 1rem;
     user-select: text;
     cursor: default;
     outline-width: 0;
     outline-style: solid;
     outline-color: var(--accent-color-80);
     transform: none;
-    box-shadow: .15em .15em 0 var(--accent-color-80);
+    box-shadow: .15rem .15rem 0 var(--accent-color-80);
     transition: all 250ms ease-in-out 0s;
 }
 
 #client-testimonials .container .post:is(:active, :hover) {
-    transform: translate(0, -.15em);
-    box-shadow: .25em .25em 0 var(--accent-color-80);
+    transform: translate(0, -.15rem);
+    box-shadow: .25rem .25rem 0 var(--accent-color-80);
 }
 
 #client-testimonials .container .post.currently-active {
@@ -2525,7 +2535,7 @@ footer:has(#sharing-is-caring) {
 }
 
 #client-testimonials .post p {
-    padding: 0 1vb;
+    padding: 0 1rem;
     font-size: 1.1rem;
     text-align: justify;
 }
@@ -2566,14 +2576,14 @@ footer:has(#sharing-is-caring) {
 #client-testimonials .prev-testimonial svg {
     max-width: 100%;
     width: 6dvw;
-    fill: var(--accent-color-80);
+    fill: var(--color-mid-grey);
     scale: 1;
     transition: all 250ms ease-in-out 0s;
 }
 
 #client-testimonials .next-testimonial:is(:focus, :hover) svg,
 #client-testimonials .prev-testimonial:is(:focus, :hover) svg {
-    fill: var(--accent-color);
+    fill: var(--color-black);
     scale: 1.25;
     animation: point-down 1s linear 0s infinite;
     transition: all 250ms ease-in-out 0s;
@@ -2592,43 +2602,50 @@ footer:has(#sharing-is-caring) {
 /* Meet our team: /partials/team-members.hbs */
 
 section#meet-our-team {
-    padding: 15dvh 15dvw;
-    background-color: var(--color-light-grey);
+    padding: 4.5dvh 21dvw;
 }
 
 #meet-our-team .container {
-    padding: 1em;
-    padding-bottom: 5em;
-    gap: 2em;
+    align-items: flex-start;
+    gap: 2rem;
 }
 
 #meet-our-team .container .post {
-    flex: 1 0 40vb;
-    max-width: 100%;
-    width: 40vb;
-    gap: 1em;
-    cursor: default;
-    user-select: text;
-    background-color: transparent;
+    flex: 1 0 15dvw;
+    width: 15dvw;
+    gap: 1rem;
     transform: translate(0, 0);
     transition: all 250ms ease-out 0s;
 }
 
 #meet-our-team .container .post:is(:active, :hover) {
-    transform: translate(0, -.25em);
+    transform: translate(0, -.25rem);
     transition: all 250ms ease-in 0s;
 }
 
 #meet-our-team .post :is(header, div) {
-    flex: 1 0 40vb;
-    width: 40vb;
-    max-width: 100%;
-    gap: 1vb;
+    flex: 1 1 30dvw;
+    width: 30dvw;
+    gap: .5rem;
     transition-timing-function: ease-in;
 }
 
 #meet-our-team .post div {
     align-items: flex-start;
+}
+
+#meet-our-team .post p {
+    font-size: .9rem;
+}
+
+#meet-our-team .post a:any-link {
+    text-align: start;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+#meet-our-team .post a:is(:active, :focus, :hover) {
+    text-decoration: underline;
 }
 
 #meet-our-team .post h3 {
@@ -2640,22 +2657,20 @@ section#meet-our-team {
 }
 
 #meet-our-team .post figure {
-    position: relative;
+    padding: 0;
     width: 100dvw;
-    max-width: 100%;
     height: 50dvh;
-    max-height: 100%;
     filter: grayscale(.5);
     transition: all 250ms ease-in-out 0s;
 }
 
 #meet-our-team .container .post:is(:active, :hover) figure {
-    filter: drop-shadow(.05em .1em .15em var(--color-black));
+    filter: drop-shadow(.05em .1rem .15rem var(--color-black));
     transition: all 250ms ease-in-out 0s;
 }
 
 #meet-our-team .post figcaption {
-    padding: .5em;
+    padding: .5rem;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -2669,17 +2684,10 @@ section#meet-our-team {
     display: none;
 }
 
-#meet-our-team .post p {
-    font-size: 1.15rem;
-    line-height: 1.5;
-}
-
-#meet-our-team .post p:not(:first-of-type) {
-    margin-top: .85em;
-}
-
 #meet-our-team hgroup {
     flex: 0 1 fit-content;
+    align-items: flex-start;
+    align-content: flex-start;
 }
 
 @media screen and (max-width: 1520px) {

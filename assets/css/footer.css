@@ -1,29 +1,19 @@
 footer {
     position: static;
-    background-color: transparent;
 }
 
 #default-footer {
-    padding: 2em;
-    padding-top: 20dvh;
+    padding: 1dvh 2dvw;
+    padding-top: 25dvh;
     position: relative;
     width: 100dvw;
     max-width: 100%;
     min-height: 90dvh;
-    gap: 1em;
+    gap: 1rem;
     color: var(--color-black);
     background-color: var(--accent-color-90);
     overflow: hidden;
-    font-size: 1.1rem;
-}
-
-#default-footer [href*="main-content"] {
-    right: unset;
-    bottom: 0;
-}
-
-#default-footer [data-divider="top"] path {
-    fill: royalblue;
+    font-size: 1rem;
 }
 
 #default-footer div {
@@ -42,9 +32,10 @@ footer {
 }
 
 #default-footer > div:nth-child(4) {
-    padding: 1vb 2vb;
-    font-weight: bold;
-    font-size: .9rem;
+    padding: 1dvh 2dvw;
+    padding-bottom: 10dvh;
+    font-weight: 500;
+    font-size: .85rem;
     text-align: center;
 }
 
@@ -64,6 +55,8 @@ main > section.row > footer {
 #default-footer > div:first-child :is(figure, div, address) {
     flex: 0 0 20%;
     min-width: 20%;
+    width: 100dvw;
+    max-width: 100%;
     align-items: flex-start;
     align-content: flex-start;
     text-transform: capitalize;
@@ -93,13 +86,13 @@ main > section.row > footer {
     list-style-type: none;
 }
 
-#default-footer a {
+#default-footer a:any-link {
     text-decoration: none;
+    font-weight: 500;
 }
 
 #default-footer a:is(:focus, :hover) {
     color: var(--color-orange);
-    font-weight: bold;
 }
 
 #default-footer .social-icons {

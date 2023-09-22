@@ -1,127 +1,54 @@
-/* Index:
-- Page template
-- Post template
-*/
+/* Tag heading */
 
-/* Root */
-
-:root {
-    --ghost-accent-color: hsl(12, 15%, 40%) !important;
-    --ghost-accent-color-lighter: rgba(var(--ghost-accent-color), .85);
-    --ghost-accent-color-secondary: rgb(from var(--ghost-accent-color) h c calc(l + 5%));
-}
-
-/* Page template */
-
-.tag-template.tag-solutions #main-content {
-    margin: 0;
-    padding: 0;
-    gap: 1em;
-    color: var(--accent-color-10);
-    background-color: var(--accent-color-100);
-}
-
-.tag-template.tag-solutions #main-content figure {
-    position: relative;
-    margin-bottom: 1em;
-    flex: 1 0 40dvh;
-    min-height: 40dvh;
-    width: 100%;
-    background-color: var(--accent-color);
-    background-position: bottom center;
-}
-
-.tag-template.tag-solutions #main-content [data-divider="bottom"] {
-    rotate: 360deg;
-    scale: -1 1;
-    bottom: -1em;
-}
-
-.tag-template.tag-solutions #main-content [data-divider="bottom"] path {
-    fill: var(--accent-color-100);
-}
-
-.tag-template.tag-solutions #main-content [data-divider="bottom"] ~ img {
-    display: none;
-}
-
-.tag-template.tag-solutions #main-content header {
+.tag-solutions .post hgroup {
     flex: 1 0 100%;
     text-align: justify;
-    cursor: default;
+    align-items: flex-start;
 }
 
-.tag-template.tag-solutions #main-content header p {
-    margin: 1em auto 1em 4em;
-    text-align: inherit;
-    font-size: 2rem;
-    max-width: 94%;
-    width: 70dvw;
-    color: var(--color-black);
-}
-
-.tag-template.tag-solutions #main-content header p:hover {
-    text-shadow: .05em .05em 0 var(--accent-color-100);
-}
-
-.tag-template.tag-solutions #main-content h1 {
-    margin-top: .5em;
-    margin-left: 2em;
-    color: var(--accent-color-10);
-    color: currentColor;
-    text-transform: capitalize;
-    text-transform: uppercase;
-    font-size: 3.25em;
-    line-height: normal;
-    max-width: 100%;
-    cursor: default;
-}
-
-.tag-template.tag-solutions #main-content h1:hover {
-    color: var(--accent-color);
-    text-shadow: .05em .05em 0 var(--accent-color-100);
-    text-decoration-color: var(--accent-color-100);
-}
-
-.tag-template.tag-solutions #main-content header a {
+.tag-solutions .post hgroup a {
     position: absolute;
-    top: 0;
-    right: 10vb;
+    top: 10em;
+    right: 2em;
     max-width: 100%;
-    width: 15dvw;
+    width: 10dvw;
     animation: point-down 750ms linear 0s infinite;
     cursor: pointer;
 }
 
-.tag-template.tag-solutions #main-content header path {
-    fill: var(--accent-color-80);
-    transition: all 150ms ease-in 0s;
-}
-
-.tag-template.tag-solutions #main-content header svg {
+.tag-solutions .post svg {
     stroke: var(--accent-color-80);
     stroke-width: 0;
     stroke-dasharray: 1, 1;
     stroke-linejoin: round;
 }
 
-.tag-template.tag-solutions #main-content header svg:hover {
+.tag-solutions .post svg:hover {
     stroke: var(--accent-color-20);
 }
 
-.tag-template.tag-solutions #main-content header svg:hover path {
+.tag-solutions .post path {
+    fill: var(--accent-color-80);
+    transition: all 150ms ease-in 0s;
+}
+
+.tag-solutions .post svg:hover path {
     fill: var(--accent-color-20);
     transition: all 150ms ease-out 0s;
 }
 
-.tag-template.tag-solutions #main-content .container {
-    padding: 2em;
+/* The container */
+
+.tag-solutions .post .container {
+    padding: 0 10dvw;
     padding-top: 8em;
     align-items: flex-start;
     gap: 4em;
 }
 
-.tag-template.tag-solutions #main-content article {
+/* The card */
+
+.tag-solutions .post .container article {
     flex: 1 0 27dvw;
     max-width: 27dvw;
     padding: 0;
@@ -129,7 +56,7 @@
     outline: thin solid currentColor;
     background-color: var(--accent-color-100);
     align-items: flex-start;
-    gap: 1vb;
+    gap: 1em;
     -webkit-box-shadow: .25em .25em 0 var(--accent-color-80);
     box-shadow: .25em .25em 0 var(--accent-color-80);
     border-radius: .25em;
@@ -137,7 +64,7 @@
     transition: all ease-in 150ms 0s;
 }
 
-.tag-template.tag-solutions #main-content article:hover {
+.tag-solutions .post .container article:hover {
     outline-width: .1em;
     cursor: pointer;
     background-color: var(--accent-color-120);
@@ -145,18 +72,17 @@
     transition: all ease-out 150ms 0s;
 }
 
-.tag-template.tag-solutions #main-content article:hover>*:is(a, p) {
+.tag-solutions .post .container article:hover :is(a, p) {
     display: block;
-    color: var(--accent-color-10);
     width: fit-content;
 }
 
-.tag-template.tag-solutions #main-content article:hover p {
+.tag-solutions .post .container article:hover p {
     width: 100%;
-    color: var(--accent-color);
+    color: var(--color-black);
 }
 
-.tag-template.tag-solutions #main-content article:hover>a {
+.tag-solutions .post .container article:hover a {
     font-weight: 700;
     text-decoration: underline;
     color: var(--accent-color-100);
@@ -168,124 +94,121 @@
     transition: all ease-out 200ms 0s;
 }
 
-.tag-template.tag-solutions #main-content article:hover figure img {
+/*.tag-solutions .post .container article:hover img {
     scale: 1.1;
     transition: scale ease-out 250ms 0s;
-}
+}*/
 
-.tag-template.tag-solutions #main-content article.odd:hover {
+.tag-solutions .post .container .odd:hover {
     -webkit-box-shadow-: .3em .3em 0 var(--accent-color-50);
     box-shadow: .3em .3em 0 var(--accent-color-50);
     outline-color: var(--accent-color-50);
 }
 
-.tag-template.tag-solutions #main-content article.odd:hover>a {
+.tag-solutions .post .container .odd:hover a {
     background-color: var(--accent-color-10);
 }
 
-.tag-template.tag-solutions #main-content article.even:hover {
+.tag-solutions .post .container .even:hover {
     -webkit-box-shadow: .3em .3em 0 var(--accent-color-20);
     box-shadow: .3em .3em 0 var(--accent-color-20);
     outline-color: var(--accent-color-20);
 }
 
-.tag-template.tag-solutions #main-content article:hover h2 {
+.tag-solutions .post .container article:hover h2 {
     text-shadow: 0 0 10em var(--accent-color-80);
 }
 
-.tag-template.tag-solutions #main-content article.odd:hover h2 {
+.tag-solutions .post .container .odd:hover h2 {
     color: var(--accent-color-20);
 }
 
-.tag-template.tag-solutions #main-content article.even:hover h2 {
+.tag-solutions .post .container .even:hover h2 {
     color: var(--accent-color);
 }
 
-.tag-template.tag-solutions #main-content article h2 {
+.tag-solutions .post .container h2 {
+    flex: 0 1 fit-content;
     margin-right: auto;
-    padding: .85em .75em 0;
-    list-style: normal;
+    padding: 1dvh 1dvw 0;
     color: var(--accent-color-30);
 }
 
-.tag-template.tag-solutions #main-content article>p {
-    padding: 0 1.5em;
+.tag-solutions .post .container p {
+    margin: 0;
+    padding: 0 1dvw;
     text-align: justify;
-    font-size: 1.35rem;
-    color: var(--color-black);
+    color: var(--color-mid-grey);
 }
 
-.tag-template.tag-solutions #main-content article>a {
-    margin-left: 1.5em;
-    margin-bottom: 1.25em;
+.tag-solutions .post .container a {
     position: relative;
     display: block;
-    padding: .5em 1.5em;
-    padding-right: 2.5em;
+    margin-left: 1dvw;
+    padding: 1dvh 2dvw;
+    padding-right: 2dvw;
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--accent-color);
     background-color: var(--accent-color-80);
     transition: all ease-in 200ms 0s;
 }
 
-.tag-template.tag-solutions #main-content article>a::after {
+.tag-solutions .post .container a::after {
     position: absolute;
     right: .75em;
     bottom: .5em;
     content: "\2197";
-    font-size: 1em;
+    font-size: 1rem;
     color: var(--accent-color-70);
     transition: all ease-in 200ms 0s;
 }
 
-.tag-template.tag-solutions #main-content article:hover>a::after {
+.tag-solutions .post .container article:hover a::after {
     right: .35em;
     bottom: 0;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     color: var(--accent-color-80);
     transition: all ease-out 200ms 0s;
 }
 
-.tag-template.tag-solutions #main-content article>figure {
+.tag-solutions .post .container figure {
     border-radius: inherit;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     overflow: hidden;
     margin-bottom: 0;
+    background-color: var(--tag-accent-color);
+    background-position: center center;
 }
 
-.tag-template.tag-solutions #main-content article>figure>img {
+/*.tag-solutions .post .container img {
+    display: block;
     border-radius: inherit;
     scale: 1;
     transition: scale ease-in 250ms 0s;
-}
+}*/
 
 /* Post template */
 
-.post-template.tag-solutions #main-content section {
-    color: var(--color-black);
-    background-color: var(--accent-color-100);
-    min-height: 100dvh;
+.post-template.tag-solutions .post #content {
+    padding-top: 10dvh;
 }
 
-.post-template.tag-solutions #main-content #content {
-    padding-top: 15vb;
-}
-
-.post-template.tag-solutions #main-content section:first-of-type {
+.post-template.tag-solutions .post section:first-of-type {
     min-height: 90dvh;
-    background-color: var(--accent-color-30);
     justify-content: space-evenly;
-    gap: 1vb;
+    gap: 1em;
 }
 
-.post-template.tag-solutions #main-content section:first-of-type :is(hgroup, figure) {
+.post-template.tag-solutions .post section:first-of-type :is(hgroup, figure) {
     flex: 0 0 45dvw;
+    height: 50dvh;
+    width: 45dvw;
 }
 
-.post-template.tag-solutions #main-content [data-slug="communication"],
-.post-template.tag-solutions #main-content [data-slug="estates"] {
+.post-template.tag-solutions .post [data-slug="communication"],
+.post-template.tag-solutions .post [data-slug="estates"] {
     flex-direction: row-reverse;
 }
