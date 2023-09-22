@@ -10,8 +10,6 @@
                 <label for="lead-fname" title="First name">First name&colon;<input type="text" name="fname" id="lead-fname" autocomplete="given-name" required="required" /></label>
                 <label for="lead-lname" title="Last name">Last name&colon;<input type="text" name="lname" id="lead-lname" autocomplete="family-name" required="required" /></label>
                 <label for="lead-email" title="Email address">Email address&colon;<input type="email" name="email" id="lead-email" autocomplete="email" required="required" /></label>
-            </div>
-            <div class="flexy row">
                 <label for="lead-industry" title="Please select your industry">I work as&colon;<select name="industry" id="lead-industry" size="1" autocomplete="off" required="required">
                     <option value="" disabled="disabled" selected="selected">Please select an option&hellip;</option>
                     <option value="contractors">Contractors</option>
@@ -32,9 +30,6 @@
             </div>
         </fieldset>  
     </form>
-    <div data-divider="top">
-        {{> "icons/divider-waves"}}
-    </div>
     <footer class="flexy">
         <a href="#default-footer" title="Continue to the site footer&hellip;">
             {{> "icons/angle-down"}}
