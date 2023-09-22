@@ -32,12 +32,14 @@ window.addEventListener("load", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+    if("virtualKeyboard" in window.navigator) window.navigator.virtualKeyboard.overlaysContent = true;
     // Get the contact main nav item
-    const getInTouchLinks = document.querySelectorAll(`a[href$="/contact/" i]`) || null;
+    startMainModal("get-in-touch", ".show-modal");
+    /*const getInTouchLinks = document.querySelectorAll(`a[href$="/contact/" i]`) || null;
     if (!!getInTouchLinks) {
         getInTouchLinks.forEach(link => link.classList.add("show-modal"));
         startMainModal("get-in-touch", ".show-modal");
-    }
+    }*/
 
     const nav = document.querySelector("body > header > nav");
     if (!!nav) enableNavMenu(nav);
