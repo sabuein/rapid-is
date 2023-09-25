@@ -1,152 +1,82 @@
 /* Tag heading */
 
-.tag-solutions .post hgroup {
-    flex: 1 0 100%;
+.tag-solutions .post > hgroup {
+    flex: 1 0 fit-content;
+    width: fit-content;
     text-align: justify;
     align-items: flex-start;
+    gap: .5rem;
 }
 
-.tag-solutions .post hgroup a {
+.tag-solutions .post > hgroup a {
     position: absolute;
-    top: 10em;
-    right: 2em;
+    top: 5dvh;
+    right: 2dvw;
     max-width: 100%;
     width: 10dvw;
     animation: point-down 750ms linear 0s infinite;
     cursor: pointer;
 }
 
-.tag-solutions .post svg {
-    stroke: var(--accent-color-80);
-    stroke-width: 0;
-    stroke-dasharray: 1, 1;
-    stroke-linejoin: round;
-}
-
-.tag-solutions .post svg:hover {
-    stroke: var(--accent-color-20);
-}
-
-.tag-solutions .post path {
-    fill: var(--accent-color-80);
-    transition: all 150ms ease-in 0s;
-}
-
-.tag-solutions .post svg:hover path {
-    fill: var(--accent-color-20);
-    transition: all 150ms ease-out 0s;
+.tag-solutions .post > hgroup a svg {
+    height: auto;
+    width: 10dvw;
 }
 
 /* The container */
 
 .tag-solutions .post .container {
-    padding: 0 10dvw;
-    padding-top: 8em;
-    align-items: flex-start;
-    gap: 4em;
+    padding: 15dvh 1dvw;
+    gap: 5rem;
 }
 
 /* The card */
 
 .tag-solutions .post .container article {
-    flex: 1 0 27dvw;
-    max-width: 27dvw;
-    padding: 0;
-    margin-bottom: 2em;
-    outline: thin solid currentColor;
+    cursor: pointer;
+    flex: 0 0 22dvw;
+    width: 22dvw;
     background-color: var(--accent-color-100);
     align-items: flex-start;
-    gap: 1em;
-    -webkit-box-shadow: .25em .25em 0 var(--accent-color-80);
-    box-shadow: .25em .25em 0 var(--accent-color-80);
-    border-radius: .25em;
+    gap: 1rem;
     overflow: hidden;
     transition: all ease-in 150ms 0s;
 }
 
 .tag-solutions .post .container article:hover {
-    outline-width: .1em;
-    cursor: pointer;
     background-color: var(--accent-color-120);
-    transform: translate(.1em, -.2em);
+    transform: translate(.1rem, -.2rem);
     transition: all ease-out 150ms 0s;
 }
 
-.tag-solutions .post .container article:hover :is(a, p) {
-    display: block;
-    width: fit-content;
-}
-
-.tag-solutions .post .container article:hover p {
-    width: 100%;
-    color: var(--color-black);
-}
-
-.tag-solutions .post .container article:hover a {
-    font-weight: 700;
-    text-decoration: underline;
-    color: var(--accent-color-100);
-    background-color: var(--accent-color);
-    text-shadow: 0 0 5em var(--accent-color-50);
-    -webkit-box-shadow: .15em .15em 0 var(--accent-color-80);
-    box-shadow: .15em .15em 0 var(--accent-color-80);
-    padding-right: 3em;
-    transition: all ease-out 200ms 0s;
-}
-
-/*.tag-solutions .post .container article:hover img {
-    scale: 1.1;
-    transition: scale ease-out 250ms 0s;
-}*/
-
 .tag-solutions .post .container .odd:hover {
-    -webkit-box-shadow-: .3em .3em 0 var(--accent-color-50);
-    box-shadow: .3em .3em 0 var(--accent-color-50);
+    -webkit-box-shadow-: .25rem .25rem 0 var(--accent-color-50);
+    box-shadow: .25rem .25rem 0 var(--accent-color-50);
     outline-color: var(--accent-color-50);
 }
 
-.tag-solutions .post .container .odd:hover a {
-    background-color: var(--accent-color-10);
-}
-
 .tag-solutions .post .container .even:hover {
-    -webkit-box-shadow: .3em .3em 0 var(--accent-color-20);
-    box-shadow: .3em .3em 0 var(--accent-color-20);
+    -webkit-box-shadow: .25rem .25rem 0 var(--accent-color-20);
+    box-shadow: .25rem .25rem 0 var(--accent-color-20);
     outline-color: var(--accent-color-20);
 }
 
-.tag-solutions .post .container article:hover h2 {
-    text-shadow: 0 0 10em var(--accent-color-80);
-}
-
-.tag-solutions .post .container .odd:hover h2 {
-    color: var(--accent-color-20);
-}
-
-.tag-solutions .post .container .even:hover h2 {
+.tag-solutions .post .container h2 {
+    padding: 1dvh 1dvw 0;
+    flex: 0 1 fit-content;
+    width: fit-content;
     color: var(--accent-color);
 }
 
-.tag-solutions .post .container h2 {
-    flex: 0 1 fit-content;
-    margin-right: auto;
-    padding: 1dvh 1dvw 0;
-    color: var(--accent-color-30);
-}
-
 .tag-solutions .post .container p {
-    margin: 0;
     padding: 0 1dvw;
-    text-align: justify;
-    color: var(--color-mid-grey);
 }
 
 .tag-solutions .post .container a {
     position: relative;
     display: block;
     margin-left: 1dvw;
-    padding: 1dvh 2dvw;
-    padding-right: 2dvw;
+    padding: 2dvh 2dvw;
     text-decoration: none;
     font-weight: 500;
     font-size: 1.25rem;
@@ -155,10 +85,21 @@
     transition: all ease-in 200ms 0s;
 }
 
+.tag-solutions .post .container article:hover a {
+    font-weight: 600;
+    color: var(--accent-color-100);
+    background-color: var(--accent-color);
+    text-shadow: 0 0 5rem var(--accent-color-50);
+    -webkit-box-shadow: .15rem .15rem 0 var(--accent-color-80);
+    box-shadow: .15rem .15rem 0 var(--accent-color-80);
+    padding-right: 4dvw;
+    transition: all ease-out 200ms 0s;
+}
+
 .tag-solutions .post .container a::after {
     position: absolute;
-    right: .75em;
-    bottom: .5em;
+    right: .5rem;
+    bottom: 1rem;
     content: "\2197";
     font-size: 1rem;
     color: var(--accent-color-70);
@@ -166,29 +107,24 @@
 }
 
 .tag-solutions .post .container article:hover a::after {
-    right: .35em;
-    bottom: 0;
+    right: 1rem;
+    bottom: .75rem;
     font-size: 1.5rem;
     color: var(--accent-color-80);
     transition: all ease-out 200ms 0s;
 }
 
-.tag-solutions .post .container figure {
-    border-radius: inherit;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    overflow: hidden;
-    margin-bottom: 0;
-    background-color: var(--tag-accent-color);
-    background-position: center center;
+.tag-solutions .post .container article hgroup {
+    flex: 0 1 fit-content;
+    align-items: flex-start;
 }
 
-/*.tag-solutions .post .container img {
-    display: block;
-    border-radius: inherit;
-    scale: 1;
-    transition: scale ease-in 250ms 0s;
-}*/
+.tag-solutions .post .container article figure {
+    flex: 0 1 25dvh;
+    height: 25dvh;
+    width: 100dvw;
+    max-width: 100%;
+}
 
 /* Post template */
 

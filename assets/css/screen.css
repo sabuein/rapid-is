@@ -185,6 +185,12 @@
     fill: var(--color-white)
 }
 
+.tag-solutions > footer [data-divider="top"] path,
+.page-case-studies > footer [data-divider="top"] path,
+.page-contact > footer [data-divider="top"] path {
+    fill: var(--color-light-grey);
+}
+
 /* Elements */
 
 :root {
@@ -523,7 +529,7 @@ address a {
 }
 
 .post #content {
-    padding: 1dvh 21dvw;
+    padding: 5dvh 15dvw;
     align-items: safe flex-start;
     justify-content: space-evenly;
 }
@@ -2083,7 +2089,7 @@ section:is(#briefly,
 #check-our-vacancies,
 #get-the-app,
 #briefly) {
-    padding: 15dvh 15dvw;
+    padding: 5dvh 15dvw;
     gap: 1rem;
 }
 
@@ -2603,7 +2609,7 @@ section#client-testimonials {
 /* Meet our team: /partials/team-members.hbs */
 
 section#meet-our-team {
-    padding: 4.5dvh 21dvw;
+    padding: 5dvh 15dvw;
 }
 
 #meet-our-team .container {
@@ -2780,4 +2786,8 @@ section#meet-our-team {
 
 #grab-coffee label {
     width: fit-content;
+}
+
+section#google-map figure {
+    height: 100dvh;
 }
