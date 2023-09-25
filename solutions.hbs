@@ -1,13 +1,8 @@
 {{!< default}}
 <!-- tag-solutions.hbs -->
-{{!-- A custom template for the solutions tag --}}
 {{#is "tag"}}
 {{#tag}}
 <link rel="stylesheet" href="{{asset "css/solutions.css"}}" type="text/css" media="screen" />
-{{#if feature_image}}<figure class="flexy bg-image" style="{{#primary_tag}}background-color: {{accent_color}};{{/primary_tag}} background-image: url({{img_url feature_image absolute='true'}});">
-    <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
-    {{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}
-</figure>{{/if}}
 <hgroup class="flexy">
     <h1 id="{{slug}}" title="{{name}}">{{name}}</h1>
     {{#if description}}<p>{{description}}</p>{{/if}}
@@ -15,6 +10,10 @@
         {{> "icons/angle-down"}}
     </a>
 </hgroup>
+{{#if feature_image}}<figure class="flexy bg-image" style="{{#primary_tag}}{{#if accent_color}}background-color: {{accent_color}}; {{/if}}{{/primary_tag}}background-image: url({{img_url feature_image absolute='true'}});">
+    <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
+    {{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}
+</figure>{{/if}}
 {{#get "posts" include="tags,authors" filter="primary_tag:{{slug}}" limit="all" order="published_at asc" limit=@config.posts_per_page as |post|}}{{#if post}}<section id="apps" class="container flexy row">
     {{#foreach post}}<article class="flexy {{#if @even}}even{{else}}odd{{/if}}" title="{{title}}" tabindex="0">
         <hgroup class="flexy">

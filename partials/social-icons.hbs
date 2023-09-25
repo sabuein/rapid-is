@@ -1,8 +1,9 @@
 <!-- social-icons.hbs -->
-<div class="social-icons flexy row">
-    {{#if @site.facebook}}<a href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener"><img src="{{asset 'images/social/facebook.png'}}" alt="Facebook" /></a>{{/if}}
-    {{#if @site.twitter}}<a href="{{twitter_url @site.twitter}}" title="X" target="_blank" rel="noopener"><img src="{{asset 'images/social/twitterx.png'}}" alt="X" /></a>{{/if}}
-    <a href="rapidinformationsystems" title="Skype" target="_blank" rel="noopener"><img src="{{asset 'images/social/skype.png'}}" alt="Skype" /></a>
-    <a href="https://www.youtube.com/@Rapid-isUk" title="YouTube" target="_blank" rel="noopener"><img src="{{asset 'images/social/youtube.png'}}" alt="YouTube" /></a>
-    <a href="https://www.linkedin.com/company/rapid-information-systems/" title="LinkedIn" target="_blank" rel="noopener"><img src="{{asset 'images/social/linkedin.png'}}" alt="LinkedIn" /></a>
-</div>
+<h6>Follow us on</h6>
+<ul class="social-icons flexy row">
+    <li class="flexy"><a href="https://www.linkedin.com/company/rapid-information-systems/" title="LinkedIn" target="_blank" rel="noopener"><img src="{{asset 'images/social/linkedin.png'}}" alt="LinkedIn" /></a></li>
+    {{!--{{#if @site.facebook}}<li class="flexy"><a href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener"><img src="{{asset 'images/social/facebook.png'}}" alt="Facebook" /></a></li>{{/if}}--}}
+    {{#if @site.twitter}}<li class="flexy"><a href="{{twitter_url @site.twitter}}" title="X" target="_blank" rel="noopener"><img src="{{asset 'images/social/twitterx.png'}}" alt="X" /></a></li>{{/if}}
+    <li class="flexy"><a href="rapidinformationsystems" title="Skype" target="_blank" rel="noopener"><img src="{{asset 'images/social/skype.png'}}" alt="Skype" /></a></li>
+    <li class="flexy"><a href="https://www.youtube.com/@Rapid-isUk" title="YouTube" target="_blank" rel="noopener"><img src="{{asset 'images/social/youtube.png'}}" alt="YouTube" /></a></li>
+</ul>
