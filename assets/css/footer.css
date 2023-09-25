@@ -23,7 +23,7 @@ footer {
  
 #default-footer > div:first-child {
     min-height: fit-content;
-    gap: 1vb;
+    gap: 1rem;
 }
 
 #default-footer > div.row {
@@ -60,7 +60,7 @@ main > section.row > footer {
     align-items: flex-start;
     align-content: flex-start;
     text-transform: capitalize;
-    gap: 1vb;
+    gap: 1rem;
 }
 
 #default-footer h6 {
@@ -71,7 +71,7 @@ main > section.row > footer {
 #default-footer ul {
     list-style-type: none;
     align-items: flex-start;
-    gap: .5em;
+    gap: .5rem;
 }
 
 #default-footer ul[itemscope] {
@@ -97,12 +97,11 @@ main > section.row > footer {
 
 #default-footer .social-icons {
     justify-content: flex-start;
-    gap: 1vb;
 }
 
 #default-footer .social-icons a {
-    flex: 0 0 2em;
-    width: 2em;
+    flex: 0 0 2dvw;
+    width: 2dvw;
     user-select: none;
 }
 

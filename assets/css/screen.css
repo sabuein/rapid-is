@@ -211,7 +211,7 @@
     --color-light-green: #85994b;
     --color-light-green-40: #85994b40;
     --color-turquoise: #28a197;
-    --max-width: 1920px;
+    --default-max-width: 1920px;
     --link-button-text: rgb(75, 73, 70);
     --link-button-primary: rgb(47, 192, 82);
     --link-button-secondary: rgb(238, 237, 233);
@@ -268,6 +268,39 @@
     background-color: transparent;
 }
 
+:is(body, header, hgroup, figure, main, section, article, footer) {
+    will-change: contents;
+    position: relative;
+    cursor: default;
+    user-select: text;
+    width: 100dvw;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    color: inherit;
+    background-color: transparent;
+}
+
+:is(header, hgroup, section, figure).flexy {
+    gap: 1rem;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+    word-wrap: normal;
+    text-transform: none;
+    font-weight: normal;
+    line-height: 1.5;
+    max-width: 100%;
+    text-wrap: balance;
+    text-align: start;
+    background-color: transparent;
+}
+
+:is(h1, h2, h3, h4, h5, h6) strong {
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
 html {
     scroll-behavior: smooth;
     font-size: 18px;
@@ -292,8 +325,9 @@ body {
     font-weight: 400;
     color: var(--color-white);
     background-color: var(--color-black);
-    max-width: var(--max-width) !important;
+    max-width: var(--default-max-width);
     min-height: 100dvh;
+    overflow-x: hidden;
 }
 
 body:has(dialog[open]) {
@@ -481,8 +515,7 @@ address a {
 }
 
 .post > hgroup:first-of-type {
-    padding: 2dvh 10dvw;
-    padding: 4.5dvh 21dvw;
+    padding: 5dvh 15dvw;
     flex: 0 1 fit-content;
     border-bottom: thin solid var(--color-black-40);
     align-items: flex-start;
@@ -491,8 +524,8 @@ address a {
 
 .post #content {
     padding: 1dvh 21dvw;
-    align-items: flex-start;
-    gap: 1rem;
+    align-items: safe flex-start;
+    justify-content: space-evenly;
 }
 
 .post #content > :first-child {
@@ -667,22 +700,40 @@ input[type="button"],
 input[type="submit"],
 input[type="reset"],
 .cta-button a {
-    border-radius: 3em;
-    background-color: var(--color-dark-blue);
-    padding: 1rem;
+    border-radius: 3rem;
+    background-color: var(--color-mid-grey);
+    padding: 1dvh 1dvw;
     cursor: pointer;
     font-weight: bold;
-    width: unset;
+    width: fit-content;
     user-select: none;
+}
+
+:is(button[type="button"],
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"]):is(:focus, :hover),
+.cta-button a:is(:focus, :hover) {
+    outline: thick solid var(--color-black);
+    transition: all 250ms ease-out 0s;
 }
 
 input[type="text"],
 input[type="email"],
-input[type="tel"] {
-    padding: 1rem;
-    font-weight: bold;
+input[type="tel"],
+input[type="url"],
+input[type="datetime-local"],
+textarea {
+    border-bottom: thin solid currentColor;
+    padding: 1dvh .5dvw;
+    font-size: inherit;
+    font-weight: 500;
     background-color: var(--color-light-grey);
-    border-radius: 3em;
+}
+
+textarea {
+    border: thin solid currentColor;
+    resize: vertical;
 }
 
 label+input {
@@ -691,12 +742,12 @@ label+input {
 
 .cta-buttons {
     align-self: center;
-    gap: 2vb;
-    padding-bottom: 2vb;
+    gap: 2rem;
+    padding-bottom: 2rem;
 }
 
 .cta-button {
-    margin: 1rem 4vb;
+    margin: 1dvh 4dvw;
     padding: 1rem;
     align-self: flex-start;
     flex: 1 0 fit-content;
@@ -722,18 +773,6 @@ label+input {
     transition: all 1s ease-in 0s;
 }
 
-:is(button[type="button"],
-    input[type="button"],
-    input[type="submit"],
-    input[type="reset"]):is(:focus, :hover),
-.cta-button a:is(:focus, :hover) {
-    width: 100%;
-    background-color: var(--color-blue);
-    outline: thick solid var(--color-yellow);
-    font-weight: bolder;
-    transition: all 1s ease-out 0s;
-}
-
 .cta-button a:is(:focus, :hover) {
     text-decoration: underline;
 }
@@ -746,48 +785,9 @@ img {
     background-color: transparent;
 }
 
-:is(body, header, hgroup, figure, main, section, article, footer) {
-    will-change: contents;
-    position: relative;
-    cursor: default;
-    user-select: text;
-    width: 100dvw;
-    max-width: 100%;
-    height: auto;
-    max-height: 100%;
-    color: inherit;
-    background-color: transparent;
-}
-
-:is(header, hgroup, figure) {
-    align-self: center;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-
 .post .row :is(header, hgroup, figure) {
     flex: 1 1 35dvw;
     width: 35dvw;
-}
-
-:is(header, hgroup, section) {
-    gap: .5rem;
-}
-
-:is(h1, h2, h3, h4, h5, h6) {
-    word-wrap: normal;
-    text-transform: none;
-    font-weight: normal;
-    line-height: 1.5;
-    max-width: 100%;
-    text-wrap: balance;
-    text-align: start;
-    background-color: transparent;
-}
-
-:is(h1, h2, h3, h4, h5, h6) strong {
-    text-transform: capitalize;
-    font-weight: bold;
 }
 
 h1 {
@@ -817,6 +817,7 @@ h6 {
 
 a {
     cursor: pointer;
+    color: inherit;
     background-color: transparent;
 }
 
@@ -898,6 +899,7 @@ strong {
 header:has(nav) {
     padding: 2vb 5vb;
     justify-content: space-between !important;
+    color: var(--color-black);
     background-color: var(--color-white);
     animation: menu-go-down 500ms linear 0s 1 forwards;
     box-shadow: 0 0 .25rem var(--color-black-40);
@@ -1258,14 +1260,14 @@ ul.solutions-nav span {
 }
 
 nav ul~ul.solutions-nav {
-    flex: 1 0 100vb;
+    flex: 1 0 50dvw;
     display: none;
-    padding: 1rem;
+    padding: 1dvh 1dvw;
     place-content: flex-start center;
     position: absolute;
-    top: 10vb;
+    top: 10dvh;
     gap: 1rem;
-    width: 100vb;
+    width: 50dvw;
     height: fit-content;
     list-style-type: none;
     font-weight: bold;
@@ -1834,7 +1836,8 @@ section#more-clients {
 }
 
 .cookies form {
-    gap: 2vb;
+    padding: 1dvh 1dvw;
+    gap: 2rem;
 }
 
 .cookies button[type="button"] {
@@ -2061,13 +2064,12 @@ section#more-clients {
 }
 
 form {
-    padding: 1rem;
     position: relative;
     flex: 0 1 fit-content;
-    height: fit-content;
-    max-height: 100%;
-    width: 90vb;
+    width: fit-content;
     max-width: 100%;
+    height: auto;
+    max-height: 100%;
 }
 
 section {
@@ -2165,11 +2167,11 @@ section#tabs-about {
 
 #tabs-about .buttons a {
     flex: 1 0 fit-content;
-    padding: 1rem 4vb;
+    padding: 1dvh 4dvw;
     width: fit-content;
     text-align: center;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 600;
     text-decoration: none;
     color: var(--color-white);
     background-color: var(--color-black);
@@ -2411,7 +2413,6 @@ footer:has(#sharing-is-caring) {
 
 section#client-testimonials {
     padding: 1dvh 4dvw;
-    padding-bottom: 10dvh;
     gap: 1rem;
 }
 
@@ -2692,4 +2693,91 @@ section#meet-our-team {
 
 @media screen and (max-width: 1520px) {
     /* TODO... */
+}
+
+/* page-contact.hbs */
+
+.page-contact .post #content {
+    padding: 5dvh 15dvw;
+    min-height: auto;
+}
+
+.page-contact .post fieldset {
+    align-items: flex-start;
+    gap: 1.25rem;
+}
+
+.page-contact .post legend {
+    padding-bottom: 1.5rem;
+}
+
+.page-contact .post form :is(legend, div) {
+    flex: 1 0 100%;
+    gap: 1rem;
+}
+
+.page-contact .post input {
+    width: inherit;
+}
+
+.page-contact .post .controls {
+    width: 100%;
+}
+
+.page-contact .post .controls input {
+    width: fit-content;
+}
+
+.page-contact .post textarea {
+    width: inherit;
+}
+
+.page-contact .post input[type="submit"] {
+    align-self: center;
+}
+
+.page-contact .post label {
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: .5rem;
+}
+
+.page-contact #content > :first-child {
+    padding: 0;
+    flex: 1 0 55%;
+    gap: 1rem;
+}
+
+.page-contact #content > :last-child {
+    padding: 0;
+    flex: 1 0 35%
+}
+
+#grab-coffee,
+#start-journey {
+    padding: 5dvh 15dvw;
+    min-height: auto;
+}
+
+#grab-coffee hgroup {
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+#grab-coffee fieldset {
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+#grab-coffee :is(legend, div) {
+    flex: 1 0 100%;
+    gap: 1rem;
+}
+
+#grab-coffee label {
+    width: fit-content;
 }
