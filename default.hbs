@@ -5,13 +5,17 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preload" href="{{asset "css/screen.css"}}" type="text/css" as="style" />
+        <link rel="preload" href="{{asset "css/solutions.css"}}" type="text/css" as="style" />
         <link rel="preload" href="{{asset "css/footer.css"}}" type="text/css" as="style" />
+        <link rel="preload" href="{{asset "css/media.css"}}" type="text/css" as="style" />
         <link rel="preconnect" href="https://cdn.jsdelivr.net/" crossorigin="anonymous" />
         <link rel="dns-prefetch" href="https://cdn.jsdelivr.net/" />
         <link rel="prefetch" href="https://cdn.jsdelivr.net/ghost/portal@~2.36/umd/portal.min.js" />
         <link rel="prefetch" href="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" />
         <link rel="stylesheet" href="{{asset "css/screen.css"}}" type="text/css" media="screen" />
+        <link rel="stylesheet" href="{{asset "css/solutions.css"}}" type="text/css" media="screen" />
         <link rel="stylesheet" href="{{asset "css/footer.css"}}" type="text/css" media="screen" />
+        <link rel="stylesheet" href="{{asset "css/media.css"}}" type="text/css" media="screen" />
         <script src="{{asset "js/application.mjs"}}" type="module"></script>
         <title>{{#is "home"}}{{@site.title}} &#8211; {{@site.description}}{{else}}{{meta_title}} &#8211; {{@site.title}}{{/is}}</title>
         {{ghost_head}}

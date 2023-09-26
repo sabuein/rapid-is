@@ -2,9 +2,8 @@
 <!-- tag-solutions.hbs -->
 {{#is "tag"}}
 {{#tag}}
-<link rel="stylesheet" href="{{asset "css/solutions.css"}}" type="text/css" media="screen" />
 <hgroup class="flexy">
-    <h1 id="{{slug}}" title="{{name}}">{{name}}</h1>
+    <h1 id="{{slug}}-outer" title="{{name}}">{{name}}</h1>
     {{#if description}}<p>{{description}}</p>{{/if}}
     <a href="#apps" title="Continue to explore Rapid&apos;s {{slug}} below&hellip;">
         {{> "icons/angle-down"}}

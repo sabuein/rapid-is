@@ -5,8 +5,11 @@
 <link rel="stylesheet" href="{{asset "css/solutions.css"}}" type="text/css" media="screen" />
 <section class="flexy row" data-slug="{{slug}}">
     <hgroup class="flexy">
-        <h1 id="{{slug}}" title="{{title}}">{{title}}</h1>
+        <h1 id="{{slug}}-outer" title="{{title}}">{{title}}</h1>
         <p>{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{excerpt words="51"}}&hellip;{{/if}}</p>
+        <a href="#content" title="Continue to explore Rapid&apos;s {{slug}} below&hellip;">
+            {{> "icons/angle-down"}}
+        </a>
     </hgroup>
     {{#if feature_image}}<figure class="flexy bg-image" style="{{#primary_tag}}{{#if accent_color}}background-color: {{accent_color}}; {{/if}}{{/primary_tag}}background-image: url({{img_url feature_image absolute='true'}});">
         {{#has slug="estates"}}
@@ -17,11 +20,10 @@
         {{/has}}
     </figure>{{/if}}
 </section>
-<section id="content" class="flexy">
-    <hgroup class="flexy">
-        <h2 id="{{slug}}-h2" title="{{title}}">{{title}}</h2>
-        {{#if excerpt}}<p>{{excerpt}}</p>{{/if}}
-    </hgroup>
+<article id="content" class="flexy">
+    <header class="flexy">
+        <h1 id="{{slug}}-inner" title="{{title}}">{{title}}</h1>
+    </header>
     {{content}}
     <footer class="flexy">
         {{!-- Show the pagination helper when there's more than one page --}}
@@ -30,7 +32,7 @@
         {{#if pagination}}{{pagination}}{{/if}}
         {{> "sharing"}}
     </footer>
-</section>
+</article>
 {{> "cta-contact"}}
 {{/post}}
 {{/is}}
