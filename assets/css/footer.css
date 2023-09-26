@@ -4,7 +4,7 @@ footer {
 
 #default-footer {
     padding: 1rem 2rem;
-    padding-top: 15rem;
+    padding-top: 10rem;
     position: relative;
     width: 100dvw;
     max-width: 100%;
@@ -12,6 +12,7 @@ footer {
     gap: 3rem;
     color: var(--color-black);
     background-color: var(--accent-color-90);
+    background-color: ghostwhite;
     overflow: hidden;
     font-size: 1rem;
 }
@@ -100,10 +101,6 @@ main > section.row > footer {
     bottom: 1rem;
 }
 
-#default-footer a:is(:focus, :hover) {
-    color: var(--color-orange);
-}
-
 #default-footer .social-icons {
     justify-content: flex-start;
 }
@@ -118,8 +115,10 @@ main > section.row > footer {
 .social-icons a:focus img,
 button[data-ghost-search]:focus {
     outline: thick solid var(--accent-color) !important;
+    transition: all 250ms ease-out 0s;
 }
 
 .social-icons a:is(:focus, :hover) img {
-    scale: 1.1;
+    scale: 1.2;
+    transition: all 250ms ease-in 0s;
 }

@@ -22,30 +22,11 @@
     cursor: pointer;
     flex: 1 0 20rem;
     width: 20rem;
-    max-width: 27%;
-    background-color: var(--accent-color-100);
+    max-width: 26%;
+    background-color: var(--color-white);
     align-items: flex-start;
     gap: 1rem;
     overflow: hidden;
-    transition: all ease-in 150ms 0s;
-}
-
-.tag-solutions .post .container article:hover {
-    background-color: var(--accent-color-120);
-    transform: translate(.1rem, -.2rem);
-    transition: all ease-out 150ms 0s;
-}
-
-.tag-solutions .post .container .odd:hover {
-    -webkit-box-shadow-: .15rem .15rem 0 var(--accent-color-90);
-    box-shadow: .15rem .15rem 0 var(--accent-color-90);
-    outline-color: var(--accent-color-90);
-}
-
-.tag-solutions .post .container .even:hover {
-    -webkit-box-shadow: .15rem .15rem 0 var(--accent-color-90);
-    box-shadow: .15rem .15rem 0 var(--accent-color-90);
-    outline-color: var(--accent-color-90);
 }
 
 .tag-solutions .post .container h2 {
@@ -61,45 +42,27 @@
 
 .tag-solutions .post .container a {
     position: relative;
-    display: block;
     margin-left: 1rem;
     padding: 1rem 3rem 1rem 2rem;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.25rem;
-    color: var(--accent-color);
-    background-color: var(--accent-color-80);
-    transition: all ease-in 200ms 0s;
-}
-
-.tag-solutions .post .container article:hover a {
-    font-weight: 600;
-    color: var(--accent-color-100);
-    background-color: var(--accent-color);
-    text-shadow: 0 0 5rem var(--accent-color-50);
-    -webkit-box-shadow: .15rem .15rem 0 var(--accent-color-80);
-    box-shadow: .15rem .15rem 0 var(--accent-color-80);
-    padding-right: 3rem;
-    transition: all ease-out 200ms 0s;
+    font-size: 1rem;
 }
 
 .tag-solutions .post .container a::after {
     padding: .25rem;
     position: absolute;
-    right: 1rem;
-    bottom: .85rem;
+    right: .75rem;
+    bottom: .6rem;
     content: "\2197";
     font-weight: 500;
     font-size: 1rem;
     color: var(--accent-color-100);
     border-radius: .2rem;
-    background-color: var(--accent-color-50);
     transition: all ease-in 200ms 0s;
 }
 
 .tag-solutions .post .container article:hover a::after {
-    right: .75rem;
-    bottom: .55rem;
+    right: .25rem;
+    bottom: .3rem;
     font-size: 1.5rem;
     color: var(--accent-color);
     transition: all ease-out 200ms 0s;
