@@ -137,6 +137,11 @@
     display: none;
 }
 
+.bg-image:has(svg) {
+    background-image: none !important;
+    background-color: transparent !important;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .disable-scrollbar::-webkit-scrollbar {
     display: none;
@@ -187,7 +192,9 @@
 
 .tag-solutions > footer [data-divider="top"] path,
 .page-case-studies > footer [data-divider="top"] path,
-.page-contact > footer [data-divider="top"] path {
+.page-contact > footer [data-divider="top"] path,
+.page-about > footer [data-divider="top"] path,
+.page-support > footer [data-divider="top"] path {
     fill: var(--color-light-grey);
 }
 
@@ -435,11 +442,11 @@ form[method="dialog"] input:is([type="submit"], [type="reset"]) {
     overflow: hidden;
 }
 
-.post > section:nth-of-type(odd) {
+.post > :is(section, header, article):nth-of-type(odd) {
     background-color: var(--color-light-grey);
 }
 
-.post > section:nth-of-type(even) {
+.post > :is(section, header, article):nth-of-type(even) {
     background-color: var(--color-white);
 }
 
@@ -476,9 +483,8 @@ address a {
 #main-message,
 #streamlining-safety-checks,
 #newsletter {
-    padding: 1dvh 10dvw;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .post > figure {
@@ -521,25 +527,31 @@ address a {
 }
 
 .post > hgroup:first-of-type {
-    padding: 5dvh 15dvw;
+    padding: 5rem;
     flex: 0 1 fit-content;
     border-bottom: thin solid var(--color-black-40);
     align-items: flex-start;
     align-content: flex-start;
 }
 
+.post > hgroup:first-of-type a {
+    position: absolute;
+    right: 1rem;
+    bottom: 0;
+    width: 5rem;
+    max-width: 100%;
+    animation: point-down 750ms linear 0s infinite;
+    cursor: pointer;
+}
+
+.post > hgroup:first-of-type a svg {
+    height: auto;
+    width: 5rem;
+}
+
 .post #content {
-    padding: 5dvh 15dvw;
     align-items: safe flex-start;
     justify-content: space-evenly;
-}
-
-.post #content > :first-child {
-    padding-top: 8dvh;
-}
-
-.post #content > :last-child {
-    padding-bottom: 8dvh;
 }
 
 .post #content [data-divider="bottom"] path {
@@ -548,7 +560,8 @@ address a {
 
 .post #content hgroup {
     flex: 0 1 fit-content;
-    gap: 2vb;
+    align-items: flex-start;
+    gap: 1rem;
 }
 
 .post #content footer {
@@ -625,14 +638,9 @@ main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
 
 /* End of page style */
 
-#partner-with-leaders hgroup {
-    padding: 1dvh 11dvw;
-}
-
 #partner-with-leaders .container {
     width: 100%;
     justify-content: space-evenly;
-    gap: 1rem;
 }
 
 #partner-with-leaders figure {
@@ -677,10 +685,10 @@ main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
 }
 
 :is(footer, div):has(>[href*="main-content"], >[title~="Continue"]) {
-    height: 10dvh;
+    height: 5rem;
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: 2rem;
 }
 
 #partner-with-leaders [href*="main-content"] {
@@ -753,13 +761,7 @@ label+input {
 }
 
 .cta-button {
-    margin: 1dvh 4dvw;
-    padding: 1rem;
-    align-self: flex-start;
-    flex: 1 0 fit-content;
-    width: fit-content;
-    max-width: 100%;
-    align-content: flex-start;
+    flex: 1 0 100%;
 }
 
 .cta-button a,
@@ -792,8 +794,13 @@ img {
 }
 
 .post .row :is(header, hgroup, figure) {
-    flex: 1 1 35dvw;
-    width: 35dvw;
+    flex: 1 1 25rem;
+    width: 25rem;
+}
+
+.post .row header {
+    flex: 0 1 fit-content;
+    width: fit-content;
 }
 
 h1 {
@@ -801,7 +808,9 @@ h1 {
 }
 
 h2 {
-    font-size: 2.5rem;
+    padding-top: .25rem;
+    font-size: 2.25rem;
+    font-weight: 500;
 }
 
 h3 {
@@ -851,10 +860,6 @@ a {
     cursor: wait;
 }
 
-article {
-    background-color: transparent;
-}
-
 article footer {
     padding: 1rem;
 }
@@ -863,7 +868,7 @@ article footer {
     line-height: 2;
     text-align: justify;
     font-weight: 400;
-    font-size: inherit;
+    font-size: 1rem;
     width: fit-content;
     max-width: 100%;
     height: auto;
@@ -888,10 +893,6 @@ figcaption a:any-link {
 
 figcaption a:is(:active, :hover) {
     text-decoration: underline;
-}
-
-p {
-    font-size: 1rem;
 }
 
 div:has(dialog) {
@@ -1234,6 +1235,7 @@ ul.nav.flexy.row {
     list-style-type: none;
     gap: 1rem;
     font-weight: bold;
+    font-size: inherit;
     text-transform: capitalize;
 }
 
@@ -1266,19 +1268,19 @@ ul.solutions-nav span {
 }
 
 nav ul~ul.solutions-nav {
-    flex: 1 0 50dvw;
+    flex: 1 0 50rem;
     display: none;
-    padding: 1dvh 1dvw;
+    padding: .5rem;
     place-content: flex-start center;
     position: absolute;
-    top: 10dvh;
+    top: 4.5rem;
     gap: 1rem;
-    width: 50dvw;
+    width: 50rem;
     height: fit-content;
     list-style-type: none;
     font-weight: bold;
     font-size: 1rem;
-    box-shadow: 0 0 .25rem var(--color-black-40);
+    box-shadow: 0 0 .15rem var(--color-black-40);
     background-color: var(--color-white);
     pointer-events: auto;
 }
@@ -1297,13 +1299,13 @@ nav li.nav-current {
 ul.nav.flexy.row a,
 ul.solutions-nav.flexy.row a {
     text-decoration: none;
+    font-weight: 500;
 }
 
 ul.nav.flexy.row a:is(:focus, :hover),
 ul.solutions-nav.flexy.row a:is(:focus, :hover),
 li.nav-solutions:focus-within {
     color: var(--color-orange);
-    font-weight: 500;
 }
 
 li.nav-solutions svg path,
@@ -1381,6 +1383,10 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 
 #briefly {
     background-color: var(--color-black);
+}
+
+hgroup [title~="Continue"] {
+    right: 0;
 }
 
 #briefly hgroup {
@@ -1561,7 +1567,7 @@ pre {
 }
 
 section#more-clients {
-    padding: 1dvh 1dvw;
+    padding: 2rem;
     gap: 2rem;
     animation: slide-up 1s linear 100ms 1 forwards;
 }
@@ -2083,15 +2089,16 @@ section {
     min-height: 100dvh;
 }
 
-/* Start of general partials styles */
-
-section:is(#briefly,
-#check-our-vacancies,
-#get-the-app,
-#briefly) {
-    padding: 5dvh 15dvw;
+.post > :is(section, article) {
+    padding: 8rem 6rem;
     gap: 1rem;
 }
+
+section:has(.container) {
+    gap: 3rem;
+}
+
+/* Start of general partials styles */
 
 section#get-the-app :is(hgroup, figure),
 section#client-testimonials :is(hgroup, figure),
@@ -2107,32 +2114,24 @@ section#briefly {
     background-color: royalblue;
 }
 
-section#partner-with-leaders {
-    padding: 15dvh 10dvw;
-    gap: 2em;
-}
-
-section#get-the-app {
-    color: var(--color-black);
-    background-color: oldlace;
-}
-
-section#check-our-vacancies {
-    min-height: 25dvh;
-    color: var(--color-black);
-    background-color: var(--accent-color-100);
+#get-the-app,
+#check-our-vacancies,
+#partner-with-leaders {
+    min-height: auto;
 }
 
 #check-our-vacancies hgroup {
     flex: 0 1 fit-content;
     align-items: flex-start;
+    align-content: flex-start;
 }
 
 #check-our-vacancies .container {
     align-self: center;
     outline: thin dashed black;
-    padding: 2dvh 2dvw;
+    padding: 2rem;
     width: 100dvw;
+    gap: 1rem;
 }
 
 /* End of general partials styles */
@@ -2141,8 +2140,7 @@ section#check-our-vacancies {
 
 section#tabs-about,
 section#rapid-integration {
-    padding: 8dvh 20dvw;
-    min-height: 50dvh;
+    min-height: auto;
 }
 
 section#tabs-about {
@@ -2230,6 +2228,12 @@ section#tabs-about {
     transition: all ease-in 250ms 0s;
 }
 
+#tabs-about article hgroup h3 {
+    flex: 1 0 100%;
+    width: 100dvw;
+    max-width: 100%;
+}
+
 #tabs-about article > p {
     text-align: center;
 }
@@ -2243,13 +2247,14 @@ section#newsletter {
 }
 
 form#join-newsletter {
-    padding: 2dvh 2dvw;
+    padding: 2rem;
     background-color: var(--accent-color-90);
-    box-shadow: .15rem .25rem 0 var(--accent-color-80);
+    box-shadow: .15rem .15rem 0 var(--accent-color-80);
     outline: thin solid var(--accent-color-80);
-    border-top-left-radius: 5vb;
-    border-bottom-right-radius: 5vb;
-    width: 85dvw;
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    width: 100dvw;
+    max-width: 95%;
     transform: none;
     transition: all ease-in 250ms 0s;
 }
@@ -2418,7 +2423,6 @@ footer:has(#sharing-is-caring) {
 /* Client's testimonials and reviews: /partials/testimonials.hbs */
 
 section#client-testimonials {
-    padding: 1dvh 4dvw;
     gap: 1rem;
 }
 
@@ -2454,7 +2458,7 @@ section#client-testimonials {
 
 .container.flexy {
     will-change: contents;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 #client-testimonials .container .post {
@@ -2524,13 +2528,14 @@ section#client-testimonials {
 }
 
 #client-testimonials .post *:is(header, p) {
-    flex: 1 0 60vb;
+    flex: 1 0 40rem;
     width: fit-content;
     max-width: 100%;
 }
 
 #client-testimonials .post header {
-    flex: 0 1 40vb;
+    flex: 0 1 20rem;
+    background-color: inherit;
 }
 
 #client-testimonials .post *:is(h3, p) {
@@ -2556,17 +2561,15 @@ section#client-testimonials {
 
 #client-testimonials .post figure {
     flex: 0 1 auto;
-    width: 40vb;
+    width: 20rem;
     max-width: 100%;
-    height: 15vb;
+    height: 10rem;
     max-height: 100%;
     user-select: none;
-    border-radius: 2dvw;
 }
 
 #client-testimonials .post img {
     display: none;
-    border-radius: 2dvw;
     max-height: inherit;
 }
 
@@ -2608,18 +2611,14 @@ section#client-testimonials {
 
 /* Meet our team: /partials/team-members.hbs */
 
-section#meet-our-team {
-    padding: 5dvh 15dvw;
-}
-
 #meet-our-team .container {
     align-items: flex-start;
     gap: 2rem;
 }
 
 #meet-our-team .container .post {
-    flex: 1 0 15dvw;
-    width: 15dvw;
+    flex: 1 0 20rem;
+    width: 20rem;
     gap: 1rem;
     transform: translate(0, 0);
     transition: all 250ms ease-out 0s;
@@ -2635,9 +2634,11 @@ section#meet-our-team {
     width: 30dvw;
     gap: .5rem;
     transition-timing-function: ease-in;
+    background-color: var(--color-white);
 }
 
 #meet-our-team .post div {
+    padding: 1rem;
     align-items: flex-start;
 }
 
@@ -2656,17 +2657,17 @@ section#meet-our-team {
 }
 
 #meet-our-team .post h3 {
-    line-height: 1.25;
+    padding: 1rem;
+    padding-bottom: 0   ;
     white-space: nowrap;
-    font-size: 2rem;
-    text-align: start;
-    width: 100%;
+    text-align: center;
+    width: fit-content;
+    background-color: inherit;
 }
 
 #meet-our-team .post figure {
-    padding: 0;
-    width: 100dvw;
-    height: 50dvh;
+    padding: 1rem;
+    height: 25rem;
     filter: grayscale(.5);
     transition: all 250ms ease-in-out 0s;
 }
@@ -2679,12 +2680,11 @@ section#meet-our-team {
 #meet-our-team .post figcaption {
     padding: .5rem;
     position: absolute;
-    left: 0;
-    bottom: 0;
+    right: .5rem;
     color: var(--accent-color-100);
     background-color: var(--accent-color);
-    width: 100%;
     text-align: center;
+    font-weight: 500;
 }
 
 #meet-our-team .post img {
@@ -2697,15 +2697,14 @@ section#meet-our-team {
     align-content: flex-start;
 }
 
-@media screen and (max-width: 1520px) {
-    /* TODO... */
-}
-
 /* page-contact.hbs */
 
 .page-contact .post #content {
-    padding: 5dvh 15dvw;
     min-height: auto;
+}
+
+.post #content header {
+    align-content: flex-start;
 }
 
 .page-contact .post fieldset {
@@ -2752,20 +2751,20 @@ section#meet-our-team {
     gap: .5rem;
 }
 
-.page-contact #content > :first-child {
-    padding: 0;
+.page-contact #content article {
+    align-items: flex-start;
     flex: 1 0 55%;
+    width: 55%;
     gap: 1rem;
 }
 
-.page-contact #content > :last-child {
-    padding: 0;
-    flex: 1 0 35%
+.page-contact #content aside {
+    flex: 1 0 35%;
+    width: 35%;
 }
 
 #grab-coffee,
 #start-journey {
-    padding: 5dvh 15dvw;
     min-height: auto;
 }
 
@@ -2790,4 +2789,8 @@ section#meet-our-team {
 
 section#google-map figure {
     height: 100dvh;
+}
+
+[data-html-symbol="trigram-for-heaven"] {
+    display: none;
 }

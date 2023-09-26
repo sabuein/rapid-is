@@ -8,34 +8,21 @@
     gap: .5rem;
 }
 
-.tag-solutions .post > hgroup a {
-    position: absolute;
-    top: 5dvh;
-    right: 2dvw;
-    max-width: 100%;
-    width: 10dvw;
-    animation: point-down 750ms linear 0s infinite;
-    cursor: pointer;
-}
-
-.tag-solutions .post > hgroup a svg {
-    height: auto;
-    width: 10dvw;
-}
-
 /* The container */
 
 .tag-solutions .post .container {
-    padding: 15dvh 1dvw;
+    padding: 8rem 6rem;
     gap: 5rem;
 }
 
 /* The card */
 
 .tag-solutions .post .container article {
+    padding: .25rem;
     cursor: pointer;
-    flex: 0 0 22dvw;
-    width: 22dvw;
+    flex: 1 0 20rem;
+    width: 20rem;
+    max-width: 27%;
     background-color: var(--accent-color-100);
     align-items: flex-start;
     gap: 1rem;
@@ -50,19 +37,19 @@
 }
 
 .tag-solutions .post .container .odd:hover {
-    -webkit-box-shadow-: .25rem .25rem 0 var(--accent-color-50);
-    box-shadow: .25rem .25rem 0 var(--accent-color-50);
-    outline-color: var(--accent-color-50);
+    -webkit-box-shadow-: .15rem .15rem 0 var(--accent-color-90);
+    box-shadow: .15rem .15rem 0 var(--accent-color-90);
+    outline-color: var(--accent-color-90);
 }
 
 .tag-solutions .post .container .even:hover {
-    -webkit-box-shadow: .25rem .25rem 0 var(--accent-color-20);
-    box-shadow: .25rem .25rem 0 var(--accent-color-20);
-    outline-color: var(--accent-color-20);
+    -webkit-box-shadow: .15rem .15rem 0 var(--accent-color-90);
+    box-shadow: .15rem .15rem 0 var(--accent-color-90);
+    outline-color: var(--accent-color-90);
 }
 
 .tag-solutions .post .container h2 {
-    padding: 1dvh 1dvw 0;
+    padding: .5rem 1rem 0;
     flex: 0 1 fit-content;
     width: fit-content;
     color: var(--accent-color);
@@ -75,8 +62,8 @@
 .tag-solutions .post .container a {
     position: relative;
     display: block;
-    margin-left: 1dvw;
-    padding: 2dvh 2dvw;
+    margin-left: 1rem;
+    padding: 1rem 3rem 1rem 2rem;
     text-decoration: none;
     font-weight: 500;
     font-size: 1.25rem;
@@ -92,30 +79,35 @@
     text-shadow: 0 0 5rem var(--accent-color-50);
     -webkit-box-shadow: .15rem .15rem 0 var(--accent-color-80);
     box-shadow: .15rem .15rem 0 var(--accent-color-80);
-    padding-right: 4dvw;
+    padding-right: 3rem;
     transition: all ease-out 200ms 0s;
 }
 
 .tag-solutions .post .container a::after {
+    padding: .25rem;
     position: absolute;
-    right: .5rem;
-    bottom: 1rem;
+    right: 1rem;
+    bottom: .85rem;
     content: "\2197";
+    font-weight: 500;
     font-size: 1rem;
-    color: var(--accent-color-70);
+    color: var(--accent-color-100);
+    border-radius: .2rem;
+    background-color: var(--accent-color-50);
     transition: all ease-in 200ms 0s;
 }
 
 .tag-solutions .post .container article:hover a::after {
-    right: 1rem;
-    bottom: .75rem;
+    right: .75rem;
+    bottom: .55rem;
     font-size: 1.5rem;
-    color: var(--accent-color-80);
+    color: var(--accent-color);
     transition: all ease-out 200ms 0s;
 }
 
 .tag-solutions .post .container article hgroup {
     flex: 0 1 fit-content;
+    width: 100%;
     align-items: flex-start;
 }
 
@@ -129,19 +121,21 @@
 /* Post template */
 
 .post-template.tag-solutions .post #content {
-    padding-top: 10dvh;
+    justify-content: center;
 }
 
 .post-template.tag-solutions .post section:first-of-type {
+    padding: 4rem;
     min-height: 90dvh;
     justify-content: space-evenly;
-    gap: 1em;
+    gap: 4rem;
 }
 
 .post-template.tag-solutions .post section:first-of-type :is(hgroup, figure) {
-    flex: 0 0 45dvw;
-    height: 50dvh;
-    width: 45dvw;
+    flex: 1 0 40rem;
+    height: 30rem;
+    width: 40rem;
+    align-items: flex-start;
 }
 
 .post-template.tag-solutions .post [data-slug="communication"],

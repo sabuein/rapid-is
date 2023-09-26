@@ -3,17 +3,21 @@ footer {
 }
 
 #default-footer {
-    padding: 1dvh 2dvw;
-    padding-top: 25dvh;
+    padding: 1rem 2rem;
+    padding-top: 15rem;
     position: relative;
     width: 100dvw;
     max-width: 100%;
     min-height: 90dvh;
-    gap: 1rem;
+    gap: 3rem;
     color: var(--color-black);
     background-color: var(--accent-color-90);
     overflow: hidden;
     font-size: 1rem;
+}
+
+#default-footer div[data-divider="top"] {
+    top: -.1rem;
 }
 
 #default-footer div {
@@ -42,6 +46,7 @@ footer {
 #default-footer p {
     font-size: inherit;
     width: fit-content;
+    text-align: center;
 }
 
 #default-footer .rapid-logo img {
@@ -89,6 +94,10 @@ main > section.row > footer {
 #default-footer a:any-link {
     text-decoration: none;
     font-weight: 500;
+}
+
+#default-footer div:has(a[href*="main-content"]) {
+    bottom: 1rem;
 }
 
 #default-footer a:is(:focus, :hover) {
