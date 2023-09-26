@@ -1,11 +1,13 @@
 <!-- vacancies.hbs -->
-<section id="check-our-vacancies" class="get-job-vacancies flexy">
-    {{!-- This partial requires a parent with class "get-job-vacancies" --}}
-    <hgroup class="flexy">
-        <h2>Join our <strong>team&period;</strong></h2>
-        <p>Explore jobs at Rapid&period; Whether you&apos;re just starting your career or already have work experience&comma; see for yourself the variety of jobs Rapid has to offer&colon;</p>
-    </hgroup>
+<section id="check-our-vacancies" class="get-job-vacancies flexy row">
+    <figure class="flexy">
+        {{> "drawings/hiring"}}
+    </figure>
     <div class="container disable-scrollbar flexy">
+        <hgroup class="flexy">
+            <h2>Join our <strong>team&period;</strong></h2>
+            <p>Explore jobs at Rapid&period; Whether you&apos;re just starting your career or already have work experience&comma; see for yourself the variety of jobs Rapid has to offer&colon;</p>
+        </hgroup>
         {{#get "posts" filter="tag:hash-vacancies+visibility:public" order="featured desc, published_at asc" limit=@config.posts_per_page}}
         {{#foreach posts}}
         <article class="{{post_class}} flexy" data-index="{{@index}}">

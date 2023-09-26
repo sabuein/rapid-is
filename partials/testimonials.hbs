@@ -8,7 +8,7 @@
     <div class="container disable-scrollbar flexy row">
         {{#get "posts" filter="tag:testimonials+visibility:public" order="title asc" limit=5}}
         {{#foreach posts}}
-        <blockquote class="{{post_class}} flexy row" data-play-state="running" cite="https://www.stevenage.gov.uk/">
+        <blockquote class="{{post_class}} flexy row shadowed" data-play-state="running" cite="https://www.stevenage.gov.uk/">
             <header class="flexy" title="{{title}}">
                 <h3 id="quote-{{@number}}">{{title}}</h3>
                 {{#if feature_image}}<figure class="bg-image" style="background-image: url({{img_url feature_image absolute='true'}});">

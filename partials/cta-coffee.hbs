@@ -1,26 +1,29 @@
+<!-- cta-coffee.hbs -->
 <section id="grab-coffee" class="flexy">
     <hgroup class="flexy">
         <h2>Let&apos;s grab some <strong>coffee&excl;</strong></h2>
-        <p>Think it&apos;s too early to fill out the form? Let&apos;s talk about it over a coffee someday&period;</p>
+        <p>Think it&apos;s too early to fill out the form? Let&apos;s talk about it over a coffee someday&period; Book an appointment below&hellip;</p>
     </hgroup>
-    <form class="flexy">
-        <fieldset class="flexy row">
-            <legend class="flexy row">
-                <h3>Book an appointment below&hellip;</h3>
-            </legend>
-            <div class="flexy row">
-                <label for="client-name">Full name&colon;<input type="text" name="name" id="client-name" autocomplete="name" required="required" /></label>
-                <label for="client-tel">Phone number&colon;<input type="tel" name="phone" id="client-tel" autocomplete="tel" required="required" /></label>
-                <label for="client-email">Email address&colon;<input type="email" name="email" id="client-email" autocomplete="email" required="required" /></label>
-            </div>
-            <div class="flexy row">
-                <label for="client-url">Website&colon;<input type="url" name="url" id="client-url" autocomplete="url" /></label>
-                <label for="date-time">Date and time&colon;<input type="datetime-local" name="time" id="date-time" autocomplete="off" required="required" /></label>
-            </div>
-            <div class="controls flexy row">
-                <input type="submit" value="Schedule" title="Schedule" />
-                <input type="reset" value="Reset" title="Reset" />
-            </div>
-        </fieldset>
-    </form>
+    <div class="flexy row">
+        <figure>
+            {{> "drawings/hang-out"}}
+        </figure>
+        <form class="flexy">
+            <fieldset class="flexy row">
+                <div class="flexy row">
+                    <label for="client-name">Full name&colon;<input type="text" name="name" id="client-name" autocomplete="name" required="required" /></label>
+                    <label for="client-tel">Phone number&colon;<input type="tel" name="phone" id="client-tel" autocomplete="tel" required="required" /></label>
+                    <label for="client-email">Email address&colon;<input type="email" name="email" id="client-email" autocomplete="email" required="required" /></label>
+                </div>
+                <div class="flexy row">
+                    <label for="client-url">Website&colon;<input type="url" name="url" id="client-url" autocomplete="url" /></label>
+                    <label for="date-time">Date and time&colon;<input type="datetime-local" name="time" id="date-time" autocomplete="off" required="required" /></label>
+                </div>
+                <div class="controls flexy row">
+                    <input type="submit" value="Schedule" title="Schedule" />
+                    <input type="reset" value="Reset" title="Reset" />
+                </div>
+            </fieldset>
+        </form>
+    </div>
 </section>
