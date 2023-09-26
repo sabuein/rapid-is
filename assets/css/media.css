@@ -1,0 +1,92 @@
+@media only screen and (min-width: 1400px) {
+
+
+    .tag-solutions .post .container {
+        padding: 8rem 6rem;
+        gap: 5rem;
+    }
+
+    #meet-our-team .container .post,
+    .tag-solutions .post .container article {
+        max-width: 27%;
+    }
+    
+}
+
+
+@media only screen and (max-width: 1200px) {
+
+
+    .tag-solutions .post .container {
+        padding: 6rem 5rem;
+        gap: 5rem;
+    }
+
+    #meet-our-team .container .post,
+    .tag-solutions .post .container article {
+        max-width: 45%;
+    }
+    
+}
+
+@media only screen and (max-width: 1000px) {
+
+    nav.flexy {
+        display: none;
+    }
+
+    [data-html-symbol="trigram-for-heaven"] {
+        display: inline-block;
+        position: absolute;
+        right: 5rem;
+    }
+
+
+    .tag-solutions .post .container {
+        padding: 6rem 4rem;
+        gap: 4rem;
+    }
+
+    #meet-our-team .container .post,
+    .tag-solutions .post .container article {
+        max-width: 75%;
+    }
+    
+}
+
+@media only screen and (max-width: 800px) {
+
+    .tag-solutions .post .container {
+        padding: 6rem 2rem;
+        gap: 2rem;
+    }
+
+    #meet-our-team .container .post,
+    .tag-solutions .post .container article {
+        max-width: 85%;
+    }
+
+    #default-footer > div:first-child :is(figure, div, address) {
+        flex: 1 0 45%;
+    }
+    
+}
+
+@media only screen and (max-width: 600px) {
+
+
+    .tag-solutions .post .container {
+        padding: 6rem 1rem;
+        gap: 2rem;
+    }
+
+    #meet-our-team .container .post,
+    .tag-solutions .post .container article {
+        max-width: 100%;
+    }
+
+    #default-footer > div:first-child :is(figure, div, address) {
+        flex: 1 0 100%;
+    }
+    
+}
