@@ -6,7 +6,7 @@
         <p>From the original open-source software developed in 2015&comma; Rapid is now a team of motivated, creative and hard-working experts&period;</p>
     </hgroup>
     <div class="container disable-scrollbar flexy row">
-        {{#get "posts" filter="tag:hash-team-members+visibility:public" order="featured desc, published_at asc" limit=@config.posts_per_page}}
+        {{#get "posts" filter="tag:hash-team-member+visibility:public" order="featured desc, published_at asc" limit=@config.posts_per_page}}
         {{#foreach posts}}
         <article class="{{post_class}} flexy row shadowed" data-index="{{@index}}" data-play-state="running" title="{{title}}">
             <header class="flexy">
