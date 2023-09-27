@@ -1,0 +1,52 @@
+<!-- projects.hbs -->
+<section id="browse-our-projects" class="flexy">
+    <hgroup class="flexy" title="Browse our projects">
+        <h2>Browse our projects&period;</h2>
+        <p>From the original open-source software developed in 2015&comma; Rapid is now a team of motivated, creative and hard-working experts&period;</p>
+    </hgroup>
+    <div class="filters flexy row">
+        <label for="project-type" title="Please select the project type" class="flexy row">Project type&colon;<select name="type" id="project-type" size="1" autocomplete="off" required="required">
+            <option value="all" selected="selected">All</option>
+            <option value="authority">Mobile application</option>
+            <option value="authority">Web application</option>
+            <option value="authority">Web form</option>
+        </select></label>
+        <label for="lead-interest" title="Please select your interest" class="flexy row">Your interest&colon;<select name="interest" id="lead-interest" size="1" autocomplete="off" required="required">
+            <option value="all" selected="selected">All</option>
+            <option value="studies">Case studies</option>
+            <option value="news">Latest news</option>
+            <option value="research">Research</option>
+        </select></label>
+        <label for="lead-region" title="Please select your region" class="flexy row">Your region&colon;<select name="region" id="lead-region" size="1" autocomplete="off" required="required">
+            <option value="all" selected="selected">All</option>
+            <option value="greater&dash;london">Greater London</option>
+            <option value="south&dash;east">South East</option>
+            <option value="south&dash;west">South West</option>
+            <option value="west&dash;midlands">West Midlands</option>
+            <option value="east&dash;of&dash;england">East of England</option>
+            <option value="north&dash;west">North West</option>
+            <option value="north&dash;east">North East</option>
+            <option value="yorkshire&dash;and&dash;the&dash;humber&dash;east">Yorkshire and the Humber East</option>
+            <option value="scotland">Scotland</option>
+            <option value="wales">Wales</option>
+        </select></label>
+    </div>
+    <div class="container disable-scrollbar flexy row">
+        {{#get "posts" filter="tag:projects+visibility:public" order="featured desc, published_at asc" limit=@config.posts_per_page}}
+        {{#foreach posts}}
+        <article class="{{post_class}} flexy row shadowed" data-index="{{@index}}" data-play-state="running" title="{{title}}">
+            <hgroup class="flexy">
+                <h3 id="{{slug}}">{{title}}</h3>
+                {{content}}
+            </hgroup>
+            {{#if feature_image}}<figure class="flexy">
+                <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" />
+                {{#if custom_excerpt}}<figcaption>{{custom_excerpt}}</figcaption>{{/if}}
+            </figure>{{/if}}
+        </article>
+        {{/foreach}}
+        {{else}}
+        <p class="get-posts-error">{{error}}</p>
+        {{/get}}
+    </div>
+</section>
