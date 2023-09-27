@@ -27,10 +27,37 @@
                     {{/has}}
                     {{#if custom_excerpt}}<figcaption>{{custom_excerpt}}</figcaption>{{/if}}
                 </figure>{{/if}}
+                {{#has slug="kumar-modi"}}
+                <ul class="social-icons flexy row">
+                    <li class="flexy"><a href="https://www.linkedin.com/in/kmodi9/" title="LinkedIn" target="_blank" rel="noopener"><img src="{{asset 'images/social/linkedin.png'}}" alt="LinkedIn" /></a></li>
+                </ul>
+                {{else has slug="gareth-edwards"}}
+                <ul class="social-icons flexy row">
+                    <li class="flexy"><a href="https://www.linkedin.com/in/gareth-edwards-997223a1/" title="LinkedIn" target="_blank" rel="noopener"><img src="{{asset 'images/social/linkedin.png'}}" alt="LinkedIn" /></a></li>
+                </ul>
+                {{else has slug="steve-runyeard"}}
+                <ul class="social-icons flexy row">
+                    <li class="flexy"><a href="https://www.linkedin.com/in/steven-runyeard-b8081427/" title="LinkedIn" target="_blank" rel="noopener"><img src="{{asset 'images/social/linkedin.png'}}" alt="LinkedIn" /></a></li>
+                </ul>
+                {{else has slug="dagney-ellison"}}
+                <ul class="social-icons flexy row">
+                    <li class="flexy"><a href="https://www.linkedin.com/in/dagney-ellison-70b72042/" title="LinkedIn" target="_blank" rel="noopener"><img src="{{asset 'images/social/linkedin.png'}}" alt="LinkedIn" /></a></li>
+                </ul>
+                {{else has slug="salaheddin-abuein"}}
+                <ul class="social-icons flexy row">
+                    <li class="flexy"><a href="https://www.linkedin.com/in/sabuein/" title="LinkedIn" target="_blank" rel="noopener"><img src="{{asset 'images/social/linkedin.png'}}" alt="LinkedIn" /></a></li>
+                    <li class="flexy"><a href="https://x.com/sabuein" title="X" target="_blank" rel="noopener"><img src="{{asset 'images/social/twitterx.png'}}" alt="X" /></a></li>
+                    <li class="flexy">
+                        <a href="https://github.com/sabuein" title="GitHub" target="_blank" rel="noopener" class="flexy">
+                            {{> "icons/github-mark"}}
+                        </a>
+                    </li>
+                </ul>
+                {{/has}}
             </header>
             <div class="flexy">
                 {{content words="50"}}
-                <a href="{{url}}" title="Learn more about {{title}}&hellip;">Learn more about <strong>{{title}}&hellip;</strong></a>
+                <a href="{{url}}" title="View profile" type="text/html" class="flexy">View profile</a>
             </div>
         </article>
         {{/foreach}}

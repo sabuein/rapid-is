@@ -1,12 +1,15 @@
 <!-- form.hbs -->
-<aside class="flexy">
+<aside class="flexy shadowed">
+    <figure class="flexy">
+        {{> "drawings/letter"}}
+    </figure>
     <form class="flexy">
         <fieldset class="flexy">
             <legend><h2>Let&apos;s make it <strong>happen&period;</strong></h2></legend>
-            <label for="leadName">Full name&colon;<input type="text" name="name" id="leadName" autocomplete="name" required="required" /></label>
-            <label for="leadPhone">Phone number&colon;<input type="tel" name="phone" id="leadPhone" autocomplete="tel" required="required" /></label>
-            <label for="leadEmail">Email address&colon;<input type="email" name="email" id="leadEmail" autocomplete="email" required="required" /></label>
-            <label for="leadMessage">Your message&colon;<textarea name="message" id="leadMessage" required="required"></textarea></label>
+            <label for="leadName">Full name&colon;<input type="text" name="name" id="leadName" autocomplete="name" required="required" placeholder="John Doe" /></label>
+            <label for="leadPhone">Phone number&colon;<input type="tel" name="phone" id="leadPhone" autocomplete="tel" required="required" placeholder="555&dash;555&dash;5555" /></label>
+            <label for="leadEmail">Email address&colon;<input type="email" name="email" id="leadEmail" autocomplete="email" required="required" placeholder="john&period;doe&commat;example&period;com" /></label>
+            <label for="leadMessage">Message&colon;<textarea name="message" id="leadMessage" rows="4" cols="50" wrap="hard" required="required" placeholder="Enter your message here&hellip;"></textarea></label>
             <div class="controls flexy row">
                 <input type="submit" value="Submit" title="Submit" />
                 <input type="reset" value="Reset" title="Reset" />

@@ -4,19 +4,21 @@
         <h2>Let&apos;s grab some <strong>coffee&excl;</strong></h2>
         <p>Think it&apos;s too early to fill out the form? Let&apos;s talk about it over a coffee someday&period; Book an appointment below&hellip;</p>
     </hgroup>
-    <div class="flexy row">
+    <div class="flexy row shadowed">
         <figure>
             {{> "drawings/hang-out"}}
         </figure>
         <form class="flexy">
             <fieldset class="flexy row">
                 <div class="flexy row">
-                    <label for="client-name">Full name&colon;<input type="text" name="name" id="client-name" autocomplete="name" required="required" /></label>
-                    <label for="client-tel">Phone number&colon;<input type="tel" name="phone" id="client-tel" autocomplete="tel" required="required" /></label>
-                    <label for="client-email">Email address&colon;<input type="email" name="email" id="client-email" autocomplete="email" required="required" /></label>
+                    <label for="client-name">Full name&colon;<input type="text" name="name" id="client-name" autocomplete="name" required="required" placeholder="John Doe" /></label>
+                    <label for="client-email">Email address&colon;<input type="email" name="email" id="client-email" autocomplete="email" required="required" placeholder="john&period;doe&commat;example&period;com" /></label>
                 </div>
                 <div class="flexy row">
-                    <label for="client-url">Website&colon;<input type="url" name="url" id="client-url" autocomplete="url" /></label>
+                    <label for="client-tel">Phone number&colon;<input type="tel" name="phone" id="client-tel" autocomplete="tel" required="required" placeholder="555&dash;555&dash;5555" /></label>
+                    <label for="client-url">Website URL&colon;<input type="url" name="url" id="client-url" autocomplete="url" placeholder="https&colon;&sol;&sol;www&period;example&period;com" /></label>
+                </div>
+                <div class="flexy row">
                     <label for="date-time">Date and time&colon;<input type="datetime-local" name="time" id="date-time" autocomplete="off" required="required" /></label>
                 </div>
                 <div class="controls flexy row">
