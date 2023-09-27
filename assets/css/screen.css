@@ -15,6 +15,10 @@
     color: currentColor;
 }
 
+.kg-card.kg-toggle-card {
+    width: 100dvw;
+}
+
 /* Some fonts */
 
 /* roboto-regular - latin */
@@ -163,10 +167,10 @@
 }
 
 *.shadowed {
+    outline: thin solid var(--color-black-40);
     transform: none;
     -webkit-box-shadow: .1rem .1rem 0 var(--color-black-40);
     box-shadow: .1rem .1rem 0 var(--color-black-40);
-    outline: thin solid var(--color-black-40);
     transition: all 250ms ease-out 0s;
 }
 
@@ -733,6 +737,7 @@ a[type="text/html"]) {
     background-color: var(--accent-color);
     cursor: pointer;
     transform: none;
+    transition: all 200ms ease-in 0s;
 }
 
 :is(button[type="button"],
@@ -784,6 +789,7 @@ select):hover {
 }
 
 textarea {
+    height: auto;
     resize: vertical;
 }
 
@@ -835,8 +841,9 @@ img {
 }
 
 .post .row :is(header, hgroup, figure) {
-    flex: 1 1 25rem;
-    width: 25rem;
+    flex: 1 1 20rem;
+    height: 20rem;
+    width: 20rem;
 }
 
 .post .row header {
@@ -898,13 +905,13 @@ article footer {
 }
 
 figcaption {
-    padding: 1dvh 2dvw;
+    padding: 1rem 2rem;
     position: absolute;
     bottom: 0;
-    right: 0;
     color: var(--color-white);
     background-color: var(--accent-color);
     font-size: .85rem;
+    width: 100dvw;
 }
 
 figcaption a:any-link {
@@ -1663,6 +1670,13 @@ section#more-clients {
 
 #more-clients figcaption {
     display: none;
+    position: absolute;
+    bottom: -2.5rem;
+    left: 0;
+    width: 100dvw;
+    max-width: 100%;
+    text-align: center;
+    background-color: transparent;
 }
 
 #more-clients .container:has(figure:is(:focus, :hover)) {
@@ -1682,6 +1696,7 @@ section#more-clients {
     display: block;
     font-size: .85rem;
     color: var(--color-dark-grey);
+    bottom: -3rem;
 }
 
 #more-clients .container svg {
@@ -2127,14 +2142,13 @@ section#briefly {
 
 #check-our-vacancies figure {
     padding: 2rem;
-    flex: 1 1 30rem;
+    flex: 1 1 25rem;
     width: 100dvw;
     max-width: 100%;
 }
 
 #check-our-vacancies .container {
     padding: 2rem;
-    outline: thin dashed var(--color-black);
     flex: 1 1 60rem;
     width: 100dvw;
     max-width: 100%;    
@@ -2144,6 +2158,11 @@ section#briefly {
 #check-our-vacancies .container hgroup {
     flex: 1 0 100%;
     width: 100%;
+}
+
+#check-our-vacancies .container pre {
+    padding: .5rem 1rem;
+    background-color: var(--color-yellow);
 }
 
 /* End of general partials styles */
@@ -2286,7 +2305,7 @@ form#join-newsletter legend {
 form#join-newsletter fieldset div {
     width: 100%;
     justify-content: space-evenly;
-    gap: 3rem;
+    gap: 1rem;
 }
 
 form#join-newsletter fieldset div:last-of-type {
@@ -2557,18 +2576,20 @@ section#client-testimonials {
 
 #meet-our-team .container {
     align-items: flex-start;
-    gap: 2rem;
+    gap: 5rem;
 }
 
 #meet-our-team .container .post {
-    flex: 1 0 20rem;
-    width: 20rem;
+    flex: 1 0 21rem;
+    height: auto;
+    width: 21rem;
     gap: 1rem;
     transition: all 250ms ease-out 0s;
 }
 
 #meet-our-team .post :is(header, div) {
     flex: 1 1 20rem;
+    height: auto;
     width: 20rem;
     gap: .5rem;
     background-color: var(--color-white);
@@ -2576,21 +2597,12 @@ section#client-testimonials {
 
 #meet-our-team .post div {
     padding: 1rem;
+    padding-top: 1.5rem;
     align-items: flex-start;
 }
 
 #meet-our-team .post p {
     font-size: .9rem;
-}
-
-#meet-our-team .post a:any-link {
-    text-align: start;
-    font-size: 1rem;
-    text-decoration: none;
-}
-
-#meet-our-team .post a:is(:active, :focus, :hover) {
-    text-decoration: underline;
 }
 
 #meet-our-team .post h3 {
@@ -2600,6 +2612,10 @@ section#client-testimonials {
     text-align: center;
     width: fit-content;
     background-color: inherit;
+}
+
+#meet-our-team  a[type="text/html"] {
+    align-self: center;
 }
 
 #meet-our-team .post figure {
@@ -2619,7 +2635,7 @@ section#client-testimonials {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 3rem;
+    bottom: 1rem;
     width: 100%;
     color: var(--accent-color-100);
     background-color: var(--accent-color);
@@ -2637,10 +2653,25 @@ section#client-testimonials {
     align-content: flex-start;
 }
 
+#meet-our-team .social-icons {
+    position: absolute;
+    bottom: -2rem;
+}
+
+#meet-our-team .social-icons img {
+    display: block;
+}
+
+.social-icons svg {
+    flex: 0 0 1.75rem;
+    width: 1.75rem;
+}
+
 /* page-contact.hbs */
 
 .page-contact .post #content {
     min-height: auto;
+    gap: 5rem;
 }
 
 .post #content header {
@@ -2669,10 +2700,6 @@ section#client-testimonials {
     width: fit-content;
 }
 
-.page-contact .post textarea {
-    width: inherit;
-}
-
 .page-contact .post input[type="submit"] {
     align-self: center;
 }
@@ -2695,8 +2722,17 @@ section#client-testimonials {
 }
 
 .page-contact #content aside {
-    flex: 1 0 35%;
-    width: 35%;
+    padding: 2rem;
+    flex: 1 0 15rem;
+    height: auto;
+    width: 15rem;
+    background-color: var(--color-white);
+}
+
+.page-contact #content aside figure {
+    flex: 1 1 15rem;
+    height: 15rem;
+    width: 10rem;
 }
 
 #grab-coffee,
@@ -2708,7 +2744,7 @@ section#client-testimonials {
 #grab-coffee div {
     flex: 1 0 fit-content;
     justify-content: flex-start;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 #grab-coffee div.controls {
@@ -2717,6 +2753,8 @@ section#client-testimonials {
 }
 
 #grab-coffee > div > figure {
+    padding: 2rem;
+    padding-right: 5rem;
     flex: 1 1 30rem;
     max-width: 100%;
     height: 20rem;
@@ -2733,8 +2771,21 @@ section#client-testimonials {
     width: fit-content;
 }
 
-section#google-map figure {
+section#map {
+    min-height: auto;
+}
+
+section#map figure {
     height: 100dvh;
+    max-width: 100%;
+}
+
+section#map figcaption {
+    font-size: 1.25rem;
+}
+
+section#map figcaption span {
+    gap: .5rem;
 }
 
 [data-html-symbol="trigram-for-heaven"] {

@@ -101,24 +101,32 @@ main > section.row > footer {
     bottom: 1rem;
 }
 
-#default-footer .social-icons {
+.social-icons {
+    list-style-type: none;
+    align-items: flex-start;
     justify-content: flex-start;
+    gap: .5rem;
 }
 
-#default-footer .social-icons a {
-    flex: 0 0 2dvw;
-    width: 2dvw;
+.social-icons a {
+    flex: 0 0 2rem;
+    width: 2rem;
     user-select: none;
 }
 
 .rapid-logo a:focus img,
 .social-icons a:focus img,
+.social-icons a:focus svg,
 button[data-ghost-search]:focus {
     outline: thick solid var(--accent-color) !important;
     transition: all 250ms ease-out 0s;
 }
 
-.social-icons a:is(:focus, :hover) img {
+.social-icons :is(img, svg) {
+    transition: all 250ms ease-out 0s;
+}
+
+.social-icons a:is(:focus, :hover) :is(img, svg) {
     scale: 1.2;
     transition: all 250ms ease-in 0s;
 }

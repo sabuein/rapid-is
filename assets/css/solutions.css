@@ -70,6 +70,7 @@
 
 .tag-solutions .post .container article hgroup {
     flex: 0 1 fit-content;
+    height: auto;
     width: 100%;
     align-items: flex-start;
 }
@@ -95,9 +96,10 @@
 }
 
 .post-template.tag-solutions .post section:first-of-type :is(hgroup, figure) {
-    flex: 1 0 40rem;
-    height: 30rem;
-    width: 40rem;
+    padding: 1rem;
+    flex: 1 0 25rem;
+    height: 25rem;
+    width: 25rem;
     align-items: flex-start;
 }
 
