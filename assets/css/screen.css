@@ -167,6 +167,7 @@
 }
 
 *.shadowed {
+    background-color: var(--color-white);
     outline: thin solid var(--color-black-40);
     transform: none;
     -webkit-box-shadow: .1rem .1rem 0 var(--color-black-40);
@@ -319,7 +320,7 @@
 :is(h1, h2, h3, h4, h5, h6) {
     word-wrap: normal;
     text-transform: none;
-    font-weight: normal;
+    font-weight: 500;
     line-height: 1.5;
     max-width: 100%;
     text-wrap: balance;
@@ -451,12 +452,11 @@ form[method="dialog"] input:is([type="submit"], [type="reset"]) {
     overflow: hidden;
 }
 
-.post > :is(section, header, hgroup, article):nth-of-type(odd) {
-    background-color: var(--color-light-grey);
+.post > :is(section, header, article):nth-of-type(odd) {
     background-color: ghostwhite;
 }
 
-.post > :is(section, header, hgroup, article):nth-of-type(even) {
+.post > :is(section, header, article):nth-of-type(even) {
     background-color: var(--color-white);
 }
 
@@ -661,6 +661,7 @@ main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
     outline: none;
     -webkit-box-shadow: none;
     box-shadow: none;
+    background-color: transparent;
 }
 
 #partner-with-leaders figure:is(:focus, :hover) {
@@ -852,18 +853,16 @@ img {
 }
 
 h1 {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 2.5rem;
+    font-weight: 600;
 }
 
 h2 {
-    padding-top: .25rem;
     font-size: 2.25rem;
-    font-weight: 500;
 }
 
 h3 {
-    font-size: 2.25rem;
+    font-size: 2rem;
 }
 
 h4 {
@@ -876,7 +875,6 @@ h5 {
 
 h6 {
     font-size: 1.25rem;
-    font-weight: bold;
 }
 
 /* Elements with classes */
@@ -2132,7 +2130,15 @@ section#briefly {
 
 #get-the-app,
 #check-our-vacancies,
-#partner-with-leaders {
+#partner-with-leaders,
+#browse-our-projects .post,
+section#tabs-about,
+section#rapid-integration,
+section#map,
+#grab-coffee,
+#start-journey,
+#faq,
+.page-contact .post #content {
     min-height: auto;
 }
 
@@ -2168,11 +2174,6 @@ section#briefly {
 /* End of general partials styles */
 
 /* Start of tabs-about partial styles */
-
-section#tabs-about,
-section#rapid-integration {
-    min-height: auto;
-}
 
 section#tabs-about {
     background-color: gold;
@@ -2272,10 +2273,8 @@ section#tabs-about {
 /* End of tabs-about partial styles */
 
 form#join-newsletter {
-    padding: 2rem;
-    background-color: ghostwhite;
-    width: 100dvw;
-    max-width: 95%;
+    padding: 1rem;
+    width: 70rem;
 }
 
 
@@ -2288,24 +2287,25 @@ form#join-newsletter pre {
 }
 
 form#join-newsletter fieldset {
+    padding: .75rem;
     flex-wrap: wrap;
     align-content: stretch;
     width: 100dvw;
     max-width: 100%;
     color: var(--color-black);
     z-index: 1;
+    gap: 1.5rem;
 }
 
 form#join-newsletter legend {
-    padding-bottom: .5rem;
+    padding-bottom: 1.5rem;
     align-items: flex-start;
     gap: .5rem;
 }
 
 form#join-newsletter fieldset div {
     width: 100%;
-    justify-content: space-evenly;
-    gap: 1rem;
+    gap: .75rem;
 }
 
 form#join-newsletter fieldset div:last-of-type {
@@ -2670,7 +2670,6 @@ section#client-testimonials {
 /* page-contact.hbs */
 
 .page-contact .post #content {
-    min-height: auto;
     gap: 5rem;
 }
 
@@ -2726,7 +2725,6 @@ section#client-testimonials {
     flex: 1 0 15rem;
     height: auto;
     width: 15rem;
-    background-color: var(--color-white);
 }
 
 .page-contact #content aside figure {
@@ -2735,21 +2733,24 @@ section#client-testimonials {
     width: 10rem;
 }
 
-#grab-coffee,
-#start-journey,
-#faq {
-    min-height: auto;
+#grab-coffee {
+    gap: 2rem;
 }
 
 #grab-coffee div {
     flex: 1 0 fit-content;
     justify-content: flex-start;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 #grab-coffee div.controls {
     flex: 1 0 100%;
-    padding-top: 1rem;
+    padding-top: 1.25rem;
+}
+
+#grab-coffee div:has([type="datetime-local"]) {
+    flex: 1 0 100%;
+    width: 100%;
 }
 
 #grab-coffee > div > figure {
@@ -2769,10 +2770,6 @@ section#client-testimonials {
 
 #grab-coffee label {
     width: fit-content;
-}
-
-section#map {
-    min-height: auto;
 }
 
 section#map figure {
@@ -2833,6 +2830,67 @@ section#map figcaption span {
     max-width: inherit;
 }
 
-#faq legend {
-    
+#browse-our-projects > hgroup {
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
+#browse-our-projects .container .post > :is(hgroup, figure) {
+    padding: 2rem;
+    border: 0;
+    flex: 1 0 0%;
+    width: 40rem;
+    height: auto;
+}
+
+#browse-our-projects .container .post > hgroup {
+    gap: .5rem;
+}
+
+#browse-our-projects .container .post > hgroup h3 {
+    padding-bottom: .25rem;
+}
+
+#browse-our-projects .container .post > hgroup h4 {
+    padding-bottom: .25rem;
+}
+
+#browse-our-projects .container .post > figure {
+    flex: 0 1 fit-content;
+}
+
+#browse-our-projects .post hgroup figure {
+    padding: 1rem 0;
+    flex: 1 0 fit-content;
+    width: 100dvw;
+    height: auto;
+}
+
+#browse-our-projects .post hgroup figure figcaption {
+    padding: .5rem 1rem;
+    position: static;
+}
+
+#browse-our-projects .post hgroup figure div {
+    font-size: 1rem;
+    text-align: start;
+    line-height: 2;
+    max-height: none;
+}
+
+#browse-our-projects .post hgroup figure div
+
+
+#browse-our-projects .post hgroup figure > div {
+    padding: .5rem;
+}
+
+#browse-our-projects .filters {
+    flex: 1 0 100%;
+    width: 100dvw;
+    gap: 2rem;
+}
+
+#browse-our-projects .filters label {
+    gap: .5rem;
 }

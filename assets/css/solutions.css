@@ -23,7 +23,6 @@
     flex: 1 0 20rem;
     width: 20rem;
     max-width: 23%;
-    background-color: var(--color-white);
     align-items: flex-start;
     gap: 1rem;
     overflow: hidden;
