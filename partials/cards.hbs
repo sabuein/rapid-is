@@ -1,0 +1,24 @@
+<!-- cards.hbs -->
+<section class="cards flexy">
+    <hgroup class="flexy">
+        <h2>Key features of <strong>Rapid</strong>&comma; the <strong>low&dash;code</strong> development platform&period;</h2>
+        <p>Delectus quod amet dolorem quaerat modi ipsam natus officia magni totam at, quis doloribus pariatur libero tempora quasi id iste commodi non!</p>
+    </hgroup>
+    <div class="container flexy row">
+        {{#get "posts" filter="featured:true+tag:hash-cards+visibility:public" order="featured desc, published_at asc" limit="3" as |cards pages|}}{{#foreach cards}}<article class="{{post_class}} card flexy" data-index="{{@index}}">
+            <header class="side front flexy">
+                <h3 id="{{slug}}">{{title}}</h3>
+            </header>
+            {{#if feature_image}}<figure class="side front flexy bg-image" style="background-image: url({{img_url feature_image absolute='true'}});">
+                <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" />
+                {{#if custom_excerpt}}<figcaption>{{custom_excerpt}}</figcaption>{{/if}}
+            </figure>{{/if}}  
+            <hgroup class="side back flexy">
+                {{content}}
+            </hgroup>
+        </article>{{else}}<p>No posts&excl;</p>{{/foreach}}
+        {{!-- Use the pages (pagination) object --}}
+        <p>Found&colon; {{pages.total}} posts&period;</p>
+        {{else}}<p class="get-posts-error">{{error}}</p>{{/get}}
+    </div>
+</section>
