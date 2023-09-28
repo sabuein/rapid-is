@@ -6,9 +6,8 @@
         <p>From the original open-source software developed in 2015&comma; Rapid is now a team of motivated, creative and hard-working experts&period;</p>
     </hgroup>
     <div class="container disable-scrollbar flexy row">
-        {{#get "posts" filter="tag:hash-team-member+visibility:public" order="featured desc, published_at asc" limit=@config.posts_per_page}}
-        {{#foreach posts}}
-        <article class="{{post_class}} flexy row shadowed" data-index="{{@index}}" data-play-state="running" title="{{title}}">
+        {{#get "posts" filter="tag:hash-team-member+visibility:public" order="featured desc, published_at asc" limit=@config.posts_per_page as |members pages|}}
+        {{#foreach members}}<article class="{{post_class}} flexy row shadowed" data-index="{{@index}}" data-play-state="running" title="{{title}}">
             <header class="flexy">
                 <h3>{{title}}</h3>
                 {{#if feature_image}}<figure class="bg-image" style="background-image: url({{img_url feature_image absolute='true'}});">
@@ -59,10 +58,7 @@
                 {{content words="50"}}
                 <a href="{{url}}" title="View profile" type="text/html" class="flexy">View profile</a>
             </div>
-        </article>
-        {{/foreach}}
-        {{else}}
-        <p class="get-posts-error">{{error}}</p>
-        {{/get}}
+        </article>{{/foreach}}
+        <pre class="pagination">Found ({{pages.total}}) team members&period;</pre>{{else}}<p class="get-posts-error">{{error}}</p>{{/get}}
     </div>
 </section>

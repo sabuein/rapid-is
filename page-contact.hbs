@@ -2,24 +2,23 @@
 <!-- page-contact.hbs -->
 {{#is "page"}}
 {{#post}}
-{{#match @page.show_title_and_feature_image}}<hgroup class="flexy">
-    <h1 id="{{slug}}-outer" title="{{title}}">{{title}}</h1>
-    <p>{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{excerpt words="51"}}&hellip;{{/if}}</p>
-    <div class="flexy">
+<section class="heading flexy row reverse">
+    {{#match @page.show_title_and_feature_image}}<hgroup class="flexy">
+        <h1 id="{{slug}}" title="{{title}}">{{title}}</h1>
+        <p>{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{excerpt words="51"}}&hellip;{{/if}}</p>
+    </hgroup>
+    {{#if feature_image}}<figure class="flexy"{{#primary_tag}}{{#if accent_color}} style="background-color: {{accent_color}};"{{/if}}{{/primary_tag}} data-background-image="{{img_url feature_image absolute='true'}}">
+        <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" />
+        {{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}
+    </figure>{{/if}}{{/match}}
+    <footer class="flexy">
         <a href="#content" title="Continue to explore Rapid&apos;s {{slug}} below&hellip;">
             {{> "icons/angle-down"}}
         </a>
-    </div>
-</hgroup>
-{{#if feature_image}}<figure class="flexy bg-image" style="{{#primary_tag}}{{#if accent_color}}background-color: {{accent_color}}; {{/if}}{{/primary_tag}}background-image: url({{img_url feature_image absolute='true'}});">
-    <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
-    {{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}
-</figure>{{/if}}{{/match}}
-<section id="content" class="flexy row">
-    <article class="flexy">
-        <header>
-            <h1 id="{{slug}}-inner" title="{{title}}">{{title}}</h1>
-        </header>
+    </footer>
+</section>
+<section class="flexy row">
+    <article id="content" class="flexy">
         {{content}}
     </article>
     {{> "form"}}
