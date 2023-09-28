@@ -210,10 +210,10 @@
     fill: var(--color-white)
 }
 
-.page-case-studies > footer [data-divider="top"] path,
-.page-contact > footer [data-divider="top"] path,
-.page-about > footer [data-divider="top"] path,
-.tag-solutions > footer [data-divider="top"] path {
+.page-case-studies>footer [data-divider="top"] path,
+.page-contact>footer [data-divider="top"] path,
+.page-about>footer [data-divider="top"] path,
+.tag-solutions>footer [data-divider="top"] path {
     fill: var(--color-light-grey);
     fill: ghostwhite;
 }
@@ -452,11 +452,11 @@ form[method="dialog"] input:is([type="submit"], [type="reset"]) {
     overflow: hidden;
 }
 
-.post > :is(section, header, article):nth-of-type(odd) {
+.post> :is(section, header, article):nth-of-type(odd) {
     background-color: ghostwhite;
 }
 
-.post > :is(section, header, article):nth-of-type(even) {
+.post> :is(section, header, article):nth-of-type(even) {
     background-color: var(--color-white);
 }
 
@@ -496,7 +496,7 @@ address a {
     gap: 3rem;
 }
 
-.post > figure {
+.post>figure {
     flex: 0 1 35dvh;
     height: 35dvh;
     width: inherit;
@@ -535,7 +535,7 @@ address a {
     margin-top: 1rem;
 }
 
-.post > hgroup:first-of-type {
+.post>hgroup:first-of-type {
     padding: 5rem;
     flex: 0 1 fit-content;
     border-bottom: thin solid var(--color-black-40);
@@ -671,7 +671,7 @@ main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
 #partner-with-leaders figure:is(:focus, :hover) img,
 #partner-with-leaders figure:is(:focus, :hover) svg {
     scale: 1.1;
-    outline: thin solid var(--color-black-40); 
+    outline: thin solid var(--color-black-40);
 }
 
 :is(footer, div):has(>[href*="main-content"], >[title~="Continue"]) {
@@ -721,19 +721,19 @@ a[type="text/html"] {
 }
 
 :is(button,
-input,
-textarea,
-select,
-a[type="text/html"]):is(:focus, :hover, :valid) {
+    input,
+    textarea,
+    select,
+    a[type="text/html"]):is(:focus, :hover, :valid) {
     opacity: 1;
     transition: all 200ms ease-in 0s;
 }
 
 :is(button[type="button"],
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-a[type="text/html"]) {
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"],
+    a[type="text/html"]) {
     color: var(--color-white);
     background-color: var(--accent-color);
     cursor: pointer;
@@ -742,10 +742,10 @@ a[type="text/html"]) {
 }
 
 :is(button[type="button"],
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-a[type="text/html"]):is(:focus, :focus-within, :hover) {
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"],
+    a[type="text/html"]):is(:focus, :focus-within, :hover) {
     transform: translate(0, -.1rem);
     -webkit-box-shadow: .1rem .1rem 0 var(--color-black-40);
     box-shadow: .1rem .1rem 0 var(--color-black-40);
@@ -753,13 +753,13 @@ a[type="text/html"]):is(:focus, :focus-within, :hover) {
 }
 
 :is(input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="url"],
-input[type="search"],
-input[type="datetime-local"],
-textarea,
-select) {
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="search"],
+    input[type="datetime-local"],
+    textarea,
+    select) {
     padding: .5rem;
     background-color: var(--color-white);
     writing-mode: horizontal-tb;
@@ -767,25 +767,25 @@ select) {
 }
 
 :is(input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="url"],
-input[type="search"],
-input[type="datetime-local"],
-textarea,
-select):focus {
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="search"],
+    input[type="datetime-local"],
+    textarea,
+    select):focus {
     border: 0 !important;
     outline: thick solid var(--color-yellow);
 }
 
 :is(input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="url"],
-input[type="search"],
-input[type="datetime-local"],
-textarea,
-select):hover {
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="search"],
+    input[type="datetime-local"],
+    textarea,
+    select):hover {
     border: thin solid var(--color-mid-grey);
 }
 
@@ -1131,6 +1131,7 @@ path#coffee-steam {
 }
 
 @keyframes steaming {
+
     0%,
     100% {
         opacity: .25;
@@ -1153,6 +1154,7 @@ path#coffee-steam {
 }
 
 @keyframes enlarge-one {
+
     0%,
     100% {
         scale: .85;
@@ -1181,6 +1183,7 @@ path#coffee-steam {
 }
 
 @keyframes enlarge-two {
+
     0%,
     100% {
         scale: 1;
@@ -1208,6 +1211,7 @@ path#coffee-steam {
 }
 
 @keyframes opacity-orange {
+
     0%,
     100% {
         opacity: .1;
@@ -1225,6 +1229,7 @@ path#coffee-steam {
 }
 
 @keyframes left-right {
+
     0%,
     100% {
         translate: none;
@@ -1335,7 +1340,7 @@ ul.solutions-nav.flexy.row a {
 ul.nav.flexy.row a:is(:focus, :hover),
 ul.solutions-nav.flexy.row a:is(:focus, :hover),
 li.nav-solutions:focus-within,
-body > footer a:is(:focus, :hover) {
+body>footer a:is(:focus, :hover) {
     color: var(--color-orange);
 }
 
@@ -1363,10 +1368,10 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 }
 
 #streamlining-safety-checks g#ring :is([id="Vector_18"],
-[id="Vector_19"],
-[id="Vector_20"],
-[id="Vector_21"],
-[id="Vector_22"]):hover {
+    [id="Vector_19"],
+    [id="Vector_20"],
+    [id="Vector_21"],
+    [id="Vector_22"]):hover {
     cursor: pointer;
     scale: 1.25;
     transition: all 250ms ease-in-out 0s;
@@ -1550,7 +1555,7 @@ pre {
     gap: 1rem;
 }
 
-.post > section.flexy.row:has(~section.odd) {
+.post>section.flexy.row:has(~section.odd) {
     flex-direction: row-reverse;
 }
 
@@ -1874,6 +1879,7 @@ section#more-clients {
 }
 
 @keyframes shake-it {
+
     0%,
     100% {
         transform: translateX(0) rotate(0deg);
@@ -1902,6 +1908,7 @@ section#more-clients {
 }
 
 @keyframes point-down {
+
     0%,
     100% {
         transform: translateY(0);
@@ -1933,6 +1940,7 @@ section#more-clients {
 }
 
 @keyframes point-right {
+
     0%,
     100% {
         transform: translateX(-1px);
@@ -2104,7 +2112,7 @@ section {
     min-height: 100dvh;
 }
 
-.post > :is(section, article) {
+.post> :is(section, article) {
     padding: 8rem 6rem;
 }
 
@@ -2157,7 +2165,7 @@ section#map,
     padding: 2rem;
     flex: 1 1 60rem;
     width: 100dvw;
-    max-width: 100%;    
+    max-width: 100%;
     gap: 1rem;
 }
 
@@ -2266,7 +2274,7 @@ section#tabs-about {
     max-width: 100%;
 }
 
-#tabs-about article > p {
+#tabs-about article>p {
     text-align: center;
 }
 
@@ -2607,14 +2615,14 @@ section#client-testimonials {
 
 #meet-our-team .post h3 {
     padding: 1rem;
-    padding-bottom: 0   ;
+    padding-bottom: 0;
     white-space: nowrap;
     text-align: center;
     width: fit-content;
     background-color: inherit;
 }
 
-#meet-our-team  a[type="text/html"] {
+#meet-our-team a[type="text/html"] {
     align-self: center;
 }
 
@@ -2753,7 +2761,7 @@ section#client-testimonials {
     width: 100%;
 }
 
-#grab-coffee > div > figure {
+#grab-coffee>div>figure {
     padding: 2rem;
     padding-right: 5rem;
     flex: 1 1 30rem;
@@ -2762,7 +2770,7 @@ section#client-testimonials {
     border-right: thin dashed currentColor;
 }
 
-#grab-coffee > div > form {
+#grab-coffee>div>form {
     padding: 2rem 5rem;
     flex: 1 1 45rem;
     max-width: 100%;
@@ -2830,12 +2838,12 @@ section#map figcaption span {
     max-width: inherit;
 }
 
-#browse-our-projects > hgroup {
+#browse-our-projects>hgroup {
     align-content: flex-start;
     align-items: flex-start;
 }
 
-#browse-our-projects .container .post > :is(hgroup, figure) {
+#browse-our-projects .container .post> :is(hgroup, figure) {
     padding: 2rem;
     border: 0;
     flex: 1 0 0%;
@@ -2843,19 +2851,19 @@ section#map figcaption span {
     height: auto;
 }
 
-#browse-our-projects .container .post > hgroup {
+#browse-our-projects .container .post>hgroup {
     gap: .5rem;
 }
 
-#browse-our-projects .container .post > hgroup h3 {
+#browse-our-projects .container .post>hgroup h3 {
     padding-bottom: .25rem;
 }
 
-#browse-our-projects .container .post > hgroup h4 {
+#browse-our-projects .container .post>hgroup h4 {
     padding-bottom: .25rem;
 }
 
-#browse-our-projects .container .post > figure {
+#browse-our-projects .container .post>figure {
     flex: 0 1 fit-content;
 }
 
@@ -2878,10 +2886,7 @@ section#map figcaption span {
     max-height: none;
 }
 
-#browse-our-projects .post hgroup figure div
-
-
-#browse-our-projects .post hgroup figure > div {
+#browse-our-projects .post hgroup figure div #browse-our-projects .post hgroup figure>div {
     padding: .5rem;
 }
 
@@ -2893,4 +2898,131 @@ section#map figcaption span {
 
 #browse-our-projects .filters label {
     gap: .5rem;
+}
+
+.post .cards {
+    height: 100dvh;
+    max-height: 100%;
+    width: 100dvw;
+    max-width: 100%;
+    background-color: gold !important;
+}
+
+.post .cards hgroup {
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
+.post .cards .container {
+    height: 25rem;
+    max-height: inherit;
+    width: inherit;
+    max-width: inherit;
+    perspective: 100rem;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.post .cards .container p {
+    flex: 1 0 100%;
+    width: 100dvw;
+    text-align: center;
+}
+
+.post .cards .container:focus-within {
+    cursor: pointer;
+}
+
+.post.card {
+    flex: 0 1 25rem;
+    position: relative;
+    min-height: auto;
+    height: 20rem;
+    max-height: inherit;
+    min-width: 5rem;
+    width: 25rem;
+    max-width: inherit;
+    background-color: var(--color-white);
+    outline: thin solid var(--color-black-40);
+    -webkit-box-shadow: .5rem .5rem 2rem var(--color-black-40);
+    box-shadow: .5rem .5rem 2rem var(--color-black-40);
+    transform-style: preserve-3d;
+    -webkit-transition-property: transform;
+    -moz-transition-property: transform;
+    -o-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+    -webkit-transition-timing-function: linear;
+    -moz-transition-timing-function: linear;
+    -o-transition-timing-function: linear;
+    transition-timing-function: linear;
+    transition: transform 500ms linear 0s;
+}
+
+.post.card:hover {
+    transform: rotateY(-180deg);
+    animation: shut-down 500ms ease-in 0s 1 alternate backwards;
+}
+
+@keyframes shut-down {
+    0% {
+        display: flex;
+        height: 20rem;
+        width: 25rem;
+        opacity: 1;
+    }
+
+    50% {
+        display: flex;
+        height: 20rem;
+        width: 25rem;
+        opacity: .1;
+    }
+
+    85% {
+        display: none;
+        height: 0;
+        width: 0;
+        opacity: 0;
+    }
+
+    100% {
+        display: flex;
+        height: 20rem;
+        width: 25rem;
+        opacity: 1;
+    }
+}
+
+.post.card .side {
+    flex: 1 1 25rem;
+    align-items: flex-start;
+    padding: 2rem;
+    position: absolute;
+    backface-visibility: hidden;
+    height: 20rem;
+    max-height: inherit;
+    width: inherit;
+    max-width: inherit;
+    gap: .5rem;
+}
+
+.post.card .side.back {
+    transform: rotateY(180deg);
+}
+
+.post.card .side h3 {
+    font-size: 1.85rem;
+}
+
+.post.card .side p {
+    line-height: 1.85;
+    font-size: .85rem;
+}
+
+.post.card .side.back:hover {
+    animation: shut-down 500ms ease-in 0s 1 alternate backwards;
 }
