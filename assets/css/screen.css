@@ -210,11 +210,7 @@
     fill: var(--color-white)
 }
 
-.page-case-studies>footer [data-divider="top"] path,
-.page-contact>footer [data-divider="top"] path,
-.page-about>footer [data-divider="top"] path,
-.tag-solutions>footer [data-divider="top"] path {
-    fill: var(--color-light-grey);
+.page-case-studies>footer [data-divider="top"] path {
     fill: ghostwhite;
 }
 
@@ -568,14 +564,16 @@ address a {
 }
 
 .post blockquote {
-    margin: 0 auto 0 .25rem;
+    margin: 0;
+    margin-left: 2.5rem;
     padding: .25rem 0 .25rem 1rem;
     color: currentColor;
-    border-left: thick solid var(--color-mid-grey);
+    border-left: thick solid var(--accent-color);
     font-size: 1.5rem;
     font-style: oblique;
-    line-height: 2em;
+    line-height: 2;
     text-align: start;
+    align-self: flex-start;
     font-weight: 700;
 }
 
@@ -883,6 +881,7 @@ h6 {
     color: var(--color-red);
     font-size: 1.5rem;
     cursor: wait;
+    user-select: none;
 }
 
 article footer {
@@ -1499,7 +1498,16 @@ pre {
     text-align: -webkit-center;
     text-align: center;
     font-size: .85rem;
+    font-weight: 400;
     line-height: 2;
+}
+
+pre.pagination {
+    background-color: transparent !important;
+    flex: 1 0 100%;
+    width: 100%;
+    color: var(--color-mid-grey);
+    user-select: none;
 }
 
 #get-the-app div {
@@ -1604,6 +1612,9 @@ section#more-clients {
 [title~="Continue"] svg,
 [href*="main-content"] svg {
     width: 5rem;
+    border-radius: 5rem;
+    background-color: var(--accent-color);
+    transition: all 250ms ease-in 0s;
 }
 
 [href*="main-content"] svg {
@@ -1612,20 +1623,26 @@ section#more-clients {
 
 [title~="Continue"]:any-link path,
 [href*="main-content"]:any-link path {
-    fill: var(--color-mid-grey);
+    fill: var(--color-white);
+    transition: all 250ms ease-in 0s;
+}
+
+[title~="Continue"]:is(:focus, :hover) svg,
+[href*="main-content"]:is(:focus, :hover) svg {
+    background-color: transparent;
     transition: all 250ms ease-out 0s;
 }
 
 [title~="Continue"]:is(:focus, :hover) path,
 [href*="main-content"]:is(:focus, :hover) path {
-    fill: var(--color-black);
-    transition: all 250ms ease-in 0s;
+    fill: var(--accent-color);
+    transition: all 250ms ease-out 0s;
 }
 
 #more-clients hgroup,
 #client-testimonials hgroup {
-    width: 100%;
-    max-width: 75dvw;
+    width: 75dvw;
+    max-width: 100%;
     align-items: flex-start;
 }
 
@@ -2131,6 +2148,10 @@ section#rapid-integration :is(hgroup, figure) {
     align-items: flex-start
 }
 
+section#partner-with-leaders hgroup p {
+    padding: 1rem;
+}
+
 section#briefly {
     color: royalblue;
     background-color: royalblue;
@@ -2146,8 +2167,46 @@ section#map,
 #grab-coffee,
 #start-journey,
 #faq,
-.page-contact .post #content {
+.page-contact .post #content,
+.post .heading.row {
     min-height: auto;
+}
+
+.post .heading.row {
+    padding: 2rem 6rem;
+    background-color: var(--color-white);
+    gap: 2rem;
+}
+
+.post .heading.row :is(hgroup, figure) {
+    flex-grow: 1;
+    flex-shrink: 0;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.post .heading.row hgroup {
+    flex-basis: 60rem;
+    width: 60rem;
+    align-items: flex-start;
+}
+
+.post .heading.row figure {
+    flex-basis: 10rem;
+    width: 10rem;
+    height: 100%;
+}
+
+.post .heading.row figcaption {
+    padding: .5rem 1rem;
+}
+
+.post .heading.row h1 {
+    width: 100%;
+}
+
+.post .heading.row [title~="Continue"] {
+    bottom: -4.5rem;
 }
 
 #check-our-vacancies {
@@ -2192,14 +2251,9 @@ section#tabs-about {
 }
 
 #rapid-integration article {
-    padding: 1dvh 1dvw;
+    padding: 1rem;
+    align-items: flex-start;
     gap: 1rem;
-}
-
-#tabs-about h2,
-#rapid-integration h2 {
-    padding: 1dvh 1dvw;
-    text-transform: capitalize;
 }
 
 #tabs-about .buttons {
@@ -2237,15 +2291,13 @@ section#tabs-about {
 }
 
 #tabs-about article {
-    min-height: 30dvh;
-    width: 100dvw;
-    max-width: 100%;
+    min-height: fit-content;
     background-color: gold;
 }
 
 #tabs-about article hgroup {
     border: 0;
-    padding: 1dvh 1dvw;
+    padding: 1rem;
     flex: 1 0 100%;
     justify-content: flex-start;
     display: none;
@@ -2677,11 +2729,13 @@ section#client-testimonials {
 
 /* page-contact.hbs */
 
-.page-contact .post #content {
-    gap: 5rem;
+.page-contact .post section:has(#content) {
+    background-color: ghostwhite;
+    align-items: flex-start;
+    gap: 3rem;
 }
 
-.post #content header {
+.post #content {
     align-content: flex-start;
 }
 
@@ -2692,6 +2746,11 @@ section#client-testimonials {
 
 .page-contact .post legend {
     padding-bottom: 1.5rem;
+    width: 100%;
+}
+
+.page-contact .post legend h2 {
+    text-align: center;
 }
 
 .page-contact .post form :is(legend, div) {
@@ -2721,21 +2780,23 @@ section#client-testimonials {
     gap: .5rem;
 }
 
-.page-contact #content article {
+.page-contact #content {
+    padding: 1rem;
     align-items: flex-start;
-    flex: 1 0 55%;
-    width: 55%;
+    flex: 1 0 65rem;
+    width: 65rem;
+    height: auto;
     gap: 1rem;
 }
 
-.page-contact #content aside {
-    padding: 2rem;
-    flex: 1 0 15rem;
+.page-contact section:has(#content) aside {
+    padding: 1rem;
+    flex: 1 0 25rem;
     height: auto;
-    width: 15rem;
+    width: 25rem;
 }
 
-.page-contact #content aside figure {
+.page-contact section:has(#content) aside figure {
     flex: 1 1 15rem;
     height: 15rem;
     width: 10rem;
@@ -2921,16 +2982,7 @@ section#map figcaption span {
     perspective: 100rem;
     background-color: transparent;
     cursor: pointer;
-}
-
-.post .cards .container p {
-    flex: 1 0 100%;
-    width: 100dvw;
-    text-align: center;
-}
-
-.post .cards .container:focus-within {
-    cursor: pointer;
+    gap: 5rem;
 }
 
 .post.card {
@@ -2946,6 +2998,7 @@ section#map figcaption span {
     outline: thin solid var(--color-black-40);
     -webkit-box-shadow: .5rem .5rem 2rem var(--color-black-40);
     box-shadow: .5rem .5rem 2rem var(--color-black-40);
+    will-change: transform;
     transform-style: preserve-3d;
     -webkit-transition-property: transform;
     -moz-transition-property: transform;
@@ -2960,11 +3013,6 @@ section#map figcaption span {
     -o-transition-timing-function: linear;
     transition-timing-function: linear;
     transition: transform 500ms linear 0s;
-}
-
-.post.card:hover {
-    transform: rotateY(-180deg);
-    animation: shut-down 500ms ease-in 0s 1 alternate backwards;
 }
 
 @keyframes shut-down {
@@ -2999,15 +3047,31 @@ section#map figcaption span {
 
 .post.card .side {
     flex: 1 1 25rem;
+    flex-wrap: nowrap;
     align-items: flex-start;
-    padding: 2rem;
     position: absolute;
+    -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
     height: 20rem;
+    min-height: auto;
     max-height: inherit;
     width: inherit;
     max-width: inherit;
     gap: .5rem;
+}
+
+.post.card .side :is(h3, figure) {
+    position: absolute;
+    flex: 1 1 20rem;
+    height: 20rem;
+    max-height: inherit;
+    width: inherit;
+    max-width: inherit;
+}
+
+.post.card:hover {
+    transform: rotateY(180deg);
+    
 }
 
 .post.card .side.back {
@@ -3015,14 +3079,18 @@ section#map figcaption span {
 }
 
 .post.card .side h3 {
+    padding: 1rem;
     font-size: 1.85rem;
 }
 
-.post.card .side p {
+.cards .container > p {
     line-height: 1.85;
     font-size: .85rem;
+    width: 100dvw;
+    flex: 1 0 100%;
+    text-align: center;
 }
 
-.post.card .side.back:hover {
-    animation: shut-down 500ms ease-in 0s 1 alternate backwards;
+.cards .card .side :is(p, ul) {
+    width: fit-content;
 }

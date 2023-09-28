@@ -12,6 +12,7 @@
 
 .tag-solutions .post .container {
     padding: 8rem 6rem;
+    background-color: ghostwhite;
     gap: 5rem;
 }
 
@@ -75,10 +76,15 @@
 }
 
 .tag-solutions .post .container article figure {
-    flex: 0 1 25dvh;
-    height: 25dvh;
+    flex: 0 1 auto;
+    height: auto;
     width: 100dvw;
     max-width: 100%;
+}
+
+.tag-solutions .post .container article figure img,
+.post .heading.row figure img {
+    user-select: none;
 }
 
 /* Post template */
