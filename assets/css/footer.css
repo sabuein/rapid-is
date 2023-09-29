@@ -3,16 +3,15 @@ footer {
 }
 
 #default-footer {
-    padding: 1rem 2rem;
+    padding: 1rem 4rem;
     padding-top: 10rem;
     position: relative;
     width: 100dvw;
     max-width: 100%;
     min-height: 90dvh;
     gap: 3rem;
-    color: var(--color-black);
-    background-color: var(--accent-color-90);
-    background-color: ghostwhite;
+    color: var(--accent-color-110);
+    background-color: var(--accent-color-50);
     overflow: hidden;
     font-size: 1rem;
 }
@@ -27,6 +26,7 @@ footer {
 }
  
 #default-footer > div:first-child {
+    padding-top: .5rem;
     min-height: fit-content;
     gap: 1rem;
 }
@@ -66,13 +66,13 @@ main > section.row > footer {
     align-items: flex-start;
     align-content: flex-start;
     text-transform: capitalize;
-    gap: 1rem;
+    gap: .5rem;
 }
 
 #default-footer h6 {
     font-weight: 600;
     font-style: italic;
-    color: var(--accent-color);
+    color: var(--accent-color-100);
     user-select: none;
 }
 
@@ -108,7 +108,11 @@ main > section.row > footer {
     list-style-type: none;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: .5rem;
+}
+
+#default-footer .social-icons {
+    margin-top: .5rem;
+    gap: 1.25rem;
 }
 
 .social-icons a {
@@ -127,6 +131,10 @@ button[data-ghost-search]:focus {
 
 .social-icons :is(img, svg) {
     transition: all 250ms ease-out 0s;
+}
+
+.social-icons svg path {
+    fill: var(--accent-color-110);
 }
 
 .social-icons a:is(:focus, :hover) :is(img, svg) {
