@@ -122,6 +122,8 @@
 
 *.flexy.row {
     flex-direction: row;
+    justify-content: space-evenly;
+    gap: 2rem;
 }
 
 *.flexy.row.reverse {
@@ -130,11 +132,15 @@
 
 *.bg-image {
     background-color: var(--accent-color);
-    background-position: center center;
+    background-position: left center;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
     background-clip: content-box;
+    width: 100dvw;
+    max-width: 100%;
+    height: 100dvh;
+    max-height: 100%;
 }
 
 *.bg-image img {
@@ -169,17 +175,28 @@
 *.shadowed {
     background-color: var(--color-white);
     outline: thin solid var(--color-black-40);
+    opacity: .85;
     transform: none;
     -webkit-box-shadow: .1rem .1rem 0 var(--color-black-40);
     box-shadow: .1rem .1rem 0 var(--color-black-40);
     transition: all 250ms ease-out 0s;
 }
 
-*.shadowed:is(:focus, :focus-within, :hover) {
+*.shadowed:is(:hover, :focus, :focus-within, :active) {
+    opacity: 1;
     transform: translate(0, -.15rem);
     -webkit-box-shadow: .2rem .2rem 0 var(--color-black-40);
     box-shadow: .2rem .2rem 0 var(--color-black-40);
     transition: all 250ms ease-in 0s;
+}
+
+*.container {
+    will-change: contents;
+    flex: 1 0 100dvw;
+    width: 100dvw;
+    max-width: 100%;
+    height: fit-content;
+    max-height: 100%;
 }
 
 /* Elements with data attributes */
@@ -282,6 +299,7 @@
     padding: 0;
     border: 0;
     outline: 0;
+    opacity: 1;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -307,21 +325,20 @@
     height: auto;
     max-height: 100%;
     background-color: transparent;
-}
-
-:is(header, hgroup, section, article, figure).flexy {
-    gap: 1rem;
+    gap: .5rem;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
     word-wrap: normal;
     text-transform: none;
     font-weight: 500;
+    font-style: normal;
     line-height: 1.5;
-    max-width: 100%;
     text-wrap: balance;
     text-align: start;
     background-color: transparent;
+    width: 100dvw;
+    max-width: 100%;
 }
 
 html {
@@ -351,6 +368,7 @@ body {
     max-width: var(--default-max-width);
     min-height: 100dvh;
     overflow-x: hidden;
+    gap: 0;
 }
 
 body:has(dialog[open]) {
@@ -401,7 +419,10 @@ dialog[open] {
 }
 
 form[method="dialog"] {
+    padding: 1rem;
     color: inherit;
+    flex: 0 1 70rem;
+    width: 70rem;
     gap: 1rem;
 }
 
@@ -446,13 +467,19 @@ form[method="dialog"] input:is([type="submit"], [type="reset"]) {
     font-size: 1.25rem;
     min-height: 90dvh;
     overflow: hidden;
+    gap: 0;
 }
 
-.post> :is(section, header, article):nth-of-type(odd) {
+*.post *.palette {
+    padding: 8rem 6rem;
+    gap: 2rem;
+}
+
+*.post *.palette:nth-of-type(odd) {
     background-color: ghostwhite;
 }
 
-.post> :is(section, header, article):nth-of-type(even) {
+*.post *.palette:nth-of-type(even) {
     background-color: var(--color-white);
 }
 
@@ -461,11 +488,6 @@ address a {
 }
 
 /* Start of page style */
-
-.post.flexy>header {
-    min-height: 30dvh;
-    gap: 1rem;
-}
 
 .post.flexy>header>section.title-meta {
     position: absolute;
@@ -483,13 +505,6 @@ address a {
 .post.flexy>header>section.title-meta>h1 {
     align-self: flex-start;
     color: inherit;
-}
-
-#compliance-app,
-#main-message,
-#streamlining-safety-checks {
-    justify-content: space-between;
-    gap: 3rem;
 }
 
 .post>figure {
@@ -629,17 +644,12 @@ main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
 }
 
 /* End of page style */
-
-#partner-with-leaders .container {
-    width: 100%;
-    justify-content: space-evenly;
-}
-
 #partner-with-leaders figure {
-    flex: 1 0 10dvw;
-    width: 10dvw;
+    padding: 1rem;
+    flex: 0 1 10rem;
+    width: 10rem;
     max-width: 100%;
-    height: 20dvh;
+    height: 10rem;
     max-height: 100%;
     user-select: none;
 }
@@ -703,11 +713,10 @@ a[type="text/html"] {
     height: 3rem;
     width: inherit;
     max-width: 100%;
-    border-radius: .25rem;
+    /*border-radius: .25rem;*/
     align-items: center;
     touch-action: manipulation;
     opacity: .75;
-    -webkit-appearance: button;
     cursor: auto;
     user-select: none;
     text-transform: none;
@@ -732,6 +741,7 @@ a[type="text/html"] {
     input[type="submit"],
     input[type="reset"],
     a[type="text/html"]) {
+    -webkit-appearance: button;
     color: var(--color-white);
     background-color: var(--accent-color);
     cursor: pointer;
@@ -743,7 +753,7 @@ a[type="text/html"] {
     input[type="button"],
     input[type="submit"],
     input[type="reset"],
-    a[type="text/html"]):is(:focus, :focus-within, :hover) {
+    a[type="text/html"]):is(:focus, :focus-within, :hover, :valid) {
     transform: translate(0, -.1rem);
     -webkit-box-shadow: .1rem .1rem 0 var(--color-black-40);
     box-shadow: .1rem .1rem 0 var(--color-black-40);
@@ -761,7 +771,7 @@ a[type="text/html"] {
     padding: .5rem;
     background-color: var(--color-white);
     writing-mode: horizontal-tb;
-    border: thin solid var(--color-light-grey);
+    border: thin solid var(--color-mid-grey);
 }
 
 :is(input[type="text"],
@@ -784,7 +794,7 @@ a[type="text/html"] {
     input[type="datetime-local"],
     textarea,
     select):hover {
-    border: thin solid var(--color-mid-grey);
+    border: thin solid var(--color-black-40);
 }
 
 textarea {
@@ -805,7 +815,6 @@ select:focus-within {
 
 a[type="text/html"] {
     text-decoration: none;
-    text-transform: capitalize;
     text-align: center;
     width: fit-content;
 }
@@ -816,33 +825,12 @@ div:has(a[type="text/html"]) {
     max-width: 100%;
 }
 
-[href*="main-content"] {
-    text-decoration: none;
-    text-align: center;
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: var(--accent-color-60);
-    background-color: transparent;
-    transition: all 200ms ease-out 0s;
-}
-
-[href*="main-content"]:is(:focus, :hover) {
-    fill: var(--accent-color);
-    transition: all 200ms ease-in 0s;
-}
-
 img {
     display: inline-block;
     width: 100%;
     vertical-align: middle;
     object-fit: contain;
     background-color: transparent;
-}
-
-.post .row :is(header, hgroup, figure) {
-    flex: 1 1 20rem;
-    height: 20rem;
-    width: 20rem;
 }
 
 .post .row header {
@@ -893,7 +881,7 @@ article footer {
     text-align: justify;
     font-weight: 400;
     font-size: 1rem;
-    width: fit-content;
+    width: 100dvw;
     max-width: 100%;
     height: auto;
     color: currentColor;
@@ -925,17 +913,18 @@ div:has(dialog) {
 
 strong {
     font-weight: 700;
+    text-transform: uppercase;
 }
 
 header:has(nav) {
-    padding: 2vb 5vb;
+    padding: 1rem 2rem;
     justify-content: space-between !important;
     color: var(--color-black);
     background-color: var(--color-white);
     animation: menu-go-down 500ms linear 0s 1 forwards;
     -webkit-box-shadow: .1rem .1rem 0 var(--color-black-40);
     box-shadow: .1rem .1rem 0 var(--color-black-40);
-    flex: 0 1 10dvh;
+    flex: 0 1 5rem;
     overflow: visible;
     position: -webkit-sticky;
     position: sticky;
@@ -943,12 +932,13 @@ header:has(nav) {
     top: 0;
     z-index: 9999;
     pointer-events: auto;
-    height: 10dvh;
-    max-height: 10dvh;
+    height: 5rem;
+    max-height: 5rem;
 }
 
 nav {
     background-color: transparent;
+    width: fit-content;
 }
 
 header.loose {
@@ -1270,6 +1260,7 @@ ul.nav.flexy.row {
     font-weight: bold;
     font-size: inherit;
     text-transform: capitalize;
+    width: fit-content;
 }
 
 li.nav-solutions svg,
@@ -1308,7 +1299,7 @@ nav ul~ul.solutions-nav {
     position: absolute;
     top: 4.5rem;
     gap: 1rem;
-    width: 50rem;
+    width: fit-content;
     height: fit-content;
     list-style-type: none;
     font-weight: bold;
@@ -1334,6 +1325,7 @@ ul.nav.flexy.row a,
 ul.solutions-nav.flexy.row a {
     text-decoration: none;
     font-weight: 500;
+    gap: 0;
 }
 
 ul.nav.flexy.row a:is(:focus, :hover),
@@ -1352,10 +1344,6 @@ li.nav-solutions a:is(:focus, :hover) path,
 li.nav-solutions:focus-within path,
 ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
     fill: var(--accent-color);
-}
-
-.pagination {
-    user-select: auto;
 }
 
 #streamlining-safety-checks g#ring {
@@ -1395,11 +1383,6 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 
 #streamlining-safety-checks p {
     text-align: justify;
-}
-
-#streamlining-safety-checks figure {
-    flex: 0 1 35dvw;
-    width: 35dvw;
 }
 
 #streamlining-safety-checks .cta-button {
@@ -1502,17 +1485,20 @@ pre {
     line-height: 2;
 }
 
-pre.pagination {
+*.pagination {
     background-color: transparent !important;
     flex: 1 0 100%;
-    width: 100%;
+    width: 100dvw;
+    max-width: 100%;
     color: var(--color-mid-grey);
     user-select: none;
+    font-size: .65rem;
 }
 
 #get-the-app div {
-    width: 100%;
-    gap: 2vb;
+    width: 100dvw;
+    max-width: 100%;
+    gap: 1rem;
 }
 
 #get-the-app figure:nth-of-type(1) {
@@ -1557,13 +1543,13 @@ pre.pagination {
     transition: all 250ms ease-out 0s;
 }
 
-.clients {
+*.clients {
     color: var(--color-dark-blue);
     background-color: var(--color-light-grey);
     gap: 1rem;
 }
 
-.post>section.flexy.row:has(~section.odd) {
+*.post>section.flexy.row:has(~section.odd) {
     flex-direction: row-reverse;
 }
 
@@ -1579,12 +1565,11 @@ pre.pagination {
     animation: slide-right 500ms linear 10ms 1 forwards;
 }
 
-#main-message figure {
-    text-align: center;
-    animation: slide-left 500ms linear 10ms 1 forwards;
+#main-message hgroup {
+    width: 35rem;
 }
 
-section#more-clients {
+#more-clients {
     padding: 2rem;
     gap: 2rem;
     animation: slide-up 1s linear 100ms 1 forwards;
@@ -1595,24 +1580,39 @@ section#more-clients {
     display: block;
     flex: 0 1 fit-content;
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    max-width: fit-content;
+    bottom: .5rem;
+    width: fit-content;
+    max-width: 100%;
     user-select: none;
     z-index: 999;
     animation: point-down 1s linear 0s infinite;
     background-color: transparent;
 }
 
-[title~="Continue"]:focus,
-[href*="main-content"]:focus {
-    outline: 0;
+[title~="Continue"]:hover,
+[href*="main-content"]:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+[href*="main-content"] {
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--accent-color-60);
+    background-color: transparent;
+    transition: all 200ms ease-out 0s;
+}
+
+[href*="main-content"]:is(:focus, :hover) {
+    fill: var(--accent-color);
+    transition: all 200ms ease-in 0s;
 }
 
 [title~="Continue"] svg,
 [href*="main-content"] svg {
-    width: 5rem;
-    border-radius: 5rem;
+    width: 3rem;
     background-color: var(--accent-color);
     transition: all 250ms ease-in 0s;
 }
@@ -1629,7 +1629,7 @@ section#more-clients {
 
 [title~="Continue"]:is(:focus, :hover) svg,
 [href*="main-content"]:is(:focus, :hover) svg {
-    background-color: transparent;
+    background-color: var(--color-white);
     transition: all 250ms ease-out 0s;
 }
 
@@ -1639,20 +1639,43 @@ section#more-clients {
     transition: all 250ms ease-out 0s;
 }
 
-#more-clients hgroup,
-#client-testimonials hgroup {
-    width: 75dvw;
+*.flexy.row>hgroup {
+    padding: 1rem;
+    flex: 2 1 50rem;
+    width: 50rem;
+}
+
+*.flexy.row>figure {
+    padding: 1rem;
+    flex: 1 1 30rem;
+    width: 30rem;
+    animation: slide-left 500ms linear 10ms 1 forwards;
+}
+
+*.flexy:not(.row)>hgroup,
+*.flexy:not(.row)>.container {
+    direction: ltr;
+    flex: 0 1 fit-content;
+    height: fit-content;
+    max-height: 100%;
+    width: 90rem;
     max-width: 100%;
+    align-content: flex-start;
     align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+}
+
+*.flexy:not(.row)>.container {
+    width: 100dvw;
+}
+
+#more-clients hgroup h2 {
+    font-size: 2rem;
 }
 
 #more-clients .container {
     flex-wrap: nowrap;
-    width: inherit;
-    max-width: inherit;
-    direction: ltr;
-    height: 25dvh;
-    max-height: 100%;
     align-content: flex-start;
     gap: 4em;
     -webkit-animation-name: move;
@@ -1674,8 +1697,11 @@ section#more-clients {
 
 #more-clients figure {
     padding: 1rem;
-    flex: 0 0 15dvw;
-    width: 15dvw;
+    flex: 0 0 15rem;
+    width: 15rem;
+    max-width: 100%;
+    height: 10rem;
+    max-height: 100%;
     flex-wrap: nowrap;
     text-align: center;
     mix-blend-mode: normal;
@@ -1685,7 +1711,7 @@ section#more-clients {
 }
 
 #more-clients figure:first-of-type {
-    margin-left: 20vb;
+    margin-left: 10rem;
 }
 
 #more-clients figcaption {
@@ -2129,14 +2155,6 @@ section {
     min-height: 100dvh;
 }
 
-.post> :is(section, article) {
-    padding: 8rem 6rem;
-}
-
-section:has(.container) {
-    gap: 3rem;
-}
-
 /* Start of general partials styles */
 
 section#get-the-app :is(hgroup, figure),
@@ -2163,7 +2181,6 @@ section#briefly {
 #browse-our-projects .post,
 section#tabs-about,
 section#rapid-integration,
-section#map,
 #grab-coffee,
 #start-journey,
 #faq,
@@ -2172,65 +2189,68 @@ section#map,
     min-height: auto;
 }
 
-.post .heading.row {
-    padding: 2rem 6rem;
+#start-journey {
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+#start-journey hgroup {
+    gap: .25rem;
+}
+
+#start-journey footer {
+    width: fit-content;
+}
+
+*.post>*.heading.flexy.row {
+    padding: 2rem 4rem;
     background-color: var(--color-white);
     gap: 2rem;
 }
 
-.post .heading.row :is(hgroup, figure) {
+*.post>*.heading.flexy.row :is(hgroup, figure) {
+    padding: 0;
     flex-grow: 1;
     flex-shrink: 0;
     max-width: 100%;
     max-height: 100%;
 }
 
-.post .heading.row hgroup {
+*.post>*.heading.flexy.row hgroup {
     flex-basis: 60rem;
     width: 60rem;
     align-items: flex-start;
+    align-content: flex-start;
 }
 
-.post .heading.row figure {
+*.post>*.heading.flexy.row figure {
     flex-basis: 10rem;
     width: 10rem;
-    height: 100%;
+    height: 15rem;
 }
 
-.post .heading.row figcaption {
+*.post>*.heading.flexy.row figcaption {
     padding: .5rem 1rem;
 }
 
-.post .heading.row h1 {
-    width: 100%;
+*.post>*.heading.flexy.row :is(h1, p) {
+    max-width: 70%;
 }
 
-.post .heading.row [title~="Continue"] {
-    bottom: -4.5rem;
+*.post>*.heading.flexy.row [title~="Continue"] {
+    bottom: -3.5rem;
 }
 
-#check-our-vacancies {
-    gap: 2rem;
-}
-
-#check-our-vacancies figure {
-    padding: 2rem;
-    flex: 1 1 25rem;
-    width: 100dvw;
-    max-width: 100%;
+#check-our-vacancies>figure {
+    flex: 0 1 20rem;
+    width: 20rem;
 }
 
 #check-our-vacancies .container {
     padding: 2rem;
-    flex: 1 1 60rem;
-    width: 100dvw;
-    max-width: 100%;
+    flex: 0 1 60rem;
+    width: 60rem;
     gap: 1rem;
-}
-
-#check-our-vacancies .container hgroup {
-    flex: 1 0 100%;
-    width: 100%;
 }
 
 #check-our-vacancies .container pre {
@@ -2307,7 +2327,7 @@ section#tabs-about {
 }
 
 #tabs-about hgroup h2 {
-    padding: .75vb;
+    padding: .5rem;
     font-weight: 500;
     font-size: 2.15rem;
 }
@@ -2332,11 +2352,6 @@ section#tabs-about {
 
 /* End of tabs-about partial styles */
 
-form#join-newsletter {
-    padding: 1rem;
-    width: 70rem;
-}
-
 
 form#join-newsletter pre {
     text-align: start;
@@ -2347,7 +2362,6 @@ form#join-newsletter pre {
 }
 
 form#join-newsletter fieldset {
-    padding: .75rem;
     flex-wrap: wrap;
     align-content: stretch;
     width: 100dvw;
@@ -2363,31 +2377,19 @@ form#join-newsletter legend {
     gap: .5rem;
 }
 
+form#join-newsletter legend h2 {
+    width: fit-content;
+}
+
 form#join-newsletter fieldset div {
-    width: 100%;
-    gap: .75rem;
-}
-
-form#join-newsletter fieldset div:last-of-type {
+    width: fit-content;
     justify-content: center;
-    gap: 2rem;
-}
-
-form#join-newsletter [data-divider="bottom"] {
-    padding: 0;
-    transform: none;
-    top: unset;
-    bottom: -7.9vb;
-    pointer-events: all;
-    border-top-right-radius: 5vb;
-}
-
-form#join-newsletter [data-divider="bottom"] path {
-    fill: var(--accent-color-90);
+    gap: 1rem;
 }
 
 form#join-newsletter p {
     font-size: 1rem;
+    width: fit-content;
 }
 
 form#join-newsletter label {
@@ -2420,10 +2422,11 @@ footer:has(#sharing-is-caring) {
 }
 
 .post #sharing-is-caring {
-    padding: 5vb 0;
-    width: 100%;
+    padding: 2rem 0;
+    width: 100dvw;
+    max-width: 100%;
     height: auto;
-    gap: 4vb;
+    gap: 2rem;
     user-select: none;
 }
 
@@ -2439,8 +2442,9 @@ footer:has(#sharing-is-caring) {
 
 .post #sharing-is-caring ul {
     padding: 0;
+    width: fit-content;
     list-style-type: none;
-    gap: 2vb;
+    gap: 1rem;
 }
 
 .post #sharing-is-caring li {
@@ -2456,61 +2460,59 @@ footer:has(#sharing-is-caring) {
     text-decoration: underline;
 }
 
-/* Client's testimonials and reviews: /partials/testimonials.hbs */
-
-section#client-testimonials {
-    gap: 1rem;
+ol {
+    width: fit-content;
 }
+
+/* Client's testimonials and reviews: /partials/testimonials.hbs */
 
 #client-testimonials ol {
     list-style: none;
     gap: 1rem;
     z-index: 999;
     user-select: none;
+    justify-content: center;
+    width: 100dvw;
+    max-width: 100%;
 }
 
 #client-testimonials ol li {
-    flex: 0 1 1.5rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    border: thin solid var(--color-black-40);
+    flex: 0 1 1rem;
+    width: 1rem;
+    height: 1rem;
+    border: thin solid var(--accent-color-100);
     border-radius: 50%;
-    background-color: var(--color-mid-grey);
+    background-color: var(--accent-color-80);
     text-align: center;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     scale: 1;
-    transition: all 250ms ease-out 0s;
+    transition: all 250ms ease-in 0s;
 }
 
 #client-testimonials li.currently-active,
 #client-testimonials li:is(:focus, :hover) {
-    background-color: var(--color-black);
-    border-color: var(--color-black);
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
     scale: 1.25;
-    transition: all 250ms ease-in 0s;
-}
-
-.container.flexy {
-    will-change: contents;
-    gap: 2rem;
+    transition: all 250ms ease-out 0s;
 }
 
 #client-testimonials .container .post {
-    margin: 1dvh 1dvw;
+    margin: 0;
+    padding: 1rem 4rem;
     border: 0;
     border-radius: 0;
-    padding: 1dvh 2dvw;
-    flex: 0 1 70dvw;
-    width: 100%;
-    max-width: 70dvw;
-    height: 100%;
+    flex: 0 1 80rem;
+    width: 80rem;
+    max-width: 100%;
     min-height: 45dvh;
+    max-height: 100%;
     display: none;
     visibility: hidden;
     opacity: 0;
-    gap: 1rem;
+    gap: 2rem;
     user-select: text;
     cursor: default;
 }
@@ -2521,6 +2523,7 @@ section#client-testimonials {
     visibility: visible;
     opacity: 1;
     animation: display-none-to-flex 250ms ease-in-out 10ms 1 forwards;
+    gap: 2rem;
 }
 
 @keyframes display-none-to-flex {
@@ -2550,29 +2553,18 @@ section#client-testimonials {
     }
 }
 
-#client-testimonials .post *:is(header, p) {
-    flex: 1 0 40rem;
+#client-testimonials .post h3 {
+    flex: 0 1 fit-content;
     width: fit-content;
     max-width: 100%;
 }
 
-#client-testimonials .post header {
-    flex: 0 1 20rem;
-    background-color: inherit;
-}
-
-#client-testimonials .post *:is(h3, p) {
-    cursor: text;
-}
-
-#client-testimonials .post h3 {
-    font-size: 2.25rem;
-}
-
 #client-testimonials .post p {
-    padding: 0 1rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-align: justify;
+    flex: 2 1 45rem;
+    width: 45rem;
+    max-width: 100%;
 }
 
 #client-testimonials .post p:last-child {
@@ -2599,36 +2591,36 @@ section#client-testimonials {
 #client-testimonials .next-testimonial,
 #client-testimonials .prev-testimonial {
     position: absolute;
-    top: 50vb;
-    font-size: 2rem;
-    border-radius: 1dvw;
+    top: 26.5rem;
+    font-size: 2.5rem;
+    border-radius: .25rem;
     outline: 0;
 }
 
 #client-testimonials .next-testimonial svg,
 #client-testimonials .prev-testimonial svg {
+    width: 5rem;
     max-width: 100%;
-    width: 6dvw;
-    fill: var(--color-mid-grey);
+    fill: var(--accent-color-80);
     scale: 1;
-    transition: all 250ms ease-in-out 0s;
+    transition: all 250ms linear 0s;
 }
 
 #client-testimonials .next-testimonial:is(:focus, :hover) svg,
 #client-testimonials .prev-testimonial:is(:focus, :hover) svg {
-    fill: var(--color-black);
+    fill: var(--accent-color);
     scale: 1.25;
     animation: point-down 1s linear 0s infinite;
-    transition: all 250ms ease-in-out 0s;
+    transition: all 250ms linear 0s;
 }
 
 #client-testimonials .next-testimonial {
-    right: 2dvw;
+    right: 1.5rem;
     rotate: 270deg;
 }
 
 #client-testimonials .prev-testimonial {
-    left: 2dvw;
+    left: 1.5rem;
     rotate: 90deg;
 }
 
@@ -2729,37 +2721,40 @@ section#client-testimonials {
 
 /* page-contact.hbs */
 
-.page-contact .post section:has(#content) {
+.page-contact .post #content {
+    padding: 8rem 6rem;
     background-color: ghostwhite;
     align-items: flex-start;
     gap: 3rem;
 }
 
-.post #content {
+.page-contact .post #content {
     align-content: flex-start;
 }
 
 .page-contact .post fieldset {
+    width: fit-content;
     align-items: flex-start;
     gap: 1.25rem;
 }
 
-.page-contact .post legend {
-    padding-bottom: 1.5rem;
-    width: 100%;
-}
-
-.page-contact .post legend h2 {
+.page-contact .post h2 {
+    width: fit-content;
     text-align: center;
 }
 
-.page-contact .post form :is(legend, div) {
+.page-contact .post legend {
     flex: 1 0 100%;
+    padding-bottom: 1.5rem;
+    width: 100%;
     gap: 1rem;
 }
 
 .page-contact .post .controls {
-    width: 100%;
+    flex: 0 1 fit-content;
+    width: fit-content;
+    align-self: center;
+    gap: 1rem;
 }
 
 .page-contact .post .controls input {
@@ -2776,29 +2771,35 @@ section#client-testimonials {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    flex: 0 1 100%;
     width: 100%;
     gap: .5rem;
 }
 
 .page-contact #content {
     padding: 1rem;
+    flex: 1 0 100%;
+    width: 100dvw;
+    max-width: 100%;
+}
+
+.page-contact #content article {
     align-items: flex-start;
-    flex: 1 0 65rem;
-    width: 65rem;
+    flex: 1 0 60rem;
+    width: 60rem;
     height: auto;
     gap: 1rem;
 }
 
-.page-contact section:has(#content) aside {
+.page-contact #content aside {
     padding: 1rem;
     flex: 1 0 25rem;
     height: auto;
     width: 25rem;
 }
 
-.page-contact section:has(#content) aside figure {
-    flex: 1 1 15rem;
-    height: 15rem;
+.page-contact #content aside figure {
+    flex: 0 1 10rem;
     width: 10rem;
 }
 
@@ -2808,6 +2809,7 @@ section#client-testimonials {
 
 #grab-coffee div {
     flex: 1 0 fit-content;
+    width: fit-content;
     justify-content: flex-start;
     gap: 2rem;
 }
@@ -2817,15 +2819,21 @@ section#client-testimonials {
     padding-top: 1.25rem;
 }
 
-#grab-coffee div:has([type="datetime-local"]) {
+#grab-coffee > div {
     flex: 1 0 100%;
-    width: 100%;
+    width: 85rem;
+    max-width: 100%;
+}
+
+#grab-coffee form div:has([type="datetime-local"]) {
+    flex: 1 0 fit-content;
+    width: fit-content;
 }
 
 #grab-coffee>div>figure {
     padding: 2rem;
     padding-right: 5rem;
-    flex: 1 1 30rem;
+    flex: 1 1 25rem;
     max-width: 100%;
     height: 20rem;
     border-right: thin dashed currentColor;
@@ -2838,19 +2846,35 @@ section#client-testimonials {
 }
 
 #grab-coffee label {
+    flex: 0 1 fit-content;
     width: fit-content;
 }
 
-section#map figure {
-    height: 100dvh;
-    max-width: 100%;
+#grab-coffee hgroup {
+    align-items: flex-start;
 }
 
-section#map figcaption {
+#map {
+    min-height: auto;
+}
+
+#map hgroup {
+    align-items: flex-start;
+}
+
+#map figure {
+    padding: 3rem;
+    height: 50rem;
+}
+
+#map figcaption {
+    position: absolute;
+    bottom: -1.5rem;
     font-size: 1.25rem;
+    max-width: 85%;
 }
 
-section#map figcaption span {
+#map figcaption span {
     gap: .5rem;
 }
 
@@ -2952,8 +2976,10 @@ section#map figcaption span {
 }
 
 #browse-our-projects .filters {
+    padding: 0 2rem;
     flex: 1 0 100%;
     width: 100dvw;
+    max-width: 100%;
     gap: 2rem;
 }
 
@@ -3050,7 +3076,8 @@ section#map figcaption span {
     flex-wrap: nowrap;
     align-items: flex-start;
     position: absolute;
-    -webkit-backface-visibility: hidden; /* Safari */
+    -webkit-backface-visibility: hidden;
+    /* Safari */
     backface-visibility: hidden;
     height: 20rem;
     min-height: auto;
@@ -3071,7 +3098,7 @@ section#map figcaption span {
 
 .post.card:hover {
     transform: rotateY(180deg);
-    
+
 }
 
 .post.card .side.back {
@@ -3083,7 +3110,7 @@ section#map figcaption span {
     font-size: 1.85rem;
 }
 
-.cards .container > p {
+.cards .container>p {
     line-height: 1.85;
     font-size: .85rem;
     width: 100dvw;

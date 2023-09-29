@@ -90,7 +90,7 @@
 /* Post template */
 
 .post-template.tag-solutions .post #content {
-    justify-content: center;
+    align-content: flex-start;
 }
 
 .post-template.tag-solutions .post section:first-of-type {

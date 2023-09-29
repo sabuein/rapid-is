@@ -70,11 +70,14 @@ main > section.row > footer {
 }
 
 #default-footer h6 {
+    font-weight: 600;
     font-style: italic;
-    color: var(--color-dark-blue)
+    color: var(--accent-color);
+    user-select: none;
 }
 
 #default-footer ul {
+    width: fit-content;
     list-style-type: none;
     align-items: flex-start;
     gap: .5rem;
