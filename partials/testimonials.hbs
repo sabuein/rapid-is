@@ -2,21 +2,24 @@
 <section id="client-testimonials" class="palette flexy">
     {{!-- This partial requires a parent with class "get-testimonials" --}}
     <hgroup class="flexy" title="Client&apos;s testimonials and reviews">
-        <h2>Client&apos;s <strong>testimonials</strong> &amp; <strong>reviews</strong>&period;</h2>
+        <h2>Client&apos;s <strong>testimonials</strong> &amp; <strong>reviews</strong></h2>
         <p>Read our client&apos;s testimonials and reviews below&period; We are extremely proud of the feedback we have received from our clients over the years&colon;</p>
     </hgroup>
     <div class="container disable-scrollbar flexy row">
         {{#get "posts" filter="tag:testimonials+visibility:public" order="title asc" limit=5}}
         {{#foreach posts}}
-        <blockquote class="{{post_class}} flexy row shadowed" data-play-state="running" cite="https://www.stevenage.gov.uk/">
+        <blockquote class="{{post_class}} flexy row shadowed{{#if @even}} reverse{{/if}}" data-play-state="running" cite="https://www.stevenage.gov.uk/">
             <header class="flexy" title="{{title}}">
                 <h3 id="quote-{{@number}}">{{title}}</h3>
-                {{#if feature_image}}<figure class="bg-image" style="background-image: url({{img_url feature_image absolute='true'}});">
-                <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" />
+                {{#if feature_image}}<figure class="flexy bg-image" style="{{#primary_tag}}{{#if accent_color}}background-color: {{accent_color}}; {{/if}}{{/primary_tag}}background-image: url({{img_url feature_image absolute='true'}})"></figure>
+                    <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" />
+                    {{!--{{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}--}}
+                    <figcaption>&dash; Ryan Ansell&comma; Assistant Programme Manager at <cite>Stevenage Borough Council</cite></figcaption>
                 </figure>{{/if}}
             </header>
-            {{content words="70"}}
-            <p>&dash; Ryan Ansell&comma; Assistant Programme Manager at <cite>Stevenage Borough Council</cite></p>
+            <div class="flexy">
+                {{content words="70"}}
+            </div>
         </blockquote>
         {{/foreach}}
         {{else}}

@@ -32,7 +32,7 @@
         </select></label>
     </div>
     <div class="container disable-scrollbar flexy row">
-        {{#get "posts" filter="tag:projects+visibility:public" order="featured desc, published_at asc" limit=@config.posts_per_page as |projects pages|}}{{#foreach projects}}<article class="{{post_class}} flexy row shadowed" data-index="{{@index}}" data-play-state="running" title="{{title}}">
+        {{#get "posts" filter="tag:projects+visibility:public" order="featured desc, published_at asc" limit="9" as |projects pages|}}{{#foreach projects}}<article class="{{post_class}} flexy row{{#if @even}} reverse{{/if}} shadowed" data-index="{{@index}}" data-play-state="running" title="{{title}}">
             <hgroup class="flexy">
                 <h3 id="{{slug}}">{{title}}</h3>
                 {{content}}

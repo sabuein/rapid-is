@@ -3,7 +3,7 @@
 {{#is "post"}}
 {{#post}}
 <link rel="stylesheet" href="{{asset "css/solutions.css"}}" type="text/css" media="screen" />
-<section class="flexy row" data-slug="{{slug}}">
+<section class="palette flexy row" data-slug="{{slug}}">
     <hgroup class="flexy">
         <h1 id="{{slug}}-outer" title="{{title}}">{{title}}</h1>
         <p>{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{excerpt words="51"}}&hellip;{{/if}}</p>
@@ -30,7 +30,7 @@
         {{/has}}
     </figure>{{/if}}
 </section>
-<article id="content" class="flexy">
+<article id="content" class="palette flexy">
     <header class="flexy">
         <h1 id="{{slug}}-inner" title="{{title}}">{{title}}</h1>
     </header>
