@@ -1,5 +1,5 @@
 <!-- testimonials.hbs -->
-<section id="client-testimonials" class="flexy">
+<section id="client-testimonials" class="palette flexy">
     {{!-- This partial requires a parent with class "get-testimonials" --}}
     <hgroup class="flexy" title="Client&apos;s testimonials and reviews">
         <h2>Client&apos;s <strong>testimonials</strong> &amp; <strong>reviews</strong>&period;</h2>
@@ -22,24 +22,24 @@
         {{else}}
         <pre class="get-posts-error">{{error}}</pre>
         {{/get}}
+        <ol class="flexy row">
+            <li title="1" class="currently-active" aria-labelledby="quote-1">&nbsp;</li>
+            <li title="2" aria-labelledby="quote-2">&nbsp;</li>
+            <li title="3" aria-labelledby="quote-3">&nbsp;</li>
+            <li title="4" aria-labelledby="quote-4">&nbsp;</li>
+            <li title="5" aria-labelledby="quote-5">&nbsp;</li>
+        </ol>
     </div>
     <div>
-        <a href="#" class="next-testimonial" title="Next&hellip;">
+        <a href="#" class="next-testimonial" title="Next testimonial">
             {{> "icons/angle-down"}}
         </a>
-        <a href="#" class="prev-testimonial" title="Previous&hellip;">
+        <a href="#" class="prev-testimonial" title="Previous testimonial">
             {{> "icons/angle-down"}}
         </a>
     </div>
-    <ol class="flexy row">
-        <li title="1" class="currently-active" aria-labelledby="quote-1">&nbsp;</li>
-        <li title="2" aria-labelledby="quote-2">&nbsp;</li>
-        <li title="3" aria-labelledby="quote-3">&nbsp;</li>
-        <li title="4" aria-labelledby="quote-4">&nbsp;</li>
-        <li title="5" aria-labelledby="quote-5">&nbsp;</li>
-    </ol>
     <footer class="flexy">
-        <a href="#newsletter" title="Continue to the next section&hellip;">
+        <a href="#newsletter" title="Continue" class="shadowed">
             {{> "icons/angle-down"}}
         </a>
     </footer>

@@ -2,27 +2,27 @@
 <!-- tag-solutions.hbs -->
 {{#is "tag"}}
 {{#tag}}
-<section class="heading flexy row reverse">
+<section class="heading palette flexy row reverse">
     <hgroup class="flexy">
         <h1 id="{{slug}}" title="{{name}}">{{name}}</h1>
         {{#if description}}<p>{{description}}</p>{{/if}}
     </hgroup>
-    {{#if feature_image}}<figure class="flexy"{{#primary_tag}}{{#if accent_color}} style="background-color: {{accent_color}};"{{/if}}{{/primary_tag}} data-background-image="{{img_url feature_image absolute='true'}}">
+    {{#if feature_image}}<figure class="flexy bg-image" style="{{#primary_tag}}{{#if accent_color}}background-color: {{accent_color}}; {{/if}}{{/primary_tag}}background-image: url({{img_url feature_image absolute='true'}})">
         <img src="{{img_url feature_image absolute='true'}}" alt="{{name}}" title="{{name}}" />
     </figure>{{/if}}
     <footer class="flexy">
-        <a href="#apps" title="Continue to explore Rapid&apos;s {{slug}} below&hellip;">
+        <a href="#apps" title="Continue" class="shadowed">
             {{> "icons/angle-down"}}
         </a>
     </div>
     </footer>
 </section>
-<section id="apps" class="container flexy row">
+<section id="apps" class="container palette flexy row">
     {{#get "posts" include="tags,authors" filter="primary_tag:{{slug}}" limit="all" order="published_at asc" as |solutions pages|}}{{#foreach solutions}}<article class="flexy shadowed {{#if @even}}even{{else}}odd{{/if}}" title="{{title}}" tabindex="0">
         <hgroup class="flexy">
             <h2 id="{{slug}}" title="{{title}}">{{title}}</h2>
             <p>{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{excerpt characters="140"}}{{/if}}</p>
-            <a href="{{url}}" title="Learn more about Rapid&apos;s {{title}} solutions&hellip;" type="text/html">Learn more</a>
+            <a href="{{url}}" title="Learn more" type="text/html" class="shadowed">Learn more</a>
         </hgroup>
         {{#if feature_image}}<figure class="flexy" {{#if accent_color}}style="background-color: {{accent_color}};"{{/if}}>
             <img src="{{img_url feature_image absolute='true'}}" title="{{title}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
