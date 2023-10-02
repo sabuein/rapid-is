@@ -10,13 +10,26 @@
 
 /* Required by Ghost */
 
-.kg-width-wide,
-.kg-width-full {
+*.kg-width-wide,
+*.kg-width-full {
     color: currentColor;
 }
 
-.kg-card.kg-toggle-card {
+*.kg-card.kg-toggle-card {
     width: 100dvw;
+}
+
+main #content a.kg-btn-accent {
+    color: var(--accent-color-110);
+}
+
+main #content div.kg-toggle-heading {
+    padding: 1rem .5rem;
+}
+
+main #content .kg-toggle-card .kg-toggle-content p {
+    margin: 0;
+    margin-bottom: .95em;
 }
 
 /* Some fonts */
@@ -228,7 +241,9 @@
 
 .page-about [data-divider="top"] path,
 .page-careers [data-divider="top"] path,
-.post-template [data-divider="top"] path {
+.post-template [data-divider="top"] path,
+.page-template.page-support footer [data-divider="top"] path,
+.page-template.page-team footer [data-divider="top"] path {
     fill: var(--accent-color-100);
 }
 
@@ -320,7 +335,7 @@
     background-color: transparent;
 }
 
-:is(body, header, hgroup, figure, main, section, article, footer) {
+*:is(body, header, hgroup, figure, main, section, article, footer) {
     will-change: contents;
     position: relative;
     cursor: default;
@@ -333,7 +348,7 @@
     gap: 1rem;
 }
 
-:is(h1, h2, h3, h4, h5, h6) {
+*:is(h1, h2, h3, h4, h5, h6) {
     word-wrap: normal;
     text-transform: none;
     font-weight: 500;
@@ -341,7 +356,7 @@
     font-variant: petite-caps;
     font-variant-caps: petite-caps;
     line-height: 1.5;
-    text-wrap: balance;
+    text-wrap: pretty;
     text-align: start;
     background-color: transparent;
     width: 100dvw;
@@ -383,21 +398,25 @@ body:has(dialog[open]) {
 }
 
 body:has(dialog[open]) path,
-body:has(dialog[open]) [title~="Continue"],
-body:has(dialog[open]) .container {
+body:has(dialog[open]) *[title~="Continue"],
+body:has(dialog[open]) *.container {
     -webkit-animation-play-state: paused !important;
     animation-play-state: paused !important;
+}
+
+article:has(details) {
+    padding: 1rem;
 }
 
 dialog::backdrop {
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, .7);
-    transition: backdrop-filter 500ms ease-in-out;
+    transition: backdrop-filter 500ms ease 0s;
 }
 
 dialog {
-    transition: opacity 250ms ease-in-out 0s;
+    transition: opacity 250ms ease 0s;
     display: none;
     opacity: 0;
     visibility: hidden;
@@ -425,11 +444,11 @@ dialog[open] {
     transition: opacity 250ms ease-in-out 0s;
 }
 
-form:is([method="dialog"], [method="get"]) {
-    padding: 1rem 2rem;
+form:is([method="dialog"], *[method="get"]) {
+    padding: 1rem;
     color: inherit;
-    flex: 0 1 70rem;
-    width: 70rem;
+    flex: 0 1 75rem;
+    width: 75rem;
     gap: 1rem;
 }
 
@@ -463,12 +482,12 @@ form[method="dialog"] label {
     font-weight: bold;
 }
 
-form[method="dialog"] input:is([type="submit"], [type="reset"]) {
+form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
     flex: 0 1 fit-content;
     width: fit-content;
 }
 
-.post {
+*.post {
     color: var(--color-black);
     background-color: var(--color-white);
     font-size: 1.25rem;
@@ -507,7 +526,7 @@ address a {
 
 /* Start of page style */
 
-.post.flexy>header>section.title-meta {
+*.post.flexy>header>section.title-meta {
     position: absolute;
     padding: 2em 4em;
     inset: auto;
@@ -520,20 +539,19 @@ address a {
     z-index: 99;
 }
 
-.post.flexy>header>section.title-meta>h1 {
+*.post.flexy>header>section.title-meta>h1 {
     align-self: flex-start;
     color: inherit;
 }
 
-.post>figure {
+*.post>figure {
     flex: 0 1 35dvh;
     height: 35dvh;
     width: inherit;
 }
 
 /*
-
-.post figure img {
+*.post figure img {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -543,17 +561,17 @@ address a {
 }
 */
 
-.post header div {
+*.post header div {
     bottom: -.1rem;
 }
 
-.post.flexy>header>section.title-meta>p {
+*.post.flexy>header>section.title-meta>p {
     font-size: 1.1rem;
     text-align: justify;
     padding-right: 20dvw;
 }
 
-.post.flexy>header>section.title-meta>div {
+*.post.flexy>header>section.title-meta>div {
     border-top: thin inset currentColor;
     align-self: flex-start;
     font-size: 1rem;
@@ -564,7 +582,7 @@ address a {
     margin-top: 1rem;
 }
 
-.post>hgroup:first-of-type {
+*.post>hgroup:first-of-type {
     padding: 5rem;
     flex: 0 1 fit-content;
     border-bottom: thin solid var(--color-black-40);
@@ -572,7 +590,7 @@ address a {
     align-content: flex-start;
 }
 
-.post #content,
+*.post #content,
 #tabs-about {
     align-items: safe flex-start;
     align-content: safe flex-start;
@@ -581,35 +599,39 @@ address a {
     gap: 1rem;
 }
 
+*.post #content > * {
+    padding: 0 1rem;
+}
+
 #tabs-about {
     background-color: gold;
 }
 
-.post #content [data-divider="bottom"] path {
+*.post #content [data-divider="bottom"] path {
     fill: royalblue;
 }
 
-.post #content hgroup {
+*.post #content hgroup {
     flex: 0 1 fit-content;
     align-items: flex-start;
     gap: 1rem;
 }
 
-.post #content footer {
+*.post #content footer {
     width: 100%;
 }
 
-.post #content ul {
+*.post #content ul {
     list-style-type: square;
     list-style-position: inside;
 }
 
-.post blockquote {
+*.post blockquote {
     margin: 0;
     margin-left: 2rem;
     padding: .25rem 0 .25rem 1rem;
     color: currentColor;
-    border-left: thick solid var(--accent-color);
+    border-left: thick solid var(--accent-color-50);
     font-size: 1.5rem;
     font-style: oblique;
     line-height: 2;
@@ -620,28 +642,48 @@ address a {
 
 main #content a {
     color: currentColor;
-    text-decoration-style: wavy;
-    text-decoration-color: var(--color-black-40);
-    transition: all 250ms ease-in-out 0s;
+    text-decoration: none;
+    transition: all 250ms ease 0s;
 }
 
 main #content a:is(:focus, :hover) {
-    color: var(--color-dark-blue);
-    text-decoration-style: solid;
-    text-decoration-color: var(--color-black);
+    text-decoration: underline;
 }
 
-main #content table tr:is(:focus, :hover) {
+main #content table {
+    border-collapse: collapse;
+    display: inline-table;
+    margin: 2rem 4rem;
+    border: dashed .1rem;
+}
+
+main #content table thead tr {
+    color: var(--accent-color-110);
+    background-color: var(--accent-color-60);
+    user-select: none;
+    cursor: not-allowed;
+}
+
+main #content table thead th {
+    padding: 1rem;
+}
+
+main #content table tbody tr:is(:focus, :hover) {
     cursor: pointer;
-    background-color: #d6d6d6;
+    color: var(--accent-color-110);
+    background-color: var(--accent-color-50);
 }
 
-main #content table tr:active {
+main #content table tbody tr:active {
+    background-color: var(--accent-color-50);
+}
+
+main #content table tbody tr:active {
     cursor: text;
 }
 
 main #content table tr td {
-    padding: .5rem;
+    padding: 1rem 2rem;
     vertical-align: text-top;
 }
 
@@ -663,7 +705,15 @@ main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
     width: fit-content;
 }
 
-.post.flexy header:has(~ section.content) {
+#browse-our-projects .container .controls {
+    gap: 1rem;
+}
+
+#browse-our-projects .container .controls button {
+    width: fit-content;
+}
+
+*.post.flexy header:has(~ section.content) {
     margin: 0 auto;
     padding: 1rem;
     max-width: 100%;
@@ -708,7 +758,7 @@ main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
     outline: thin solid var(--color-black-40);
 }
 
-:is(footer, div):has(>[href*="main-content"], >[title~="Continue"]) {
+*:is(footer, div):has(>[href*="main-content"], >[title~="Continue"]) {
     position: absolute;
     flex: 1 0 100%;
     width: 100dvw;
@@ -753,41 +803,69 @@ a[type="text/html"] {
     transition: all 200ms ease-out 0s;
 }
 
-:is(button,
+:root {
+    --link-button-text: rgb(75, 73, 70);
+    --link-button-primary: rgb(47, 192, 82);
+    --link-button-secondary: rgb(238, 237, 233);
+    --link-button-tertiary: rgb(255, 255, 255);
+    --link-button-destructive: rgb(253, 98, 50);
+    --link-button-primary-secondary: rgb(30, 157, 187);
+    --link-button-primary-blue-300: rgb(36, 183, 219);
+    --link-button-primary-tertiary: rgb(246, 172, 47);
+    --link-button-disabled: rgb(244, 243, 241);
+}
+
+a:any-link,
+a:-webkit-any-link { /* WebKit browsers */
+    text-decoration-color: var(--accent-color);
+    text-align: center;
+    font-weight: 600;
+    width: fit-content;
+    max-width: 100%;
+}
+
+a:hover {
+    color: var(--accent-color-50);
+}
+
+*:is(button,
     input,
     textarea,
     select,
-    a[type="text/html"]):is(:focus, :hover, :valid) {
+    a[type="text/html"]:any-link,
+    a[type="text/html"]:-webkit-any-link) { /* WebKit browsers */
     opacity: 1;
-    transition: all 200ms ease-in 0s;
+    color: var(--link-button-text);
+    transition: all 200ms ease 0s;
 }
 
-:is(button[type="button"],
+*:is(button[type="button"],
     input[type="button"],
     input[type="submit"],
     input[type="reset"],
     a[type="text/html"]) {
+    font-size: 1rem;
+    font-weight: 500;
     -webkit-appearance: button;
-    color: var(--accent-color-100);
-    background-color: var(--accent-color-50);
+    color: var(--accent-color-100) !important;
+    background-color: var(--accent-color-50) !important;
     cursor: pointer;
     transform: none;
-    transition: all 200ms ease-in 0s;
 }
 
-:is(button[type="button"],
+*:is(button[type="button"],
     input[type="button"],
     input[type="submit"],
     input[type="reset"],
     a[type="text/html"]):is(:focus, :focus-within, :hover, :valid) {
-    color: var(--accent-color-110);
+    color: var(--accent-color-110) !important;
     transform: translate(0, -.1rem);
-    -webkit-box-shadow: .1rem .1rem 0 var(--color-black-40);
-    box-shadow: .1rem .1rem 0 var(--color-black-40);
-    transition: all ease-in 200ms 0s;
+    -webkit-box-shadow: .1rem .1rem 0 var(--color-black-40) !important;
+    box-shadow: .1rem .1rem 0 var(--color-black-40) !important;
+    transition: all ease 200ms 0s;
 }
 
-:is(input:-webkit-autofill,
+*:is(input:-webkit-autofill,
     input:autofill,
     input:-internal-autofill-selected,
     input[type="text"],
@@ -804,7 +882,7 @@ a[type="text/html"] {
     border: thin solid var(--color-mid-grey);
 }
 
-:is(input[type="text"],
+*:is(input[type="text"],
     input[type="email"],
     input[type="tel"],
     input[type="url"],
@@ -816,7 +894,7 @@ a[type="text/html"] {
     outline: thick solid var(--color-yellow);
 }
 
-:is(input[type="text"],
+*:is(input[type="text"],
     input[type="email"],
     input[type="tel"],
     input[type="url"],
@@ -827,13 +905,8 @@ a[type="text/html"] {
     border: thin solid var(--color-black-40);
 }
 
-textarea {
-    height: auto;
-    resize: vertical;
-}
 
-
-:is(input, select):required {
+*:is(input, select):required {
     outline: 0;
 }
 
@@ -845,8 +918,6 @@ select:focus-within {
 
 a[type="text/html"] {
     text-decoration: none;
-    text-align: center;
-    width: fit-content;
 }
 
 div:has(a[type="text/html"]) {
@@ -864,14 +935,14 @@ img {
     background-color: transparent;
 }
 
-.post .row header {
+*.post *.flexy.row header {
     flex: 0 1 fit-content;
     width: fit-content;
 }
 
 h1 {
     font-size: 2.5rem;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 h2 {
@@ -896,7 +967,7 @@ h6 {
 
 /* Elements with classes */
 
-.hearts {
+*.hearts {
     color: var(--color-red);
     font-size: 1.5rem;
     cursor: wait;
@@ -907,7 +978,7 @@ article footer {
     padding: 1rem;
 }
 
-:is(div, p, ul, ol, menu, figcaption) {
+*:is(div, p, ul, ol, menu, figcaption, textarea) {
     line-height: 2;
     text-align: justify;
     font-weight: 400;
@@ -920,35 +991,40 @@ article footer {
     user-select: text;
 }
 
-.post figcaption {
+textarea {
+    height: auto;
+    width: fit-content;
+    resize: vertical;
+}
+
+*.post figcaption {
     padding: 1rem 2rem;
     position: absolute;
     bottom: 0;
-    color: var(--accent-color);
     font-size: .85rem;
-    width: 100dvw;
+    width: fit-content;
 }
 
-.post article:nth-child(odd) figcaption {
+*.post article:nth-child(odd) figcaption {
     background-color: var(--accent-color-80);
 }
 
-.post article:nth-child(even) figcaption {
+*.post article:nth-child(even) figcaption {
     background-color: var(--accent-color-60);
 }
 
-.post article figcaption {
+*.post article figcaption {
     color: var(--accent-color-110);
     font-size: 1.2rem;
     padding: .75rem .5rem;
     font-weight: 400;
 }
 
-.post figcaption a:any-link {
+*.post figcaption a:any-link {
     text-decoration: none;
 }
 
-.post figcaption a:is(:active, :hover) {
+*.post figcaption a:is(:active, :hover) {
     text-decoration: underline;
 }
 
@@ -964,8 +1040,8 @@ strong {
 header:has(nav) {
     padding: 1rem 2rem;
     justify-content: space-between !important;
-    color: var(--color-black);
-    background-color: var(--color-white);
+    color: var(--link-button-text);
+    background-color: var(--accent-color-110);
     animation: menu-go-down 500ms linear 0s 1 forwards;
     -webkit-box-shadow: .1rem .1rem 0 var(--color-black-40);
     box-shadow: .1rem .1rem 0 var(--color-black-40);
@@ -982,7 +1058,8 @@ header:has(nav) {
 }
 
 nav {
-    background-color: transparent;
+    color: inherit;
+    background-color: inherit;
     width: fit-content;
 }
 
@@ -1312,34 +1389,44 @@ ul.nav.flexy.row {
     width: fit-content;
 }
 
+li.nav-about svg,
 li.nav-solutions svg,
+ul.about-nav svg,
 ul.solutions-nav svg {
     width: 1.25rem;
     vertical-align: middle;
 }
 
+ul.about-nav svg,
 ul.solutions-nav svg {
     rotate: -90deg;
 }
 
+li.nav-about:focus-within svg,
+li.nav-about:focus-visible svg,
+li.nav-about a:is(:focus, :hover) svg,
 li.nav-solutions:focus-within svg,
 li.nav-solutions:focus-visible svg,
 li.nav-solutions a:is(:focus, :hover) svg {
     animation: point-down 1s linear 0s infinite;
 }
 
+ul.about-nav a:is(:focus, :hover) svg,
 ul.solutions-nav a:is(:focus, :hover) svg {
     animation: point-right 1s linear 0s infinite;
 }
 
+li.nav-about span,
 li.nav-solutions span {
     margin-right: .25rem;
 }
 
+ul.about-nav span,
 ul.solutions-nav span {
     margin-left: .25rem;
 }
 
+nav ul~ul.about-nav,
 nav ul~ul.solutions-nav {
     flex: 1 0 50rem;
     display: none;
@@ -1355,11 +1442,12 @@ nav ul~ul.solutions-nav {
     font-size: 1rem;
     -webkit-box-shadow: .1rem .1rem 0 var(--color-black-40);
     box-shadow: .1rem .1rem 0 var(--color-black-40);
-    color: var(--accent-color-110);
-    background-color: var(--accent-color-50);
+    color: inherit;
+    background-color: inherit;
     pointer-events: auto;
 }
 
+ul.about-nav li,
 ul.solutions-nav li {
     flex: 0 1 fit-content;
     text-transform: capitalize;
@@ -1371,6 +1459,7 @@ nav li.nav-current {
 }
 
 ul.nav.flexy.row a,
+ul.about-nav.flexy.row a,
 ul.solutions-nav.flexy.row a {
     text-decoration: none;
     font-weight: 500;
@@ -1378,21 +1467,33 @@ ul.solutions-nav.flexy.row a {
 }
 
 ul.nav.flexy.row a:is(:focus, :hover),
+ul.about-nav.flexy.row a:is(:focus, :hover),
 ul.solutions-nav.flexy.row a:is(:focus, :hover),
+li.nav-about:focus-within,
 li.nav-solutions:focus-within,
 body>footer a:is(:focus, :hover) {
     color: var(--color-orange);
 }
 
+li.nav-about svg path,
 li.nav-solutions svg path,
+ul.about-nav.flexy.row svg path,
 ul.solutions-nav.flexy.row svg path {
     fill: var(--color-orange);
 }
 
+li.nav-about a:is(:focus, :hover) path,
+li.nav-about:focus-within path,
+ul.about-nav.flexy.row a:is(:focus, :hover) path,
 li.nav-solutions a:is(:focus, :hover) path,
 li.nav-solutions:focus-within path,
 ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
-    fill: var(--accent-color);
+    fill: var(--accent-color-50);
+}
+
+#streamlining-safety-checks h2,
+#compliance-app h2 {
+    padding-right: 6rem;
 }
 
 #streamlining-safety-checks g#ring {
@@ -1536,6 +1637,7 @@ pre {
 }
 
 *.pagination {
+    padding: .25rem;
     background-color: var(--accent-color-110) !important;
     flex: 1 0 100%;
     width: 100dvw;
@@ -1583,7 +1685,7 @@ pre {
 
 #get-the-app pre {
     opacity: .5;
-    color: var(--color-mid-grey);
+    color: var(--accent-color-90);
     font-size: .85rem;
     transition: all 250ms ease-out 0s;
 }
@@ -1592,7 +1694,7 @@ pre {
 #get-the-app div:has(figure:nth-of-type(2):is(:focus, :focus-within, :hover))~footer>pre:nth-of-type(2),
 #get-the-app div:has(figure:nth-of-type(3):is(:focus, :focus-within, :hover))~footer>pre:nth-of-type(3) {
     opacity: 1;
-    color: var(--color-black);
+    color: var(--accent-color-50);
     transition: all 250ms ease-out 0s;
 }
 
@@ -1613,45 +1715,33 @@ pre {
     height: 92dvh;
 }
 
-#main-message hgroup {
-    animation: slide-right 500ms linear 10ms 1 forwards;
-}
-
-#more-clients {
-    padding: 2rem;
-    justify-content: center;
-    animation: slide-up 1s linear 100ms 1 forwards;
-}
-
-#more-clients>hgroup {
-    width: 85dvw;
+#main-message h1 {
+    padding-right: 10rem;
 }
 
 #client-testimonials {
     justify-content: center;
 }
 
-[title~="Continue"],
-[href*="main-content"] {
+a[title~="Continue"],
+a[href*="main-content"] {
     display: block;
     flex: 0 1 fit-content;
     position: absolute;
     bottom: .5rem;
-    width: fit-content;
-    max-width: 100%;
     user-select: none;
     z-index: 999;
     animation: point-down 1s linear 0s infinite;
     background-color: transparent;
 }
 
-[title~="Continue"]:hover,
-[href*="main-content"]:hover {
+a[title~="Continue"]:hover,
+a[href*="main-content"]:hover {
     -webkit-animation-play-state: paused;
     animation-play-state: paused;
 }
 
-[href*="main-content"] {
+a[href*="main-content"] {
     text-decoration: none;
     text-align: center;
     font-size: 1.25rem;
@@ -1661,98 +1751,48 @@ pre {
     transition: all 200ms ease-out 0s;
 }
 
-[href*="main-content"]:is(:focus, :hover) {
+a[href*="main-content"]:is(:focus, :hover) {
     fill: var(--accent-color);
     transition: all 200ms ease 0s;
 }
 
-[title~="Continue"] svg,
-[href*="main-content"] svg {
+a[title~="Continue"] svg,
+a[href*="main-content"] svg {
     width: 3rem;
     background-color: var(--accent-color-50);
     transition: all 250ms ease 0s;
 }
 
-#default-footer [href*="main-content"] svg {
+#main-message a[title~="Continue"] svg,
+#default-footer a[href*="main-content"] svg {
     background-color: var(--accent-color-110);
 }
 
-#default-footer [href*="main-content"]:any-link path {
+#main-message a[title~="Continue"]:any-link path,
+#default-footer a[href*="main-content"]:any-link path {
     fill: var(--accent-color);
 }
 
-[href*="main-content"] svg {
+a[href*="main-content"] svg {
     rotate: -180deg;
 }
 
-[title~="Continue"]:any-link path,
-[href*="main-content"]:any-link path {
+a[title~="Continue"]:any-link path,
+a[href*="main-content"]:any-link path {
     fill: var(--accent-color-100);
     transition: all 250ms ease 0s;
 }
 
-#main-message [title~="Continue"] svg {
-    background-color: var(--accent-color-110);
-}
-
-#main-message [title~="Continue"]:any-link path {
-    fill: var(--accent-color-50);
-}
-
-/*
-#main-message [title~="Continue"]:any-link path {
-    fill: var(--accent-color-50);
-}
-
-*.post *.palette:nth-child(odd) [title="Continue"] svg {
-    background-color: var(--accent-color-100);
-}
-
-*.post *.palette:nth-child(odd) [title="Continue"]:any-link path {
-    fill: var(--accent-color-50);
-}
-*/
-
-*.post *.palette:nth-child(even) [title="Continue"] svg {
-    background-color: var(--accent-color-50);
-}
-
-*.post *.palette:nth-child(even) [title="Continue"]:is(:focus, :hover) svg {
-    background-color: var(--accent-color-100);
-}
-
-*.post *.palette:nth-child(even) [title="Continue"]:is(:focus, :hover) svg:last-child {
-    background-color: var(--accent-color-50);
-}
-
-*.post *.palette:nth-child(even) [title="Continue"]:any-link path {
-    fill: var(--accent-color-110);
-}
-
-*.post *.palette:nth-child(even) [title="Continue"]:is(:focus, :hover):any-link path {
-    fill: var(--accent-color-110);
-}
-
-[title~="Continue"]:is(:focus, :hover) svg,
-[href*="main-content"]:is(:focus, :hover) svg {
+a[title~="Continue"]:any-link :is(:focus, :hover) svg,
+a[href*="main-content"]:is(:focus, :hover) svg {
     background-color: var(--accent-color-110);
     transition: all 250ms ease 0s;
 }
 
-[title~="Continue"]:is(:focus, :hover) path,
-[href*="main-content"]:is(:focus, :hover) path {
-    fill: var(--accent-color);
+a[title~="Continue"]:is(:focus, :hover) path,
+a[href*="main-content"]:is(:focus, :hover) path {
+    fill: var(--accent-color-110);
     transition: all 250ms ease 0s;
-}
-
-*.flexy.row>hgroup {
-    padding: 1rem;
-    flex: 1 1 40rem;
-    width: 40rem;
-    height: 30rem;
-    align-content: flex-start;
-    align-items: flex-start;
-    animation: slide-right 1s linear 0s 1 alternate forwards;
 }
 
 *.flexy.row>hgroup>:is(h1, h2) {
@@ -1763,12 +1803,41 @@ body:not(.home-template) *.flexy.row>hgroup {
     height: 15rem;
 }
 
+*.flexy:not(.row)>hgroup {
+    padding: 0 1rem;
+}
+
+*.flexy.row>hgroup {
+    padding: 1rem;
+    flex: 1 1 40rem;
+    width: 40rem;
+    height: 30rem;
+    align-content: flex-start;
+    align-items: flex-start;
+    animation: slide-right 1s ease 0s 1 alternate forwards;
+}
+
 *.flexy.row>figure {
     padding: 1rem;
     flex: 2 1 50rem;
     width: 50rem;
     height: 30rem;
-    animation: slide-left 1s linear 0s 1 alternate forwards;
+    animation: slide-left 1s ease 0s 1 alternate forwards;
+}
+
+
+*.flexy.row>footer {
+    animation: slide-up 1s ease 0s 1 alternate forwards;
+}
+
+.post-template.tag-solutions .post .palette[data-slug="estates"]>figure,
+.post-template.tag-solutions .post .palette[data-slug="communication"]>figure {
+    animation: slide-right 1s ease 0s 1 alternate forwards;
+}
+
+.post-template.tag-solutions .post .palette[data-slug="estates"]>hgroup,
+.post-template.tag-solutions .post .palette[data-slug="communication"]>hgroup {
+    animation: slide-left 1s ease 0s 1 alternate forwards;
 }
 
 *.flexy:not(.row)>hgroup,
@@ -1776,13 +1845,14 @@ body:not(.home-template) *.flexy.row>hgroup {
     direction: ltr;
     flex: 0 1 fit-content;
     height: fit-content;
-    max-height: 100%;
-    width: 100dvw;
-    max-width: 100%;
     align-content: flex-start;
     align-items: flex-start;
     justify-content: center;
     gap: 1rem;
+}
+
+#more-clients {
+    justify-content: center;
 }
 
 #more-clients hgroup h2 {
@@ -1792,28 +1862,28 @@ body:not(.home-template) *.flexy.row>hgroup {
 #more-clients .container {
     flex-wrap: nowrap;
     align-content: flex-start;
-    gap: 4em;
+    gap: 5rem;
     -webkit-animation-name: move;
     -webkit-animation-duration: 24s;
     -webkit-animation-timing-function: linear;
-    -webkit-animation-delay: 2s;
+    -webkit-animation-delay: 0s;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-direction: alternate;
     -webkit-animation-play-state: running;
     animation-name: move;
     animation-duration: 24s;
     animation-timing-function: linear;
-    animation-delay: 2s;
+    animation-delay: 0s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    animation: move 24s linear 2s infinite alternate;
+    animation: move 10s ease-in-out 0s infinite alternate;
     animation-play-state: running;
 }
 
 #more-clients figure {
     padding: 1rem;
-    flex: 0 0 15rem;
-    width: 15rem;
+    flex: 0 0 20rem;
+    width: 20rem;
     max-width: 100%;
     height: 10rem;
     max-height: 100%;
@@ -1823,10 +1893,6 @@ body:not(.home-template) *.flexy.row>hgroup {
     gap: .25rem;
     user-select: none;
     z-index: 999;
-}
-
-#more-clients figure:first-of-type {
-    margin-left: 10rem;
 }
 
 #more-clients figcaption {
@@ -1867,55 +1933,21 @@ body:not(.home-template) *.flexy.row>hgroup {
 
 @-webkit-keyframes move {
     0% {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    5% {
-        margin-left: 5dvw;
-        margin-right: 0;
-    }
-
-    10% {
-        margin-left: 10dvw;
-        margin-right: 0;
-    }
-
-    15% {
-        margin-left: 15dvw;
         margin-right: 0;
     }
 
     100% {
-        margin-left: 0;
-        margin-right: 300dvw;
+        margin-right: 180rem;
     }
 }
 
 @keyframes move {
     0% {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    5% {
-        margin-left: 5dvw;
-        margin-right: 0;
-    }
-
-    10% {
-        margin-left: 10dvw;
-        margin-right: 0;
-    }
-
-    15% {
-        margin-left: 15dvw;
         margin-right: 0;
     }
 
     100% {
-        margin-left: 0;
-        margin-right: 300dvw;
+        margin-right: 180rem;
     }
 }
 
@@ -1943,6 +1975,11 @@ body:not(.home-template) *.flexy.row>hgroup {
 
 #compliance-app figure {
     user-select: none;
+}
+
+#compliance-app figure svg {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
 
 #compliance-app>figure>a>img {
@@ -2295,10 +2332,6 @@ fieldset {
     width: 100dvw;
 }
 
-#partner-with-leaders hgroup {
-    width: 85dvw;
-}
-
 #briefly {
     color: royalblue;
     background-color: royalblue;
@@ -2306,27 +2339,27 @@ fieldset {
 
 #start-journey {
     height: auto;
-    width: 50rem;
+    width: 75rem;
     align-items: flex-start;
     justify-content: center;
-    gap: 2rem;
 }
 
-#start-journey hgroup {
-    gap: .25rem;
+#start-journey hgroup :is(h2, p) {
+    text-align: center;
 }
 
 #start-journey footer {
     width: fit-content;
+    align-self: center;
 }
 
 *.post>*.heading.flexy.row {
     flex: 1 1 auto;
     height: auto;
+    gap: 4rem;
 }
 
 *.post>*.heading.flexy.row :is(hgroup, figure) {
-    padding: 0;
     flex-grow: 1;
     flex-shrink: 0;
     max-width: 100%;
@@ -2347,23 +2380,18 @@ fieldset {
 }
 
 *.post>*.heading.flexy.row figcaption {
-    padding: .5rem 0;
-    bottom: -2.5rem;
-    color: var(--accent-color);
-    transition: color ease 250ms 0s;
+    padding: .25rem 1rem;
+    bottom: -1rem;
+    width: 100dvw;
+    transition: all ease 250ms 0s;
 }
 
 *.post>*.heading.flexy.row figcaption:hover {
-    color: var(--color-black);
     cursor: text;
 }
 
 *.post>*.heading.flexy.row :is(h1, p) {
     max-width: 70%;
-}
-
-*.post>*.heading.flexy.row [title~="Continue"] {
-    bottom: -3.5rem;
 }
 
 #check-our-vacancies>figure {
@@ -2375,7 +2403,7 @@ fieldset {
     padding: 2rem;
     flex: 0 1 60rem;
     width: 60rem;
-    gap: 1rem;
+    gap: .5rem;
 }
 
 #check-our-vacancies .container pre {
@@ -2388,11 +2416,12 @@ fieldset {
 /* Start of tabs-about partial styles */
 
 #tabs-about header {
+    padding: 0 1rem;
     align-items: start;
 }
 
 #rapid-integration article {
-    padding: 1rem;
+    padding: 0 1rem;
     align-items: flex-start;
 }
 
@@ -2432,6 +2461,7 @@ fieldset {
 }
 
 #tabs-about article {
+    padding: 0 1rem;
     background-color: gold;
 }
 
@@ -2474,6 +2504,9 @@ fieldset {
 
 /* End of tabs-about partial styles */
 
+form#join-newsletter {
+    height: 35rem;
+}
 
 form#join-newsletter pre {
     text-align: start;
@@ -2541,10 +2574,9 @@ form#join-newsletter a:is(:focus, :hover) {
 /* Sharing page/post */
 
 footer:has(#sharing-is-caring) {
-    padding: 1rem;
     width: 100dvw;
     max-width: 100%;
-    height: 10rem;
+    height: auto;
 }
 
 .post #sharing-is-caring {
@@ -2555,13 +2587,13 @@ footer:has(#sharing-is-caring) {
     user-select: none;
 }
 
-.post #sharing-is-caring .social-icons a:any-link path {
-    fill: var(--accent-color-80);
+.post #sharing-is-caring .social-icons a[title="Post on X"]:any-link path {
+    fill: var(--accent-color-50);
     transition: fill 250ms ease 0s;
 }
 
-.post #sharing-is-caring .social-icons a:hover path {
-    fill: var(--accent-color-20);
+.post #sharing-is-caring .social-icons a[title="Post on X"]:hover path {
+    fill: var(--color-black);
     transition: fill 250ms ease 0s;
 }
 
@@ -2653,10 +2685,11 @@ ol {
     padding: 0;
     border: 0;
     border-radius: 0;
-    flex: 0 1 80rem;
-    width: 80rem;
+    flex: 0 1 65rem;
+    width: 65rem;
     max-width: 100%;
     min-height: auto;
+    height: 20rem;
     max-height: 100%;
     display: none;
     visibility: hidden;
@@ -2676,20 +2709,21 @@ ol {
 }
 
 #client-testimonials .container .post > * {
-    flex: 1 1 55rem;
-    width: 55rem;
+    flex: 1 1 40rem;
+    width: 40rem;
     max-width: 100%;
     height: 20rem;
     max-height: 100%;
 }
 
 #client-testimonials .container .post > div {
-    padding: 0 2rem;
+    padding: 0 4rem;
 }
 
 #client-testimonials .container .post header {
-    flex: 1 1 20rem;
-    width: 20rem;
+    flex: 1 1 25rem;
+    width: 25rem;
+    height: 20rem;
 }
 
 @keyframes display-none-to-flex {
@@ -2764,36 +2798,36 @@ ol {
 #client-testimonials .next-testimonial,
 #client-testimonials .prev-testimonial {
     position: absolute;
-    top: 25rem;
-    font-size: 2.5rem;
+    top: 22rem;
+    font-size: 10rem;
     border-radius: .25rem;
     outline: 0;
 }
 
 #client-testimonials .next-testimonial svg,
 #client-testimonials .prev-testimonial svg {
-    width: 5rem;
+    width: 6rem;
     max-width: 100%;
     fill: var(--accent-color-90);
     scale: 1;
-    transition: all 250ms linear 0s;
+    transition: all 250ms ease 0s;
 }
 
 #client-testimonials .next-testimonial:is(:focus, :hover) svg,
 #client-testimonials .prev-testimonial:is(:focus, :hover) svg {
     fill: var(--accent-color-60);
-    scale: 1.25;
-    animation: point-down 1s linear 0s infinite;
-    transition: all 250ms linear 0s;
+    scale: 1.3;
+    animation: point-down 1s ease 0s infinite;
+    transition: all 250ms ease 0s;
 }
 
 #client-testimonials .next-testimonial {
-    right: 2.5rem;
+    right: 10rem;
     rotate: 270deg;
 }
 
 #client-testimonials .prev-testimonial {
-    left: 2.5rem;
+    left: 10rem;
     rotate: 90deg;
 }
 
@@ -2846,6 +2880,7 @@ ol {
 #meet-our-team .post figure {
     padding: 1rem;
     width: 20rem;
+    height: fit-content;
     filter: grayscale(.5);
     transition: all 250ms ease-in-out 0s;
 }
@@ -2862,14 +2897,18 @@ ol {
     right: 0;
     bottom: 1rem;
     width: 100%;
-    color: var(--accent-color-100);
-    background-color: var(--accent-color);
+    color: var(--accent-color-110);
+    background-color: var(--accent-color-50);
     text-align: center;
     font-weight: 500;
 }
 
 #meet-our-team .post img {
     display: none;
+}
+
+#meet-our-team {
+    height: auto;
 }
 
 #meet-our-team hgroup {
@@ -2879,12 +2918,19 @@ ol {
 }
 
 #meet-our-team .social-icons {
+    justify-content: center;
+    align-items: center;
     position: absolute;
     bottom: -2rem;
+    gap: .75rem;
 }
 
 #meet-our-team .social-icons img {
     display: block;
+}
+
+#meet-our-team .social-icons a[title="GitHub"] path {
+    fill: var(--color-black);
 }
 
 .social-icons svg {
@@ -2932,8 +2978,9 @@ ol {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    flex: 0 1 100%;
-    width: 100%;
+    flex: 1 1 0%;
+    width: 100dvw;
+    max-width: 24rem;
     gap: .5rem;
 }
 
@@ -2945,6 +2992,7 @@ ol {
 }
 
 .page-contact #content article {
+    padding: 0;
     align-items: flex-start;
     flex: 1 0 60rem;
     width: 60rem;
@@ -3018,7 +3066,6 @@ ol {
 
 #grab-coffee hgroup {
     align-items: flex-start;
-    width: 85dvw;
 }
 
 #map {
@@ -3028,9 +3075,8 @@ ol {
 }
 
 #map hgroup {
-    padding: 8rem 0;
+    padding: 8rem 6rem;
     padding-bottom: 0;
-    width: 85dvw;
 }
 
 #map figure {
@@ -3054,13 +3100,17 @@ ol {
     display: none;
 }
 
-#faq form {
-    width: 100dvw;
-    max-width: 100%;
+form#search-support {
+    padding: 8rem 6rem;
     align-items: flex-start;
+    height: auto;
 }
 
-#faq form h3 {
+form#search-support h2 {
+    width: fit-content;
+}
+
+#faq h2 {
     width: fit-content;
 }
 
@@ -3081,28 +3131,30 @@ ol {
 }
 
 #faq details[open] p {
-    padding: 1rem;
     font-size: 1.1rem;
 }
 
-#faq label {
-    flex: 1 0 fit-content;
-    width: inherit;
-    max-width: inherit;
+form#search-support label {
+    padding: 2rem 10rem;
+    flex: 0 1 fit-content;
+    width: 100dvw;
+    max-width: 100%;
     align-items: center;
     gap: 1rem;
 }
 
-#faq input[type="search"] {
+form#search-support input[type="search"] {
     flex: 1 0 fit-content;
     width: inherit;
     max-width: inherit;
 }
 
-#browse-our-projects>hgroup,
 #browse-our-projects>.container {
-    width: 85dvw;
     gap: 2rem;
+}
+
+#browse-our-projects>.container {
+    padding: 1rem;
 }
 
 #browse-our-projects .container .post {
@@ -3170,11 +3222,8 @@ ol {
 }
 
 #browse-our-projects .filters {
-    padding: 0 2rem;
-    flex: 1 0 100%;
-    width: 100dvw;
-    max-width: 100%;
-    height: auto;
+    padding: 0 1rem;
+    flex: 0 1 auto;
     gap: 2rem;
 }
 
@@ -3193,13 +3242,11 @@ ol {
 .post .cards hgroup {
     align-content: flex-start;
     align-items: flex-start;
-    width: 85dvw;
 }
 
 .post .cards .container {
     height: 25rem;
     max-height: inherit;
-    width: 85dvw;
     max-width: inherit;
     perspective: 100rem;
     background-color: transparent;
@@ -3279,7 +3326,7 @@ ol {
     height: 20rem;
     min-height: auto;
     max-height: inherit;
-    width: inherit;
+    width: 25rem !important;
     max-width: inherit;
     gap: .5rem;
 }
@@ -3305,6 +3352,7 @@ ol {
 .post.card .side h3 {
     padding: 1rem;
     font-size: 1.85rem;
+    width: fit-content;
 }
 
 .cards .container>p {

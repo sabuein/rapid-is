@@ -3,13 +3,10 @@ footer {
 }
 
 #default-footer {
-    padding: 1rem 4rem;
+    padding: 1rem 5rem;
     padding-top: 10rem;
     position: relative;
-    width: 100dvw;
-    max-width: 100%;
-    min-height: 90dvh;
-    gap: 3rem;
+    min-height: 100dvh;
     color: var(--accent-color-110);
     background-color: var(--accent-color-50);
     overflow: hidden;
@@ -37,7 +34,7 @@ footer {
 }
 
 #default-footer > div:nth-child(4) {
-    padding: 1dvh 2dvw;
+    padding: 2rem 1rem;
     padding-bottom: 10dvh;
     font-weight: 500;
     font-size: .85rem;
@@ -51,7 +48,7 @@ footer {
 }
 
 #default-footer .rapid-logo img {
-    mix-blend-mode: darken;
+    filter: brightness(0) invert(1);
 }
 
 main > section.row > footer {

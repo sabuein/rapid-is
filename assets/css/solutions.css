@@ -22,7 +22,7 @@
     cursor: pointer;
     flex: 1 0 20rem;
     width: 20rem;
-    max-width: 23%;
+    max-width: 25%;
     align-items: flex-start;
     gap: 1rem;
     overflow: hidden;
@@ -36,38 +36,40 @@
 }
 
 .tag-solutions .post .container p {
-    padding: 0 1dvw;
+    padding: 0 .5rem;
 }
 
 .tag-solutions .post .container a {
     position: relative;
-    margin-left: 1rem;
+    margin-left: .75rem;
     padding: 1rem 3rem 1rem 2rem;
     font-size: 1rem;
 }
 
 .tag-solutions .post .container a::after {
-    padding: .25rem;
+    padding: .1rem;
     position: absolute;
-    right: .75rem;
-    bottom: .6rem;
+    right: 1rem;
+    bottom: .75rem;
     content: "\2197";
     font-weight: 500;
     font-size: 1rem;
-    color: var(--accent-color-100);
+    color: var(--accent-color);
+    background-color: var(--accent-color-100);
     border-radius: .2rem;
-    transition: all ease-in 200ms 0s;
+    transition: all ease 200ms 0s;
 }
 
 .tag-solutions .post .container article:hover a::after {
-    right: .25rem;
-    bottom: .3rem;
-    font-size: 1.5rem;
-    color: var(--accent-color);
-    transition: all ease-out 200ms 0s;
+    right: .85rem;
+    bottom: .65rem;
+    font-size: 1.25rem;
+    background-color: var(--accent-color-110);
+    transition: all ease 200ms 0s;
 }
 
 .tag-solutions .post .container article hgroup {
+    padding: 0;
     flex: 0 1 fit-content;
     height: auto;
     width: 100%;
