@@ -71,6 +71,7 @@ main > section.row > footer {
     font-style: italic;
     color: var(--accent-color-100);
     user-select: none;
+    cursor: not-allowed;
 }
 
 #default-footer ul {

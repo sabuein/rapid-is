@@ -989,6 +989,7 @@ article footer {
     color: currentColor;
     background-color: transparent;
     user-select: text;
+    cursor: text;
 }
 
 textarea {
@@ -1634,6 +1635,7 @@ pre {
     font-size: .85rem;
     font-weight: 400;
     line-height: 2;
+    cursor: text;
 }
 
 *.pagination {
@@ -3104,6 +3106,7 @@ form#search-support {
     padding: 8rem 6rem;
     align-items: flex-start;
     height: auto;
+    gap: 0;
 }
 
 form#search-support h2 {
@@ -3126,12 +3129,67 @@ form#search-support h2 {
     justify-content: flex-start;
 }
 
+#faq summary h5 {
+    margin-bottom: .5rem;
+    text-transform: lowercase;
+}
+
+div.kg-card.kg-toggle-card[data-kg-toggle-state="close"] .kg-toggle-heading {
+    position: relative;
+}
+
+#faq details summary h5::before,
+div.kg-card.kg-toggle-card[data-kg-toggle-state="close"] .kg-toggle-heading::before {
+    content: "\002B";
+    padding: 0 .5rem;
+    color: var(--accent-color-100);
+    background-color: var(--accent-color-50);
+    position: absolute;
+    left: -1.25rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+div.kg-card.kg-toggle-card[data-kg-toggle-state="close"] .kg-toggle-heading::before {
+    left: -1.75rem;
+    top: .75rem;
+    border-radius: 4px;
+}
+
+#faq details[open] summary h5::before,
+div.kg-card.kg-toggle-card[data-kg-toggle-state="open"] .kg-toggle-heading::before {
+    content: "\2212";
+    padding: 0 .5rem;
+    color: var(--accent-color-100);
+    background-color: var(--accent-color-50);
+    position: absolute;
+    left: -1.25rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+div.kg-card.kg-toggle-card[data-kg-toggle-state="open"] .kg-toggle-heading::before {
+    left: 4.25rem;
+    top: .75rem;
+    border-radius: 4px;
+}
+
 #faq details:is(:focus, :focus-visible, :hover) {
     transition: all 250ms ease-in 0s;
 }
 
 #faq details[open] p {
     font-size: 1.1rem;
+    line-height: 1.85;
+    cursor: text;
 }
 
 form#search-support label {
