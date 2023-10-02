@@ -1,7 +1,7 @@
 <!-- projects.hbs -->
 <section id="browse-our-projects" class="palette flexy">
     <hgroup class="flexy" title="Browse our projects">
-        <h2>Browse our projects&period;</h2>
+        <h2 id="browse-our-projects" title="Browse our projects">Browse our projects&period;</h2>
         <p>From the original open-source software developed in 2015&comma; Rapid is now a team of motivated, creative and hard-working experts&period;</p>
     </hgroup>
     <div class="filters flexy row">
@@ -42,6 +42,11 @@
                 {{#if custom_excerpt}}<figcaption>{{custom_excerpt}}</figcaption>{{/if}}
             </figure>{{/if}}
         </article>{{/foreach}}
+        <div class="controls flexy row">
+            <button type="button">See more</button>
+            <button type="button">View all</button>
+            <button type="button">More results</button>
+        </div>
         <pre class="pagination">Found ({{pages.total}}) projects&period;</pre>{{else}}<p class="get-posts-error">{{error}}</p>{{/get}}
     </div>
 </section>
