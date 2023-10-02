@@ -209,6 +209,7 @@ main #content .kg-toggle-card .kg-toggle-content p {
     max-width: 100%;
     height: fit-content;
     max-height: 100%;
+    gap: 1rem;
 }
 
 /* Elements with data attributes */
@@ -241,7 +242,6 @@ main #content .kg-toggle-card .kg-toggle-content p {
 
 .page-about [data-divider="top"] path,
 .page-careers [data-divider="top"] path,
-.post-template [data-divider="top"] path,
 .page-template.page-support footer [data-divider="top"] path,
 .page-template.page-team footer [data-divider="top"] path {
     fill: var(--accent-color-100);
@@ -345,7 +345,7 @@ main #content .kg-toggle-card .kg-toggle-content p {
     height: auto;
     max-height: 100%;
     background-color: transparent;
-    gap: 1rem;
+    gap: .5rem;
 }
 
 *:is(h1, h2, h3, h4, h5, h6) {
@@ -438,7 +438,7 @@ dialog[open] {
     pointer-events: auto;
     color: var(--accent-color);
     background-color: var(--accent-color-100);
-    border: 1rem solid var(--accent-color);
+    border: .25rem solid var(--accent-color-50);
     user-select: none;
     cursor: default;
     transition: opacity 250ms ease-in-out 0s;
@@ -452,6 +452,23 @@ form:is([method="dialog"], *[method="get"]) {
     gap: 1rem;
 }
 
+#get-in-touch #contact {
+    padding: 0;
+    flex-basis: auto;
+    width: 50rem;
+}
+
+#get-in-touch #contact legend {
+    align-items: flex-start;
+    padding-bottom: 1rem;
+    gap: .5rem;
+}
+
+#get-in-touch #contact :is(h2, div, p) {
+    flex-basis: fit-content;
+    width: fit-content;
+}
+
 form[method="dialog"] fieldset {
     flex-wrap: nowrap;
     align-items: flex-start;
@@ -459,13 +476,29 @@ form[method="dialog"] fieldset {
     gap: 1rem;
 }
 
+#get-in-touch #contact fieldset {
+    align-items: safe center;
+    gap: 2rem;
+}
+
+#get-in-touch #contact div {
+    gap: 1rem;
+}
+
+#get-in-touch #contact .controls {
+    gap: 2rem;
+}
+
 form[method="dialog"] button[formnovalidate] {
+    padding: 0;
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: .5rem;
+    right: .5rem;
+    height: auto;
+    width: fit-content;
     cursor: pointer;
     user-select: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
     scale: 1;
     rotate: none;
@@ -502,9 +535,10 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
     flex: 1 1 auto;
     width: 100dvw;
     max-width: 100%;
-    height: 100dvh;
+    min-height: 100dvh;
+    height: auto;
     max-height: 100%;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 *.post *.palette:nth-child(odd) {
@@ -595,8 +629,7 @@ address a {
     align-items: safe flex-start;
     align-content: safe flex-start;
     justify-content: safe center;
-    height: auto;
-    gap: 1rem;
+    min-height: auto;
 }
 
 *.post #content > * {
@@ -853,6 +886,12 @@ a:hover {
     transform: none;
 }
 
+*:is(input[type="reset"]),
+*:is(button[type="button"]).invert {
+    color: var(--accent-color-50) !important;
+    background-color: var(--accent-color-100) !important;
+}
+
 *:is(button[type="button"],
     input[type="button"],
     input[type="submit"],
@@ -863,6 +902,12 @@ a:hover {
     -webkit-box-shadow: .1rem .1rem 0 var(--color-black-40) !important;
     box-shadow: .1rem .1rem 0 var(--color-black-40) !important;
     transition: all ease 200ms 0s;
+}
+
+*:is(input[type="reset"]):is(:focus, :focus-within, :hover, :valid),
+*:is(button[type="button"]).invert:is(:focus, :focus-within, :hover, :valid) {
+    color: var(--accent-color) !important;
+    background-color: var(--accent-color-110) !important;
 }
 
 *:is(input:-webkit-autofill,
@@ -993,17 +1038,7 @@ article footer {
 }
 
 textarea {
-    height: auto;
-    width: fit-content;
     resize: vertical;
-}
-
-*.post figcaption {
-    padding: 1rem 2rem;
-    position: absolute;
-    bottom: 0;
-    font-size: .85rem;
-    width: fit-content;
 }
 
 *.post article:nth-child(odd) figcaption {
@@ -1016,9 +1051,18 @@ textarea {
 
 *.post article figcaption {
     color: var(--accent-color-110);
-    font-size: 1.2rem;
-    padding: .75rem .5rem;
-    font-weight: 400;
+    padding: .85rem 1rem;
+    position: absolute;
+    bottom: 0;
+    font-size: 1.25rem;
+}
+
+#content > figure > figcaption {
+    padding: .25rem .5rem;
+    position: static;
+    bottom: unset;
+    font-size: .85rem;
+    width: fit-content;
 }
 
 *.post figcaption a:any-link {
@@ -1714,7 +1758,7 @@ pre {
     color: var(--accent-color-110);
     background-color: var(--accent-color-50);
     flex: 1 1 92dvh;
-    height: 92dvh;
+    min-height: 92dvh;
 }
 
 #main-message h1 {
@@ -1846,15 +1890,13 @@ body:not(.home-template) *.flexy.row>hgroup {
 *.flexy:not(.row)>.container {
     direction: ltr;
     flex: 0 1 fit-content;
-    height: fit-content;
     align-content: flex-start;
     align-items: flex-start;
-    justify-content: center;
-    gap: 1rem;
 }
 
 #more-clients {
     justify-content: center;
+    gap: 3rem;
 }
 
 #more-clients hgroup h2 {
@@ -1878,7 +1920,7 @@ body:not(.home-template) *.flexy.row>hgroup {
     animation-delay: 0s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    animation: move 10s ease-in-out 0s infinite alternate;
+    animation: move 24s ease-in-out 0s infinite alternate;
     animation-play-state: running;
 }
 
@@ -2324,14 +2366,9 @@ fieldset {
 #rapid-integration,
 #get-the-app,
 #faq,
-#browse-our-projects {
-    height: auto;
-}
-
-#get-the-app :is(hgroup, figure),
-#partner-with-leaders :is(hgroup, figure),
-#rapid-integration :is(hgroup, figure) {
-    width: 100dvw;
+#browse-our-projects,
+#search-support {
+    min-height: auto;
 }
 
 #briefly {
@@ -2340,7 +2377,7 @@ fieldset {
 }
 
 #start-journey {
-    height: auto;
+    min-height: auto;
     width: 75rem;
     align-items: flex-start;
     justify-content: center;
@@ -2353,26 +2390,23 @@ fieldset {
 #start-journey footer {
     width: fit-content;
     align-self: center;
+    gap: 1rem;
 }
 
 *.post>*.heading.flexy.row {
     flex: 1 1 auto;
-    height: auto;
+    min-height: auto;
     gap: 4rem;
 }
 
 *.post>*.heading.flexy.row :is(hgroup, figure) {
     flex-grow: 1;
     flex-shrink: 0;
-    max-width: 100%;
-    max-height: 100%;
 }
 
 *.post>*.heading.flexy.row hgroup {
     flex-basis: 60rem;
     width: 60rem;
-    align-items: flex-start;
-    align-content: flex-start;
 }
 
 *.post>*.heading.flexy.row figure {
@@ -2382,9 +2416,11 @@ fieldset {
 }
 
 *.post>*.heading.flexy.row figcaption {
+    position: absolute;
     padding: .25rem 1rem;
     bottom: -1rem;
     width: 100dvw;
+    font-size: .9rem;
     transition: all ease 250ms 0s;
 }
 
@@ -2511,9 +2547,9 @@ form#join-newsletter {
 }
 
 form#join-newsletter pre {
+    padding: .25rem 1rem;
     text-align: start;
     opacity: 1;
-    font-size: initial;
     color: inherit;
     transition: all 500ms ease-in-out 0s;
 }
@@ -2542,7 +2578,7 @@ form#join-newsletter fieldset div {
     width: fit-content;
     justify-content: center;
     align-self: center;
-    gap: .75rem;
+    gap: 1rem;
 }
 
 form#join-newsletter p {
@@ -2576,9 +2612,7 @@ form#join-newsletter a:is(:focus, :hover) {
 /* Sharing page/post */
 
 footer:has(#sharing-is-caring) {
-    width: 100dvw;
-    max-width: 100%;
-    height: auto;
+    min-height: auto;
 }
 
 .post #sharing-is-caring {
@@ -2960,7 +2994,7 @@ ol {
 }
 
 .page-contact .post .controls {
-    flex: 0 1 fit-content;
+    flex: 1 1 fit-content;
     width: fit-content;
     align-self: center;
     gap: 1rem;
@@ -3010,19 +3044,13 @@ ol {
 }
 
 .page-contact #content aside figure {
+    padding: 1rem;
     flex: 0 1 10rem;
     width: 10rem;
 }
 
 #grab-coffee {
-    height: auto;
-}
-
-#grab-coffee div {
-    flex: 1 0 fit-content;
-    width: fit-content;
-    justify-content: flex-start;
-    gap: 2rem;
+    min-height: auto;
 }
 
 #grab-coffee div.controls {
@@ -3031,19 +3059,12 @@ ol {
 }
 
 #grab-coffee > div {
-    flex: 1 0 100%;
-    width: 85rem;
-    max-width: 100%;
-}
-
-#grab-coffee form div:has([type="datetime-local"]) {
-    flex: 1 0 fit-content;
-    width: fit-content;
+    flex: 1 1 fit-content;
+    width: 65rem;
 }
 
 #grab-coffee>div>figure {
     padding: 2rem;
-    padding-right: 5rem;
     flex: 1 1 25rem;
     max-width: 100%;
     height: 20rem;
@@ -3051,9 +3072,9 @@ ol {
 }
 
 #grab-coffee>div>form {
-    padding: 2rem 5rem;
-    flex: 1 1 45rem;
-    max-width: 100%;
+    padding: 2rem;
+    flex: 0 1 35rem;
+    width: 35rem;
 }
 
 #grab-coffee fieldset {
@@ -3066,14 +3087,17 @@ ol {
     width: fit-content;
 }
 
-#grab-coffee hgroup {
-    align-items: flex-start;
+#grab-coffee fieldset div {
+    flex: 1 1 25rem;
+    width: 25dvw;
+    justify-content: flex-start;
+    gap: 1rem;
 }
 
 #map {
     padding: 0;
     padding-bottom: 12rem;
-    height: auto;
+    min-height: auto;
 }
 
 #map hgroup {
@@ -3105,7 +3129,6 @@ ol {
 form#search-support {
     padding: 8rem 6rem;
     align-items: flex-start;
-    height: auto;
     gap: 0;
 }
 
@@ -3118,6 +3141,7 @@ form#search-support h2 {
 }
 
 #faq details {
+    margin-left: 1rem;
     flex: 0 1 fit-content;
     width: 100dvw;
     max-width: 100%;
