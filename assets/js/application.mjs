@@ -8,24 +8,28 @@ import {
     enableNavMenu,
 } from "./modules/view.mjs";
 
+const xx = (cont) => {
+    return window.setInterval(() => {
+        cont.forEach((container) => {
+            const width = container.scrollWidth;
+            if (container.scrollLeft !== width) {
+                container.scrollTo(container.scrollLeft*1.25 + 1, 0);
+            } else {
+                self.setInterval(() => {
+                    container.scrollTo(container.scrollLeft*1.25 + -1, 0);
+                }, 15);
+            }
+        });
+    }, 15);
+};
+
 // Automatically scroll horizontally when the window load
 window.addEventListener("load", () => {
     try {
         // const sections = document.querySelectorAll("main > section") || null;
         // sections.forEach((section) => shakeMe(section));
         const containers = document.querySelectorAll(".horizontal-scrollingXXX") || null;
-        self.setInterval(() => {
-            containers.forEach((container) => {
-                const width = container.scrollWidth;
-                if (container.scrollLeft !== width) {
-                    container.scrollTo(container.scrollLeft + 1, 0);
-                } else {
-                    self.setInterval(() => {
-                        container.scrollTo(container.scrollLeft + -1, 0);
-                    }, 15);
-                }
-            });
-        }, 15);
+        //xx(containers);
     } catch (error) {
         console.error(error);
     }
@@ -61,10 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Let the whole solution widget clickable!
-    const solutionsApps = document.querySelectorAll("body.tag-template.tag-solutions>main#main-content>div>article") || null;
+    const solutionsApps = document.querySelectorAll("body.tag-template.tag-solutions>main#main-content>#apps>article") || null;
     if (!!solutionsApps) {
         for (let i = 0; i < solutionsApps.length; i++) {
-            const a = document.querySelector(`body.tag-template.tag-solutions>main#main-content>div>article:nth-child(${i + 1}) > a`);
+            const a = document.querySelector(`body.tag-template.tag-solutions>main#main-content>#apps>article:nth-child(${i + 1})>hgroup>a`);
             solutionsApps[i].onclick = () => a.click();
         }
     }
