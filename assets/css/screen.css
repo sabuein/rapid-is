@@ -850,7 +850,7 @@ a[type="text/html"] {
 
 a:any-link,
 a:-webkit-any-link { /* WebKit browsers */
-    text-decoration-color: var(--accent-color);
+    text-decoration-color: var(--accent-color-50);
     text-align: center;
     font-weight: 600;
     width: fit-content;
@@ -1103,6 +1103,7 @@ header:has(nav) {
 }
 
 nav {
+    position: relative;
     color: inherit;
     background-color: inherit;
     width: fit-content;
@@ -1117,13 +1118,18 @@ header.loose:is(:active, :focus-within, :hover) {
 }
 
 ul.nav.flexy.row:has(:where(li.nav-solutions:focus-within, li.nav-solutions > a:is(:focus, :hover)))~ul.solutions-nav,
-ul.solutions-nav.flexy.row:has(a:active) {
+ul.solutions-nav.flexy.row:has(a:active),
+ul.nav.flexy.row:has(:where(li.nav-about:focus-within, li.nav-about > a:is(:focus, :hover)))~ul.about-nav,
+ul.about-nav.flexy.row:has(a:active) {
     display: flex;
 }
 
 nav ul~ul.solutions-nav:focus-visible,
 nav ul~ul.solutions-nav:focus-within,
-nav ul:where(:has(li.nav-solutions):has(a:is(:focus, :hover)))~ul.solutions-nav {
+nav ul:where(:has(li.nav-solutions):has(a:is(:focus, :hover)))~ul.solutions-nav,
+nav ul~ul.about-nav:focus-visible,
+nav ul~ul.about-nav:focus-within,
+nav ul:where(:has(li.nav-about):has(a:is(:focus, :hover)))~ul.about-nav {
     display: flex;
 }
 
@@ -1468,20 +1474,21 @@ li.nav-solutions span {
 
 ul.about-nav span,
 ul.solutions-nav span {
-    margin-left: .25rem;
+    margin: 0 .25rem;
 }
 
 nav ul~ul.about-nav,
 nav ul~ul.solutions-nav {
-    flex: 1 0 50rem;
+    flex: 1 1 auto;
     display: none;
     padding: .5rem;
-    place-content: flex-start center;
+    place-content: center flex-start;
     position: absolute;
-    top: 4.5rem;
+    left: 0;
+    top: 3.5rem;
     gap: 1rem;
+    height: auto;
     width: fit-content;
-    height: fit-content;
     list-style-type: none;
     font-weight: bold;
     font-size: 1rem;
@@ -1515,9 +1522,15 @@ ul.nav.flexy.row a:is(:focus, :hover),
 ul.about-nav.flexy.row a:is(:focus, :hover),
 ul.solutions-nav.flexy.row a:is(:focus, :hover),
 li.nav-about:focus-within,
-li.nav-solutions:focus-within,
-body>footer a:is(:focus, :hover) {
-    color: var(--color-orange);
+li.nav-solutions:focus-within {
+    color: var(--accent-color-50);
+}
+
+body>footer a:is(:focus, :hover),
+body>footer ul.nav.flexy.row a:is(:focus, :hover),
+body>footer ul.about-nav.flexy.row a:is(:focus, :hover),
+body>footer ul.solutions-nav.flexy.row a:is(:focus, :hover) {
+    color: var(--color-yellow);
 }
 
 li.nav-about svg path,
@@ -2753,7 +2766,7 @@ ol {
 }
 
 #client-testimonials .container .post > div {
-    padding: 0 4rem;
+    padding: 0 3rem;
 }
 
 #client-testimonials .container .post header {
@@ -2821,9 +2834,13 @@ ol {
 }
 
 #client-testimonials .post figcaption {
-    padding: .25rem .5rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: .5rem .75rem;
     color: var(--accent-color-110);
     background-color: var(--accent-color-50);
+    line-height: 1.85;
 }
 
 #client-testimonials .post img {
@@ -2927,16 +2944,17 @@ ol {
 }
 
 #meet-our-team .post figcaption {
-    padding: .5rem;
+    padding: .25rem;
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 1rem;
+    bottom: .5rem;
     width: 100%;
     color: var(--accent-color-110);
     background-color: var(--accent-color-50);
     text-align: center;
     font-weight: 500;
+    font-size: 1rem;
 }
 
 #meet-our-team .post img {
@@ -2944,7 +2962,7 @@ ol {
 }
 
 #meet-our-team {
-    height: auto;
+    min-height: auto;
 }
 
 #meet-our-team hgroup {
