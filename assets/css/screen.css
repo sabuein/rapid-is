@@ -32,93 +32,91 @@ main #content .kg-toggle-card .kg-toggle-content p {
     margin-bottom: .95em;
 }
 
-/* Some fonts */
-
-/* roboto-regular - latin */
+/* ubuntu-300 - latin */
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: "Roboto";
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 300;
+    src: url("../fonts/ubuntu-v20-latin-300.woff2") format("woff2");
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* ubuntu-300italic - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Ubuntu";
+    font-style: italic;
+    font-weight: 300;
+    src: url("../fonts/ubuntu-v20-latin-300italic.woff2") format("woff2");
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* ubuntu-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Ubuntu";
     font-style: normal;
     font-weight: 400;
-    src: url("../fonts/roboto-v30-latin-regular.woff2") format("woff2");
+    src: url("../fonts/ubuntu-v20-latin-regular.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* roboto-italic - latin */
+/* ubuntu-italic - latin */
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: "Roboto";
+    font-family: "Ubuntu";
     font-style: italic;
     font-weight: 400;
-    src: url("../fonts/roboto-v30-latin-italic.woff2") format("woff2");
+    src: url("../fonts/ubuntu-v20-latin-italic.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* roboto-500 - latin */
+/* ubuntu-500 - latin */
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: "Roboto";
+    font-family: "Ubuntu";
     font-style: normal;
     font-weight: 500;
-    src: url("../fonts/roboto-v30-latin-500.woff2") format("woff2");
+    src: url("../fonts/ubuntu-v20-latin-500.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* roboto-500italic - latin */
+/* ubuntu-500italic - latin */
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: "Roboto";
+    font-family: "Ubuntu";
     font-style: italic;
     font-weight: 500;
-    src: url("../fonts/roboto-v30-latin-500italic.woff2") format("woff2");
+    src: url("../fonts/ubuntu-v20-latin-500italic.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* roboto-700 - latin */
+/* ubuntu-700 - latin */
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: "Roboto";
+    font-family: "Ubuntu";
     font-style: normal;
     font-weight: 700;
-    src: url("../fonts/roboto-v30-latin-700.woff2") format("woff2");
+    src: url("../fonts/ubuntu-v20-latin-700.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* roboto-700italic - latin */
+/* ubuntu-700italic - latin */
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: "Roboto";
+    font-family: "Ubuntu";
     font-style: italic;
     font-weight: 700;
-    src: url("../fonts/roboto-v30-latin-700italic.woff2") format("woff2");
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* roboto-900 - latin */
-@font-face {
-    font-display: swap;
-    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 900;
-    src: url("../fonts/roboto-v30-latin-900.woff2") format("woff2");
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* roboto-900italic - latin */
-@font-face {
-    font-display: swap;
-    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: "Roboto";
-    font-style: italic;
-    font-weight: 900;
-    src: url("../fonts/roboto-v30-latin-900italic.woff2") format("woff2");
+    src: url("../fonts/ubuntu-v20-latin-700italic.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -304,7 +302,7 @@ main #content .kg-toggle-card .kg-toggle-content p {
     --accent-color-100: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 60%));
     --accent-color-110: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 70%));
     --accent-color-120: hsl(var(--accent-color-h), var(--accent-color-s), calc(var(--accent-color-l) + 80%));
-    --font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 ::selection {
@@ -444,11 +442,11 @@ dialog[open] {
     transition: opacity 250ms ease-in-out 0s;
 }
 
-form:is([method="dialog"], *[method="get"]) {
+form:is([method="dialog"], [method="get"]) {
     padding: 1rem;
     color: inherit;
-    flex: 0 1 75rem;
-    width: 75rem;
+    flex: 0 1 80rem;
+    width: 80rem;
     gap: 1rem;
 }
 
@@ -632,11 +630,12 @@ address a {
     min-height: auto;
 }
 
-*.post #content > * {
+*.post #content>* {
     padding: 0 1rem;
 }
 
 #tabs-about {
+    padding: 4rem 5rem;
     background-color: gold;
 }
 
@@ -738,11 +737,11 @@ main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
     width: fit-content;
 }
 
-#browse-our-projects .container .controls {
+#browse-projects .container .controls {
     gap: 1rem;
 }
 
-#browse-our-projects .container .controls button {
+#browse-projects .container .controls button {
     width: fit-content;
 }
 
@@ -753,6 +752,12 @@ main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
 }
 
 /* End of page style */
+
+#partner-with-leaders {
+    padding: 4rem 5rem;
+    min-height: auto;
+}
+
 #partner-with-leaders figure {
     padding: 1rem;
     flex: 0 1 10rem;
@@ -849,7 +854,8 @@ a[type="text/html"] {
 }
 
 a:any-link,
-a:-webkit-any-link { /* WebKit browsers */
+a:-webkit-any-link {
+    /* WebKit browsers */
     text-decoration-color: var(--accent-color-50);
     text-align: center;
     font-weight: 600;
@@ -866,7 +872,8 @@ a:hover {
     textarea,
     select,
     a[type="text/html"]:any-link,
-    a[type="text/html"]:-webkit-any-link) { /* WebKit browsers */
+    a[type="text/html"]:-webkit-any-link) {
+    /* WebKit browsers */
     opacity: 1;
     color: var(--link-button-text);
     transition: all 200ms ease 0s;
@@ -1039,6 +1046,7 @@ article footer {
 
 textarea {
     resize: vertical;
+    text-align: start;
 }
 
 *.post article:nth-child(odd) figcaption {
@@ -1054,10 +1062,9 @@ textarea {
     padding: .85rem 1rem;
     position: absolute;
     bottom: 0;
-    font-size: 1.25rem;
 }
 
-#content > figure > figcaption {
+#content>figure>figcaption {
     padding: .25rem .5rem;
     position: static;
     bottom: unset;
@@ -1701,11 +1708,11 @@ pre {
 
 *.pagination {
     padding: .25rem;
-    background-color: var(--accent-color-110) !important;
-    flex: 1 0 100%;
+    flex: 1 1 100%;
     width: 100dvw;
     max-width: 100%;
-    color: var(--color-mid-grey);
+    color: var(--accent-color-110);
+    background-color: var(--accent-color-80) !important;
     user-select: none;
     font-size: .65rem;
 }
@@ -1784,6 +1791,7 @@ pre {
 
 #client-testimonials {
     justify-content: center;
+    gap: 2rem;
 }
 
 a[title~="Continue"],
@@ -1908,7 +1916,7 @@ body:not(.home-template) *.flexy.row>hgroup {
     direction: ltr;
     flex: 0 1 fit-content;
     align-content: flex-start;
-    align-items: flex-start;
+    align-items: safe flex-start;
 }
 
 #more-clients {
@@ -2383,9 +2391,10 @@ fieldset {
 #rapid-integration,
 #get-the-app,
 #faq,
-#browse-our-projects,
+#browse-projects,
 #search-support {
     min-height: auto;
+    padding: 4rem 5rem
 }
 
 #briefly {
@@ -2394,10 +2403,12 @@ fieldset {
 }
 
 #start-journey {
+    padding: 4rem 5rem;
     min-height: auto;
     width: 75rem;
     align-items: flex-start;
     justify-content: center;
+    gap: 2rem;
 }
 
 #start-journey hgroup :is(h2, p) {
@@ -2447,6 +2458,10 @@ fieldset {
 
 *.post>*.heading.flexy.row :is(h1, p) {
     max-width: 70%;
+}
+
+#check-our-vacancies {
+    min-height: auto;
 }
 
 #check-our-vacancies>figure {
@@ -2584,7 +2599,7 @@ form#join-newsletter fieldset {
 form#join-newsletter legend {
     padding-bottom: 1.5rem;
     align-items: flex-start;
-    gap: .5rem;
+    gap: .25rem;
 }
 
 form#join-newsletter legend h2 {
@@ -2629,6 +2644,7 @@ form#join-newsletter a:is(:focus, :hover) {
 /* Sharing page/post */
 
 footer:has(#sharing-is-caring) {
+    padding: 4rem 5rem;
     min-height: auto;
 }
 
@@ -2761,7 +2777,7 @@ ol {
     animation: display-none-to-flex 250ms ease-in-out 10ms 1 forwards;
 }
 
-#client-testimonials .container .post > * {
+#client-testimonials .container .post>* {
     flex: 1 1 40rem;
     width: 40rem;
     max-width: 100%;
@@ -2769,7 +2785,7 @@ ol {
     max-height: 100%;
 }
 
-#client-testimonials .container .post > div {
+#client-testimonials .container .post>div {
     padding: 0 3rem;
 }
 
@@ -2826,7 +2842,7 @@ ol {
 #client-testimonials .post p:nth-child(4) {
     text-align: end;
     align-self: flex-end;
-    
+
     font-style: italic;
 }
 
@@ -2855,7 +2871,7 @@ ol {
 #client-testimonials .next-testimonial,
 #client-testimonials .prev-testimonial {
     position: absolute;
-    top: 22rem;
+    top: 18rem;
     font-size: 10rem;
     border-radius: .25rem;
     outline: 0;
@@ -2912,7 +2928,7 @@ ol {
 }
 
 #meet-our-team .post div {
-    padding: 1rem;
+    padding: 0 1rem;
     padding-top: 1.5rem;
     align-items: flex-start;
 }
@@ -2966,7 +2982,9 @@ ol {
 }
 
 #meet-our-team {
+    padding: 4rem 5rem;
     min-height: auto;
+    gap: 2rem;
 }
 
 #meet-our-team hgroup {
@@ -2987,6 +3005,7 @@ ol {
     display: block;
 }
 
+#meet-our-team .social-icons a[title="X"] path,
 #meet-our-team .social-icons a[title="GitHub"] path {
     fill: var(--color-black);
 }
@@ -3038,7 +3057,7 @@ ol {
     align-items: flex-start;
     flex: 1 1 0%;
     width: 100dvw;
-    max-width: 24rem;
+    max-width: 23rem;
     gap: .5rem;
 }
 
@@ -3059,8 +3078,8 @@ ol {
 }
 
 .page-contact #content aside {
-    padding: 1rem;
-    flex: 1 0 25rem;
+    padding: 0;
+    flex: 0 1 25rem;
     height: auto;
     width: 25rem;
 }
@@ -3069,6 +3088,11 @@ ol {
     padding: 1rem;
     flex: 0 1 10rem;
     width: 10rem;
+}
+
+.page-contact #content aside form[method="get"] {
+    flex: 0 1 25rem;
+    width: 25rem;
 }
 
 #grab-coffee {
@@ -3080,7 +3104,7 @@ ol {
     padding-top: 1.25rem;
 }
 
-#grab-coffee > div {
+#grab-coffee>div {
     flex: 1 1 fit-content;
     width: 65rem;
 }
@@ -3149,7 +3173,7 @@ ol {
 }
 
 form#search-support {
-    padding: 8rem 6rem;
+    padding: 4rem 6rem;
     align-items: flex-start;
     gap: 0;
 }
@@ -3253,21 +3277,21 @@ form#search-support input[type="search"] {
     max-width: inherit;
 }
 
-#browse-our-projects>.container {
+#browse-projects>.container {
     gap: 2rem;
 }
 
-#browse-our-projects>.container {
+#browse-projects>.container {
     padding: 1rem;
 }
 
-#browse-our-projects .container .post {
+#browse-projects .container .post {
     flex: 1 1 40rem;
     width: 40rem;
     min-height: auto;
 }
 
-#browse-our-projects .container .post> :is(hgroup, figure) {
+#browse-projects .container .post> :is(hgroup, figure) {
     padding: 2rem;
     border: 0;
     flex: 1 0 0%;
@@ -3275,72 +3299,70 @@ form#search-support input[type="search"] {
     height: auto;
 }
 
-#browse-our-projects .container .post>hgroup {
+#browse-projects .container .post>hgroup {
     flex: 2 1 40rem;
     width: 40rem;
     gap: 0;
 }
 
-#browse-our-projects .container .post>hgroup h3 {
+#browse-projects .container .post>hgroup h3 {
     line-height: 1.25;
     font-size: 1.85rem;
 }
 
-#browse-our-projects .container .post>figure {
+#browse-projects .container .post>figure {
     flex: 1 1 20rem;
     font-size: .85rem;
 }
 
-#browse-our-projects .post hgroup figure {
+#browse-projects .post hgroup figure {
     padding: 1rem 0;
     flex: 1 0 fit-content;
     width: 100dvw;
     height: auto;
 }
 
-#browse-our-projects .post p {
+#browse-projects .post p {
     padding-top: .25rem;
     font-size: .85rem;
     line-height: 1.75;
 }
 
-#browse-our-projects .post hgroup figure figcaption {
+#browse-projects .post hgroup figure figcaption {
     padding: .5rem 1rem;
     position: static;
     font-size: .85rem;
 }
 
-#browse-our-projects > div.container.disable-scrollbar.flexy.row > article:nth-child(1) > hgroup > figure > a > div.kg-bookmark-thumbnail {
+#browse-projects>div.container.disable-scrollbar.flexy.row>article:nth-child(1)>hgroup>figure>a>div.kg-bookmark-thumbnail {
     width: 12rem;
 }
 
-#browse-our-projects .post hgroup figure div {
+#browse-projects .post hgroup figure div {
     font-size: .85rem;
     text-align: start;
     line-height: 1.85;
     max-height: none;
 }
 
-#browse-our-projects .post hgroup figure div #browse-our-projects .post hgroup figure>div {
+#browse-projects .post hgroup figure div #browse-projects .post hgroup figure>div {
     padding: .5rem;
 }
 
-#browse-our-projects .filters {
+#browse-projects .filters {
     padding: 0 1rem;
     flex: 0 1 auto;
     gap: 2rem;
 }
 
-#browse-our-projects .filters label {
+#browse-projects .filters label {
     gap: .5rem;
 }
 
 .post .cards {
-    height: 100dvh;
-    max-height: 100%;
-    width: 100dvw;
-    max-width: 100%;
+    min-height: auto;
     background-color: gold !important;
+    gap: 2rem;
 }
 
 .post .cards hgroup {
