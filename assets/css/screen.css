@@ -627,7 +627,6 @@ address a {
     align-items: safe flex-start;
     align-content: safe flex-start;
     justify-content: safe center;
-    min-height: auto;
 }
 
 *.post #content>* {
@@ -635,7 +634,6 @@ address a {
 }
 
 #tabs-about {
-    padding: 4rem 5rem;
     background-color: gold;
 }
 
@@ -752,11 +750,6 @@ main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
 }
 
 /* End of page style */
-
-#partner-with-leaders {
-    padding: 4rem 5rem;
-    min-height: auto;
-}
 
 #partner-with-leaders figure {
     padding: 1rem;
@@ -2388,13 +2381,22 @@ fieldset {
     justify-content: center;
 }
 
-#rapid-integration,
-#get-the-app,
 #faq,
+#tabs-about,
+#grab-coffee,
+.post .cards,
+#get-the-app,
+#meet-our-team,
+#start-journey,
+#search-support,
 #browse-projects,
-#search-support {
+#rapid-integration,
+#check-our-vacancies,
+#partner-with-leaders,
+footer:has(#sharing-is-caring) {
+    padding: 4rem 5rem;
     min-height: auto;
-    padding: 4rem 5rem
+    gap: 2rem;
 }
 
 #briefly {
@@ -2403,12 +2405,9 @@ fieldset {
 }
 
 #start-journey {
-    padding: 4rem 5rem;
-    min-height: auto;
     width: 75rem;
     align-items: flex-start;
     justify-content: center;
-    gap: 2rem;
 }
 
 #start-journey hgroup :is(h2, p) {
@@ -2458,10 +2457,6 @@ fieldset {
 
 *.post>*.heading.flexy.row :is(h1, p) {
     max-width: 70%;
-}
-
-#check-our-vacancies {
-    min-height: auto;
 }
 
 #check-our-vacancies>figure {
@@ -2642,11 +2637,6 @@ form#join-newsletter a:is(:focus, :hover) {
 }
 
 /* Sharing page/post */
-
-footer:has(#sharing-is-caring) {
-    padding: 4rem 5rem;
-    min-height: auto;
-}
 
 .post #sharing-is-caring {
     width: 100dvw;
@@ -2981,12 +2971,6 @@ ol {
     display: none;
 }
 
-#meet-our-team {
-    padding: 4rem 5rem;
-    min-height: auto;
-    gap: 2rem;
-}
-
 #meet-our-team hgroup {
     flex: 0 1 fit-content;
     align-items: flex-start;
@@ -3093,10 +3077,6 @@ ol {
 .page-contact #content aside form[method="get"] {
     flex: 0 1 25rem;
     width: 25rem;
-}
-
-#grab-coffee {
-    min-height: auto;
 }
 
 #grab-coffee div.controls {
@@ -3360,9 +3340,7 @@ form#search-support input[type="search"] {
 }
 
 .post .cards {
-    min-height: auto;
     background-color: gold !important;
-    gap: 2rem;
 }
 
 .post .cards hgroup {
