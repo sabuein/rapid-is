@@ -1472,9 +1472,13 @@ li.nav-solutions span {
     margin-right: .25rem;
 }
 
-ul.about-nav span,
+ul.about-nav svg span,
 ul.solutions-nav span {
     margin: 0 .25rem;
+}
+
+.social-icons svg path {
+    fill: var(--accent-color-110);
 }
 
 nav ul~ul.about-nav,
