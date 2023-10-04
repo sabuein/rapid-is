@@ -435,7 +435,7 @@ dialog[open] {
     visibility: visible;
     pointer-events: auto;
     color: var(--accent-color);
-    background-color: var(--accent-color-100);
+    background-color: var(--accent-color-110);
     border: .25rem solid var(--accent-color-50);
     user-select: none;
     cursor: default;
@@ -887,7 +887,8 @@ a:hover {
 }
 
 *:is(input[type="reset"]),
-*:is(button[type="button"]).invert {
+*:is(button[type="button"]).invert,
+a[type="text/html"].invert {
     color: var(--accent-color-50) !important;
     background-color: var(--accent-color-90) !important;
 }
@@ -905,7 +906,8 @@ a:hover {
 }
 
 *:is(input[type="reset"]):is(:focus, :focus-within, :hover, :valid),
-*:is(button[type="button"]).invert:is(:focus, :focus-within, :hover, :valid) {
+*:is(button[type="button"]).invert:is(:focus, :focus-within, :hover, :valid),
+*:is(a[type="text/html"]).invert:is(:focus, :focus-within, :hover, :valid) {
     color: var(--accent-color) !important;
     background-color: var(--accent-color-100) !important;
 }
