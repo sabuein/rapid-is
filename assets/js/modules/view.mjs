@@ -48,7 +48,7 @@ const startMainModal = (id, query) => {
     // Dialog
     dialog.addEventListener("close", () => {
         if (dialog.returnValue.toLowerCase() === "cancel") return console.log("Contact form was canceled by the user.");
-        if (dialog.returnValue.toLowerCase() !== "send") return false;
+        if (dialog.returnValue.toLowerCase() !== "request") return false;
         console.log("Contact form has been submitted.");
         console.log("Value: ", dialog.returnValue);
         // Do something...
