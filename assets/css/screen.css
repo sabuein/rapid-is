@@ -2102,38 +2102,68 @@ body:not(.home-template) *.flexy.row>hgroup {
     background-color: var(--color-turquoise);
 }
 
-.cookies {
+.cookies.flexy.row {
     display: none;
-    padding: 3em;
+    padding: 3rem;
     position: fixed;
+    left: 0;
     bottom: 0;
-    color: var(--color-light-grey);
-    background-color: var(--color-black);
-    gap: 1rem;
+    color: var(--accent-color-100);
+    background-color: var(--accent-color-20);
+    gap: 2rem;
     opacity: .9;
     z-index: 999;
-}
-
-.cookies :is(h4, p, a)::selection {
-    color: var(--color-black);
-    background-color: var(--color-light-grey);
-}
-
-.cookies h4,
-.cookies form {
-    flex: 0 1 75dvw;
-    width: 75dvw;
+    height: 10rem;
+    flex: 1 1 100dvw;
+    width: 100dvw;
     max-width: 100%;
+    z-index: 99999;
 }
 
-.cookies form {
-    padding: 1dvh 1dvw;
+.cookies.flexy.row :is(h4, p, a)::selection {
+    color: var(--accent-color-20);
+    background-color: var(--accent-color-100);
+    line-height: 1.5;
+}
+
+.cookies.flexy.row h4 {
+    flex: 0 1 12rem;
+    width: 12rem;
+}
+
+#default-footer .cookies.flexy.row hgroup p {
+    flex: 0 1 50rem;
+    width: 50rem;
+    text-align: start;
+}
+
+.cookies.flexy.row hgroup,
+.cookies.flexy.row form {
+    padding: 0;
+    flex: 0 1 65rem;
+    width: 65rem;
+    height: auto;
+    max-width: 100%;
+    background-color: transparent;
+    align-content: center;
+    justify-content: center;
+    align-items: safe center;
+}
+
+.cookies.flexy.row form {
+    flex-basis: 20rem;
+    width: 20rem;
     gap: 2rem;
 }
 
-.cookies button[type="button"] {
+.cookies.flexy.row hgroup {
+    gap: 1rem;
+}
+
+.cookies.flexy.row button[type="button"] {
     opacity: 1;
     flex: 0 1 fit-content;
+    width: fit-content;
     border-radius: 0%;
 }
 
