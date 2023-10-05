@@ -32,7 +32,7 @@
         </select></label>
     </div>
     <div class="container disable-scrollbar flexy row">
-        {{#get "posts" filter="tag:projects+visibility:public" order="featured desc, published_at asc" limit="9" as |projects pages|}}{{#foreach projects}}<article class="{{post_class}} flexy row{{#if @even}} reverse{{/if}} shadowed" data-index="{{@index}}" data-play-state="running" title="{{title}}">
+        {{#get "posts" filter="tag:projects+visibility:public" include="authors, tags, count.posts" order="featured desc, count.posts desc" limit="9" as |projects pages|}}{{#foreach projects}}<article class="{{post_class}} flexy row{{#if @even}} reverse{{/if}} shadowed" data-index="{{@index}}" data-play-state="running" title="{{title}}">
             <hgroup class="flexy">
                 <h3 id="{{slug}}">{{title}}</h3>
                 {{content}}
@@ -46,7 +46,10 @@
             <button type="button">See more</button>
             <button type="button">View all</button>
             <button type="button">More results</button>
+            <a href="{{page_url next}}">Show next {{@config.posts_per_page}} posts</a>
+            <a href="{{page_url next}}">Show next {{@config.posts_per_page}} posts</a>
+            {{#if pagination}}{{#match pagination.pages ">" 1}}{{pagination}}{{/match}}{{/if}}
         </div>
-        <pre class="pagination">Found ({{pages.total}}) projects&period;</pre>{{else}}<p class="get-posts-error">{{error}}</p>{{/get}}
+        <pre class="pagination">Found {{plural pages.total empty="no projects" singular="% project" plural="% projects"}}&period;</pre>{{else}}<p class="get-posts-error">{{error}}</p>{{/get}}
     </div>
 </section>
