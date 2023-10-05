@@ -1,6 +1,7 @@
 <!-- newsletter.hbs -->
 <section id="newsletter" class="palette flexy row">
-    <form id="join-newsletter" class="flexy shadowed" method="get" data-play-state="running">
+    {{#if @member}}<p>Thanks for becoming a member 🎉</p>
+    {{else}}<form id="join-newsletter" class="flexy shadowed" method="get" data-play-state="running">
         <fieldset class="flexy">
             <legend class="flexy" title="Subscribe to our newsletter">
                 <h2 id="subscribe-to-our-newsletter">Subscribe to the Rapid newsletter</h2>
@@ -49,7 +50,7 @@
                 <input type="reset" value="Reset" title="Reset" />
             </div>
         </fieldset>  
-    </form>
+    </form>{{/if}}
     <footer class="flexy">
         <a href="#default-footer" title="Continue" class="shadowed">
             {{> "icons/angle-down"}}

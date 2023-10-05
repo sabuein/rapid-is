@@ -21,11 +21,10 @@
     {{content}}
 </article>
 <footer class="palette flexy">
-    {{!-- Show the pagination helper when there's more than one page --}}
-    {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
-    {{!-- Previous/next page links - displayed on every page --}}
-    {{#if pagination}}{{pagination}}{{/if}}
     {{> "sharing"}}
+    <p>{{reading_time minute=(t "Only a minute") minutes=(t "Takes % minutes")}}</p>
+    {{#prev_post in="primary_tag"}}<a href="{{url}}">{{title}}</a>{{/prev_post}}
+    {{#next_post in="primary_tag"}}<a href="{{url}}">{{title}}</a>{{/next_post}}
 </footer>
 {{> "cta-contact"}}
 {{/post}}
