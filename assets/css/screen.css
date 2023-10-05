@@ -3457,6 +3457,10 @@ form#search-support input[type="search"] {
     padding: 1rem;
     font-size: 1.85rem;
     width: fit-content;
+    height: fit-content;
+    top: 0;
+    color: var(--accent-color-110);
+    z-index: 1;
 }
 
 .cards .container>p {
