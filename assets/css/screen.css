@@ -2816,9 +2816,10 @@ ol {
 
 #client-testimonials .post h3 {
     position: absolute;
+    top: 1rem;
     flex: 0 1 fit-content;
     width: fit-content;
-    max-width: 100%;
+    z-index: 1;
 }
 
 #client-testimonials .post p {
@@ -2829,6 +2830,10 @@ ol {
     flex: 0 1 fit-content;
     width: fit-content;
     max-width: 100%;
+}
+
+#client-testimonials .post p:last-child {
+    align-self: flex-end;
 }
 
 #client-testimonials .post p:nth-child(4) {
