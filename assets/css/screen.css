@@ -351,8 +351,7 @@ main #content .kg-toggle-card .kg-toggle-content p {
     text-transform: none;
     font-weight: 500;
     font-style: normal;
-    font-variant: petite-caps;
-    font-variant-caps: petite-caps;
+    font-variant-caps: titling-caps;
     line-height: 1.5;
     text-wrap: pretty;
     text-align: start;
@@ -685,6 +684,10 @@ main #content table {
     display: inline-table;
     margin: 2rem 4rem;
     border: dashed .1rem;
+    line-height: 2;
+    text-align: start;
+    font-weight: 400;
+    font-size: 1rem;
 }
 
 main #content table thead tr {
@@ -718,11 +721,11 @@ main #content table tr td {
 }
 
 main #content table tr td:nth-of-type(1) {
-    width: 40%;
+    width: 20%;
 }
 
 main #content table tr td:nth-of-type(2) {
-    width: 60%;
+    width: 80%;
 }
 
 main #content figure.kg-card.kg-image-card.kg-card-hascaption {
@@ -1871,13 +1874,15 @@ body:not(.home-template) *.flexy.row>hgroup {
 
 *.flexy:not(.row)>hgroup {
     padding: 0 1rem;
+    border: 0;
 }
 
 *.flexy.row>hgroup {
+    border: 0;
     padding: 1rem;
-    flex: 1 1 40rem;
-    width: 40rem;
-    height: 30rem;
+    flex: 2 1 45rem;
+    width: 45rem;
+    height: 25rem;
     align-content: flex-start;
     align-items: flex-start;
     animation: slide-right 1s ease 0s 1 alternate forwards;
@@ -1885,9 +1890,9 @@ body:not(.home-template) *.flexy.row>hgroup {
 
 *.flexy.row>figure {
     padding: 1rem;
-    flex: 2 1 50rem;
-    width: 50rem;
-    height: 30rem;
+    flex: 5 1 25rem;
+    width: 25rem;
+    height: 25rem;
     animation: slide-left 1s ease 0s 1 alternate forwards;
 }
 
@@ -1921,6 +1926,7 @@ body:not(.home-template) *.flexy.row>hgroup {
 
 #more-clients hgroup h2 {
     font-size: 2rem;
+    text-align: center;
 }
 
 #more-clients .container {
@@ -2041,10 +2047,10 @@ body:not(.home-template) *.flexy.row>hgroup {
     user-select: none;
 }
 
-#compliance-app figure svg {
+/*#compliance-app figure svg {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
-}
+}*/
 
 #compliance-app>figure>a>img {
     border-top-left-radius: 20em;
@@ -2479,7 +2485,7 @@ footer:has(#sharing-is-caring) {
     padding: .25rem 1rem;
     bottom: -1rem;
     width: 100dvw;
-    font-size: .9rem;
+    font-size: .75rem;
     transition: all ease 250ms 0s;
 }
 
@@ -2500,7 +2506,7 @@ footer:has(#sharing-is-caring) {
     padding: 2rem;
     flex: 0 1 60rem;
     width: 60rem;
-    gap: .5rem;
+    gap: 1rem;
 }
 
 #check-our-vacancies .container pre {
@@ -2808,7 +2814,7 @@ ol {
 }
 
 #client-testimonials .container .post>div {
-    padding: 0 3rem;
+    padding: 0 2.5rem;
 }
 
 #client-testimonials .container .post header {
@@ -2853,17 +2859,33 @@ ol {
 }
 
 #client-testimonials .post p {
+    position: relative;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-align: justify;
     justify-self: flex-start;
     flex: 0 1 fit-content;
     width: fit-content;
     max-width: 100%;
+    color: var(--accent-color);
+}
+
+#client-testimonials .post p:first-child::before {
+    content: "\201C"; /* Double quotes -> HTML &ldquo; &rdquo; For right quotes: \201D */
+    position: absolute;
+    font-family: inherit;
+    left: -3rem;
+    top: -7.5rem;
+    font-size: 8rem;
+    color: var(--accent-color-90);
+    user-select: none;
 }
 
 #client-testimonials .post p:last-child {
+    padding-top: .5rem;
+    text-align: end;
     align-self: flex-end;
+    color: var(--accent-color-50);
 }
 
 #client-testimonials .post p:nth-child(4) {
