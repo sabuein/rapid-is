@@ -1235,17 +1235,17 @@ g#line-two path {
 }
 
 g#line-one path {
-    animation: opacity-orange 5s linear 0s infinite forwards;
+    animation: opacity-accent-color 5s linear 0s infinite forwards;
 }
 
 g#line-two path {
-    animation: left-to-right 3s linear 0s 1 forwards, opacity-orange 6s linear 0s infinite forwards;
+    animation: left-to-right 3s linear 0s 1 forwards, opacity-accent-color 6s linear 0s infinite forwards;
 }
 
 path#line-three,
 path#line-four,
 path#line-five {
-    animation: opacity-orange 5s linear 0s infinite forwards;
+    animation: opacity-accent-color 5s linear 0s infinite forwards;
 }
 
 path#ellipse-one,
@@ -1288,16 +1288,17 @@ path#coffee-steam {
 }
 
 @keyframes cup-color {
-    0% {
-        fill: var(--color-yellow);
+    0%,
+    100% {
+        fill: var(--accent-color-70);
     }
 
     25% {
-        fill: var(--color-orange);
+        fill: var(--accent-color-80);
     }
 
     85% {
-        fill: var(--color-red);
+        fill: var(--accent-color-90);
     }
 }
 
@@ -1329,10 +1330,11 @@ path#coffee-steam {
     0%,
     100% {
         scale: .85;
+        fill: var(--color-yellow);
     }
 
     30% {
-        fill: var(--color-blue);
+        fill: var(--accent-color-90);
     }
 
     25%,
@@ -1342,14 +1344,15 @@ path#coffee-steam {
 
     50% {
         scale: 1.25;
+        fill: var(--accent-color-60);
     }
 
     80% {
-        fill: var(--color-light-grey);
+        fill: var(--accent-color-80);
     }
 
     90% {
-        fill: var(--color-light-blue);
+        fill: var(--accent-color-70);
     }
 }
 
@@ -1358,16 +1361,19 @@ path#coffee-steam {
     0%,
     100% {
         scale: 1;
+        fill: var(--color-yellow);
     }
 
     10%,
     90% {
         scale: 1.25;
+        fill: var(--accent-color-90);
     }
 
     25%,
     75% {
         scale: 1.5;
+        fill: var(--accent-color-70);
     }
 }
 
@@ -1381,21 +1387,61 @@ path#coffee-steam {
     }
 }
 
+path#the-dot {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: opacity-orange 30s linear 0s infinite forwards;
+}
+
 @keyframes opacity-orange {
 
     0%,
     100% {
         opacity: .1;
+        scale: 1;
+        fill: var(--color-orange);
     }
 
     25%,
     75% {
         opacity: .6;
-        fill: var(--color-orange);
+        scale: 1.5;
+        fill: var(--color-white);
     }
 
     50% {
         opacity: 1;
+        scale: 2;
+        fill: var(--color-yellow);
+    }
+}
+
+path#coffee-tree {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: opacity-green 20s linear 0s infinite backwards normal;
+}
+
+@keyframes opacity-green {
+
+    0%,
+    100% {
+        opacity: .1;
+        scale: 1;
+        fill: transparent
+    }
+
+    25%,
+    75% {
+        opacity: .6;
+        scale: 1.25;
+        fill: var(--color-light-green);
+    }
+
+    50% {
+        opacity: .9;
+        scale: 1.5;
+        fill: var(--accent-color-100);
     }
 }
 
@@ -1885,7 +1931,7 @@ body:not(.home-template) *.flexy.row>hgroup {
     height: 25rem;
     align-content: flex-start;
     align-items: flex-start;
-    animation: slide-right 1s ease 0s 1 alternate forwards;
+    transform: none;
 }
 
 *.flexy.row>figure {
@@ -1893,22 +1939,12 @@ body:not(.home-template) *.flexy.row>hgroup {
     flex: 5 1 25rem;
     width: 25rem;
     height: 25rem;
-    animation: slide-left 1s ease 0s 1 alternate forwards;
+    transform: none;
 }
 
 
 *.flexy.row>footer {
-    animation: slide-up 1s ease 0s 1 alternate forwards;
-}
-
-.post-template.tag-solutions .post .palette[data-slug="estates"]>figure,
-.post-template.tag-solutions .post .palette[data-slug="communication"]>figure {
-    animation: slide-right 1s ease 0s 1 alternate forwards;
-}
-
-.post-template.tag-solutions .post .palette[data-slug="estates"]>hgroup,
-.post-template.tag-solutions .post .palette[data-slug="communication"]>hgroup {
-    animation: slide-left 1s ease 0s 1 alternate forwards;
+    transform: none;
 }
 
 *.flexy:not(.row)>hgroup,
@@ -2475,6 +2511,7 @@ footer:has(#sharing-is-caring) {
 }
 
 *.post>*.heading.flexy.row figure {
+    background-attachment: local;
     flex-basis: 10rem;
     width: 10rem;
     height: 15rem;
@@ -2495,6 +2532,7 @@ footer:has(#sharing-is-caring) {
 
 *.post>*.heading.flexy.row :is(h1, p) {
     max-width: 70%;
+    text-align: start;
 }
 
 #check-our-vacancies>figure {
