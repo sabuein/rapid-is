@@ -17,6 +17,10 @@ footer {
     top: -.1rem;
 }
 
+.page-template.page-contact [data-divider="top"] path {
+    fill: var(--accent-color-100);
+}
+
 #default-footer div {
     flex: 1 0 100%;
     width: 100%;

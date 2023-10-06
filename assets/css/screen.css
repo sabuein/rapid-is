@@ -646,6 +646,15 @@ address a {
     gap: 1rem;
 }
 
+*.post #content #map {
+    padding: 0;
+    background-color: transparent;
+}
+
+*.post #content #map hgroup {
+    padding: 0;
+}
+
 *.post #content footer {
     width: 100%;
 }
@@ -1764,12 +1773,23 @@ pre {
 #get-the-app div {
     width: 100dvw;
     max-width: 100%;
-    gap: 1rem;
+    gap: 4rem;
 }
 
+#get-the-app .container figure > img {
+    flex: 0 1 50%;
+    height: 10rem;
+    width: 10rem;
+    /*filter: drop-shadow(2px 4px 6px var(--accent-color-80));*/
+}
 #get-the-app figure:nth-of-type(1) {
-    padding: .95rem;
+    padding: 0;
     max-width: 12rem;
+    gap: 1.25rem;
+}
+
+#get-the-app > div > figure:nth-child(1) > a > img {
+    width: 10rem;
 }
 
 #get-the-app figure:nth-of-type(2) {
@@ -2646,7 +2666,7 @@ footer:has(#sharing-is-caring) {
 /* End of tabs-about partial styles */
 
 form#join-newsletter {
-    height: 35rem;
+    height: 40rem;
 }
 
 form#join-newsletter pre {
@@ -2668,13 +2688,16 @@ form#join-newsletter fieldset {
 }
 
 form#join-newsletter legend {
+    padding: 0.25rem 1rem;
     padding-bottom: 1.5rem;
     align-items: flex-start;
+    align-content: flex-start;
     gap: .25rem;
 }
 
 form#join-newsletter legend h2 {
     width: fit-content;
+    text-align: start;
 }
 
 form#join-newsletter fieldset div {
@@ -2687,6 +2710,7 @@ form#join-newsletter fieldset div {
 form#join-newsletter p {
     font-size: 1rem;
     width: fit-content;
+    text-align: start;
 }
 
 form#join-newsletter label {
@@ -2722,14 +2746,26 @@ form#join-newsletter a:is(:focus, :hover) {
     user-select: none;
 }
 
-.post #sharing-is-caring .social-icons a[title="Post on X"]:any-link path {
-    fill: var(--accent-color-50);
+:root {
+    --social-media-x: #14171a;
+    --social-media-pinterest: #e60023;
+    --social-media-whatsapp: #25d366;
+}
+
+.post #sharing-is-caring .social-icons a:any-link path {
     transition: fill 250ms ease 0s;
 }
 
-.post #sharing-is-caring .social-icons a[title="Post on X"]:hover path {
-    fill: var(--color-black);
-    transition: fill 250ms ease 0s;
+.post #sharing-is-caring .social-icons a[title="Post on X"]:any-link path {
+    fill: var(--social-media-x);
+}
+
+.post #sharing-is-caring .social-icons a[title="Pin on Pinterest"]:any-link path {
+    fill: var(--social-media-pinterest);
+}
+
+.post #sharing-is-caring .social-icons a[title="Share on WhatsApp"]:any-link path {
+    fill: var(--social-media-whatsapp);
 }
 
 .post #sharing-is-caring h6 {
@@ -3231,12 +3267,6 @@ ol {
     gap: 2rem;
 }
 
-#map {
-    padding: 0;
-    padding-bottom: 12rem;
-    min-height: auto;
-}
-
 #map hgroup {
     padding: 8rem 6rem;
     padding-bottom: 0;
@@ -3246,13 +3276,26 @@ ol {
     height: 50rem;
 }
 
+#map figure img {
+    margin: 5rem;
+    width: 40rem;
+    height: 50rem;
+    border-top-left-radius: 10rem;
+    z-index: 2;
+}
+
 #map figcaption {
     position: absolute;
-    bottom: -6rem;
+    bottom: -.25rem;
+    left: 0;
     font-size: 1rem;
-    width: fit-content;
     border-bottom: thin dashed currentColor;
     z-index: 1;
+    border-bottom-right-radius: 3rem;
+}
+
+#map figcaption:hover {
+    z-index: 3;
 }
 
 #map figcaption span {
