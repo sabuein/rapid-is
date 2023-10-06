@@ -241,7 +241,8 @@ main #content .kg-toggle-card .kg-toggle-content p {
 .page-about [data-divider="top"] path,
 .page-careers [data-divider="top"] path,
 .page-template.page-support footer [data-divider="top"] path,
-.page-template.page-team footer [data-divider="top"] path {
+.page-template.page-team footer [data-divider="top"] path,
+.tag-template.tag-projects footer [data-divider="top"] path {
     fill: var(--accent-color-100);
 }
 
@@ -450,9 +451,8 @@ form:is([method="dialog"], [method="get"]) {
 }
 
 #get-in-touch #contact {
-    padding: 0;
     flex-basis: auto;
-    width: 50rem;
+    width: 55rem;
 }
 
 #get-in-touch #contact legend {
@@ -461,7 +461,7 @@ form:is([method="dialog"], [method="get"]) {
     gap: .5rem;
 }
 
-#get-in-touch #contact :is(h2, div, p) {
+#get-in-touch #contact :is(h2, h3, div, p) {
     flex-basis: fit-content;
     width: fit-content;
 }
@@ -949,7 +949,7 @@ a[type="text/html"].invert {
     input[type="datetime-local"],
     textarea,
     select):focus {
-    border: 0 !important;
+    border: 0;
     outline: thick solid var(--color-yellow);
 }
 
@@ -1057,16 +1057,16 @@ textarea {
 }
 
 *.post article:nth-child(odd) figcaption {
-    background-color: var(--accent-color-80);
+    background-color: var(--accent-color-50);
 }
 
 *.post article:nth-child(even) figcaption {
-    background-color: var(--accent-color-60);
+    background-color: var(--accent-color-30);
 }
 
 *.post article figcaption {
     color: var(--accent-color-110);
-    padding: .85rem 1rem;
+    padding: .5rem .75rem;
     position: absolute;
     bottom: 0;
 }
@@ -1244,17 +1244,17 @@ g#line-two path {
 }
 
 g#line-one path {
-    animation: opacity-accent-color 5s linear 0s infinite forwards;
+    animation: opacity-accent 5s linear 0s infinite forwards;
 }
 
 g#line-two path {
-    animation: left-to-right 3s linear 0s 1 forwards, opacity-accent-color 6s linear 0s infinite forwards;
+    animation: left-to-right 3s linear 0s 1 forwards, opacity-accent 6s linear 0s infinite forwards;
 }
 
 path#line-three,
 path#line-four,
 path#line-five {
-    animation: opacity-accent-color 5s linear 0s infinite forwards;
+    animation: opacity-accent 5s linear 0s infinite forwards;
 }
 
 path#ellipse-one,
@@ -1422,6 +1422,26 @@ path#the-dot {
         opacity: 1;
         scale: 2;
         fill: var(--color-yellow);
+    }
+}
+
+@keyframes opacity-accent {
+
+    0%,
+    100% {
+        opacity: .1;
+        fill: var(--color-yellow);
+    }
+
+    25%,
+    75% {
+        opacity: .6;
+        fill: var(--accent-color-70);
+    }
+
+    50% {
+        opacity: 1;
+        fill: var(--accent-color-100);
     }
 }
 
@@ -1613,11 +1633,6 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
     fill: var(--accent-color-50);
 }
 
-#streamlining-safety-checks h2,
-#compliance-app h2 {
-    padding-right: 6rem;
-}
-
 #streamlining-safety-checks g#ring {
     animation: spinning 20s ease-in-out 0s infinite alternate forwards;
     animation-direction: normal;
@@ -1649,7 +1664,7 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
     }
 
     100% {
-        rotate: 360deg;
+        rotate: -360deg;
     }
 }
 
@@ -1845,7 +1860,7 @@ pre {
 #main-message {
     color: var(--accent-color-110);
     background-color: var(--accent-color-50);
-    flex: 1 1 92dvh;
+    flex: 1 1 auto;
     min-height: 92dvh;
 }
 
@@ -1946,19 +1961,19 @@ body:not(.home-template) *.flexy.row>hgroup {
 *.flexy.row>hgroup {
     border: 0;
     padding: 1rem;
-    flex: 2 1 45rem;
-    width: 45rem;
+    flex: 2 1 60rem;
+    width: 60rem;
     height: 25rem;
-    align-content: flex-start;
+    align-content: center;
     align-items: flex-start;
     transform: none;
 }
 
 *.flexy.row>figure {
     padding: 1rem;
-    flex: 5 1 25rem;
-    width: 25rem;
-    height: 25rem;
+    flex: 5 1 20rem;
+    width: 20rem;
+    height: auto;
     transform: none;
 }
 
@@ -1970,14 +1985,17 @@ body:not(.home-template) *.flexy.row>hgroup {
 *.flexy:not(.row)>hgroup,
 *.flexy:not(.row)>.container {
     direction: ltr;
-    flex: 0 1 fit-content;
+    flex: 2 1 fit-content;
     align-content: flex-start;
     align-items: safe flex-start;
 }
 
+*.flexy:not(.row)>hgroup {
+    flex: 0 1 fit-content;
+}
+
 #more-clients {
     justify-content: center;
-    gap: 3rem;
 }
 
 #more-clients hgroup h2 {
@@ -1988,6 +2006,7 @@ body:not(.home-template) *.flexy.row>hgroup {
 #more-clients .container {
     flex-wrap: nowrap;
     align-content: flex-start;
+    align-items: safe center;
     gap: 5rem;
     -webkit-animation-name: move;
     -webkit-animation-duration: 24s;
@@ -2103,10 +2122,10 @@ body:not(.home-template) *.flexy.row>hgroup {
     user-select: none;
 }
 
-/*#compliance-app figure svg {
+.rotate-image {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
-}*/
+}
 
 #compliance-app>figure>a>img {
     border-top-left-radius: 20em;
@@ -2527,6 +2546,7 @@ footer:has(#sharing-is-caring) {
 
 *.post>*.heading.flexy.row hgroup {
     flex-basis: 60rem;
+    align-content: flex-start;
     width: 60rem;
 }
 
@@ -2876,6 +2896,7 @@ ol {
     display: flex;
     visibility: visible;
     opacity: 1;
+    background-color: transparent;
     animation: display-none-to-flex 250ms ease-in-out 10ms 1 forwards;
 }
 
@@ -2888,6 +2909,7 @@ ol {
 }
 
 #client-testimonials .container .post>div {
+    position: relative;
     padding: 0 2.5rem;
 }
 
@@ -2895,6 +2917,7 @@ ol {
     flex: 1 1 25rem;
     width: 25rem;
     height: 20rem;
+    align-items: flex-start;
 }
 
 @keyframes display-none-to-flex {
@@ -2924,11 +2947,12 @@ ol {
     }
 }
 
-#client-testimonials .post h3 {
-    position: absolute;
-    top: 1rem;
+#client-testimonials .post h6 {
+    padding: .25rem .5rem;
+    padding-bottom: 1rem;
     flex: 0 1 fit-content;
     width: fit-content;
+    color: var(--accent-color-50);
     z-index: 1;
 }
 
@@ -2944,22 +2968,26 @@ ol {
     color: var(--accent-color);
 }
 
-#client-testimonials .post p:first-child::before {
+#client-testimonials .post p:first-of-type::before {
     content: "\201C"; /* Double quotes -> HTML &ldquo; &rdquo; For right quotes: \201D */
     position: absolute;
     font-family: inherit;
     left: -3rem;
-    top: -7.5rem;
+    top: -7rem;
     font-size: 8rem;
     color: var(--accent-color-90);
     user-select: none;
 }
 
-#client-testimonials .post p:last-child {
+#client-testimonials .post p:last-of-type {
     padding-top: .5rem;
+    line-height: 1.5;
     text-align: end;
     align-self: flex-end;
-    color: var(--accent-color-50);
+    color: var(--accent-color-70);
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 #client-testimonials .post p:nth-child(4) {
@@ -2977,13 +3005,15 @@ ol {
 }
 
 #client-testimonials .post figcaption {
+    display: none;
     position: absolute;
     left: 0;
     bottom: 0;
-    padding: .5rem .75rem;
+    padding: .25rem .5rem;
     color: var(--accent-color-110);
     background-color: var(--accent-color-50);
     line-height: 1.85;
+    text-align: start;
 }
 
 #client-testimonials .post img {
@@ -3321,7 +3351,6 @@ form#search-support h2 {
 }
 
 #faq details {
-    margin-left: 1rem;
     flex: 0 1 fit-content;
     width: 100dvw;
     max-width: 100%;
@@ -3335,7 +3364,8 @@ form#search-support h2 {
 
 #faq summary h5 {
     margin-bottom: .5rem;
-    text-transform: lowercase;
+    text-align: start;
+    width: fit-content;
 }
 
 div.kg-card.kg-toggle-card[data-kg-toggle-state="close"] .kg-toggle-heading {
@@ -3391,7 +3421,6 @@ div.kg-card.kg-toggle-card[data-kg-toggle-state="open"] .kg-toggle-heading::befo
 }
 
 #faq details[open] p {
-    font-size: 1.1rem;
     line-height: 1.85;
     cursor: text;
 }
@@ -3411,7 +3440,39 @@ form#search-support input[type="search"] {
     max-width: inherit;
 }
 
+#browse-projects hgroup {
+    flex: 1 1 100dvw;
+    width: 100dvw;
+    height: auto;
+    align-items: center;
+    gap: 1rem;
+}
+
+#browse-projects h6 {
+    padding-right: 1rem;
+    flex: 5 1 fit-content;
+    width: fit-content;
+    text-align: end;
+}
+
+#browse-projects select {
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0 1.25rem;
+    height: 2rem;
+    outline: 0;
+    border: 0;
+}
+
+#browse-projects label {
+    font-size: .85rem;
+    font-weight: 600;
+    align-items: flex-start;
+    gap: .25rem;
+}
+
 #browse-projects>.container {
+    align-items: flex-start;
     gap: 2rem;
 }
 
@@ -3608,7 +3669,7 @@ form#search-support input[type="search"] {
 }
 
 .post.card .side h3 {
-    padding: 1rem;
+    padding: .25rem;
     font-size: 1.85rem;
     width: fit-content;
     height: fit-content;

@@ -99,7 +99,6 @@
     padding: 4rem;
     min-height: 92dvh;
     justify-content: space-evenly;
-    gap: 4rem;
 }
 
 .post-template.tag-solutions .post section:first-of-type :is(hgroup, figure) {
