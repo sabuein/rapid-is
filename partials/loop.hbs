@@ -2,11 +2,12 @@
 <header>
     <h3>You might also like&hellip;</h3>
 </header>
-{{#get "posts" include="tags,authors" filter="primary_tag:{{slug}}" limit="all" order="published_at asc" limit=@config.posts_per_page as |post|}}
+{{#get "posts" include="tags,authors" filter="primary_tag:{{slug}}+visibility:public" limit="all" order="published_at asc" limit=@config.posts_per_page as |post|}}
 {{#foreach post}}
 <article class="{{#if @even}}even{{else}}odd{{/if}}">
     <h2>{{title}}</h2>
     <p>Featured</p>
+    <a href="{{url}}" type="text/html" class="flexy">Learn more</a>
 </article>
 {{/foreach}}
 {{/get}}

@@ -1,11 +1,10 @@
-<!-- cards.hbs -->
-<section class="cards palette flexy">
+<!-- three-cards.hbs -->
+{{#get "posts" filter="featured:true+tag:{{slug}}+visibility:public" order="featured desc, published_at asc" limit="3" as |cards pages|}}<section class="cards palette flexy">
     <hgroup class="flexy">
-        <h2>Key features of Rapid&comma; the low&dash;code development platform</h2>
-        <p>Delectus quod amet dolorem quaerat modi ipsam natus officia magni totam at, quis doloribus pariatur libero tempora quasi id iste commodi non!</p>
+        <h2 id="featured" title="Featured">Featured</h2>
     </hgroup>
     <div class="container flexy row">
-        {{#get "posts" filter="featured:true+tag:hash-technical+visibility:public" order="featured desc, published_at asc" limit="3" as |cards pages|}}{{#foreach cards}}<article class="{{post_class}} card flexy" data-index="{{@index}}">
+        {{#foreach cards}}<article class="{{post_class}} card flexy" data-index="{{@index}}">
             <header class="side front flexy" title="{{title}}">
                 <h3 id="{{slug}}">{{title}}</h3>
                 {{#if feature_image}}<figure class="flexy bg-image" style="background-image: url({{img_url feature_image absolute='true'}});">
@@ -17,6 +16,6 @@
                 {{content}}
             </div>
         </article>{{else}}<p>No posts&excl;</p>{{/foreach}}
-        <pre class="pagination">Found ({{pages.total}}) featured posts&period;</pre>{{else}}<p class="get-posts-error">{{error}}</p>{{/get}}
+        <p class="pagination">Found ({{pages.total}}) featured posts</p>
     </div>
-</section>
+</section>{{else}}<p class="get-posts-error">{{error}}</p>{{/get}}

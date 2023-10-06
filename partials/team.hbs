@@ -2,8 +2,8 @@
 <section id="meet-our-team" class="palette get-team-members flexy">
     {{!-- This partial requires a parent with class "get-team-members" --}}
     <hgroup class="flexy" title="Meet our team">
-        <h2>Meet our <strong>team</strong>&period;</h2>
-        <p>From the original open-source software developed in 2015&comma; Rapid is now a team of motivated, creative and hard-working experts&period;</p>
+        <h2 id="team" title="Team">Team</h2>
+        <p>From the original open-source software developed in 2005&comma; Rapid is now a team of motivated, creative and hard-working experts&period;</p>
     </hgroup>
     <div class="container disable-scrollbar flexy row">
         {{#get "posts" filter="tag:hash-team-member+visibility:public" order="featured desc, published_at asc" limit=@config.posts_per_page as |members pages|}}

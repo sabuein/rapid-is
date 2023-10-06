@@ -11,27 +11,28 @@
 -->
 
 {{#is "home"}}
-{{#get "posts" filter="featured:true+tag:hash-home-palettes+visibility:public" limit="all" as |palettes|}}<section id="main-message" class="{{post_class}} palette flexy row">
-    {{#foreach palettes}}{{#has slug="do-more-with-less"}}<hgroup class="flexy" title="{{title}}">
+{{#get "posts" filter="featured:true+tag:hash-palettes+visibility:public" order="published_at asc" limit="all" as |palettes|}}
+{{#foreach palettes}}
+{{#has slug="do-more-with-less"}}<section id="main-message" class="{{post_class}} palette flexy row reverse">
+    <hgroup class="flexy" title="{{title}}">
         <h1 id="{{slug}}" title="{{title}}">{{title}}</h1>
         <p>{{content}}</p>
     </hgroup>
-    {{#if feature_image}}<figure class="flexy bg-image" style="background-image: url({{img_url feature_image absolute='true'}});" data-play-state="running">
+    {{#if feature_image}}<figure class="flexy bg-image" style="background-image: url({{img_url feature_image absolute='true'}});">
         {{> "drawings/version-control"}}
         <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" />
         {{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}
-    </figure>{{else}}<figure class="flexy">
+    </figure>{{else}}<figure class="flexy" data-play-state="running">
         {{> "drawings/version-control"}}
-    </figure>{{/if}}{{/has}}{{else}}<p>No content&excl;</p>{{/foreach}}
+    </figure>{{/if}}
     <footer class="flexy">
         <a href="#more-clients" title="Continue" class="shadowed">
             {{> "icons/angle-down"}}
         </a>
     </footer>
-</section>{{else}}<p class="get-posts-error">{{error}}</p>{{/get}}
-
-{{#get "posts" filter="featured:true+tag:hash-home-palettes+visibility:public" limit="all" as |palettes|}}<section id="more-clients" class="{{post_class}} palette flexy">
-    {{#foreach palettes}}{{#has slug="trusted-by-30-plus-local-authorities-and-housing-associations"}}<hgroup class="flexy" title="{{title}}">
+</section>
+{{else has slug="trusted-by-30-plus-local-authorities-and-housing-associations"}}<section id="more-clients" class="{{post_class}} palette flexy">
+    <hgroup class="flexy" title="{{title}}">
         <h2 id="{{slug}}">{{title}}</h2>
     </hgroup>
     <div class="container flexy row disable-scrollbar horizontal-scrolling" data-play-state="running">
@@ -72,23 +73,24 @@
             <figcaption>Haringey Council</figcaption>
         </figure>
     </div>
-    <p>{{content}}</p>{{/has}}{{else}}<p>No content&excl;</p>{{/foreach}}
+    <p>{{content}}</p>
     <footer class="flexy">
         <a href="#compliance-app" title="Continue" class="shadowed">
             {{> "icons/angle-down"}}
         </a>
     </footer>
-</section>{{else}}<p class="get-posts-error">{{error}}</p>{{/get}}
-
-<section id="compliance-app" class="palette flexy row">
-    <hgroup class="flexy row" title="Streamline and enhance property compliance">
-        <h2>Streamline and enhance property compliance</h2>
-        <p>Our compliance software application is a robust and comprehensive solution designed to simplify and streamline property compliance processes&period; With a range of powerful features, our software empowers property managers, inspectors, and safety professionals to ensure compliance with regulations&comma; mitigate risks, and prioritize the well-being of residents. From asbestos management to fire safety inspections and health and safety monitoring, our software covers all essential compliance areas.</p>
+</section>
+{{else has slug="streamline-and-enhance-property-compliance"}}<section id="compliance-app" class="{{post_class}} palette flexy row reverse">
+    <hgroup class="flexy row" title="{{title}}">
+        <h2 id="{{slug}}" title="{{title}}">{{title}}</h2>
+        <p>{{content}}</p>
     </hgroup>
-    <figure>
-        {{!--<a href="/solutions/safety-and-compliance/" title="Safety and compliance"><img src="{{asset 'images/rapid-fire.png'}}" alt="Rapid&apos;s Fire risk assessment application" /></a>--}}
+    {{#if feature_image}}<figure class="flexy bg-image" style="background-image: url({{img_url feature_image absolute='true'}});">
+        <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" />
+        {{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}
+    </figure>{{else}}<figure class="flexy" data-play-state="running">
         {{> "drawings/mind-map"}}
-    </figure>
+    </figure>{{/if}}
     <div class="flexy">
         <a href="/solutions/" title="Learn more" type="text/html" class="shadowed flexy">Learn more</a>
     </div>
@@ -98,15 +100,17 @@
         </a>
     </footer>
 </section>
-
-<section id="streamlining-safety-checks" class="palette flexy row">
-    <hgroup class="flexy" title="Streamlining safety checks&comma; repairs&comma; and complaints through digital solutions">
-        <h2>We are streamlining safety checks&comma; repairs &amp; complaints</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, voluptates ratione. Quae soluta delectus et placeat reprehenderit aspernatur error culpa sit fugit, laboriosam, nemo eius nostrum?</p>
+{{else has slug="streamlining-safety-checks-repairs-and-complaints"}}<section id="streamlining-safety-checks" class="{{post_class}} palette flexy row reverse">
+    <hgroup class="flexy row" title="{{title}}">
+        <h2 id="{{slug}}" title="{{title}}">{{title}}</h2>
+        <p>{{content}}</p>
     </hgroup>
-    <figure class="flexy" data-play-state="running">
+    {{#if feature_image}}<figure class="flexy bg-image" style="background-image: url({{img_url feature_image absolute='true'}});">
+        <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" />
+        {{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}
+    </figure>{{else}}<figure class="flexy" data-play-state="running">
         {{> "drawings/product-iteration"}}
-    </figure>
+    </figure>{{/if}}
     <div class="flexy">
         <a href="/case-studies/" title="Learn more" type="text/html" class="shadowed flexy">Learn more</a>
     </div>
@@ -115,7 +119,8 @@
             {{> "icons/angle-down"}}
         </a>
     </footer>
-</section>
+</section>{{/has}}{{else}}<p>No content&excl;</p>{{/foreach}}{{else}}<p class="get-posts-error">{{error}}</p>{{/get}}
+
 {{> "testimonials"}}
 {{> "cta-coffee"}}
 {{/is}}

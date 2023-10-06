@@ -2,18 +2,22 @@
 <!-- tag.hbs -->
 {{#is "tag"}}
 {{#tag}}
-<header>
-    {{#if feature_image}}<figure>
-        <img src="{{feature_image}}" alt="{{name}}" />
+<section class="heading palette flexy row reverse">
+    <hgroup class="flexy">
+        <h1 id="{{slug}}" title="{{name}}">{{name}}</h1>
+        {{#if description}}<p>{{description}}</p>{{/if}}
+    </hgroup>
+    {{#if feature_image}}<figure class="flexy bg-image" style="{{#primary_tag}}{{#if accent_color}}background-color: {{accent_color}}; {{/if}}{{/primary_tag}}background-image: url({{img_url feature_image absolute='true'}})">
+        <img src="{{img_url feature_image absolute='true'}}" alt="{{name}}" title="{{name}}" />
     </figure>{{/if}}
-</header>
-<section class="author-profile">
-    <h1 title="{{name}}">{{name}}</h1>
-    {{#if description}}<h2>{{description}}</h2>{{/if}}
+    <footer class="flexy">
+        <a href="#content" title="Continue" class="shadowed">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
 </section>
-<main role="main">
-    {{> "loop"}}
-</main>
+{{> "three-cards"}}
+{{^has slug="projects"}}{{> "loop"}}{{/has}}
 <footer>
     {{!-- Previous/next page links - displayed on every page --}}
     {{#if pagination}}{{pagination}}{{/if}}

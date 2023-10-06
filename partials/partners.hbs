@@ -1,9 +1,9 @@
 <!-- partners.hbs -->
 <section id="partner-with-leaders" class="palette flexy">
-    <hgroup class="flexy" title="Accreditation&comma; frameworks and partners">
-        <h2 id="accreditation-frameworks-partners">Accreditation&comma; frameworks &amp; partners</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod est expedita animi optio dignissimos possimus, Ab perferendis suscipit accusamus nobis inventore nostrum facilis quisquam impedit quo dolores. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus labore, suscipit neque blanditiis in ratione. Repudiandae asperiores doloremque, sint ab saepe esse accusantium cumque! Natus sint nulla sed modi non.</p>
-    </hgroup>
+    {{#get "posts" filter="featured:true+tag:hash-palettes+visibility:public" order="published_at asc" limit="all" as |palettes|}}{{#foreach palettes}}{{#has slug="accreditation-frameworks-and-partners"}}<hgroup class="flexy" title="{{title}}">
+        <h2 id="{{slug}}">{{title}}</h2>
+        {{content}}
+    </hgroup>{{/has}}{{else}}<p>No search results found&period;</p>{{/foreach}}{{else}}<p class="get-posts-error">{{error}}</p>{{/get}}
     <div class="container flexy row">
         <figure title="Cyber Essentials" tabindex="0">
             <img src="{{asset 'images/cyber-essentials-150x150.png'}}" alt="" class="shadowed" />
