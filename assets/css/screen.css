@@ -3138,14 +3138,26 @@ ol {
     width: 25rem;
 }
 
+#grab-coffee {
+    min-height: 100dvh;
+    justify-content: center;
+}
+
 #grab-coffee div.controls {
-    flex: 1 0 100%;
+    flex: 1 0 38rem;
+    width: 38rem;
     padding-top: 1.25rem;
+    justify-content: center;
+}
+
+#grab-coffee div.controls input {
+    flex: 0 1 fit-content;
+    width: fit-content;
 }
 
 #grab-coffee>div {
-    flex: 1 1 fit-content;
-    width: 65rem;
+    flex: 0 1 fit-content;
+    width: 85rem;
 }
 
 #grab-coffee>div>figure {
@@ -3158,8 +3170,8 @@ ol {
 
 #grab-coffee>div>form {
     padding: 2rem;
-    flex: 0 1 35rem;
-    width: 35rem;
+    flex: 0 1 50rem;
+    width: 50rem;
 }
 
 #grab-coffee fieldset {
@@ -3170,13 +3182,15 @@ ol {
 #grab-coffee label {
     flex: 0 1 fit-content;
     width: fit-content;
+    align-items: flex-start;
+    gap: .25rem;
 }
 
 #grab-coffee fieldset div {
-    flex: 1 1 25rem;
-    width: 25dvw;
-    justify-content: flex-start;
-    gap: 1rem;
+    flex: 0 1 35rem;
+    width: 35rem;
+    justify-content: space-between;
+    gap: 2rem;
 }
 
 #map {
