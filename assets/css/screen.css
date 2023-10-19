@@ -646,6 +646,20 @@ body.tag-case-studies {
     }
 }
 
+body.page-logo {
+    #hexs {
+        animation: spinning 20s ease 0s infinite alternate forwards;
+        animation-play-state: running;
+        animation-direction: normal;
+        transform-origin: center;
+        transform-box: fill-box;
+    }
+
+    #hexs:hover {
+        animation-play-state: paused;
+    }
+}
+
 *.post #content,
 #tabs-about {
     align-items: safe flex-start;
