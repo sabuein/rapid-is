@@ -621,6 +621,31 @@ address a {
     align-content: flex-start;
 }
 
+body.tag-case-studies {
+    
+    *.post #content {
+        max-width: 1440px;
+    }
+
+    *.post #content>* {
+        width: 75%;
+    }
+
+    *.post :is(h1, h2, h3, h4, h5, h6) {
+        color: var(--accent-color);
+    }
+
+    *.post #content h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+    }
+
+    *.post #content h3 {
+        font-size: 1.85rem;
+        font-weight: 400;
+    }
+}
+
 *.post #content,
 #tabs-about {
     align-items: safe flex-start;
