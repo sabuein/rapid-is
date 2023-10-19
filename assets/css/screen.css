@@ -658,6 +658,7 @@ body.page-logo {
     #hexs:hover {
         animation-play-state: paused;
     }
+    
 }
 
 *.post #content,
