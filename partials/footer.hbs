@@ -1,7 +1,10 @@
 <!-- footer.hbs -->
 <footer id="default-footer" class="flexy" role="contentinfo">
     <div class="flexy row">
-        {{#if @site.logo}}<figure class="rapid-logo flexy"><a href="{{@site.url}}" title="{{@site.title}}"><img src="{{@site.logo}}" alt="{{@site.title}}" /></a></figure>{{else}}<figure class="rapid-logo"><a href="{{@site.url}}" title="{{@site.title}}"><img src="{{asset 'images/new-logo.png'}}" alt="{{@site.title}}" /></a></figure>{{/if}}
+        {{!--{{#if @site.logo}}<figure class="rapid-logo flexy"><a href="{{@site.url}}" title="{{@site.title}}"><img src="{{@site.logo}}" alt="{{@site.title}}" /></a></figure>{{else}}<figure class="rapid-logo"><a href="{{@site.url}}" title="{{@site.title}}"><img src="{{asset 'images/new-logo.png'}}" alt="{{@site.title}}" /></a></figure>{{/if}}--}}
+        <figure class="rapid-logo"><a href="{{@site.url}}" title="{{@site.title}}">
+            {{> "icons/rapid-is"}}
+        </a></figure>
         <div class="flexy">
             <h6 title="Explore">Explore</h6>
             <ul class="nav flexy">

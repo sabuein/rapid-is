@@ -1,7 +1,9 @@
 <!-- header.hbs -->
 <header class="flexy row">
     {{#if @site.logo}}
-    <figure class="rapid-logo"><a href="{{@site.url}}" title="{{@site.title}}"><img src="{{@site.logo}}" alt="{{@site.title}}" /></a></figure>
+    <figure class="rapid-logo"><a href="{{@site.url}}" title="{{@site.title}}">{{!--<img src="{{@site.logo}}" alt="{{@site.title}}" />--}}
+        {{> "icons/rapid-is"}}
+    </a></figure>
     {{else}}
     {{!--
     <h1>{{@site.title}}</h1>
