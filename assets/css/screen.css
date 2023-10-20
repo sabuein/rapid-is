@@ -647,18 +647,154 @@ body.tag-case-studies {
 }
 
 body.page-logo {
-    #hexs {
-        animation: spinning 20s ease 0s infinite alternate forwards;
-        animation-play-state: running;
-        animation-direction: normal;
-        transform-origin: center;
-        transform-box: fill-box;
-    }
-
-    #hexs:hover {
-        animation-play-state: paused;
+    #main-content #icon path:is(:hover, :active, :focus, :target) {
+        cursor: pointer;
+        stroke: var(--accent-color-50);
+        stroke-width: .5rem;
+        stroke-dasharray: 5 10 15;
     }
     
+    #main-content #icon path:not(:hover, :active, :focus) {
+        opacity: .85;
+    }
+
+    #main-content .palette figure {
+        max-width: 65%;
+    }
+
+    #main-content figure figcaption {
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+    }
+
+    #main-content figure figcaption:nth-of-type(1) {
+        display: flex;
+    }
+
+    #main-content svg #name {
+        animation: hideme 500ms linear 0s 1;
+        visibility: visible;
+    }
+
+    #main-content svg #icon:has(path:is(:hover, :active, :focus)) ~ #name  {
+        visibility: hidden;
+    }
+
+    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(1):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(1),
+    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(2),
+    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(3),
+    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(4),
+    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(5),
+    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(6) {
+        display: flex;
+        animation: fadein 750ms linear 0s 1;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(1),
+    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(1),
+    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(1),
+    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(1),
+    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(1) {
+        display: none;
+    }
+
+    #main-content figure figcaption {
+        position: absolute;
+        left: 20rem;
+        max-width: 38rem;
+    }
+
+    #main-content #icon:focus-within {
+        animation-play-state: paused;
+        scale: .9;
+    }
+    
+}
+
+@keyframes hideme {
+    0% {
+        visibility: hidden;
+    }
+
+    100% {
+        visibility: visible;
+    }
+}
+
+#icon {
+    animation: spinning-clock 24s linear 0s infinite reverse forwards;
+    animation-play-state: running;
+    animation-direction: normal;
+    transform-origin: center;
+    transform-box: fill-box;
+    perspective: 400px;
+    scale: .75;
+    transition: scale 500ms linear 0s normal;
+}
+
+#icon:hover {
+    scale: .9;
+}
+
+#rapid-is:hover #icon {
+    animation-play-state: paused;
+    scale: .9;
+}
+
+
+#icon path {
+    animation: fadein 1s linear 100ms 1;
+    pointer-events: bounding-box;
+}
+
+#icon path:hover {
+    fill: var(--accent-color-20);
+}
+
+#icon path:nth-child(1),
+#icon path:nth-child(4) {
+    fill: var(--accent-color-30);
+}
+
+#name {
+    outline: 0;
+    animation: fadein 1s linear 100ms 1;
+    pointer-events: none;
+}
+
+footer :is(#icon, #name) {
+    fill: var(--accent-color-100);
+}
+
+footer #icon path:hover {
+    fill: var(--accent-color-90);
+}
+
+footer #icon path:nth-child(1),
+footer #icon path:nth-child(4) {
+    fill: var(--accent-color-80);
+}
+
+@keyframes spinning-clock {
+    0% {
+        rotate: -360deg;
+    }
+
+    100% {
+        rotate: 0deg;
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: .9;
+    }
 }
 
 *.post #content,
