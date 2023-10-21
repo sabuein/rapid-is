@@ -26,6 +26,14 @@
         {{> "drawings/version-control"}}
     </figure>{{/if}}
     <footer class="flexy">
+        <a href="#rapid-captions" title="Continue" class="shadowed">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
+</section>
+<section id="rapid-captions" class="{{post_class}} palette flexy">
+    {{> "rapid-captions"}}
+    <footer class="flexy">
         <a href="#more-clients" title="Continue" class="shadowed">
             {{> "icons/angle-down"}}
         </a>
@@ -120,7 +128,6 @@
         </a>
     </footer>
 </section>{{/has}}{{else}}<p>No content&excl;</p>{{/foreach}}{{else}}<p class="get-posts-error">{{error}}</p>{{/get}}
-
 {{> "testimonials"}}
 {{> "cta-coffee"}}
 {{/is}}
