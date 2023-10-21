@@ -646,85 +646,94 @@ body.tag-case-studies {
     }
 }
 
-body.page-logo {
-    #main-content #icon path:is(:hover, :active, :focus, :target) {
-        cursor: pointer;
-        stroke: var(--accent-color-50);
-        stroke-width: .5rem;
-        stroke-dasharray: 5 10 15;
-    }
-    
-    #main-content #icon path:not(:hover, :active, :focus) {
-        opacity: .85;
-    }
-
-    #main-content .palette figure {
-        max-width: 65%;
-    }
-
-    #main-content figure figcaption {
-        opacity: 0;
-        visibility: hidden;
-        display: none;
-    }
-
-    #main-content figure figcaption:nth-of-type(1) {
-        display: flex;
-    }
-
-    #main-content svg #name {
-        animation: hideme 500ms linear 0s 1;
-        visibility: visible;
-    }
-
-    #main-content svg #icon:has(path:is(:hover, :active, :focus)) ~ #name  {
-        visibility: hidden;
-    }
-
-    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(1):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(1),
-    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(2),
-    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(3),
-    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(4),
-    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(5),
-    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(6) {
-        display: flex;
-        animation: fadein 750ms linear 0s 1;
-        opacity: 1;
-        visibility: visible;
-    }
-
-    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(1),
-    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(1),
-    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(1),
-    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(1),
-    #main-content figure svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :focus, :hover)) ~ figcaption:nth-of-type(1) {
-        display: none;
-    }
-
-    #main-content figure figcaption {
-        position: absolute;
-        left: 20rem;
-        max-width: 38rem;
-    }
-
-    #main-content #icon:focus-within {
-        animation-play-state: paused;
-        scale: .9;
-    }
-    
+figure.rapid-captions {
+    height: auto;
+    max-width: 85%;
+    background-color: inherit;
 }
 
-@keyframes hideme {
-    0% {
-        visibility: hidden;
-    }
-
-    100% {
-        visibility: visible;
-    }
+.rapid-captions figcaption {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+    position: absolute;
+    left: 30%;
+    max-width: 70%;
+    user-select: text;
 }
 
-#icon {
+.rapid-captions figcaption:nth-of-type(1) {
+    display: flex;
+}
+
+.rapid-captions svg #icon path:is(:hover, :active, :focus, :target) {
+    cursor: pointer;
+    stroke: var(--accent-color-50);
+    stroke-width: .5rem;
+    stroke-dasharray: 5 10 15;
+}
+    
+.rapid-captions svg #icon path:not(:hover, :active, :focus) {
+    opacity: .85;
+}
+
+.rapid-captions svg #name {
+    animation: hideme 500ms linear 0s 1;
+    visibility: visible;
+}
+
+.rapid-captions svg #icon:has(path:is(:hover, :active, :focus)) ~ #name  {
+    visibility: hidden;
+}
+
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(1):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(1),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(2),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(3),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(4),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(5),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(6) {
+    display: flex;
+    animation: fadein 750ms linear 0s 1;
+    opacity: 1;
+    visibility: visible;
+    background-color: inherit;
+}
+
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(1),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(1),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(1),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(1),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(1) {
+    display: none;
+}
+
+.rapid-captions svg #icon:focus-within {
+    animation-play-state: paused;
+    scale: .8;
+}
+
+.rapid-captions svg:has(#rapid-is #icon path:is(:active, :focus)) ~ figcaption {
+    z-index: 1;
+}
+
+.rapid-captions svg:has(#rapid-is #icon path:is(:hover)) ~ figcaption {
+    z-index: 2;
+}
+
+footer svg :is(#icon, #name) {
+    fill: var(--accent-color-100);
+}
+
+footer svg #icon path:hover {
+    fill: var(--accent-color-90);
+}
+
+footer svg #icon path:nth-child(1),
+footer svg #icon path:nth-child(4) {
+    fill: var(--accent-color-80);
+}
+
+svg #icon {
     animation: spinning-clock 24s linear 0s infinite reverse forwards;
     animation-play-state: running;
     animation-direction: normal;
@@ -735,47 +744,55 @@ body.page-logo {
     transition: scale 500ms linear 0s normal;
 }
 
-#icon:hover {
-    scale: .9;
+svg #icon:hover {
+    scale: .8;
 }
 
-#rapid-is:hover #icon {
+svg #rapid-is:hover #icon {
     animation-play-state: paused;
-    scale: .9;
+    scale: .8;
 }
 
 
-#icon path {
+svg #icon path {
     animation: fadein 1s linear 100ms 1;
     pointer-events: bounding-box;
 }
 
-#icon path:hover {
+svg #icon path:hover {
     fill: var(--accent-color-20);
 }
 
-#icon path:nth-child(1),
-#icon path:nth-child(4) {
+svg #icon path:nth-child(1),
+svg #icon path:nth-child(4) {
     fill: var(--accent-color-30);
 }
 
-#name {
+svg #name path {
+    animation: flip 1s 1;
+    animation-delay: calc(100ms * var(--delay-time))
+}
+
+svg #name {
     outline: 0;
     animation: fadein 1s linear 100ms 1;
     pointer-events: none;
 }
 
-footer :is(#icon, #name) {
-    fill: var(--accent-color-100);
+@keyframes flip {
+    0%, 80% {
+        transform: rotateY(360deg) 
+    }
 }
 
-footer #icon path:hover {
-    fill: var(--accent-color-90);
-}
+@keyframes hideme {
+    0% {
+        visibility: hidden;
+    }
 
-footer #icon path:nth-child(1),
-footer #icon path:nth-child(4) {
-    fill: var(--accent-color-80);
+    100% {
+        visibility: visible;
+    }
 }
 
 @keyframes spinning-clock {
@@ -2127,6 +2144,10 @@ a[href*="main-content"]:is(:focus, :hover) path {
 
 body:not(.home-template) *.flexy.row>hgroup {
     height: 15rem;
+}
+
+.home-template footer [data-divider="top"] path {
+    fill: var(--accent-color-100);
 }
 
 *.flexy:not(.row)>hgroup {
