@@ -655,31 +655,45 @@ figure.rapid-captions {
 .rapid-captions figcaption {
     opacity: 0;
     visibility: hidden;
-    display: none;
     position: absolute;
-    left: 30%;
+    left: 35%;
     max-width: 70%;
+    height: 100%;
     user-select: text;
+    z-index: 0;
 }
 
 .rapid-captions figcaption:nth-of-type(1) {
     display: flex;
 }
 
+.rapid-captions figcaption h2 {
+    font-size: 2.5rem;
+}
+
+.rapid-captions figcaption p {
+    display: none;
+}
+
 .rapid-captions svg #icon path:is(:hover, :active, :focus, :target) {
     cursor: pointer;
     stroke: var(--accent-color-50);
-    stroke-width: .5rem;
+    stroke-width: 0;
     stroke-dasharray: 5 10 15;
+    scale: 1.25;
+    transition: scale linear 500ms 0s;
 }
-    
-.rapid-captions svg #icon path:not(:hover, :active, :focus) {
-    opacity: .85;
-}
+
 
 .rapid-captions svg #name {
     animation: hideme 500ms linear 0s 1;
     visibility: visible;
+}
+
+.rapid-captions svg #icon:has(path:is(:hover, :active, :focus, :target)) path:not(:hover, :active, :focus, :target) {
+    opacity: .75;
+    scale: .5;
+    transition: all linear 500ms 0s;
 }
 
 .rapid-captions svg #icon:has(path:is(:hover, :active, :focus)) ~ #name  {
@@ -692,11 +706,12 @@ figure.rapid-captions {
 .rapid-captions svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(4),
 .rapid-captions svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(5),
 .rapid-captions svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(6) {
-    display: flex;
     animation: fadein 750ms linear 0s 1;
     opacity: 1;
     visibility: visible;
+    z-index: 2;
     background-color: inherit;
+    transition: visibility linear 500ms 0s;
 }
 
 .rapid-captions svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(1),
@@ -704,10 +719,11 @@ figure.rapid-captions {
 .rapid-captions svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(1),
 .rapid-captions svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(1),
 .rapid-captions svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(1) {
-    display: none;
+    visibility: hidden;
 }
 
-.rapid-captions svg #icon:focus-within {
+.rapid-captions svg #icon:focus-within,
+.rapid-captions svg #icon:has(path:is(:hover, :active, :focus, :target)) {
     animation-play-state: paused;
     scale: .8;
 }
@@ -737,20 +753,20 @@ svg #icon {
     animation: spinning-clock 24s linear 0s infinite reverse forwards;
     animation-play-state: running;
     animation-direction: normal;
-    transform-origin: center;
-    transform-box: fill-box;
     perspective: 400px;
-    scale: .75;
+    scale: .8;
     transition: scale 500ms linear 0s normal;
 }
 
 svg #icon:hover {
     scale: .8;
+    transition: scale linear 500ms 0s;
 }
 
 svg #rapid-is:hover #icon {
     animation-play-state: paused;
     scale: .8;
+    transition: scale linear 500ms 0s;
 }
 
 
@@ -770,7 +786,7 @@ svg #icon path:nth-child(4) {
 
 svg #name path {
     animation: flip 1s 1;
-    animation-delay: calc(100ms * var(--delay-time))
+    animation-delay: calc(100ms * var(--delay-time));
 }
 
 svg #name {
@@ -811,6 +827,101 @@ svg #name {
     }
     100% {
         opacity: .9;
+    }
+}
+
+svg .fig-btns {
+    animation: accent-colors 5s infinite 0s alternate;
+}
+
+svg .root-node {
+    animation: accent-colors 2s infinite 1s alternate-reverse;
+}
+
+svg .child-node {
+    animation: accent-colors 3s infinite 0s alternate;
+}
+
+svg .child-node:nth-of-type(odd) {
+    animation-delay: 1s;
+}
+
+svg .child-node:nth-of-type(even) {
+    animation-delay: 2s;
+}
+
+svg .grand-node {
+    animation: accent-colors 4s infinite 0s alternate-reverse;
+}
+
+svg .grand-node:nth-of-type(odd) {
+    animation-delay: 3s;
+}
+
+svg .grand-node:nth-of-type(even) {
+    animation-delay: 4s;
+}
+
+svg .node-edge {
+    animation: mid-accent-colors 1500ms infinite 0s alternate;
+}
+
+svg .node-edge:nth-of-type(odd) {
+    animation-duration: 2000ms;
+    animation-delay: 2s;
+}
+
+svg .node-edge:nth-of-type(even) {
+    animation-delay: 1s;
+}
+
+svg .feet {
+    transform-origin: revert;
+    transform-box: view-box;
+}
+
+@keyframes mid-accent-colors {
+    0% { fill: var(--accent-color-50); }
+    20% { fill: var(--accent-color-60); }
+    40% { fill: var(--accent-color-70); }
+    60% { fill: var(--accent-color-80); }
+    80% { fill: var(--accent-color-90); }
+    100% { fill: var(--accent-color-100); }
+}
+
+@keyframes accent-colors {
+    0% {
+        fill: var(--accent-color);
+    }
+    10% {
+        fill: var(--accent-color-10);
+    }
+    20% {
+        fill: var(--accent-color-20);
+    }
+    30% {
+        fill: var(--accent-color-30);
+    }
+    40% {
+        fill: var(--accent-color-40);
+    }
+    50% {
+        fill: var(--accent-color-50);
+    }
+    60% {
+        fill: var(--accent-color-60);
+    }
+    70% {
+        fill: var(--accent-color-70);
+    }
+    80% {
+        fill: var(--accent-color-80);
+    }
+    90% {
+        fill: var(--accent-color-90);
+    }
+    100% {
+        fill: var(--accent-color-100);
     }
 }
 
@@ -1387,6 +1498,11 @@ svg:not(:root) {
     overflow: hidden;
 }
 
+svg *:is(g, path) {
+    transform-origin: center center;
+    transform-box: fill-box;
+}
+
 [data-play-state="running"] {
     will-change: animation;
 }
@@ -1395,45 +1511,29 @@ svg:not(:root) {
 
 svg g#planet-one {
     animation: clockwise 3s linear 0s infinite forwards;
-    transform-origin: center;
-    transform-box: fill-box;
 }
 
 svg path#planet-three {
     animation: left-right 3s linear 0s infinite forwards;
-    transform-origin: center;
-    transform-box: fill-box;
     fill: var(--color-bright-purple);
 }
 
 svg path#rectangular-two {
     animation: shake-it 3s linear 0s infinite forwards;
-    /*transform-origin: center;*/
-    transform-box: fill-box;
 }
 
 svg path#square-one {
     animation: clockwise 5s linear 0s infinite forwards;
-    transform-origin: center;
-    transform-box: fill-box;
 }
 
 svg path#square-two {
     animation: anti-clockwise 5s linear 0s infinite forwards;
-    transform-origin: center;
-    transform-box: fill-box;
 }
 
 /* End of some animations */
 
 g#version-control path#cup {
     animation: cup-color 12s ease-in-out 0s infinite forwards;
-}
-
-g#line-one path,
-g#line-two path {
-    transform-origin: center;
-    transform-box: fill-box;
 }
 
 g#line-one path {
@@ -1459,8 +1559,6 @@ path#ellipse-six,
 path#ellipse-seven,
 path#ellipse-eight,
 path#ellipse-nine {
-    transform-origin: center;
-    transform-box: fill-box;
     animation: enlarge-one 5s linear 500ms infinite;
 }
 
@@ -1473,9 +1571,8 @@ path#ellipse-nine {
     animation: enlarge-two 4s linear 2s infinite;
 }
 
-path#coffee-steam {
+svg .coffee-steam {
     transform-origin: bottom;
-    transform-box: fill-box;
     animation: steaming 20s linear 0s infinite;
 }
 
@@ -1590,8 +1687,6 @@ path#coffee-steam {
 }
 
 path#the-dot {
-    transform-origin: center;
-    transform-box: fill-box;
     animation: opacity-orange 30s linear 0s infinite forwards;
 }
 
@@ -1639,8 +1734,6 @@ path#the-dot {
 }
 
 path#coffee-tree {
-    transform-origin: center;
-    transform-box: fill-box;
     animation: opacity-green 20s linear 0s infinite backwards normal;
 }
 
@@ -1829,26 +1922,36 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 #streamlining-safety-checks g#ring {
     animation: spinning 20s ease-in-out 0s infinite alternate forwards;
     animation-direction: normal;
-    transform-origin: center;
-    transform-box: fill-box;
+    scale: .75;
+    transition: scale 1s linear 0s;
+}
+
+#streamlining-safety-checks g#ring:is(:focus, :focus-within, :hover) {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+#streamlining-safety-checks g#ring .radius-node {
     scale: .9;
 }
 
-#streamlining-safety-checks g#ring :is([id="Vector_18"],
-    [id="Vector_19"],
-    [id="Vector_20"],
-    [id="Vector_21"],
-    [id="Vector_22"]):hover {
-    cursor: pointer;
-    scale: 1.25;
-    transition: all 250ms ease-in-out 0s;
-    transform-origin: center;
-    transform-box: fill-box;
+#streamlining-safety-checks g#ring .circle-node {
+    transition: scale 500ms linear 0s;
 }
 
-#streamlining-safety-checks svg:is(:focus, :focus-within, :hover) g#ring {
-    -webkit-animation-play-state: paused;
-    animation-play-state: paused;
+#streamlining-safety-checks g#ring .circle-node:is(:hover, :active, :focus, :target) {
+    cursor: pointer;
+    scale: 1.25;
+    transform-origin: center;
+}
+
+#streamlining-safety-checks g#ring:has(.circle-node:is(:hover, :active, :focus, :target)) {
+    scale: .9;
+    transition: scale 500ms linear 0s;
+}
+
+#streamlining-safety-checks g#ring .shape-node {
+    pointer-events: none;
 }
 
 @keyframes spinning {
