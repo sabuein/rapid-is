@@ -1,8 +1,8 @@
-<!-- rapid-captions.hbs -->
+<!-- captions.hbs -->
 <figure class="rapid-captions flexy">
     {{> "icons/rapid-is"}}
-    {{#get "posts" filter="tag:hash-rapid-captions+visibility:public" order="title asc" limit=6}}{{#if posts}}{{#foreach posts}}<figcaption class="flexy">
-        <h3 id="{{slug}}-tab" title="{{title}}">{{title}}</h3>
+    {{#get "posts" filter="tag:hash-rapid-captions+visibility:public" order="published_at asc" limit=6}}{{#if posts}}{{#foreach posts}}<figcaption class="flexy">
+        <h2 id="{{slug}}-tab" title="{{title}}">{{title}}</h2>
         <p>{{excerpt}}</p>
     </figcaption>{{/foreach}}{{else}}<figcaption>There is no content to return&period;</figcaption>{{/if}}{{else}}<figcaption class="get-posts-error">{{error}}</figcaption>{{/get}}
 </figure>
