@@ -1,7 +1,7 @@
-<!-- three-cards.hbs -->
-{{#get "posts" filter="featured:true+tag:{{slug}}+visibility:public" order="featured desc, published_at asc" limit="3" as |cards pages|}}<section id="flip-cards" class="cards palette flexy">
+<!-- three-posts.hbs -->
+{{#get "posts" filter="featured:true+tag:{{slug}}+visibility:public" order="featured desc, published_at asc" limit="3" as |cards pages|}}<section id="featured-posts" class="cards palette flexy row">
     <hgroup class="flexy">
-        <h2 id="featured" title="Featured">Featured</h2>
+        <h2 id="featured-title" title="Featured">Featured</h2>
     </hgroup>
     <div class="container flexy row">
         {{#foreach cards}}<article class="{{post_class}} flip-card flexy" data-index="{{@index}}">
