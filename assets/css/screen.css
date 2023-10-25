@@ -622,7 +622,7 @@ address a {
 }
 
 body.tag-case-studies {
-    
+
     *.post #content {
         max-width: 1440px;
     }
@@ -696,16 +696,16 @@ figure.rapid-captions {
     transition: all linear 500ms 0s;
 }
 
-.rapid-captions svg #icon:has(path:is(:hover, :active, :focus)) ~ #name  {
+.rapid-captions svg #icon:has(path:is(:hover, :active, :focus))~#name {
     visibility: hidden;
 }
 
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(1):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(1),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(2),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(3),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(4),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(5),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(6) {
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(1):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :hover, :focus))~figcaption:nth-of-type(2),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :hover, :focus))~figcaption:nth-of-type(3),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :hover, :focus))~figcaption:nth-of-type(4),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :hover, :focus))~figcaption:nth-of-type(5),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :hover, :focus))~figcaption:nth-of-type(6) {
     animation: fadein 750ms linear 0s 1;
     opacity: 1;
     visibility: visible;
@@ -714,11 +714,11 @@ figure.rapid-captions {
     transition: visibility linear 500ms 0s;
 }
 
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(1),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(1),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(1),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(1),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :hover, :focus)) ~ figcaption:nth-of-type(1) {
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
+.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :hover, :focus))~figcaption:nth-of-type(1) {
     visibility: hidden;
 }
 
@@ -728,11 +728,11 @@ figure.rapid-captions {
     scale: .8;
 }
 
-.rapid-captions svg:has(#rapid-is #icon path:is(:active, :focus)) ~ figcaption {
+.rapid-captions svg:has(#rapid-is #icon path:is(:active, :focus))~figcaption {
     z-index: 1;
 }
 
-.rapid-captions svg:has(#rapid-is #icon path:is(:hover)) ~ figcaption {
+.rapid-captions svg:has(#rapid-is #icon path:is(:hover))~figcaption {
     z-index: 2;
 }
 
@@ -796,8 +796,10 @@ svg #name {
 }
 
 @keyframes flip {
-    0%, 80% {
-        transform: rotateY(360deg) 
+
+    0%,
+    80% {
+        transform: rotateY(360deg)
     }
 }
 
@@ -825,6 +827,7 @@ svg #name {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: .9;
     }
@@ -881,45 +884,72 @@ svg .feet {
 }
 
 @keyframes mid-accent-colors {
-    0% { fill: var(--accent-color-50); }
-    20% { fill: var(--accent-color-60); }
-    40% { fill: var(--accent-color-70); }
-    60% { fill: var(--accent-color-80); }
-    80% { fill: var(--accent-color-90); }
-    100% { fill: var(--accent-color-100); }
+    0% {
+        fill: var(--accent-color-50);
+    }
+
+    20% {
+        fill: var(--accent-color-60);
+    }
+
+    40% {
+        fill: var(--accent-color-70);
+    }
+
+    60% {
+        fill: var(--accent-color-80);
+    }
+
+    80% {
+        fill: var(--accent-color-90);
+    }
+
+    100% {
+        fill: var(--accent-color-100);
+    }
 }
 
 @keyframes accent-colors {
     0% {
         fill: var(--accent-color);
     }
+
     10% {
         fill: var(--accent-color-10);
     }
+
     20% {
         fill: var(--accent-color-20);
     }
+
     30% {
         fill: var(--accent-color-30);
     }
+
     40% {
         fill: var(--accent-color-40);
     }
+
     50% {
         fill: var(--accent-color-50);
     }
+
     60% {
         fill: var(--accent-color-60);
     }
+
     70% {
         fill: var(--accent-color-70);
     }
+
     80% {
         fill: var(--accent-color-80);
     }
+
     90% {
         fill: var(--accent-color-90);
     }
+
     100% {
         fill: var(--accent-color-100);
     }
@@ -1587,6 +1617,7 @@ svg .coffee-steam {
 }
 
 @keyframes cup-color {
+
     0%,
     100% {
         fill: var(--accent-color-70);
@@ -2087,19 +2118,20 @@ pre {
     gap: 4rem;
 }
 
-#get-the-app .container figure > img {
+#get-the-app .container figure>img {
     flex: 0 1 50%;
     height: 10rem;
     width: 10rem;
     /*filter: drop-shadow(2px 4px 6px var(--accent-color-80));*/
 }
+
 #get-the-app figure:nth-of-type(1) {
     padding: 0;
     max-width: 12rem;
     gap: 1.25rem;
 }
 
-#get-the-app > div > figure:nth-child(1) > a > img {
+#get-the-app>div>figure:nth-child(1)>a>img {
     width: 10rem;
 }
 
@@ -2290,6 +2322,10 @@ body:not(.home-template) *.flexy.row>hgroup {
     align-items: safe flex-start;
 }
 
+*.flexy:not(.row)>.container {
+    align-content: center;
+}
+
 *.flexy:not(.row)>hgroup {
     flex: 0 1 fit-content;
 }
@@ -2305,9 +2341,8 @@ body:not(.home-template) *.flexy.row>hgroup {
 
 #more-clients .container {
     flex-wrap: nowrap;
-    align-content: flex-start;
     align-items: safe center;
-    gap: 5rem;
+    gap: 3rem;
     -webkit-animation-name: move;
     -webkit-animation-duration: 24s;
     -webkit-animation-timing-function: linear;
@@ -2321,7 +2356,7 @@ body:not(.home-template) *.flexy.row>hgroup {
     animation-delay: 0s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    animation: move 24s ease-in-out 0s infinite alternate;
+    animation: move 24s linear 0s infinite alternate;
     animation-play-state: running;
 }
 
@@ -2368,7 +2403,7 @@ body:not(.home-template) *.flexy.row>hgroup {
     display: block;
     font-size: .85rem;
     color: var(--accent-color);
-    bottom: -3rem;
+    bottom: -2rem;
 }
 
 #more-clients .container svg {
@@ -2797,12 +2832,10 @@ fieldset {
 #faq,
 #tabs-about,
 #grab-coffee,
-.post .cards,
 #get-the-app,
 #meet-our-team,
 #start-journey,
 #search-support,
-#browse-projects,
 #rapid-integration,
 #check-our-vacancies,
 #partner-with-leaders,
@@ -3061,8 +3094,8 @@ form#join-newsletter a:is(:focus, :hover) {
 .post #sharing-is-caring {
     width: 100dvw;
     max-width: 100%;
-    height: 10rem;
-    gap: 5rem;
+    height: 8rem;
+    gap: 3rem;
     user-select: none;
 }
 
@@ -3101,15 +3134,15 @@ form#join-newsletter a:is(:focus, :hover) {
 .post #sharing-is-caring ul {
     padding: 0;
     width: fit-content;
-    height: 5rem;
+    height: 3rem;
     list-style-type: none;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .post #sharing-is-caring li {
     padding: 0;
-    height: 5rem;
-    width: 5rem;
+    height: 3rem;
+    width: 3rem;
 }
 
 .post #sharing-is-caring a:any-link {
@@ -3122,14 +3155,18 @@ form#join-newsletter a:is(:focus, :hover) {
 }
 
 .post #sharing-is-caring .social-icons a:any-link {
-    flex: 1 1 5rem;
-    width: 5rem;
-    height: 5rem;
+    flex: 0 1 3rem;
+    width: 3rem;
+    height: 3rem;
 }
 
 .post #sharing-is-caring .social-icons a:any-link :is(img, svg) {
-    height: 5rem;
-    width: 5rem;
+    height: 3rem;
+    width: 3rem;
+}
+
+.post #sharing-is-caring .social-icons a:is(:focus, :hover) :is(img, svg) {
+    scale: 1.1;
 }
 
 ol {
@@ -3269,7 +3306,8 @@ ol {
 }
 
 #client-testimonials .post p:first-of-type::before {
-    content: "\201C"; /* Double quotes -> HTML &ldquo; &rdquo; For right quotes: \201D */
+    content: "\201C";
+    /* Double quotes -> HTML &ldquo; &rdquo; For right quotes: \201D */
     position: absolute;
     font-family: inherit;
     left: -3rem;
@@ -3758,7 +3796,7 @@ form#search-support input[type="search"] {
 #browse-projects select {
     font-size: 1rem;
     font-weight: 400;
-    padding: 0 1.25rem;
+    padding: 0 .5rem;
     height: 2rem;
     outline: 0;
     border: 0;
@@ -3856,6 +3894,7 @@ form#search-support input[type="search"] {
 
 .post .cards {
     background-color: gold !important;
+    justify-content: center;
 }
 
 .post .cards hgroup {
@@ -3864,58 +3903,26 @@ form#search-support input[type="search"] {
 }
 
 .post .cards .container {
-    height: 25rem;
-    max-height: inherit;
-    max-width: inherit;
-    perspective: 100rem;
+    height: 24rem;
+    height: inherit;
+    width: inherit;
     background-color: transparent;
-    justify-content: center;
     cursor: pointer;
     gap: 3rem;
-}
-
-.post.card {
-    flex: 0 1 25rem;
-    position: relative;
-    min-height: auto;
-    height: 20rem;
-    max-height: inherit;
-    min-width: 5rem;
-    width: 25rem;
-    max-width: inherit;
-    background-color: var(--color-white);
-    outline: thin solid var(--color-black-40);
-    -webkit-box-shadow: .5rem .5rem 2rem var(--color-black-40);
-    box-shadow: .5rem .5rem 2rem var(--color-black-40);
-    will-change: transform;
-    transform-style: preserve-3d;
-    -webkit-transition-property: transform;
-    -moz-transition-property: transform;
-    -o-transition-property: transform;
-    transition-property: transform;
-    -webkit-transition-duration: 500ms;
-    -moz-transition-duration: 500ms;
-    -o-transition-duration: 500ms;
-    transition-duration: 500ms;
-    -webkit-transition-timing-function: linear;
-    -moz-transition-timing-function: linear;
-    -o-transition-timing-function: linear;
-    transition-timing-function: linear;
-    transition: transform 500ms linear 0s;
 }
 
 @keyframes shut-down {
     0% {
         display: flex;
         height: 20rem;
-        width: 25rem;
+        width: 24rem;
         opacity: 1;
     }
 
     50% {
         display: flex;
         height: 20rem;
-        width: 25rem;
+        width: 24rem;
         opacity: .1;
     }
 
@@ -3929,25 +3936,9 @@ form#search-support input[type="search"] {
     100% {
         display: flex;
         height: 20rem;
-        width: 25rem;
+        width: 24rem;
         opacity: 1;
     }
-}
-
-.post.card .side {
-    flex: 1 1 25rem;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    position: absolute;
-    -webkit-backface-visibility: hidden;
-    /* Safari */
-    backface-visibility: hidden;
-    height: 20rem;
-    min-height: auto;
-    max-height: inherit;
-    width: 25rem !important;
-    max-width: inherit;
-    gap: .5rem;
 }
 
 .post.card .side :is(h3, figure) {
@@ -3957,15 +3948,6 @@ form#search-support input[type="search"] {
     max-height: inherit;
     width: inherit;
     max-width: inherit;
-}
-
-.post.card:hover {
-    transform: rotateY(180deg);
-
-}
-
-.post.card .side.back {
-    transform: rotateY(180deg);
 }
 
 .post.card .side h3 {
@@ -3988,4 +3970,100 @@ form#search-support input[type="search"] {
 
 .cards .card .side :is(p, ul) {
     width: fit-content;
+}
+
+.flip-card {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    width: inherit;
+    height: inherit;
+    perspective: 48rem;
+    /* Remove this if you don't want the 3D effect */
+    min-height: auto;
+    flex: 0 1 24rem;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: .5rem;
+    width: 24rem !important;
+    height: 20rem;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    outline: thin solid var(--color-black-40);
+    -webkit-box-shadow: .5rem .5rem 2rem var(--color-black-40);
+    box-shadow: .5rem .5rem 2rem var(--color-black-40);
+    will-change: transform;
+    transform-style: preserve-3d;
+    -webkit-transition-property: transform;
+    -moz-transition-property: transform;
+    -o-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+    -webkit-transition-timing-function: linear;
+    -moz-transition-timing-function: linear;
+    -o-transition-timing-function: linear;
+    transition-timing-function: linear;
+    transition: transform 500ms linear 0s;
+
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+    cursor: pointer;
+}
+
+/*.flip-card:hover .flip-card-back {
+    animation: shut-down 500ms linear 0s 1 normal forwards;
+  }*/
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    flex-wrap: nowrap;
+}
+
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+
+}
+
+.flip-card-front .bg-image {
+    background-color: var(--accent-color-50);
+    background-blend-mode: soft-light;
+}
+
+.flip-card-front figcaption {
+    height: 5rem;
+}
+
+.flip-card-front h3 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: .5rem 1rem;
+    font-size: 2.75rem;
+    width: 100%;
+    z-index: 1;
+    color: var(--accent-color-110);
+}
+
+.flip-card-back {
+    padding: 1rem;
+    background-color: var(--accent-color-50);
+    color: var(--accent-color-110);
+    transform: rotateY(180deg);
+    z-index: 1;
 }
