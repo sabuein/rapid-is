@@ -4013,16 +4013,15 @@ form#search-support input[type="search"] {
     -moz-transition-duration: 500ms;
     -o-transition-duration: 500ms;
     transition-duration: 500ms;
-    -webkit-transition-timing-function: linear;
-    -moz-transition-timing-function: linear;
-    -o-transition-timing-function: linear;
-    transition-timing-function: linear;
-    transition: transform 500ms linear 0s;
-
+    -webkit-transition-timing-function: cubic-bezier(2, 1, 1, 2);
+    -moz-transition-timing-function: cubic-bezier(2, 1, 1, 2);
+    -o-transition-timing-function: cubic-bezier(2, 1, 1, 2);
+    transition-timing-function: cubic-bezier(2, 1, 1, 2);
+    transition: transform 500ms cubic-bezier(2, 1, 1, 2) 0s;
 }
 
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
+.flip-card:is(:active, :focus, :focus-within, :hover) .flip-card-inner {
+    transform: rotateY(-180deg);
     cursor: pointer;
 }
 
@@ -4043,7 +4042,7 @@ form#search-support input[type="search"] {
 .flip-card-front {
     background-color: #bbb;
     color: black;
-
+    cursor: pointer;
 }
 
 .flip-card-front .bg-image {
@@ -4070,8 +4069,9 @@ form#search-support input[type="search"] {
     padding: 1rem;
     background-color: var(--accent-color-50);
     color: var(--accent-color-110);
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
     z-index: 1;
+    
 }
 
 .urlbuilder input[type="text"] {
