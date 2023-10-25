@@ -2925,6 +2925,10 @@ footer:has(#sharing-is-caring) {
     background-color: var(--color-yellow);
 }
 
+#check-our-vacancies .container .pagination {
+    display: none;
+}
+
 /* End of general partials styles */
 
 /* Start of tabs-about partial styles */
@@ -2932,11 +2936,6 @@ footer:has(#sharing-is-caring) {
 #tabs-about header {
     padding: 0 1rem;
     align-items: start;
-}
-
-#rapid-integration article {
-    padding: 0 1rem;
-    align-items: flex-start;
 }
 
 #tabs-about .buttons {
@@ -3449,6 +3448,11 @@ ol {
     transition: all 250ms ease-in-out 0s;
 }
 
+#meet-our-team .post:last-of-type figure svg {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
 #meet-our-team .container .post:is(:active, :hover) figure {
     filter: none;
     transition: all 250ms ease-in-out 0s;
@@ -3900,6 +3904,7 @@ form#search-support input[type="search"] {
 .post .cards hgroup {
     align-content: flex-start;
     align-items: flex-start;
+    height: auto !important;
 }
 
 .post .cards .container {
@@ -3960,7 +3965,8 @@ form#search-support input[type="search"] {
     z-index: 1;
 }
 
-.cards .container>p {
+.cards .container .pagination {
+    display: none;
     line-height: 1.85;
     font-size: .85rem;
     width: 100dvw;
@@ -4066,4 +4072,24 @@ form#search-support input[type="search"] {
     color: var(--accent-color-110);
     transform: rotateY(180deg);
     z-index: 1;
+}
+
+.urlbuilder input[type="text"] {
+    width: 100%;
+}
+
+.urlbuilder td {
+    min-width: 130px;
+}
+
+.urlbuilder .urllable {
+    padding-bottom: 20px;
+    color: #888;
+}
+
+.urlbuilder select {
+    padding: 10px;
+    background: white;
+    color: #7F8488;
+    width: 100%;
 }
