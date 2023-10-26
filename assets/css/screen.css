@@ -646,10 +646,14 @@ body.tag-case-studies {
     }
 }
 
-figure.rapid-captions {
+.rapid-captions {
     height: auto;
     max-width: 85%;
     background-color: inherit;
+}
+
+.rapid-captions svg {
+    overflow: visible;
 }
 
 .rapid-captions figcaption {
@@ -763,6 +767,7 @@ svg #icon:hover {
     transition: scale linear 500ms 0s;
 }
 
+svg:is(:active, :hover, :focus) #rapid-is #icon,
 svg #rapid-is:hover #icon {
     animation-play-state: paused;
     scale: .8;
@@ -849,8 +854,16 @@ svg .child-node:nth-of-type(odd) {
     animation-delay: 1s;
 }
 
+svg .child-node:nth-of-type(odd):nth-of-type(3) {
+    animation-delay: 2s;
+}
+
 svg .child-node:nth-of-type(even) {
     animation-delay: 2s;
+}
+
+svg .child-node:nth-of-type(even):nth-of-type(3) {
+    animation-delay: 1s;
 }
 
 svg .grand-node {
