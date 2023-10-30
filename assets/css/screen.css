@@ -682,9 +682,9 @@ body.tag-case-studies {
     font-size: 2.5rem;
 }
 
-.rapid-captions figcaption p {
+/*.rapid-captions figcaption p {
     display: none;
-}
+}*/
 
 .rapid-captions svg #icon path:is(:hover, :active, :focus, :target) {
     cursor: pointer;
