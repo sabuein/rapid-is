@@ -13,7 +13,10 @@
     },
     "scripts": {
         "link": "ln -s /home/sabuein/my/projects/rapid-is /home/sabuein/my/instances/ghost/content/themes | ls ../../instances/ghost/content/themes/",
-        "test": "npx gscan .",
+        "check": "npx gscan .",
+        "start": "ghost start -d ~/my/instances/ghost/",
+        "restart": "ghost restart -d ~/my/instances/ghost/",
+        "update": "ghost update -d ~/my/instances/ghost/",
         "zipl": "zip -r /home/sabuein/Desktop/rapid-is.zip * -x *.zip /assets/labs/* .gitignore",
         "zipw": "zip -r /mnt/c/Users/Sala/Desktop/rapid-is.zip * -x *.zip /assets/labs/* .gitignore"
     },
