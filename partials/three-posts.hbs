@@ -1,10 +1,10 @@
 <!-- three-posts.hbs -->
-{{#get "posts" filter="featured:true+tag:{{slug}}+visibility:public" order="featured desc, published_at asc" limit="3" as |cards pages|}}<section id="featured-posts" class="cards palette flexy row">
+{{#get "posts" include="authors, tags" filter="featured:true+visibility:public+tag:{{slug}}" order="featured desc, published_at asc" limit="3" as |featured pages|}}{{#if featured}}<section id="featured-posts" class="cards palette flexy row">
     <hgroup class="flexy">
         <h2 id="featured-title" title="Featured">Featured</h2>
     </hgroup>
     <div class="container flexy row">
-        {{#foreach cards}}<article class="{{post_class}} flip-card flexy" data-index="{{@index}}">
+        {{#foreach featured}}<article class="{{post_class}} flip-card flexy" data-index="{{@index}}">
             <div class="flip-card-inner flexy" tabindex="0">
                 <header class="flip-card-front flexy" title="{{title}}">
                     <h3 id="{{slug}}">{{title}}</h3>
@@ -14,7 +14,7 @@
                     </figure>{{/if}}
                 </header>
                 <p class="flip-card-back flexy" title="{{title}}">
-                    {{excerpt}}
+                    {{excerpt words="36"}}
                 </p>
             </div>
         </article>{{else}}<p>No posts&excl;</p>{{/foreach}}
@@ -25,4 +25,4 @@
             {{> "icons/angle-down"}}
         </a>
     </footer>--}}
-</section>{{else}}<p class="get-posts-error">{{error}}</p>{{/get}}
+</section>{{else}}<p class="get-posts-error">{{error}}</p>{{/if}}{{/get}}
