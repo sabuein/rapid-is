@@ -4269,10 +4269,6 @@ footer {
     fill: var(--accent-color-100);
 }
 
-.page-template.page-case-studies #default-footer div[data-divider="top"] path {
-    fill: gold;
-}
-
 #default-footer div {
     flex: 1 0 100%;
     width: 100%;
