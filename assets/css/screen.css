@@ -309,6 +309,8 @@ main #content .kg-toggle-card .kg-toggle-content p {
 ::selection {
     color: var(--color-light-grey);
     background-color: var(--color-black);
+    cursor: text;
+    user-select: text;
 }
 
 *,
@@ -581,6 +583,11 @@ address a {
     width: inherit;
 }
 
+figure:has(svg),
+figure[tabindex="0"] {
+    animation: bouncingIn 1s;
+}
+
 /*
 *.post figure img {
     margin-left: auto;
@@ -684,8 +691,9 @@ body.tag-case-studies {
     stroke: var(--accent-color-50);
     stroke-width: 0;
     stroke-dasharray: 5 10 15;
+    fill: var(--accent-color-20);
     scale: 1.25;
-    transition: scale linear 500ms 0s;
+    transition: fill linear 250ms 0s, scale linear 500ms 0s;
 }
 
 
@@ -778,10 +786,6 @@ svg #rapid-is:hover #icon {
 svg #icon path {
     animation: fadein 1s linear 100ms 1;
     pointer-events: bounding-box;
-}
-
-svg #icon path:hover {
-    fill: var(--accent-color-20);
 }
 
 svg #icon path:nth-child(1),
@@ -922,6 +926,20 @@ svg .feet {
     }
 }
 
+@keyframes bouncingIn {
+    0% {
+        transform: scale(.2);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 @keyframes accent-colors {
     0% {
         fill: var(--accent-color);
@@ -971,8 +989,8 @@ svg .feet {
 *.post #content,
 #tabs-about {
     align-items: safe flex-start;
-    align-content: safe flex-start;
-    justify-content: safe center;
+    align-content: flex-start;
+    justify-content: center;
 }
 
 *.post #content>* {
@@ -1394,8 +1412,6 @@ article footer {
     height: auto;
     color: currentColor;
     background-color: transparent;
-    user-select: text;
-    cursor: text;
 }
 
 textarea {
@@ -2292,10 +2308,6 @@ a[href*="main-content"]:is(:focus, :hover) path {
 
 body:not(.home-template) *.flexy.row>hgroup {
     height: 15rem;
-}
-
-.home-template footer [data-divider="top"] path {
-    fill: var(--accent-color-100);
 }
 
 *.flexy:not(.row)>hgroup {
@@ -3422,6 +3434,10 @@ ol {
     transition: all 250ms ease-out 0s;
 }
 
+#meet-our-team .container .pagination {
+    display: none;
+}
+
 #meet-our-team .post :is(header, div) {
     flex: 1 1 20rem;
     height: auto;
@@ -3796,10 +3812,10 @@ form#search-support input[type="search"] {
 }
 
 #browse-projects hgroup {
-    flex: 1 1 100dvw;
+    flex: 0 1 100dvw;
     width: 100dvw;
     height: auto;
-    align-items: center;
+    align-items: flex-end;
     gap: 1rem;
 }
 
@@ -3815,7 +3831,6 @@ form#search-support input[type="search"] {
     font-weight: 400;
     padding: 0 .5rem;
     height: 2rem;
-    outline: 0;
     border: 0;
 }
 
@@ -3927,6 +3942,10 @@ form#search-support input[type="search"] {
     background-color: transparent;
     cursor: pointer;
     gap: 3rem;
+}
+
+.post .cards .container p {
+    text-align: center;
 }
 
 @keyframes shut-down {
@@ -4084,7 +4103,7 @@ form#search-support input[type="search"] {
     color: var(--accent-color-110);
     transform: rotateY(-180deg);
     z-index: 1;
-    
+    cursor: text;
 }
 
 .urlbuilder input[type="text"] {
@@ -4105,4 +4124,275 @@ form#search-support input[type="search"] {
     background: white;
     color: #7F8488;
     width: 100%;
+}
+
+/* Tag heading */
+
+.tag-solutions .post > hgroup {
+    flex: 1 0 fit-content;
+    width: fit-content;
+    text-align: justify;
+    align-items: flex-start;
+    gap: .5rem;
+}
+
+/* The container */
+
+.tag-solutions .post .container {
+    padding: 8rem 6rem;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.tag-solutions .post .container .pagination {
+    display: none;
+}
+
+/* The card */
+
+.tag-solutions .post .container article {
+    padding: .25rem;
+    cursor: pointer;
+    flex: 1 0 20rem;
+    width: 20rem;
+    max-width: 25%;
+    align-items: flex-start;
+    gap: 1rem;
+    overflow: hidden;
+}
+
+.tag-solutions .post .container h2 {
+    padding: .25rem .5rem 0;
+    flex: 0 1 fit-content;
+    width: fit-content;
+    color: var(--accent-color);
+}
+
+.tag-solutions .post .container p {
+    padding: 0 .5rem;
+}
+
+.tag-solutions .post .container a {
+    position: relative;
+    margin-left: .75rem;
+    padding: 1rem 3rem 1rem 2rem;
+    font-size: 1rem;
+}
+
+.tag-solutions .post .container a::after {
+    padding: .1rem;
+    position: absolute;
+    right: 1rem;
+    bottom: .75rem;
+    content: "\2197";
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--accent-color);
+    background-color: var(--accent-color-100);
+    border-radius: .2rem;
+    transition: all ease 200ms 0s;
+}
+
+.tag-solutions .post .container article:hover a::after {
+    right: .85rem;
+    bottom: .65rem;
+    font-size: 1.25rem;
+    background-color: var(--accent-color-110);
+    transition: all ease 200ms 0s;
+}
+
+.tag-solutions .post .container article hgroup {
+    padding: 0;
+    flex: 0 1 fit-content;
+    height: auto;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.tag-solutions .post .container article figure {
+    flex: 0 1 auto;
+    height: auto;
+    width: 100dvw;
+    max-width: 100%;
+}
+
+.tag-solutions .post .container article figure img,
+.post .heading.row figure img {
+    user-select: none;
+}
+
+/* Post template */
+
+.post-template.tag-solutions .post #content {
+    align-content: flex-start;
+}
+
+.post-template.tag-solutions .post section:first-of-type {
+    padding: 4rem;
+    min-height: 92dvh;
+    justify-content: space-evenly;
+}
+
+.post-template.tag-solutions .post section:first-of-type :is(hgroup, figure) {
+    padding: 1rem;
+    flex: 1 0 25rem;
+    height: 25rem;
+    width: 25rem;
+    align-items: flex-start;
+}
+
+.post-template.tag-solutions .post [data-slug="communication"],
+.post-template.tag-solutions .post [data-slug="estates"] {
+    flex-direction: row-reverse;
+}
+
+footer {
+    position: static;
+}
+
+#default-footer {
+    padding: 1rem 5rem;
+    padding-top: 10rem;
+    position: relative;
+    min-height: 100dvh;
+    color: var(--accent-color-110);
+    background-color: var(--accent-color-50);
+    overflow: hidden;
+    font-size: 1rem;
+}
+
+#default-footer div[data-divider="top"] {
+    top: -.1rem;
+}
+
+.page-template.page-contact [data-divider="top"] path {
+    fill: var(--accent-color-100);
+}
+
+.page-template.page-case-studies #default-footer div[data-divider="top"] path {
+    fill: gold;
+}
+
+#default-footer div {
+    flex: 1 0 100%;
+    width: 100%;
+}
+ 
+#default-footer > div:first-child {
+    padding-top: .5rem;
+    min-height: fit-content;
+    gap: 1rem;
+}
+
+#default-footer > div.row {
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#default-footer > div:nth-child(4) {
+    padding: 2rem 1rem;
+    padding-bottom: 10dvh;
+    font-weight: 500;
+    font-size: .85rem;
+    text-align: center;
+}
+
+#default-footer p {
+    font-size: inherit;
+    width: fit-content;
+    text-align: center;
+}
+
+#default-footer .rapid-logo img {
+    filter: brightness(0) invert(1);
+}
+
+main > section.row > footer {
+    flex: 1 0 100dvw;
+}
+
+#default-footer > div:first-child :is(figure, div, address) {
+    flex: 0 0 20%;
+    min-width: 20%;
+    width: 100dvw;
+    max-width: 100%;
+    align-items: flex-start;
+    align-content: flex-start;
+    text-transform: capitalize;
+    gap: .5rem;
+}
+
+#default-footer h6 {
+    font-weight: 600;
+    font-style: italic;
+    color: var(--accent-color-100);
+    user-select: none;
+    cursor: not-allowed;
+}
+
+#default-footer ul {
+    width: fit-content;
+    list-style-type: none;
+    align-items: flex-start;
+    gap: .5rem;
+}
+
+#default-footer ul[itemscope] {
+    gap: 0;
+}
+
+#default-footer li:has(a:focus, a:hover) {
+    list-style-type: disclosure-closed;
+}
+
+#default-footer ul.row li:has(a:focus, a:hover) {
+    list-style-type: none;
+}
+
+#default-footer a:any-link {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#default-footer div:has(a[href*="main-content"]) {
+    bottom: 1rem;
+}
+
+.social-icons {
+    list-style-type: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+#default-footer .social-icons {
+    margin-top: .5rem;
+    gap: 1.25rem;
+}
+
+.social-icons a {
+    flex: 0 1 2rem;
+    height: 2rem;
+    width: 2rem;
+    user-select: none;
+}
+
+.rapid-logo a:focus img,
+.social-icons a:focus img,
+.social-icons a:focus svg,
+button[data-ghost-search]:focus {
+    outline: thick solid var(--accent-color) !important;
+    transition: all 250ms ease-out 0s;
+}
+
+.social-icons :is(img, svg) {
+    transition: all 250ms ease-out 0s;
+}
+
+.social-icons svg path {
+    fill: var(--accent-color-110);
+}
+
+.social-icons a:is(:focus, :hover) :is(img, svg) {
+    scale: 1.2;
+    transition: all 250ms ease-in 0s;
 }
