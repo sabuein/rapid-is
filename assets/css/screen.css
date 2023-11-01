@@ -531,7 +531,7 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
 *.post *.palette {
     padding: 8rem 5rem;
     justify-content: space-evenly;
-    flex: 1 1 auto;
+    flex: 1 1 100%;
     width: 100dvw;
     max-width: 100%;
     min-height: 100dvh;
@@ -576,7 +576,7 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
 *.post *.loop.palette *.pagination {
     flex: 0 1 fit-content;
     width: fit-content; 
-    color: var(--accent-color-100d);
+    color: var(--accent-color-110);
     background-color: transparent;
 }
 
@@ -2193,6 +2193,15 @@ pre {
     text-align: center;
 }
 
+*.total-results {
+    line-height: 1.85;
+    font-size: .85rem;
+    text-align: center;
+    flex: 1 0 100%;
+    width: 100dvw;
+    max-width: 100%;
+}
+
 #get-the-app div {
     width: 100dvw;
     max-width: 100%;
@@ -2359,7 +2368,8 @@ a[href*="main-content"]:is(:focus, :hover) path {
 }
 
 body:not(.home-template) *.flexy.row>hgroup {
-    height: 15rem;
+    padding: 0;
+    height: 18rem;
 }
 
 *.flexy:not(.row)>hgroup {
@@ -2928,9 +2938,12 @@ footer:has(#sharing-is-caring) {
 }
 
 #start-journey {
-    width: 75rem;
     align-items: flex-start;
     justify-content: center;
+}
+
+#start-journey hgroup {
+    max-width: 75%;
 }
 
 #start-journey hgroup :is(h2, p) {
@@ -2961,19 +2974,23 @@ footer:has(#sharing-is-caring) {
 }
 
 *.post>*.heading.flexy.row figure {
+    padding: 0;
     background-attachment: local;
     flex-basis: 10rem;
     width: 10rem;
-    height: 15rem;
+    height: 18rem;
 }
 
 *.post>*.heading.flexy.row figcaption {
+    display: none;
     position: absolute;
     padding: .25rem 1rem;
-    bottom: -1rem;
+    bottom: 0;
     width: 100dvw;
     font-size: .75rem;
     transition: all ease 250ms 0s;
+    color: var(--accent-color-110);
+    background-color: var(--accent-color-50);
 }
 
 *.post>*.heading.flexy.row figcaption:hover {
@@ -3002,7 +3019,7 @@ footer:has(#sharing-is-caring) {
     background-color: var(--color-yellow);
 }
 
-#check-our-vacancies .container .pagination {
+#check-our-vacancies .container .total-results {
     display: none;
 }
 
@@ -4005,10 +4022,6 @@ form#search-support input[type="search"] {
     gap: 3rem;
 }
 
-.post .cards .container p {
-    text-align: center;
-}
-
 @keyframes shut-down {
     0% {
         display: flex;
@@ -4058,13 +4071,8 @@ form#search-support input[type="search"] {
     z-index: 1;
 }
 
-.cards .container .pagination {
+.cards .container .total-results {
     display: none;
-    line-height: 1.85;
-    font-size: .85rem;
-    width: 100dvw;
-    flex: 1 0 100%;
-    text-align: center;
 }
 
 .cards .card .side :is(p, ul) {
