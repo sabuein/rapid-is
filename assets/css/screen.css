@@ -548,6 +548,53 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
     background-color: var(--accent-color-110);
 }
 
+*.post *.loop.palette {
+    padding: 2rem;
+    min-height: auto;
+}
+
+*.post *.loop.palette hgroup {
+    align-content: center;
+}
+
+*.post *.loop.palette hgroup h3,
+*.post *.loop.palette *.pagination p {
+    text-align: center;
+    width: fit-content;
+}
+
+*.post *.loop.palette *.loop-name {
+    text-transform: lowercase;
+}
+
+*.post *.loop.palette *.container {
+    flex: 0 1 fit-content;
+    width: fit-content;
+    gap: .5rem;
+}
+
+*.post *.loop.palette *.pagination {
+    flex: 0 1 fit-content;
+    width: fit-content; 
+    color: var(--accent-color-100d);
+    background-color: transparent;
+}
+
+*.post *.loop.palette nav.pagination {
+    padding: 1rem 4rem;
+    color: var(--accent-color-60);
+    background-color: var(--accent-color-90);
+}
+
+*.post *.loop.palette nav.pagination a {
+    text-decoration: none;
+}
+
+*.post *.loop.palette nav.pagination a:hover {
+    text-decoration: none;
+    color: var(--accent-color-50);
+}
+
 address:hover,
 address~span:hover {
     cursor: text;
@@ -1112,11 +1159,15 @@ main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
     width: fit-content;
 }
 
-#browse-projects .container .controls {
+#browse-tag {
+    min-height: auto;
+}
+
+#browse-tag .container .controls {
     gap: 1rem;
 }
 
-#browse-projects .container .controls button {
+#browse-tag .container .controls button {
     width: fit-content;
 }
 
@@ -2136,9 +2187,10 @@ pre {
     width: 100dvw;
     max-width: 100%;
     color: var(--accent-color-110);
-    background-color: var(--accent-color-80) !important;
+    background-color: var(--accent-color-80);
     user-select: none;
     font-size: .65rem;
+    text-align: center;
 }
 
 #get-the-app div {
@@ -3811,7 +3863,7 @@ form#search-support input[type="search"] {
     max-width: inherit;
 }
 
-#browse-projects hgroup {
+#browse-tag hgroup {
     flex: 0 1 100dvw;
     width: 100dvw;
     height: auto;
@@ -3819,14 +3871,14 @@ form#search-support input[type="search"] {
     gap: 1rem;
 }
 
-#browse-projects h6 {
+#browse-tag h6 {
     padding-right: 1rem;
     flex: 5 1 fit-content;
     width: fit-content;
     text-align: end;
 }
 
-#browse-projects select {
+#browse-tag select {
     font-size: 1rem;
     font-weight: 400;
     padding: 0 .5rem;
@@ -3834,29 +3886,29 @@ form#search-support input[type="search"] {
     border: 0;
 }
 
-#browse-projects label {
+#browse-tag label {
     font-size: .85rem;
     font-weight: 600;
     align-items: flex-start;
     gap: .25rem;
 }
 
-#browse-projects>.container {
+#browse-tag>.container {
     align-items: flex-start;
     gap: 2rem;
 }
 
-#browse-projects>.container {
+#browse-tag>.container {
     padding: 1rem;
 }
 
-#browse-projects .container .post {
+#browse-tag .container .post {
     flex: 1 1 40rem;
     width: 40rem;
     min-height: auto;
 }
 
-#browse-projects .container .post> :is(hgroup, figure) {
+#browse-tag .container .post> :is(hgroup, figure) {
     padding: 2rem;
     border: 0;
     flex: 1 0 0%;
@@ -3864,69 +3916,78 @@ form#search-support input[type="search"] {
     height: auto;
 }
 
-#browse-projects .container .post>hgroup {
+#browse-tag .container .post>hgroup {
     flex: 2 1 40rem;
     width: 40rem;
     gap: 0;
 }
 
-#browse-projects .container .post>hgroup h3 {
+#browse-tag .container .post>hgroup h3 {
     line-height: 1.25;
     font-size: 1.85rem;
 }
 
-#browse-projects .container .post>figure {
+#browse-tag .container .post>figure {
     flex: 1 1 20rem;
     font-size: .85rem;
 }
 
-#browse-projects .post hgroup figure {
+#browse-tag .post hgroup figure {
     padding: 1rem 0;
     flex: 1 0 fit-content;
     width: 100dvw;
     height: auto;
 }
 
-#browse-projects .post p {
+#browse-tag .post p {
     padding-top: .25rem;
     font-size: .85rem;
     line-height: 1.75;
 }
 
-#browse-projects .post hgroup figure figcaption {
+#browse-tag .post hgroup figure figcaption {
     padding: .5rem 1rem;
     position: static;
     font-size: .85rem;
 }
 
-#browse-projects>div.container.disable-scrollbar.flexy.row>article:nth-child(1)>hgroup>figure>a>div.kg-bookmark-thumbnail {
+#browse-tag>div.container.disable-scrollbar.flexy.row>article:nth-child(1)>hgroup>figure>a>div.kg-bookmark-thumbnail {
     width: 12rem;
 }
 
-#browse-projects .post hgroup figure div {
+#browse-tag .post hgroup figure div {
     font-size: .85rem;
     text-align: start;
     line-height: 1.85;
     max-height: none;
 }
 
-#browse-projects .post hgroup figure div #browse-projects .post hgroup figure>div {
+#browse-tag .post hgroup figure div #browse-tag .post hgroup figure>div {
     padding: .5rem;
 }
 
-#browse-projects .filters {
+#browse-tag .filters {
     padding: 0 1rem;
     flex: 0 1 auto;
     gap: 2rem;
 }
 
-#browse-projects .filters label {
+#browse-tag .filters label {
     gap: .5rem;
 }
 
 .post .cards {
+    min-height: auto;
     background-color: gold !important;
     justify-content: center;
+}
+
+.post .cards > p {
+    text-align: center;
+}
+
+.post .cards > p.get-posts-error {
+    display: none;
 }
 
 .post .cards hgroup {
