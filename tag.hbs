@@ -61,11 +61,11 @@
             <option value="wandsworth">Wandsworth</option>
             <option value="westminster">Westminster</option>
         </select></label>
-    </hgroup>{{/has}}
+    </hgroup>{{/has}}{{/tag}}
     {{log this}}
     <div class="container disable-scrollbar flexy row">
         {{#foreach posts}}<article class="{{post_class}} flexy row{{#if @even}} reverse{{/if}} shadowed" data-index="{{@index}}" data-play-state="running" title="{{title}}">
-            {{log post}}
+            {{log posts}}
             <hgroup class="flexy">
                 <h3 id="{{slug}}">{{title}}</h3>
                 {{content}}
@@ -77,9 +77,7 @@
         </article>{{else}}<p class="get-posts-error">Error&colon; {{error}}</p>{{/foreach}}
         {{log pagination}}
         {{!-- Previous/next page links - displayed on every page --}}
-        {{#if pagination}}{{pagination}}{{/if}}
         {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
     </div>
 </section>
-{{> "loop"}}
-{{/tag}}
+{{#tag}}{{> "loop"}}{{/tag}}

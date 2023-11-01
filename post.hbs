@@ -26,6 +26,7 @@
     {{#prev_post in="primary_tag"}}<a href="{{url}}">{{title}}</a>{{/prev_post}}
     {{#next_post in="primary_tag"}}<a href="{{url}}">{{title}}</a>{{/next_post}}
 </footer>
+{{#primary_tag}}{{> "loop"}}{{/primary_tag}}
 {{> "cta-contact"}}
 {{/post}}
 {{/is}}

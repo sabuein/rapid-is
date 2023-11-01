@@ -1,6 +1,6 @@
 <!-- featured.hbs -->
 <section id="featured-posts" class="cards palette flexy row">
-    {{#get "posts" include="authors, tags" filter="featured:true+visibility:public+tag:{{slug}}" order="featured desc, published_at asc" limit="3" as |featured pages|}}{{^if featured}}<p>No featured content&excl;</p>
+    {{#get "posts" include="authors, tags" filter="featured:true+visibility:public+tag:{{slug}}" order="featured desc, published_at asc" limit="3" as |featured pages|}}{{^if featured}}<p class="total-results">Found no featured posts&excl;</p>
     <p class="get-posts-error">{{error}}</p>
 </section>{{else}}<hgroup class="flexy">
         <h2 id="featured-title" title="Featured">Featured</h2>
@@ -20,6 +20,6 @@
                 </p>
             </div>
         </article>{{/foreach}}
-        <p class="pagination">Found ({{pages.total}}) featured posts</p>
+        <p class="total-results">{{plural pages.total empty="Found no results" singular="Found % result" plural="Found % results"}}&excl;</p>
     </div>{{/if}}{{/get}}
 </section>

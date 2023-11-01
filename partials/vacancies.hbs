@@ -24,6 +24,6 @@
             </footer>
         </article>{{else}}<pre>Thank you for your interest&period; Unfortunately&comma; we are not hiring at this time&period;</pre>
         <pre>Please check back as we will most certainly be looking for great people to join our team in the future&period;</pre>{{/foreach}}
-        <pre class="pagination">Found ({{pages.total}}) job vacancies&period;</pre>{{else}}<p class="get-posts-error">{{error}}</p>{{/get}}
+        <pre class="total-results">{{plural pages.total empty="Found no job vacancies" singular="Found % job vacancies" plural="Found % job vacancies"}}&excl;</pre>{{else}}<p class="get-posts-error">{{error}}</p>{{/get}}
     </div>
 </section>

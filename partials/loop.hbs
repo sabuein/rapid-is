@@ -2,12 +2,11 @@
 <section class="loop palette flexy">
     <hgroup class="flexy">
         <h3>All <span class="loop-name">{{name}}</span>&hellip;</h3>
-        {{#get "posts" include="tags,authors" filter="tag:{{slug}}+visibility:public" order="published_at asc" limit=@config.posts_per_page as |post pages|}}{{^if post}}<p>No content&excl;</p>
+        {{#get "posts" include="tags,authors" filter="tag:{{slug}}+visibility:public" order="published_at asc" limit="all" as |post pages|}}{{^if post}}<p>No content&excl;</p>
         <p class="get-posts-error">{{error}}</p>
-        </hgroup>{{else}}</hgroup>
+    </hgroup>{{else}}</hgroup>
     <ul class="container flexy">
         {{#foreach post}}<li class="flexy {{#if @even}}even{{else}}odd{{/if}}"><a href="{{url absolute='true'}}" title="{{title}}">{{title}} <span>Featured</span></a></li>{{/foreach}}
     </ul>
-    {{log pagination}}
-    {{pagination}}{{/if}}{{/get}}
+    <p class="total-results">{{plural pages.total empty="Found no results" singular="Found % result" plural="Found % results"}}&excl;</p>{{/if}}{{/get}}
 </section>
