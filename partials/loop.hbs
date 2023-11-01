@@ -1,13 +1,13 @@
 <!-- loop.hbs -->
-<header>
-    <h3>You might also like&hellip;</h3>
-</header>
-{{#get "posts" include="tags,authors" filter="primary_tag:{{slug}}+visibility:public" limit="all" order="published_at asc" limit=@config.posts_per_page as |post|}}
-{{#foreach post}}
-<article class="{{#if @even}}even{{else}}odd{{/if}}">
-    <h2>{{title}}</h2>
-    <p>Featured</p>
-    <a href="{{url}}" type="text/html" class="flexy">Learn more</a>
-</article>
-{{/foreach}}
-{{/get}}
+<section class="loop palette flexy">
+    <hgroup class="flexy">
+        <h3>All <span class="loop-name">{{name}}</span>&hellip;</h3>
+        {{#get "posts" include="tags,authors" filter="tag:{{slug}}+visibility:public" order="published_at asc" limit=@config.posts_per_page as |post pages|}}{{^if post}}<p>No content&excl;</p>
+        <p class="get-posts-error">{{error}}</p>
+        </hgroup>{{else}}</hgroup>
+    <ul class="container flexy">
+        {{#foreach post}}<li class="flexy {{#if @even}}even{{else}}odd{{/if}}"><a href="{{url absolute='true'}}" title="{{title}}">{{title}} <span>Featured</span></a></li>{{/foreach}}
+    </ul>
+    {{log pagination}}
+    {{pagination}}{{/if}}{{/get}}
+</section>

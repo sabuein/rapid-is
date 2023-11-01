@@ -1,6 +1,8 @@
-<!-- three-posts.hbs -->
-{{#get "posts" include="authors, tags" filter="featured:true+visibility:public+tag:{{slug}}" order="featured desc, published_at asc" limit="3" as |featured pages|}}{{#if featured}}<section id="featured-posts" class="cards palette flexy row">
-    <hgroup class="flexy">
+<!-- featured.hbs -->
+<section id="featured-posts" class="cards palette flexy row">
+    {{#get "posts" include="authors, tags" filter="featured:true+visibility:public+tag:{{slug}}" order="featured desc, published_at asc" limit="3" as |featured pages|}}{{^if featured}}<p>No featured content&excl;</p>
+    <p class="get-posts-error">{{error}}</p>
+</section>{{else}}<hgroup class="flexy">
         <h2 id="featured-title" title="Featured">Featured</h2>
     </hgroup>
     <div class="container flexy row">
@@ -17,12 +19,7 @@
                     {{excerpt words="36"}}
                 </p>
             </div>
-        </article>{{else}}<p>No posts&excl;</p>{{/foreach}}
+        </article>{{/foreach}}
         <p class="pagination">Found ({{pages.total}}) featured posts</p>
-    </div>
-    {{!--<footer class="flexy">
-        <a href="#browse-projects" title="Continue" class="shadowed">
-            {{> "icons/angle-down"}}
-        </a>
-    </footer>--}}
-</section>{{else}}<p class="get-posts-error">{{error}}</p>{{/if}}{{/get}}
+    </div>{{/if}}{{/get}}
+</section>

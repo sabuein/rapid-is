@@ -1,5 +1,5 @@
 <!-- pagination.hbs -->
-<nav class="pagination" role="navigation">
+<nav class="pagination flexy" role="navigation">
     <p>{{#if prev}}<a class="newer-posts" href="{{page_url prev}}"><span aria-hidden="true">&larr;</span> Newer Posts</a>{{/if}} <span class="page-number">Page {{page}} of {{pages}}</span> {{#if next}}<a class="older-posts" href="{{page_url next}}">Older Posts <span aria-hidden="true">&rarr;</span></a>{{/if}}</p>
-    <p class="pagination">{{plural pagination.total empty="No search results found" singular="% search result found" plural="% search results found"}}&period;</p>
+    <p class="pagination">{{plural pagination.total empty="No results found" singular="% result found" plural="% results found"}}&period;</p>
 </nav>
