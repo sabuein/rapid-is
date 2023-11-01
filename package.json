@@ -1,6 +1,6 @@
 {
     "name": "rapid-information-systems",
-    "description": "A Ghost theme for Rapid Information Systems",
+    "description": "A custom Ghost theme for Rapid Information Systems",
     "demo": "https://www.rapid-is.co.uk/",
     "version": "1.0.0",
     "engines": {
@@ -16,7 +16,9 @@
         "check": "npx gscan .",
         "start": "ghost start -d ~/my/instances/ghost/",
         "restart": "ghost restart -d ~/my/instances/ghost/",
+        "stop": "ghost stop -d ~/my/instances/ghost/",
         "update": "ghost update -d ~/my/instances/ghost/",
+        "debug": "ghost run -D -d ~/my/instances/ghost/",
         "zipl": "zip -r /home/sabuein/Desktop/rapid-is.zip * -x *.zip /assets/labs/* .gitignore",
         "zipw": "zip -r /mnt/c/Users/Sala/Desktop/rapid-is.zip * -x *.zip /assets/labs/* .gitignore"
     },
