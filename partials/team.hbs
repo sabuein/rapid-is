@@ -9,7 +9,7 @@
         {{#get "posts" filter="tag:hash-team-member+visibility:public" order="featured desc, published_at asc" limit=6 as |members pages|}}
         {{#foreach members}}<article class="{{post_class}} flexy row shadowed" data-index="{{@index}}" data-play-state="running" title="{{title}}">
             <header class="flexy">
-                <h3>{{title}}</h3>
+                <h3 id="{{slug}}" title="{{title}}">{{title}}</h3>
                 {{#if feature_image}}<figure class="bg-image" style="background-image: url({{img_url feature_image absolute='true'}});">
                     {{#has slug="kumar-modi"}}
                     {{> "drawings/male-profile-pic"}}
@@ -45,9 +45,6 @@
                 {{else has slug="salaheddin-abuein"}}
                 <ul class="social-icons flexy row">
                     <li class="flexy"><a href="https://www.linkedin.com/in/sabuein/" title="LinkedIn" target="_blank" rel="noopener"><img src="{{asset 'images/social/linkedin.png'}}" alt="LinkedIn" /></a></li>
-                    <li class="flexy"><a href="https://x.com/sabuein" title="X" target="_blank" rel="noopener">
-                        {{> "icons/x"}}
-                    </a></li>
                     <li class="flexy"><a href="https://github.com/sabuein" title="GitHub" target="_blank" rel="noopener" class="flexy">
                         {{> "icons/github-mark"}}
                     </a></li>
