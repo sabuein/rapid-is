@@ -571,6 +571,16 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
     flex: 0 1 fit-content;
     width: fit-content;
     gap: .5rem;
+    counter-reset: loop-posts;
+}
+
+*.post *.loop.palette *.container a::before {
+    counter-increment: loop-posts;
+    content: counter(loop-posts) ". ";
+}
+
+*.post *.loop.palette *.container a:any-link:not(:active, :focus, :hover) {
+    text-decoration: none;
 }
 
 *.post *.loop.palette *.pagination {
@@ -1274,6 +1284,7 @@ a[type="text/html"] {
     --link-button-disabled: rgb(244, 243, 241);
 }
 
+a:focus,
 a:any-link,
 a:-webkit-any-link {
     /* WebKit browsers */
@@ -1284,7 +1295,7 @@ a:-webkit-any-link {
     max-width: 100%;
 }
 
-a:hover {
+a:is(:active, :focus, :hover) {
     color: var(--accent-color-50);
 }
 
@@ -2189,7 +2200,6 @@ pre {
     color: var(--accent-color-110);
     background-color: var(--accent-color-80);
     user-select: none;
-    font-size: .65rem;
     text-align: center;
 }
 
@@ -2938,12 +2948,14 @@ footer:has(#sharing-is-caring) {
 }
 
 #start-journey {
+    padding: 2rem 4rem;
     align-items: flex-start;
     justify-content: center;
 }
 
 #start-journey hgroup {
     max-width: 75%;
+    gap: 1rem;
 }
 
 #start-journey hgroup :is(h2, p) {
@@ -2957,6 +2969,7 @@ footer:has(#sharing-is-caring) {
 }
 
 *.post>*.heading.flexy.row {
+    padding: 2rem;
     flex: 1 1 auto;
     min-height: auto;
     gap: 4rem;
@@ -3884,7 +3897,7 @@ form#search-support input[type="search"] {
     flex: 0 1 100dvw;
     width: 100dvw;
     height: auto;
-    align-items: flex-end;
+    align-items: flex-start;
     gap: 1rem;
 }
 
@@ -3920,13 +3933,12 @@ form#search-support input[type="search"] {
 }
 
 #browse-tag .container .post {
-    flex: 1 1 40rem;
-    width: 40rem;
+    flex: 0 1 60rem;
+    width: 60rem;
     min-height: auto;
 }
 
 #browse-tag .container .post> :is(hgroup, figure) {
-    padding: 2rem;
     border: 0;
     flex: 1 0 0%;
     width: 40rem;
@@ -3934,9 +3946,9 @@ form#search-support input[type="search"] {
 }
 
 #browse-tag .container .post>hgroup {
+    padding: 1rem;
     flex: 2 1 40rem;
     width: 40rem;
-    gap: 0;
 }
 
 #browse-tag .container .post>hgroup h3 {
@@ -3944,9 +3956,19 @@ form#search-support input[type="search"] {
     font-size: 1.85rem;
 }
 
+#browse-tag .container .post>hgroup a:any-link:not(:active, :focus, :hover) {
+    text-decoration: none;
+}
+
 #browse-tag .container .post>figure {
-    flex: 1 1 20rem;
+    margin: 1rem;
+    padding: 0;
     font-size: .85rem;
+    height: 15rem;
+    flex: 1 1 15rem;
+    width: 15rem;
+    background-attachment: initial;
+    background-color: transparent !important;
 }
 
 #browse-tag .post hgroup figure {
@@ -4406,6 +4428,7 @@ main > section.row > footer {
     gap: 0;
 }
 
+*.post *.loop.palette *.container li:has(a:focus, a:hover),
 #default-footer li:has(a:focus, a:hover) {
     list-style-type: disclosure-closed;
 }
