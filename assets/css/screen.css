@@ -241,8 +241,7 @@ main #content .kg-toggle-card .kg-toggle-content p {
 .page-about [data-divider="top"] path,
 .page-careers [data-divider="top"] path,
 .page-template.page-support footer [data-divider="top"] path,
-.page-template.page-team footer [data-divider="top"] path,
-.tag-template.tag-projects footer [data-divider="top"] path {
+.page-template.page-team footer [data-divider="top"] path {
     fill: var(--accent-color-100);
 }
 
@@ -523,7 +522,6 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
     color: var(--color-black);
     background-color: var(--color-white);
     font-size: 1.25rem;
-    min-height: 90dvh;
     overflow: hidden;
     gap: 0;
 }
@@ -534,10 +532,13 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
     flex: 1 1 100%;
     width: 100dvw;
     max-width: 100%;
-    min-height: 100dvh;
     height: auto;
     max-height: 100%;
     gap: 1rem;
+}
+
+*.home-template *.post *.palette {
+    min-height: 100dvh;
 }
 
 *.post *.palette:nth-child(odd) {
@@ -685,7 +686,7 @@ figure[tabindex="0"] {
     align-content: flex-start;
 }
 
-body.tag-case-studies {
+body.post-template {
 
     *.post #content {
         max-width: 1440px;
@@ -710,17 +711,17 @@ body.tag-case-studies {
     }
 }
 
-.rapid-captions {
+*.rapid-captions {
     height: auto;
     max-width: 85%;
     background-color: inherit;
 }
 
-.rapid-captions svg {
+*.rapid-captions svg {
     overflow: visible;
 }
 
-.rapid-captions figcaption {
+*.rapid-captions figcaption {
     opacity: 0;
     visibility: hidden;
     position: absolute;
@@ -731,19 +732,19 @@ body.tag-case-studies {
     z-index: 0;
 }
 
-.rapid-captions figcaption:nth-of-type(1) {
+*.rapid-captions figcaption:nth-of-type(1) {
     display: flex;
 }
 
-.rapid-captions figcaption h2 {
+*.rapid-captions figcaption h2 {
     font-size: 2.5rem;
 }
 
-/*.rapid-captions figcaption p {
+/**.rapid-captions figcaption p {
     display: none;
 }*/
 
-.rapid-captions svg #icon path:is(:hover, :active, :focus, :target) {
+*.rapid-captions svg #icon path:is(:hover, :active, :focus, :target) {
     cursor: pointer;
     stroke: var(--accent-color-50);
     stroke-width: 0;
@@ -754,27 +755,27 @@ body.tag-case-studies {
 }
 
 
-.rapid-captions svg #name {
+*.rapid-captions svg #name {
     animation: hideme 500ms linear 0s 1;
     visibility: visible;
 }
 
-.rapid-captions svg #icon:has(path:is(:hover, :active, :focus, :target)) path:not(:hover, :active, :focus, :target) {
+*.rapid-captions svg #icon:has(path:is(:hover, :active, :focus, :target)) path:not(:hover, :active, :focus, :target) {
     opacity: .75;
     scale: .5;
     transition: all linear 500ms 0s;
 }
 
-.rapid-captions svg #icon:has(path:is(:hover, :active, :focus))~#name {
+*.rapid-captions svg #icon:has(path:is(:hover, :active, :focus))~#name {
     visibility: hidden;
 }
 
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(1):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :hover, :focus))~figcaption:nth-of-type(2),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :hover, :focus))~figcaption:nth-of-type(3),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :hover, :focus))~figcaption:nth-of-type(4),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :hover, :focus))~figcaption:nth-of-type(5),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :hover, :focus))~figcaption:nth-of-type(6) {
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(1):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :hover, :focus))~figcaption:nth-of-type(2),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :hover, :focus))~figcaption:nth-of-type(3),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :hover, :focus))~figcaption:nth-of-type(4),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :hover, :focus))~figcaption:nth-of-type(5),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :hover, :focus))~figcaption:nth-of-type(6) {
     animation: fadein 750ms linear 0s 1;
     opacity: 1;
     visibility: visible;
@@ -783,29 +784,29 @@ body.tag-case-studies {
     transition: visibility linear 500ms 0s;
 }
 
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
-.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :hover, :focus))~figcaption:nth-of-type(1) {
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :hover, :focus))~figcaption:nth-of-type(1) {
     visibility: hidden;
 }
 
-.rapid-captions svg #icon:focus-within,
-.rapid-captions svg #icon:has(path:is(:hover, :active, :focus, :target)) {
+*.rapid-captions svg #icon:focus-within,
+*.rapid-captions svg #icon:has(path:is(:hover, :active, :focus, :target)) {
     animation-play-state: paused;
     scale: .8;
 }
 
-.rapid-captions svg:has(#rapid-is #icon path:is(:active, :focus))~figcaption {
+*.rapid-captions svg:has(#rapid-is #icon path:is(:active, :focus))~figcaption {
     z-index: 1;
 }
 
-.rapid-captions svg:has(#rapid-is #icon path:is(:hover))~figcaption {
+*.rapid-captions svg:has(#rapid-is #icon path:is(:hover))~figcaption {
     z-index: 2;
 }
 
-footer svg :is(#icon, #name) {
+footer svg *:is(#icon, #name) {
     fill: var(--accent-color-100);
 }
 
@@ -899,60 +900,60 @@ svg #name {
     }
 }
 
-svg .fig-btns {
+svg *.fig-btns {
     animation: accent-colors 5s infinite 0s alternate;
 }
 
-svg .root-node {
+svg *.root-node {
     animation: accent-colors 2s infinite 1s alternate-reverse;
 }
 
-svg .child-node {
+svg *.child-node {
     animation: accent-colors 3s infinite 0s alternate;
 }
 
-svg .child-node:nth-of-type(odd) {
+svg *.child-node:nth-of-type(odd) {
     animation-delay: 1s;
 }
 
-svg .child-node:nth-of-type(odd):nth-of-type(3) {
+svg *.child-node:nth-of-type(odd):nth-of-type(3) {
     animation-delay: 2s;
 }
 
-svg .child-node:nth-of-type(even) {
+svg *.child-node:nth-of-type(even) {
     animation-delay: 2s;
 }
 
-svg .child-node:nth-of-type(even):nth-of-type(3) {
+svg *.child-node:nth-of-type(even):nth-of-type(3) {
     animation-delay: 1s;
 }
 
-svg .grand-node {
+svg *.grand-node {
     animation: accent-colors 4s infinite 0s alternate-reverse;
 }
 
-svg .grand-node:nth-of-type(odd) {
+svg *.grand-node:nth-of-type(odd) {
     animation-delay: 3s;
 }
 
-svg .grand-node:nth-of-type(even) {
+svg *.grand-node:nth-of-type(even) {
     animation-delay: 4s;
 }
 
-svg .node-edge {
+svg *.node-edge {
     animation: mid-accent-colors 1500ms infinite 0s alternate;
 }
 
-svg .node-edge:nth-of-type(odd) {
+svg *.node-edge:nth-of-type(odd) {
     animation-duration: 2000ms;
     animation-delay: 2s;
 }
 
-svg .node-edge:nth-of-type(even) {
+svg *.node-edge:nth-of-type(even) {
     animation-delay: 1s;
 }
 
-svg .feet {
+svg *.feet {
     transform-origin: revert;
     transform-box: view-box;
 }
@@ -1054,9 +1055,9 @@ svg .feet {
     padding: 0 1rem;
 }
 
-#tabs-about {
+/*#tabs-about {
     background-color: gold;
-}
+}*/
 
 *.post #content [data-divider="bottom"] path {
     fill: royalblue;
@@ -1122,8 +1123,8 @@ main #content table {
 }
 
 main #content table thead tr {
-    color: var(--accent-color-110);
-    background-color: var(--accent-color-60);
+    color: var(--accent-color-100);
+    background-color: var(--accent-color);
     user-select: none;
     cursor: not-allowed;
 }
@@ -1134,12 +1135,12 @@ main #content table thead th {
 
 main #content table tbody tr:is(:focus, :hover) {
     cursor: pointer;
-    color: var(--accent-color-110);
+    color: var(--color-white);
     background-color: var(--accent-color-50);
 }
 
 main #content table tbody tr:active {
-    background-color: var(--accent-color-50);
+    background-color: var(--accent-color-70);
 }
 
 main #content table tbody tr:active {
@@ -1272,6 +1273,10 @@ a[type="text/html"] {
     transition: all 200ms ease-out 0s;
 }
 
+select {
+    cursor: pointer;
+}
+
 :root {
     --link-button-text: rgb(75, 73, 70);
     --link-button-primary: rgb(47, 192, 82);
@@ -1319,8 +1324,8 @@ a:is(:active, :focus, :hover) {
     font-size: 1rem;
     font-weight: 500;
     -webkit-appearance: button;
-    color: var(--accent-color-100) !important;
-    background-color: var(--accent-color-50) !important;
+    color: var(--accent-color-100);
+    background-color: var(--accent-color-50);
     cursor: pointer;
     transform: none;
 }
@@ -1328,8 +1333,8 @@ a:is(:active, :focus, :hover) {
 *:is(input[type="reset"]),
 *:is(button[type="button"]).invert,
 a[type="text/html"].invert {
-    color: var(--accent-color-50) !important;
-    background-color: var(--accent-color-90) !important;
+    color: var(--accent-color-50);
+    background-color: var(--accent-color-90);
 }
 
 *:is(button[type="button"],
@@ -1337,18 +1342,18 @@ a[type="text/html"].invert {
     input[type="submit"],
     input[type="reset"],
     a[type="text/html"]):is(:focus, :focus-within, :hover, :valid) {
-    color: var(--accent-color-110) !important;
+    color: var(--color-white);
     transform: translate(0, -.1rem);
-    -webkit-box-shadow: .1rem .1rem 0 var(--color-black-40) !important;
-    box-shadow: .1rem .1rem 0 var(--color-black-40) !important;
+    -webkit-box-shadow: .1rem .1rem 0 var(--color-black-40);
+    box-shadow: .1rem .1rem 0 var(--color-black-40);
     transition: all ease 200ms 0s;
 }
 
 *:is(input[type="reset"]):is(:focus, :focus-within, :hover, :valid),
 *:is(button[type="button"]).invert:is(:focus, :focus-within, :hover, :valid),
 *:is(a[type="text/html"]).invert:is(:focus, :focus-within, :hover, :valid) {
-    color: var(--accent-color) !important;
-    background-color: var(--accent-color-100) !important;
+    color: var(--accent-color);
+    background-color: var(--accent-color-100);
 }
 
 *:is(input:-webkit-autofill,
@@ -1363,7 +1368,7 @@ a[type="text/html"].invert {
     textarea,
     select) {
     padding: .5rem;
-    background-color: var(--color-white) !important;
+    background-color: var(--color-white);
     writing-mode: horizontal-tb;
     border: thin solid var(--color-mid-grey);
 }
@@ -1999,7 +2004,7 @@ ul.solutions-nav li {
 
 nav li.nav-current {
     padding: .25rem .75rem;
-    background-color: var(--accent-color-100);
+    background-color: var(--link-button-secondary);
 }
 
 ul.nav.flexy.row a,
@@ -2337,8 +2342,20 @@ a[href*="main-content"]:is(:focus, :hover) {
 a[title~="Continue"] svg,
 a[href*="main-content"] svg {
     width: 3rem;
-    background-color: var(--accent-color-50);
+    background-color: var(--accent-color);
     transition: all 250ms ease 0s;
+}
+
+:root {
+    --link-button-text: rgb(75, 73, 70);
+    --link-button-primary: rgb(47, 192, 82);
+    --link-button-secondary: rgb(238, 237, 233);
+    --link-button-tertiary: rgb(255, 255, 255);
+    --link-button-destructive: rgb(253, 98, 50);
+    --link-button-primary-secondary: rgb(30, 157, 187);
+    --link-button-primary-blue-300: rgb(36, 183, 219);
+    --link-button-primary-tertiary: rgb(246, 172, 47);
+    --link-button-disabled: rgb(244, 243, 241);
 }
 
 #main-message a[title~="Continue"] svg,
@@ -2969,7 +2986,7 @@ footer:has(#sharing-is-caring) {
 }
 
 *.post>*.heading.flexy.row {
-    padding: 2rem;
+    padding: 3rem 5rem;
     flex: 1 1 auto;
     min-height: auto;
     gap: 4rem;
@@ -3045,8 +3062,12 @@ footer:has(#sharing-is-caring) {
     align-items: start;
 }
 
+#tabs-about header h2 {
+    color: var(--accent-color);
+}
+
 #tabs-about .buttons {
-    border: thick solid currentColor;
+    border: thick solid var(--accent-color);
     width: 100dvw;
     justify-content: space-between;
     gap: 0;
@@ -3061,28 +3082,27 @@ footer:has(#sharing-is-caring) {
     font-weight: 600;
     text-transform: uppercase;
     text-decoration: none;
-    color: var(--color-white);
-    background-color: var(--color-black);
+    color: var(--accent-color-100);
+    background-color: var(--accent-color);
     transition: all ease-in-out 250ms 0s;
 }
 
 #tabs-about .buttons a:hover {
     flex-grow: 2;
-    color: var(--color-black);
-    background-color: var(--accent-color-120);
+    color: var(--color-white);
+    background-color: var(--accent-color-50);
     transition: all ease-in-out 250ms 0s;
 }
 
 #tabs-about .buttons a.active {
     flex-grow: 3;
-    color: var(--color-black);
-    background-color: gold;
+    color: var(--accent-color);
+    background-color: transparent;
     transition: all ease-in-out 250ms 0s;
 }
 
 #tabs-about article {
     padding: 0 1rem;
-    background-color: gold;
 }
 
 #tabs-about article hgroup {
@@ -3105,7 +3125,8 @@ footer:has(#sharing-is-caring) {
 }
 
 #tabs-about article hgroup.active {
-    border: thick dashed currentColor;
+    border: thick dashed var(--accent-color);
+    color: var(--accent-color);
     display: flex;
     opacity: 1;
     z-index: 1;
@@ -3116,6 +3137,7 @@ footer:has(#sharing-is-caring) {
     flex: 1 0 100%;
     width: 100dvw;
     max-width: 100%;
+    color: var(--accent-color);
 }
 
 #tabs-about article>p {
@@ -3529,7 +3551,7 @@ ol {
 }
 
 #meet-our-team .post div {
-    padding: 0 1rem;
+    padding: 1rem;
     padding-top: 1.5rem;
     align-items: flex-start;
 }
@@ -3906,6 +3928,7 @@ form#search-support input[type="search"] {
     flex: 5 1 fit-content;
     width: fit-content;
     text-align: end;
+    place-self: center;
 }
 
 #browse-tag select {
@@ -3935,7 +3958,6 @@ form#search-support input[type="search"] {
 #browse-tag .container .post {
     flex: 0 1 60rem;
     width: 60rem;
-    min-height: auto;
 }
 
 #browse-tag .container .post> :is(hgroup, figure) {
@@ -3984,6 +4006,14 @@ form#search-support input[type="search"] {
     line-height: 1.75;
 }
 
+#browse-tag .post a[type="text/html"]:any-link {
+    color: var(--accent-color-100);
+}
+
+#browse-tag .post a[type="text/html"]:is(:active, :focus, :hover) {
+    color: var(--color-white);
+}
+
 #browse-tag .post hgroup figure figcaption {
     padding: .5rem 1rem;
     position: static;
@@ -4005,37 +4035,31 @@ form#search-support input[type="search"] {
     padding: .5rem;
 }
 
-#browse-tag .filters {
+#browse-tag *.filters {
     padding: 0 1rem;
     flex: 0 1 auto;
     gap: 2rem;
 }
 
-#browse-tag .filters label {
+#browse-tag *.filters label {
     gap: .5rem;
 }
 
-.post .cards {
-    min-height: auto;
-    background-color: gold !important;
-    justify-content: center;
-}
-
-.post .cards > p {
+*.post *.cards > p {
     text-align: center;
 }
 
-.post .cards > p.get-posts-error {
+*.post *.cards > p.get-posts-error {
     display: none;
 }
 
-.post .cards hgroup {
+*.post *.cards hgroup {
     align-content: flex-start;
     align-items: flex-start;
     height: auto !important;
 }
 
-.post .cards .container {
+*.post *.cards *.container {
     height: 24rem;
     height: inherit;
     width: inherit;
@@ -4174,13 +4198,14 @@ form#search-support input[type="search"] {
 }
 
 .flip-card-front figcaption {
+    display: none;
     height: 5rem;
 }
 
 .flip-card-front h3 {
     position: absolute;
     left: 0;
-    top: 0;
+    text-align: center;
     padding: .5rem 1rem;
     font-size: 2.75rem;
     width: 100%;
@@ -4195,6 +4220,15 @@ form#search-support input[type="search"] {
     transform: rotateY(-180deg);
     z-index: 1;
     cursor: text;
+}
+
+.flip-card-back a[type="text/html"]:any-link {
+    color: var(--accent-color-70);
+    background-color: var(--accent-color-110);
+}
+
+.flip-card-back a[type="text/html"]:is(:active, :focus, :hover) {
+    color: var(--accent-color-50);
 }
 
 .urlbuilder input[type="text"] {
