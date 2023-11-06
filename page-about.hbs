@@ -12,6 +12,14 @@
         {{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}
     </figure>{{/if}}{{/match}}
     <footer class="flexy">
+        <a href="#rapid-captions" title="Continue" class="shadowed">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
+</section>
+<section id="rapid-captions" class="{{post_class}} palette flexy">
+    {{> "captions"}}
+    <footer class="flexy">
         <a href="#content" title="Continue" class="shadowed">
             {{> "icons/angle-down"}}
         </a>
