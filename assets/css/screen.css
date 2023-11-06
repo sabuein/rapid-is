@@ -19,6 +19,16 @@
     width: 100dvw;
 }
 
+*.kg-button-card a.kg-btn-accent {
+    color: var(--accent-color-100);
+    background-color: var(--accent-color-50);
+}
+
+*.kg-button-card a.kg-btn-accent:hover {
+    color: var(--color-white);
+    background-color: var(--accent-color);
+}
+
 main #content a.kg-btn-accent {
     color: var(--accent-color-110);
 }
@@ -238,7 +248,6 @@ main #content .kg-toggle-card .kg-toggle-content p {
     fill: var(--accent-color-110);
 }
 
-.page-about [data-divider="top"] path,
 .page-careers [data-divider="top"] path,
 .page-template.page-support footer [data-divider="top"] path,
 .page-template.page-team footer [data-divider="top"] path {
@@ -1320,7 +1329,8 @@ a:is(:active, :focus, :hover) {
     input[type="button"],
     input[type="submit"],
     input[type="reset"],
-    a[type="text/html"]) {
+    a[type="text/html"]:any-link,
+    a[type="text/html"]:-webkit-any-link) {
     font-size: 1rem;
     font-weight: 500;
     -webkit-appearance: button;
@@ -3056,6 +3066,10 @@ footer:has(#sharing-is-caring) {
 /* End of general partials styles */
 
 /* Start of tabs-about partial styles */
+
+#tabs-about {
+    padding: 8rem 5rem;
+}
 
 #tabs-about header {
     padding: 0 1rem;
