@@ -95,12 +95,12 @@
         <a href="/solutions/" title="Learn more" type="text/html" class="shadowed flexy">Learn more</a>
     </div>
     <footer class="flexy">
-        <a href="#streamlining-safety-checks" title="Continue" class="shadowed">
+        <a href="#client-testimonial" title="Continue" class="shadowed">
             {{> "icons/angle-down"}}
         </a>
     </footer>
 </section>
-{{else has slug="streamlining-safety-checks-repairs-and-complaints"}}<section id="streamlining-safety-checks" class="{{post_class}} palette flexy row reverse">
+{{!--else has slug="streamlining-safety-checks-repairs-and-complaints"}}<section id="streamlining-safety-checks" class="{{post_class}} palette flexy row reverse">
     <hgroup class="flexy row" title="{{title}}">
         <h2 id="{{slug}}" title="{{title}}">{{title}}</h2>
         <p>{{content}}</p>
@@ -119,6 +119,6 @@
             {{> "icons/angle-down"}}
         </a>
     </footer>
-</section>{{/has}}{{else}}<p>No content&excl;</p>{{/foreach}}{{else}}<p class="get-posts-error">{{error}}</p>{{/get}}
-{{> "testimonials"}}
+</section>--}}{{/has}}{{else}}<p>No content&excl;</p>{{/foreach}}{{else}}<p class="get-posts-error">{{error}}</p>{{/get}}
+{{> "testimonial"}}
 {{/is}}
