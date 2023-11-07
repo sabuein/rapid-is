@@ -14,14 +14,14 @@
                 {{> "icons/angle-down"}}</a></li>--}}{{else}}<li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}">{{label}}</a></li>{{/has}}
         {{/foreach}}
     </ul>
-    <ul class="about-nav flexy row">
-        <li><a href="/team/" title="Careers" class="flexy row">
+    <ul class="about-nav flexy">
+        <li{{#post}}{{#has slug="team"}} class="nav-current{{/has}}"{{/post}} role="menuitem"><a href="/team/" title="Careers" class="flexy row">
         {{> "icons/angle-down"}}
         <span>Team</span></a></li>
-        <li><a href="/careers/" title="Team" class="flexy row">
+        <li{{#post}}{{#has slug="careers"}} class="nav-current{{/has}}"{{/post}} role="menuitem"><a href="/careers/" title="Team" class="flexy row">
         {{> "icons/angle-down"}}
         <span>Careers</span></a></li>
-        <li><a href="/support/" title="Support" class="flexy row">
+        <li{{#post}}{{#has slug="support"}} class="nav-current{{/has}}"{{/post}} role="menuitem"><a href="/support/" title="Support" class="flexy row">
         {{> "icons/angle-down"}}
         <span>Support</span></a></li>
     </ul>

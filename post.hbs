@@ -8,10 +8,11 @@
         <p>{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{excerpt words="51"}}&hellip;{{/if}}</p>
     </hgroup>
     {{#if feature_image}}<figure class="flexy bg-image" style="{{#primary_tag}}{{#if accent_color}}background-color: {{accent_color}}; {{/if}}{{/primary_tag}}background-image: url({{img_url feature_image absolute='true'}})">
-        <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" />
+        <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" loading="lazy" />
         {{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}
     </figure>{{/if}}{{/match}}
     <footer class="flexy">
+        <p class="reading-time">{{reading_time minute=(t "Only a minute") minutes=(t "Takes % minutes")}} to read&hellip;</p>
         <a href="#content" title="Continue" class="shadowed">
             {{> "icons/angle-down"}}
         </a>
@@ -22,7 +23,6 @@
 </article>
 <footer class="palette flexy">
     {{> "sharing"}}
-    <p>{{reading_time minute=(t "Only a minute") minutes=(t "Takes % minutes")}}</p>
     {{#prev_post in="primary_tag"}}<a href="{{url}}">{{title}}</a>{{/prev_post}}
     {{#next_post in="primary_tag"}}<a href="{{url}}">{{title}}</a>{{/next_post}}
 </footer>

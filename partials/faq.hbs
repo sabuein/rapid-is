@@ -14,10 +14,12 @@
     </hgroup>
     <article class="flexy">
         <details class="flexy">
+			<script>const showDialog = (string) => document.getElementById(string).showModal();</script>
             <summary class="flexy row"><h5>How do I generate a QR code or obtain a download link for Rapid Mobile&quest;</h5></summary>
-            <p>Make things easy for your users with a QR code or Google Play install url. Enter values for your Rapid platform into the boxes below, and hyperlinks will be generated underneath. You can scan the QR code in the Rapid Mobile app settings menu, or you can launch Google Play and Rapid Mobile will configure itself when it installs.</p>
-            <div class="wpb_wrapper">
-<table class="urlbuilder">
+            <p>Make things easy for your users with a QR code or Google Play install url. Enter values for your Rapid platform into the dialog below, and hyperlinks will be generated underneath. You can scan the QR code in the Rapid Mobile app settings menu, or you can launch Google Play and Rapid Mobile will configure itself when it installs.</p>
+			<button type="button" onclick="showDialog('myBuilder')">Show dialog</button>
+            <dialog id="myBuilder" class="wpb_wrapper">
+<form class="urlbuilder">
 <tbody>
 <tr><td>Server url*</td><td><input id="url_s" type="text"></td></tr>
 <tr><td>&nbsp;</td><td class="urllable">The public url of your Rapid platform server. You must be able to access it from a browser on your  mobile device</td></tr>
@@ -42,7 +44,7 @@
 <tr><td>QR code link</td><td><a id="url_qr" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=500x500&amp;data=s%3Dhttps%3A%2F%2Fwww.rapid-is.co.uk%2Fdemo%26t%3Dtrue%26u%3Duser%26p%3Duser%26a%3Dmobdemo">Show QR code to scan in settings</a></td></tr>
 <tr><td>&nbsp;</td><td class="urllable">Click on the link to show a QR code you can scan to add the settings</td></tr>
 </tbody>
-</table>
+</form>
 
 <script type="text/javascript">
 
@@ -97,7 +99,7 @@ jQuery(document).ready( function() {
 });	
 
 </script>
-		</div>
+		</dialog>
         </details>
     </article>
 </section>
