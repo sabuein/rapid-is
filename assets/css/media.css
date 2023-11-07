@@ -6,11 +6,6 @@
         justify-content: center;
         gap: 5rem;
     }
-
-    #meet-our-team .container .post,
-    .tag-solutions .post .container article {
-        max-width: 25%;
-    }
     
 }
 
@@ -21,11 +16,6 @@
     .tag-solutions .post .container {
         padding: 6rem 5rem;
         gap: 5rem;
-    }
-
-    #meet-our-team .container .post,
-    .tag-solutions .post .container article {
-        max-width: 45%;
     }
     
 }
@@ -47,11 +37,6 @@
         padding: 6rem 4rem;
         gap: 4rem;
     }
-
-    #meet-our-team .container .post,
-    .tag-solutions .post .container article {
-        max-width: 75%;
-    }
     
 }
 
@@ -60,11 +45,6 @@
     .tag-solutions .post .container {
         padding: 6rem 2rem;
         gap: 2rem;
-    }
-
-    #meet-our-team .container .post,
-    .tag-solutions .post .container article {
-        max-width: 85%;
     }
 
     #default-footer > div:first-child :is(figure, div, address) {
@@ -79,11 +59,6 @@
     .tag-solutions .post .container {
         padding: 6rem 1rem;
         gap: 2rem;
-    }
-
-    #meet-our-team .container .post,
-    .tag-solutions .post .container article {
-        max-width: 100%;
     }
 
     #default-footer > div:first-child :is(figure, div, address) {
