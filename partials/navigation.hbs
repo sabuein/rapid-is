@@ -9,9 +9,9 @@
         {{#foreach navigation}}
         {{#has slug="about"}}<li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}" class="flexy row">
             <span>{{label}}</span>
-            {{> "icons/angle-down"}}</a></li>{{else has slug="solutions"}}<li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}" class="flexy row">
+            {{> "icons/angle-down"}}</a></li>{{!--{{else has slug="solutions"}}<li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}" class="flexy row">
                 <span>{{label}}</span>
-                {{> "icons/angle-down"}}</a></li>{{else}}<li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}">{{label}}</a></li>{{/has}}
+                {{> "icons/angle-down"}}</a></li>--}}{{else}}<li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}">{{label}}</a></li>{{/has}}
         {{/foreach}}
     </ul>
     <ul class="about-nav flexy row">
@@ -25,7 +25,7 @@
         {{> "icons/angle-down"}}
         <span>Support</span></a></li>
     </ul>
-    <ul class="solutions-nav flexy row">
+    {{!--<ul class="solutions-nav flexy row">
         <li><a href="/solutions/billing-system/" title="Billing System" class="flexy row">
         {{> "icons/angle-down"}}
         <span>Billing System</span></a></li>
@@ -40,7 +40,7 @@
         <span>Estates</span></a></li>
         <li><a href="/solutions/safety-and-compliance/" title="Safety and Compliance" class="flexy row">
         {{> "icons/angle-down"}}<span>Safety &amp; Compliance</span></a></li>
-    </ul>
+    </ul>--}}
 </nav>
 <span data-html-symbol="trigram-for-heaven">&#9776;</span>
 {{/if}}
