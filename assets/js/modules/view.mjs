@@ -29,7 +29,7 @@ const enableNavMenu = (nav) => {
 const activateMenuItem = (item, link) => {
     item.onmouseover = () => link.focus();
     if (item.classList.contains("nav-about")) document.querySelector("ul.about-nav").onmouseleave = () => link.blur();
-    if (item.classList.contains("nav-solutions")) document.querySelector("ul.solutions-nav").onmouseleave = () => link.blur();
+    // if (item.classList.contains("nav-solutions")) document.querySelector("ul.solutions-nav").onmouseleave = () => link.blur();
 };
 
 const startMainModal = (id, query) => {
