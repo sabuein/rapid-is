@@ -16,21 +16,19 @@
 }
 
 *.kg-card.kg-toggle-card {
+    position: relative;
     width: 100dvw;
 }
 
-*.kg-button-card a.kg-btn-accent {
+main *.kg-button-card a.kg-btn-accent {
     color: var(--accent-color-100);
-    background-color: var(--accent-color-50);
-}
-
-*.kg-button-card a.kg-btn-accent:hover {
-    color: var(--color-white);
     background-color: var(--accent-color);
+    height: 3rem;
 }
 
-main #content a.kg-btn-accent {
-    color: var(--accent-color-110);
+main *.kg-button-card a.kg-btn-accent:hover {
+    color: var(--color-white);
+    background-color: var(--accent-color-50);
 }
 
 main #content div.kg-toggle-heading {
@@ -536,7 +534,7 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
 }
 
 *.post *.palette {
-    padding: 8rem 5rem;
+    padding: 7rem 4rem;
     justify-content: space-evenly;
     flex: 1 1 100%;
     width: 100dvw;
@@ -548,6 +546,10 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
 
 *.home-template *.post *.palette {
     min-height: 100dvh;
+}
+
+*.home-template *.post *.palette hgroup {
+    gap: 1rem;
 }
 
 *.post *.palette:nth-child(odd) {
@@ -801,12 +803,6 @@ body.post-template {
     visibility: hidden;
 }
 
-*.rapid-captions svg #icon:focus-within,
-*.rapid-captions svg #icon:has(path:is(:hover, :active, :focus, :target)) {
-    animation-play-state: paused;
-    scale: .8;
-}
-
 *.rapid-captions svg:has(#rapid-is #icon path:is(:active, :focus))~figcaption {
     z-index: 1;
 }
@@ -834,24 +830,24 @@ svg #icon {
     animation-direction: normal;
     perspective: 400px;
     scale: .8;
-    transition: scale 500ms linear 0s normal;
+    transition: scale 1s linear 250ms normal;
 }
 
 svg #icon:hover {
     scale: .8;
-    transition: scale linear 500ms 0s;
+    transition: scale 1s linear 250ms;
 }
 
 svg:is(:active, :hover, :focus) #rapid-is #icon,
 svg #rapid-is:hover #icon {
     animation-play-state: paused;
     scale: .8;
-    transition: scale linear 500ms 0s;
+    transition: scale 1s linear 250ms;
 }
 
 
 svg #icon path {
-    animation: fadein 1s linear 100ms 1;
+    animation: fadein 1s linear 250ms 1;
     pointer-events: bounding-box;
 }
 
@@ -869,6 +865,11 @@ svg #name {
     outline: 0;
     animation: fadein 1s linear 100ms 1;
     pointer-events: none;
+}
+
+*.rapid-captions svg:focus-within,
+*.rapid-captions svg:has(path:is(:hover, :active, :focus, :target)) {
+    animation-play-state: paused;
 }
 
 @keyframes flip {
@@ -2106,7 +2107,7 @@ ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
 }
 
 #streamlining-safety-checks .cta-button {
-    gap: 3em;
+    gap: 2rem;
 }
 
 #streamlining-safety-checks .cta-button button[type="button"] {
@@ -2301,14 +2302,12 @@ pre {
 }
 
 #main-message {
+    padding: 2rem;
     color: var(--accent-color-110);
     background-color: var(--accent-color-50);
     flex: 1 1 auto;
     min-height: 92dvh;
-}
-
-#main-message h1 {
-    padding-right: 10rem;
+    min-height: auto;
 }
 
 #client-testimonials {
@@ -2417,9 +2416,9 @@ body:not(.home-template) *.flexy.row>hgroup {
 *.flexy.row>hgroup {
     border: 0;
     padding: 1rem;
-    flex: 2 1 60rem;
-    width: 60rem;
-    height: 25rem;
+    flex: 2 1 58rem;
+    width: 58rem;
+    height: auto;
     align-content: center;
     align-items: flex-start;
     transform: none;
@@ -2441,7 +2440,7 @@ body:not(.home-template) *.flexy.row>hgroup {
 *.flexy:not(.row)>hgroup,
 *.flexy:not(.row)>.container {
     direction: ltr;
-    flex: 2 1 fit-content;
+    flex: 0 1 fit-content;
     align-content: flex-start;
     align-items: safe flex-start;
 }
