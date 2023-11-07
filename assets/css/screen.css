@@ -248,12 +248,17 @@ main #content .kg-toggle-card .kg-toggle-content p {
 
 .page-careers [data-divider="top"] path,
 .page-template.page-support footer [data-divider="top"] path,
-.page-template.page-team footer [data-divider="top"] path {
+.page-template.page-team footer [data-divider="top"] path,
+.post-template footer [data-divider="top"] path {
     fill: var(--accent-color-100);
 }
 
 .post-template.tag-solutions [data-divider="top"] path {
     fill: var(--accent-color-110);
+}
+
+*.post *.reading-time {
+    text-align: center;
 }
 
 /* Elements */
@@ -451,7 +456,6 @@ dialog[open] {
 }
 
 form:is([method="dialog"], [method="get"]) {
-    padding: 1rem;
     color: inherit;
     flex: 0 1 80rem;
     width: 80rem;
@@ -460,7 +464,7 @@ form:is([method="dialog"], [method="get"]) {
 
 #get-in-touch #contact {
     flex-basis: auto;
-    width: 55rem;
+    width: 65rem;
 }
 
 #get-in-touch #contact legend {
@@ -488,10 +492,6 @@ form[method="dialog"] fieldset {
 
 #get-in-touch #contact div {
     gap: 1rem;
-}
-
-#get-in-touch #contact .controls {
-    gap: 2rem;
 }
 
 form[method="dialog"] button[formnovalidate] {
@@ -534,7 +534,7 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
 }
 
 *.post *.palette {
-    padding: 7rem 4rem;
+    padding: 7rem 5rem;
     justify-content: space-evenly;
     flex: 1 1 100%;
     width: 100dvw;
@@ -561,8 +561,8 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
 }
 
 *.post *.loop.palette {
-    padding: 2rem;
-    min-height: auto;
+    padding: 3rem 5rem;
+    gap: 2rem;
 }
 
 *.post *.loop.palette hgroup {
@@ -584,6 +584,10 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
     width: fit-content;
     gap: .5rem;
     counter-reset: loop-posts;
+}
+
+*.post *.loop.palette *.container ~ *.total-results {
+    display: none;
 }
 
 *.post *.loop.palette *.container a::before {
@@ -707,8 +711,19 @@ body.post-template {
         width: 75%;
     }
 
-    *.post :is(h1, h2, h3, h4, h5, h6) {
+    *.post :is(h2, h3, h4, h5, h6) {
         color: var(--accent-color);
+    }
+
+    *.post h1 {
+        font-size: 2.85rem;
+        font-weight: 600;
+    }
+
+    *.post h1 ~ p {
+        line-height: 1.65;
+        font-size: 1.5rem;
+        text-align: justify;
     }
 
     *.post #content h2 {
@@ -722,7 +737,7 @@ body.post-template {
     }
 }
 
-*.rapid-captions {
+*.post *.rapid-captions {
     height: auto;
     max-width: 85%;
     background-color: inherit;
@@ -1061,10 +1076,6 @@ svg *.feet {
     justify-content: center;
 }
 
-*.post #content>* {
-    padding: 0 1rem;
-}
-
 /*#tabs-about {
     background-color: gold;
 }*/
@@ -1099,7 +1110,7 @@ svg *.feet {
 
 *.post blockquote {
     margin: 0;
-    margin-left: 2rem;
+    margin-left: 1rem;
     padding: .25rem 0 .25rem 1rem;
     color: currentColor;
     border-left: thick solid var(--accent-color-50);
@@ -1239,7 +1250,6 @@ main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
 }
 
 *:is(footer, div):has(>[href*="main-content"], >[title~="Continue"]) {
-    position: absolute;
     flex: 1 0 100%;
     width: 100dvw;
     max-width: 100%;
@@ -1344,8 +1354,8 @@ a:is(:active, :focus, :hover) {
 *:is(input[type="reset"]),
 *:is(button[type="button"]).invert,
 a[type="text/html"].invert {
-    color: var(--accent-color-50);
-    background-color: var(--accent-color-90);
+    color: var(--accent-color-30);
+    background-color: var(--accent-color-80);
 }
 
 *:is(button[type="button"],
@@ -1364,7 +1374,7 @@ a[type="text/html"].invert {
 *:is(button[type="button"]).invert:is(:focus, :focus-within, :hover, :valid),
 *:is(a[type="text/html"]).invert:is(:focus, :focus-within, :hover, :valid) {
     color: var(--accent-color);
-    background-color: var(--accent-color-100);
+    background-color: var(--accent-color-90);
 }
 
 *:is(input:-webkit-autofill,
@@ -1512,6 +1522,19 @@ textarea {
     bottom: 0;
 }
 
+*.post *.bg-image figcaption {
+    font-size: .75rem;
+}
+
+*.post *.bg-image a:any-link {
+    color: var(--accent-color-100);
+    font-weight: 500;
+}
+
+*.post *.bg-image a:hover {
+    color: var(--color-white);
+}
+
 #content>figure>figcaption {
     padding: .25rem .5rem;
     position: static;
@@ -1572,10 +1595,10 @@ header.loose:is(:active, :focus-within, :hover) {
     animation: menu-go-down 500ms linear 0s 1 forwards;
 }
 
-ul.nav.flexy.row:has(:where(li.nav-solutions:focus-within, li.nav-solutions > a:is(:focus, :hover)))~ul.solutions-nav,
-ul.solutions-nav.flexy.row:has(a:active),
-ul.nav.flexy.row:has(:where(li.nav-about:focus-within, li.nav-about > a:is(:focus, :hover)))~ul.about-nav,
-ul.about-nav.flexy.row:has(a:active) {
+ul.nav.flexy:has(:where(li.nav-solutions:focus-within, li.nav-solutions > a:is(:focus, :hover)))~ul.solutions-nav,
+ul.solutions-nav.flexy:has(a:active),
+ul.nav.flexy:has(:where(li.nav-about:focus-within, li.nav-about > a:is(:focus, :hover)))~ul.about-nav,
+ul.about-nav.flexy:has(a:active) {
     display: flex;
 }
 
@@ -1935,7 +1958,7 @@ path#coffee-tree {
     }
 }
 
-ul.nav.flexy.row {
+ul.nav.flexy {
     list-style-type: none;
     gap: 1rem;
     font-weight: bold;
@@ -2009,7 +2032,8 @@ nav ul~ul.solutions-nav {
 
 ul.about-nav li,
 ul.solutions-nav li {
-    flex: 0 1 fit-content;
+    flex: 0 1 100%;
+    width: 100%;
     text-transform: capitalize;
 }
 
@@ -2018,43 +2042,54 @@ nav li.nav-current {
     background-color: var(--link-button-secondary);
 }
 
-ul.nav.flexy.row a,
-ul.about-nav.flexy.row a,
-ul.solutions-nav.flexy.row a {
+*.about-nav li,
+*.about-nav li.nav-current {
+    padding: .25rem;
+    padding-right: .5rem;
+}
+
+ul.nav.flexy a,
+ul.about-nav.flexy a,
+ul.solutions-nav.flexy a {
     text-decoration: none;
     font-weight: 500;
     gap: 0;
 }
 
-ul.nav.flexy.row a:is(:focus, :hover),
-ul.about-nav.flexy.row a:is(:focus, :hover),
-ul.solutions-nav.flexy.row a:is(:focus, :hover),
+ul.nav.flexy a:is(:focus, :hover),
+ul.about-nav.flexy a:is(:focus, :hover),
+ul.solutions-nav.flexy a:is(:focus, :hover),
 li.nav-about:focus-within,
 li.nav-solutions:focus-within {
     color: var(--accent-color-50);
 }
 
 body>footer a:is(:focus, :hover),
-body>footer ul.nav.flexy.row a:is(:focus, :hover),
-body>footer ul.about-nav.flexy.row a:is(:focus, :hover),
-body>footer ul.solutions-nav.flexy.row a:is(:focus, :hover) {
+body>footer ul.nav.flexy a:is(:focus, :hover),
+body>footer ul.about-nav.flexy a:is(:focus, :hover),
+body>footer ul.solutions-nav.flexy a:is(:focus, :hover) {
     color: var(--color-yellow);
 }
 
 li.nav-about svg path,
 li.nav-solutions svg path,
-ul.about-nav.flexy.row svg path,
-ul.solutions-nav.flexy.row svg path {
+ul.about-nav.flexy svg path,
+ul.solutions-nav.flexy svg path {
     fill: var(--color-orange);
 }
 
 li.nav-about a:is(:focus, :hover) path,
 li.nav-about:focus-within path,
-ul.about-nav.flexy.row a:is(:focus, :hover) path,
+ul.about-nav.flexy a:is(:focus, :hover) path,
 li.nav-solutions a:is(:focus, :hover) path,
 li.nav-solutions:focus-within path,
-ul.solutions-nav.flexy.row a:is(:focus, :hover) path {
+ul.solutions-nav.flexy a:is(:focus, :hover) path {
     fill: var(--accent-color-50);
+}
+
+nav ul~ul.about-nav {
+    padding: 0;
+    gap: 0;
 }
 
 #streamlining-safety-checks g#ring {
@@ -2278,7 +2313,7 @@ pre {
 
 #get-the-app pre {
     opacity: .5;
-    color: var(--accent-color-90);
+    color: var(--accent-color);
     font-size: .85rem;
     transition: all 250ms ease-out 0s;
 }
@@ -2319,8 +2354,6 @@ a[title~="Continue"],
 a[href*="main-content"] {
     display: block;
     flex: 0 1 fit-content;
-    position: absolute;
-    bottom: .5rem;
     user-select: none;
     z-index: 999;
     animation: point-down 1s linear 0s infinite;
@@ -2405,11 +2438,10 @@ a[href*="main-content"]:is(:focus, :hover) path {
 
 body:not(.home-template) *.flexy.row>hgroup {
     padding: 0;
-    height: 18rem;
+    height: auto;
 }
 
 *.flexy:not(.row)>hgroup {
-    padding: 0 1rem;
     border: 0;
 }
 
@@ -2963,7 +2995,7 @@ fieldset {
 #check-our-vacancies,
 #partner-with-leaders,
 footer:has(#sharing-is-caring) {
-    padding: 4rem 5rem;
+    padding: 3rem 5rem;
     min-height: auto;
     gap: 2rem;
 }
@@ -2995,10 +3027,10 @@ footer:has(#sharing-is-caring) {
 }
 
 *.post>*.heading.flexy.row {
-    padding: 3rem 5rem;
+    padding: 2rem 5rem;
     flex: 1 1 auto;
     min-height: auto;
-    gap: 4rem;
+    gap: 2rem;
 }
 
 *.post>*.heading.flexy.row :is(hgroup, figure) {
@@ -3007,16 +3039,16 @@ footer:has(#sharing-is-caring) {
 }
 
 *.post>*.heading.flexy.row hgroup {
-    flex-basis: 60rem;
+    flex-basis: 50rem;
+    width: 50rem;
     align-content: flex-start;
-    width: 60rem;
 }
 
 *.post>*.heading.flexy.row figure {
     padding: 0;
     background-attachment: local;
-    flex-basis: 10rem;
-    width: 10rem;
+    flex-basis: 18rem;
+    width: 18rem;
     height: 18rem;
 }
 
@@ -3036,14 +3068,13 @@ footer:has(#sharing-is-caring) {
     cursor: text;
 }
 
-*.post>*.heading.flexy.row :is(h1, p) {
-    max-width: 70%;
+*.post>*.heading.flexy.row hgroup :is(h1, p) {
     text-align: start;
 }
 
 #check-our-vacancies>figure {
-    flex: 0 1 20rem;
-    width: 20rem;
+    flex: 0 1 18rem;
+    width: 18rem;
 }
 
 #check-our-vacancies .container {
@@ -3067,11 +3098,10 @@ footer:has(#sharing-is-caring) {
 /* Start of tabs-about partial styles */
 
 #tabs-about {
-    padding: 8rem 5rem;
+    padding: 7rem 5rem;
 }
 
 #tabs-about header {
-    padding: 0 1rem;
     align-items: start;
 }
 
@@ -3112,10 +3142,6 @@ footer:has(#sharing-is-caring) {
     color: var(--accent-color);
     background-color: transparent;
     transition: all ease-in-out 250ms 0s;
-}
-
-#tabs-about article {
-    padding: 0 1rem;
 }
 
 #tabs-about article hgroup {
@@ -3653,7 +3679,7 @@ ol {
 /* page-contact.hbs */
 
 .page-contact .post #content {
-    padding: 8rem 6rem;
+    padding: 7rem 5rem;
     gap: 3rem;
 }
 
@@ -3825,7 +3851,6 @@ ol {
 }
 
 form#search-support {
-    padding: 4rem 6rem;
     align-items: flex-start;
     gap: 0;
 }
@@ -3984,11 +4009,12 @@ form#search-support input[type="search"] {
     padding: 1rem;
     flex: 2 1 40rem;
     width: 40rem;
+    gap: .5rem;
 }
 
 #browse-tag .container .post>hgroup h3 {
     line-height: 1.25;
-    font-size: 1.85rem;
+    font-size: 1.5rem;
 }
 
 #browse-tag .container .post>hgroup a:any-link:not(:active, :focus, :hover) {
@@ -4014,8 +4040,6 @@ form#search-support input[type="search"] {
 }
 
 #browse-tag .post p {
-    padding-top: .25rem;
-    font-size: .85rem;
     line-height: 1.75;
 }
 
@@ -4147,11 +4171,11 @@ form#search-support input[type="search"] {
     perspective: 48rem;
     /* Remove this if you don't want the 3D effect */
     min-height: auto;
-    flex: 0 1 24rem;
+    flex: 0 1 23rem;
     flex-wrap: nowrap;
     align-items: flex-start;
     gap: .5rem;
-    width: 24rem !important;
+    width: 23rem;
     height: 20rem;
 }
 
@@ -4219,8 +4243,7 @@ form#search-support input[type="search"] {
     position: absolute;
     left: 0;
     text-align: center;
-    padding: .5rem 1rem;
-    font-size: 2.75rem;
+    padding: .25rem;
     width: 100%;
     z-index: 1;
     color: var(--accent-color-110);
@@ -4236,6 +4259,8 @@ form#search-support input[type="search"] {
 }
 
 .flip-card-back a[type="text/html"]:any-link {
+    margin: 1rem;
+    margin-bottom: 0;
     color: var(--accent-color-70);
     background-color: var(--accent-color-110);
 }
@@ -4389,7 +4414,7 @@ footer {
 }
 
 #default-footer {
-    padding: 1rem 5rem;
+    padding: 1rem;
     padding-top: 10rem;
     position: relative;
     min-height: 100dvh;
@@ -4424,8 +4449,8 @@ footer {
 }
 
 #default-footer > div:nth-child(4) {
-    padding: 2rem 1rem;
-    padding-bottom: 10dvh;
+    padding: 2rem;
+    padding-bottom: 5rem;
     font-weight: 500;
     font-size: .85rem;
     text-align: center;
@@ -4478,6 +4503,19 @@ main > section.row > footer {
 *.post *.loop.palette *.container li:has(a:focus, a:hover),
 #default-footer li:has(a:focus, a:hover) {
     list-style-type: disclosure-closed;
+}
+
+*.post *.loop.palette *.container li {
+    position: relative;
+}
+
+*.post *.loop.palette *.container li .featured {
+    position: absolute;
+    left: -5rem;
+    color: var(--accent-color-50);
+    font-size: .85rem;
+    font-weight: 600;
+    user-select: none;
 }
 
 #default-footer ul.row li:has(a:focus, a:hover) {
