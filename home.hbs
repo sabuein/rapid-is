@@ -1,15 +1,5 @@
 {{!< default}}
 <!-- home.hbs -->
-
-<!--
-    1. Short message + cta
-    2. Three products
-    3. Who we are
-    4. Test
-    5. Review
-    6. Clients
--->
-
 {{#is "home"}}
 {{#get "posts" filter="featured:true+tag:hash-palettes+visibility:public" order="published_at asc" limit="all" as |palettes|}}
 {{#foreach palettes}}
@@ -25,16 +15,9 @@
     </figure>{{else}}<figure class="flexy">
         {{> "drawings/version-control"}}
     </figure>{{/if}}
-    <footer class="flexy">
-        <a href="#more-clients" title="Continue" class="shadowed">
-            {{> "icons/angle-down"}}
-        </a>
-    </footer>
 </section>
 {{else has slug="trusted-by-30-plus-local-authorities-and-housing-associations"}}<section id="more-clients" class="{{post_class}} palette flexy">
-    <hgroup class="flexy" title="{{title}}">
-        <h2 id="{{slug}}">{{title}}</h2>
-    </hgroup>
+    <h2 id="{{slug}}">{{title}}</h2>
     <div class="container flexy row disable-scrollbar horizontal-scrolling" data-play-state="running">
         <figure class="flexy" title="Arhag Housing Association" tabindex="0">
             {{> "clients/arhag"}}
@@ -74,11 +57,6 @@
         </figure>
     </div>
     {{content}}
-    <footer class="flexy">
-        <a href="#compliance-app" title="Continue" class="shadowed">
-            {{> "icons/angle-down"}}
-        </a>
-    </footer>
 </section>
 {{else has slug="streamline-and-enhance-property-compliance"}}<section id="compliance-app" class="{{post_class}} palette flexy row reverse">
     <hgroup class="flexy row" title="{{title}}">
@@ -91,11 +69,6 @@
     </figure>{{else}}<figure class="flexy">
         {{> "drawings/mind-map"}}
     </figure>{{/if}}
-    <footer class="flexy">
-        <a href="#client-testimonial" title="Continue" class="shadowed">
-            {{> "icons/angle-down"}}
-        </a>
-    </footer>
 </section>
 {{!--else has slug="streamlining-safety-checks-repairs-and-complaints"}}<section id="streamlining-safety-checks" class="{{post_class}} palette flexy row reverse">
     <hgroup class="flexy row" title="{{title}}">

@@ -10,11 +10,6 @@
     {{#if feature_image}}<figure class="flexy bg-image" style="{{#primary_tag}}{{#if accent_color}}background-color: {{accent_color}}; {{/if}}{{/primary_tag}}background-image: url({{img_url feature_image absolute='true'}})">
         <img src="{{img_url feature_image absolute='true'}}" alt="{{title}}" loading="lazy" />
     </figure>{{/if}}
-    <footer class="flexy">
-        <a href="#featured-posts" title="Continue" class="shadowed">
-            {{> "icons/angle-down"}}
-        </a>
-    </footer>
 </section>
 {{> "featured"}}
 <section id="browse-tag" class="palette filters flexy row">
@@ -75,7 +70,6 @@
                 <a href="{{url absolute='true'}}" title="Learn more" type="text/html" class="flexy shadowed">Learn more</a>
             </hgroup>
         </article>{{else}}<p class="get-posts-error">Error&colon; {{error}}</p>{{/foreach}}
-        {{!-- Previous/next page links - displayed on every page --}}
         {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
     </div>
 </section>

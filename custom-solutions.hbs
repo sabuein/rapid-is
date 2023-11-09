@@ -2,16 +2,10 @@
 <!-- custom-solutions.hbs -->
 {{#is "post"}}
 {{#post}}
-<link rel="stylesheet" href="{{asset "css/solutions.css"}}" type="text/css" media="screen" />
 <section class="palette flexy row" data-slug="{{slug}}">
     <hgroup class="flexy">
         <h1 id="{{slug}}-outer" title="{{title}}">{{title}}</h1>
         <p>{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{excerpt words="51"}}&hellip;{{/if}}</p>
-        <div class="flexy">
-            <a href="#content" title="Continue" class="shadowed">
-                {{> "icons/angle-down"}}
-            </a>
-        </div>
     </hgroup>
     {{#if feature_image}}<figure class="flexy bg-image" style="{{#primary_tag}}{{#if accent_color}}background-color: {{accent_color}}; {{/if}}{{/primary_tag}}background-image: url({{img_url feature_image absolute='true'}});">
         {{#has slug="estates"}}
@@ -29,20 +23,22 @@
         {{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}
         {{/has}}
     </figure>{{/if}}
+    <footer class="flexy">
+        <p class="reading-time">{{reading_time minute=(t "Only a minute") minutes=(t "Takes % minutes")}} to read&hellip;</p>
+        <a href="#content" title="Continue" class="shadowed">
+            {{> "icons/angle-down"}}
+        </a>
+    </footer>
 </section>
 <article id="content" class="palette flexy">
-    <header class="flexy">
-        <h1 id="{{slug}}-inner" title="{{title}}">{{title}}</h1>
-    </header>
-    {{content}}
-    <footer class="flexy">
-        {{!-- Show the pagination helper when there's more than one page --}}
-        {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
-        {{!-- Previous/next page links - displayed on every page --}}
-        {{#if pagination}}{{pagination}}{{/if}}
-        {{> "sharing"}}
-    </footer>
+    <div class="content-body flexy">
+        {{content}}
+    </div>
 </article>
+<footer class="palette flexy">
+    {{> "sharing"}}
+    {{> "prev-next"}}
+</footer>
 {{> "cta-contact"}}
 {{/post}}
 {{/is}}
