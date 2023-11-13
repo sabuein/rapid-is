@@ -284,6 +284,18 @@ main #content .kg-toggle-card .kg-toggle-content p {
     user-select: none;
 }
 
+*.prev-next a:hover {
+
+}
+
+*.prev-next a[title="Previous"] {
+
+}
+
+*.prev-next a[title="Next"] {
+
+}
+
 /* Elements */
 
 :root {
@@ -428,6 +440,7 @@ body {
 }
 
 body:has(dialog[open]) {
+    -webkit-filter: blur(.1rem);
     filter: blur(.1rem);
 }
 
@@ -533,9 +546,9 @@ form[method="dialog"] button[formnovalidate] {
     transition: all 250ms ease-in-out 0s;
 }
 
-form[method="dialog"] button[formnovalidate]:hover {
+form[method="dialog"] button[formnovalidate]:is(:focus, :active, :hover) {
     scale: 1.2;
-    rotate: 45deg;
+    /*rotate: 45deg;*/
 }
 
 form[method="dialog"] label {
@@ -588,10 +601,11 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
     align-content: center;
 }
 
-*.post *.loop.palette hgroup h3,
+*.post *.loop.palette hgroup :is(h3, p),
 *.post *.loop.palette *.pagination p {
     text-align: center;
     width: fit-content;
+    width: 100%;
 }
 
 *.post *.loop.palette *.loop-name {
@@ -675,8 +689,7 @@ address a {
     width: inherit;
 }
 
-figure:has(svg):not(.flexy),
-figure[tabindex="0"] {
+*.bouncing figure {
     animation: bouncingIn 1s;
 }
 
@@ -1108,9 +1121,12 @@ svg *.feet {
     width: 100%;
 }
 
+*.post #content :is(ul, ol, menu) {
+    list-style-position: inside;
+}
+
 *.post #content ul {
     list-style-type: square;
-    list-style-position: inside;
 }
 
 *.post blockquote {
@@ -1128,17 +1144,28 @@ svg *.feet {
 }
 
 *.testimonial-container {
-    gap: 1rem;
+    gap: 2rem;
 }
 
 *.testimonial-container blockquote {
+    margin: 0;
     padding: 1rem;
+    padding-left: 2rem;
     width: 50rem;
     flex: 0 1 50rem;
 }
 
 *.testimonial-container blockquote *:is(h3, p) {
     width: 100%;
+}
+
+*.testimonial-container blockquote p:last-of-type {
+    padding-top: .5rem;
+    font-weight: 600;
+}
+
+*.testimonial-container figure {
+    padding: 0 !important;
 }
 
 *.testimonial-container figcaption {
@@ -1150,7 +1177,7 @@ main #content a {
     transition: all 250ms ease 0s;
 }
 
-main #content a:is(:focus, :hover) {
+main #content *:is(:focus, :hover).kg-btn {
     color: var(--color-white);
 }
 
@@ -1275,6 +1302,15 @@ main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
     width: 100dvw;
     max-width: 100%;
     flex: 0 1 fit-content;
+}
+
+div:has(>[href*="main-content"]) {
+    width: fit-content;
+    align-items: flex-end;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 9999;
 }
 
 button,
@@ -1546,6 +1582,7 @@ textarea {
 
 *.post *.bg-image figcaption {
     font-size: .75rem;
+    display: none;
 }
 
 *.post *.bg-image a:any-link {
@@ -1685,6 +1722,11 @@ svg *:is(g, path) {
     transform-box: fill-box;
 }
 
+#more-clients .container svg *:is(g, path) {
+    transform-origin: revert;
+    transform-box: view-box;
+}
+
 [data-play-state="running"] {
     will-change: animation;
 }
@@ -1722,7 +1764,8 @@ g#line-one path {
     animation: opacity-accent 5s linear 0s infinite forwards;
 }
 
-g#line-two path {
+g#line-two path,
+path#presenter-ground {
     animation: left-to-right 3s linear 0s 1 forwards, opacity-accent 6s linear 0s infinite forwards;
 }
 
@@ -2295,7 +2338,8 @@ pre {
     flex: 0 1 50%;
     height: 10rem;
     width: 10rem;
-    /*filter: drop-shadow(2px 4px 6px var(--accent-color-80));*/
+    /*-webkit-filter: drop-shadow(2px 4px 6px var(--accent-color-80));
+    filter: drop-shadow(2px 4px 6px var(--accent-color-80));*/
 }
 
 #get-the-app figure:nth-of-type(1) {
@@ -2386,6 +2430,10 @@ a[href*="main-content"] {
     z-index: 999;
     animation: point-down 1s linear 0s infinite;
     background-color: transparent;
+}
+
+a[href*="main-content"].shadowed:not(:focus, :active, :hover) {
+    opacity: .5;
 }
 
 a[title~="Continue"]:hover,
@@ -2531,7 +2579,7 @@ body:not(.home-template) *.flexy.row>hgroup {
 
 #more-clients .container {
     padding: 3rem 0;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: safe center;
     gap: 3rem;
     -webkit-animation-name: move;
@@ -2556,9 +2604,9 @@ body:not(.home-template) *.flexy.row>hgroup {
 }
 
 #more-clients figure {
-    padding: 1rem;
-    flex: 0 0 20rem;
-    width: 20rem;
+    padding: .5rem 1rem;
+    flex: 0 0 15rem;
+    width: 15rem;
     max-width: 100%;
     height: 10rem;
     max-height: 100%;
@@ -2586,6 +2634,11 @@ body:not(.home-template) *.flexy.row>hgroup {
     animation-play-state: paused;
 }
 
+#more-clients .container {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
 #more-clients figure:is(:focus, :hover) {
     cursor: pointer;
     scale: 1.1;
@@ -2598,7 +2651,7 @@ body:not(.home-template) *.flexy.row>hgroup {
     display: block;
     font-size: .85rem;
     color: var(--accent-color);
-    bottom: -2rem;
+    bottom: -1.75rem;
 }
 
 #more-clients .container svg {
@@ -2634,6 +2687,7 @@ body:not(.home-template) *.flexy.row>hgroup {
     min-width: 10rem;
     outline: thick solid var(--accent-color);
     border-radius: 50%;
+    -webkit-filter: blur(5rem);
     filter: blur(5rem);
     position: absolute;
     z-index: 99;
@@ -3076,6 +3130,7 @@ fieldset {
     width: 18rem;
     flex-basis: 0%;
     background-color: transparent !important;
+    mix-blend-mode: multiply;
 }
 
 *.post>*.heading.flexy.row figcaption {
@@ -3099,14 +3154,14 @@ fieldset {
 }
 
 #check-our-vacancies>figure {
-    flex: 1 1 20rem;
-    width: 20rem;
+    width: 17rem;
+    flex: 0 1 17rem;
 }
 
 #check-our-vacancies .container {
     padding: 1rem;
-    flex: 1 1 52rem;
-    width: 52rem;
+    width: 53rem;
+    flex: 0 1 53rem;
     gap: 1rem;
 }
 
@@ -3285,7 +3340,7 @@ form#join-newsletter a:is(:focus, :hover) {
     width: 100dvw;
     max-width: 100%;
     height: 5rem;
-    gap: 3rem;
+    gap: 2rem;
     user-select: none;
 }
 
@@ -3326,7 +3381,7 @@ form#join-newsletter a:is(:focus, :hover) {
     width: fit-content;
     height: 3rem;
     list-style-type: none;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .post #sharing-is-caring li {
@@ -3345,14 +3400,14 @@ form#join-newsletter a:is(:focus, :hover) {
 }
 
 .post #sharing-is-caring .social-icons a:any-link {
-    flex: 0 1 3rem;
-    width: 3rem;
-    height: 3rem;
+    height: 2rem;
+    width: 2rem;
+    flex: 0 1 2rem;
 }
 
 .post #sharing-is-caring .social-icons a:any-link :is(img, svg) {
-    height: 3rem;
-    width: 3rem;
+    height: 2rem;
+    width: 2rem;
 }
 
 .post #sharing-is-caring .social-icons a:is(:focus, :hover) :is(img, svg) {
@@ -3587,15 +3642,19 @@ ol {
 
 /* Meet our team: /partials/team-members.hbs */
 
+#meet-our-team {
+    gap: 2rem;
+}
+
 #meet-our-team .container {
     align-items: flex-start;
-    gap: 5rem;
+    gap: 2rem;
 }
 
 #meet-our-team .container .post {
-    flex: 1 0 21rem;
+    flex: 0 1 22rem;
     height: auto;
-    width: 21rem;
+    width: 22rem;
     gap: 1rem;
     transition: all 250ms ease-out 0s;
 }
@@ -3633,12 +3692,14 @@ ol {
 
 #meet-our-team a[type="text/html"] {
     align-self: center;
+    display: none;
 }
 
 #meet-our-team .post figure {
     padding: 1rem;
     width: 20rem;
     height: fit-content;
+    -webkit-filter: grayscale(.5);
     filter: grayscale(.5);
     transition: all 250ms ease-in-out 0s;
 }
@@ -3649,11 +3710,13 @@ ol {
 }
 
 #meet-our-team .container .post:is(:active, :hover) figure {
+    -webkit-filter: none;
     filter: none;
     transition: all 250ms ease-in-out 0s;
 }
 
 #meet-our-team .post figcaption {
+    display: block;
     padding: .25rem;
     position: absolute;
     left: 0;
@@ -4441,40 +4504,32 @@ footer {
 }
 
 #default-footer {
-    padding: 1rem;
-    padding-top: 10rem;
+    padding: 12rem 2rem 0;
     position: relative;
-    min-height: 100dvh;
     color: var(--accent-color-110);
     background-color: var(--accent-color-50);
     overflow: hidden;
     font-size: 1rem;
+    gap: 1rem;
 }
 
 .page-template.page-contact [data-divider="top"] path {
     fill: var(--accent-color-100);
 }
 
-#default-footer > div:first-child {
-    padding: .5rem;
+#default-footer .columns {
     min-height: fit-content;
+    justify-content: space-around;
+    align-items: flex-start;
     gap: 1rem;
 }
 
-#default-footer > div.row {
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-#default-footer > div:nth-child(4) {
-    padding: .5rem;
+#default-footer .finally {
+    padding: 0 4rem 1rem;
     font-weight: 500;
     font-size: .85rem;
     text-align: center;
-}
-
-#default-footer > pre {
-    padding: .5rem;
+    justify-content: space-evenly;
 }
 
 #default-footer p {
@@ -4483,15 +4538,23 @@ footer {
     text-align: center;
 }
 
+#default-footer .rapid-logo {
+    flex-basis: 18%;
+    min-width: 18%;
+    gap: .5rem;
+}
+
 #default-footer .rapid-logo img {
+    -webkit-filter: brightness(0) invert(1);
     filter: brightness(0) invert(1);
 }
 
-#default-footer > div:first-child :is(figure, div, address) {
-    min-width: 20%;
+#default-footer .columns .column {
+    /*min-width: 20%;
     width: 100dvw;
-    max-width: 100%;
-    flex: 0 1 20%;
+    max-width: 100%;*/
+    width: fit-content;
+    flex: 0 1 fit-content;
     align-items: flex-start;
     align-content: flex-start;
     text-transform: capitalize;
@@ -4499,17 +4562,46 @@ footer {
     gap: .5rem;
 }
 
-#default-footer > div:first-child figure {
-    flex-basis: 18%;
-    min-width: 18%;
-}
-
-#default-footer h6 {
+#default-footer .columns h6 {
     font-weight: 600;
     font-style: italic;
     color: var(--accent-color-100);
     user-select: none;
     cursor: not-allowed;
+    width: fit-content;
+}
+
+#default-footer .deeds,
+#default-footer .columns :has(address) {
+    width: fit-content;
+}
+
+#default-footer .deeds {
+    gap: 1rem;
+}
+
+#default-footer .deeds figure {
+    padding: 0;
+    width: 5rem;
+    max-height: 5rem;
+    flex: 0 0 5rem;
+    user-select: none;
+}
+
+#default-footer .deeds figure[title="Java"] svg {
+    max-height: inherit;
+}
+
+#default-footer .deeds img[alt="Microsoft Partner"] {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+    mix-blend-mode: screen;
+}
+
+#default-footer .deeds img[alt="Cyber Essentials"] {
+    -webkit-filter: grayscale(1) invert(1);
+    filter: grayscale(1) invert(1);
+    mix-blend-mode: screen;
 }
 
 #default-footer #follow-us-on {
@@ -4592,6 +4684,6 @@ button[data-ghost-search]:focus {
 }
 
 .social-icons a:is(:focus, :hover) :is(img, svg) {
-    scale: 1.2;
+    scale: 1.1;
     transition: all 250ms ease-in 0s;
 }
