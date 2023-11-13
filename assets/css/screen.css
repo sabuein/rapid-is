@@ -3153,6 +3153,10 @@ fieldset {
     text-align: start;
 }
 
+#check-our-vacancies {
+    justify-content: center;
+}
+
 #check-our-vacancies>figure {
     width: 17rem;
     flex: 0 1 17rem;
