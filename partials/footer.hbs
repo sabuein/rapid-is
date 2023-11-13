@@ -1,11 +1,11 @@
 <!-- footer.hbs -->
 <footer id="default-footer" class="flexy" role="contentinfo">
-    <div class="flexy row">
+    <div class="columns flexy row">
         {{!--{{#if @site.logo}}<figure class="rapid-logo flexy"><a href="{{@site.url}}" title="{{@site.title}}"><img src="{{@site.logo}}" alt="{{@site.title}}" loading="lazy" /></a></figure>{{else}}<figure class="rapid-logo"><a href="{{@site.url}}" title="{{@site.title}}"><img src="{{asset 'images/new-logo.png'}}" alt="{{@site.title}}" loading="lazy" /></a></figure>{{/if}}--}}
-        <figure class="rapid-logo"><a href="{{@site.url}}" title="{{@site.title}}">
+        <figure class="column rapid-logo"><a href="{{@site.url}}" title="{{@site.title}}">
             {{> "icons/rapid-is"}}
         </a></figure>
-        <div class="flexy">
+        <div class="column flexy">
             <h6 title="Explore">Explore</h6>
             <ul class="nav flexy">
                 <li role="menuitem"><a href="/" title="Homepage">Homepage</a></li>
@@ -25,6 +25,7 @@
                 <li role="menuitem"><a href="/solutions/safety-and-compliance/" title="Safety and Compliance">Safety &amp; Compliance</a></li>
             </ul>
         </div-->
+        <!--
         <div class="flexy">
             <h6 title="Contact">Accreditation&comma; frameworks &amp; partners</h6>
             <ul class="nav flexy">
@@ -36,20 +37,46 @@
                 <li role="menuitem">Java</li>
             </ul>
         </div>
-        <div class="flexy">
-            <address class="contact flexy">
+        -->
+        <div class="column flexy">
+            <h6 title="Accreditation">Accreditation</h6>
+            <div class="deeds flexy row">
+                <figure title="Cyber Essentials">
+                    <img src="{{asset 'images/cyber-essentials-new.png'}}" alt="Cyber Essentials" />
+                </figure>
+                <figure title="Crown Commercial Service Supplier">
+                    <img src="{{asset 'images/crown-commercial-service-supplier-white.png'}}" alt="Crown Commercial Service Supplier" />
+                </figure>
+                <figure title="Amazon Web Services">
+                    {{> "icons/aws-solid"}}
+                </figure>
+                <figure title="Microsoft Partner">
+                    <img src="{{asset 'images/ms-partner.jpeg'}}" alt="Microsoft Partner" />
+                </figure>
+                <figure title="Oracle">
+                    {{> "icons/oracle-solid"}}
+                </figure>
+                <figure title="Java">
+                    {{> "icons/java-solid"}}
+                </figure>
+            </div>
+        </div>
+        <div>
+            <address class="column contact flexy">
                 <h6 title="Contact">Contact</h6>
                 <ul itemscope itemtype="https://schema.org/LocalBusiness" class="nav flexy">
                     <li role="menuitem"><a href="tel:+441707520711" title="Telephone number" target="_blank" itemprop="telephone">+44 1707 520 711</a></li>
                     <li role="menuitem"><a href="mailto:info@rapid-is.co.uk&subject={{encode @site.title}}" title="Email address" target="_blank" itemprop="email">info@rapid-is.co.uk</a></li>
                 </ul>
             </address>
-            {{> "social-icons"}}
+            <div class="column flexy">
+                {{> "social-icons"}}
+            </div>
         </div>
     </div>
+    <pre>Made with <span class="hearts" title="unconditional love">&hearts;</span> by our team&excl;</pre>
     <pre>Registered in England and Wales. Company registration number 05494744&period;<br />VAT registration number 881993663. ICO registration number ZA471303. D-U-N-S number 346902047&period;</pre>
-    <pre>Made with <span class="hearts" title="unconditional love">&hearts;</span> from Welwyn Garden City and East London&period;</pre>
-    <div class="flexy row">
+    <div class="finally flexy row">
         <p>&copy; 2005 &dash; {{date format="YYYY"}} <a href="{{@site.url}}" title="{{@site.title}} Ltd">{{@site.title}} Ltd</a>&period; All Rights Reserved&period;</p>
         {{navigation type="secondary"}}
     </div>

@@ -18,47 +18,10 @@
 </section>
 {{else has slug="trusted-by-30-plus-local-authorities-and-housing-associations"}}<section id="more-clients" class="{{post_class}} palette flexy">
     <h2 id="{{slug}}">{{title}}</h2>
-    <div class="container flexy row disable-scrollbar horizontal-scrolling" data-play-state="running">
-        <figure class="flexy" title="Arhag Housing Association" tabindex="0">
-            {{> "clients/arhag"}}
-            <figcaption>Arhag Housing Association</figcaption>
-        </figure>
-        <figure class="flexy" title="Ealing Council" tabindex="0">
-            {{> "clients/ealing"}}
-            <figcaption>Ealing Council</figcaption>
-        </figure>
-        <figure class="flexy" title="Westminster City Council" tabindex="0">
-            {{> "clients/westminster"}}
-            <figcaption>Westminster City Council</figcaption>
-        </figure>
-        <figure class="flexy" title="Lambeth Council" tabindex="0">
-            {{> "clients/lambeth"}}
-            <figcaption>Lambeth Council</figcaption>
-        </figure>
-        <figure class="flexy" title="Islington Council" tabindex="0">
-            {{> "clients/islington"}}
-            <figcaption>Islington Council</figcaption>
-        </figure>
-        <figure class="flexy" title="Enfield Council" tabindex="0">
-            {{> "clients/enfield"}}
-            <figcaption>Enfield Council</figcaption>
-        </figure>
-        <figure class="flexy" title="Stevenage Borough Council" tabindex="0">
-            {{> "clients/stevenage"}}
-            <figcaption>Stevenage Borough Council</figcaption>
-        </figure>
-        <figure class="flexy" title="Camden Council" tabindex="0">
-            {{> "clients/camden"}}
-            <figcaption>Camden Council</figcaption>
-        </figure>
-        <figure class="flexy" title="Haringey Council" tabindex="0">
-            {{> "clients/haringey"}}
-            <figcaption>Haringey Council</figcaption>
-        </figure>
-    </div>
+    {{> "clients"}}
     {{content}}
 </section>
-{{else has slug="streamline-and-enhance-property-compliance"}}<section id="compliance-app" class="{{post_class}} palette flexy row reverse">
+{{else has slug="streamline-and-enhance-property-compliance"}}<section id="compliance-app" class="{{post_class}} palette flexy row">
     <hgroup class="flexy row" title="{{title}}">
         <h2 id="{{slug}}" title="{{title}}">{{title}}</h2>
         {{content}}
