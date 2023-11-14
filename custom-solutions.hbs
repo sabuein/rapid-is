@@ -29,10 +29,10 @@
         {{content}}
     </div>
 </article>
-<footer class="palette flexy">
+{{> "cta-contact"}}
+{{#has tag="solutions"}}<footer class="palette flexy">
     {{> "sharing"}}
     {{> "prev-next"}}
-</footer>
-{{> "cta-contact"}}
+</footer>{{/has}}
 {{/post}}
 {{/is}}

@@ -72,6 +72,6 @@
         </article>{{else}}<p class="get-posts-error">Error&colon; {{error}}</p>{{/foreach}}
         {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
     </div>
+    {{#tag}}{{> "loop"}}{{/tag}}
 </section>
-{{#tag}}{{> "loop"}}{{/tag}}
 {{/is}}

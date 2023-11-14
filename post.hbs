@@ -11,20 +11,20 @@
         <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" loading="lazy" />
         {{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}
     </figure>{{/if}}{{/match}}
-    <footer>
+    {{#has tag="case studies"}}<footer>
         <p class="reading-time">{{reading_time minute=(t "Only a minute") minutes=(t "Takes % minutes")}} to read&hellip;</p>
-    </footer>
+    </footer>{{/has}}
 </section>
 <article id="content" class="palette flexy">
     <div class="content-body flexy">
         {{content}}
     </div>
 </article>
-<footer class="palette flexy">
+{{> "cta-contact"}}
+{{#has tag="case studies, software, blog, solutions"}}<footer class="palette flexy">
     {{> "sharing"}}
     {{> "prev-next"}}
-</footer>
-{{!--{{#primary_tag}}{{> "loop"}}{{/primary_tag}}--}}
-{{> "cta-contact"}}
+    {{#primary_tag}}{{> "loop"}}{{/primary_tag}}
+</footer>{{/has}}
 {{/post}}
 {{/is}}

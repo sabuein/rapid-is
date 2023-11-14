@@ -23,7 +23,7 @@
                 <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
             </footer>
         </article>{{else}}<pre>Thank you for your interest&period; Unfortunately&comma; we are not hiring at this time&period;</pre>
-        <pre>Please check back as we will most certainly be looking for great people to join our team in the future&period;</pre>{{/foreach}}
+        <p>If you are interested in joining our team&comma; then drop us a speculative application via our <a href="/contact/" title="Contact">contact</a> page&period;</p>{{/foreach}}
         <pre class="total-results">{{plural pages.total empty="Found no job vacancies" singular="Found % job vacancies" plural="Found % job vacancies"}}&excl;</pre>{{else}}<p class="get-posts-error">{{error}}</p>{{/get}}
     </div>
 </section>
