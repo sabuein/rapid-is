@@ -224,6 +224,25 @@ main #content .kg-toggle-card .kg-toggle-content p {
 
 /* Elements with data attributes */
 
+section:has([data-divider="top"]) {
+    height: 8rem;
+    background-color: var(--accent-color-50);
+    transform: scale(-1);
+}
+
+#main-message ~ section:has([data-divider="top"]) {
+    height: 4rem;
+    transform: scaleY(-1);
+}
+
+section:has([data-divider="top"]) path {
+    fill: var(--accent-color-50);
+}
+
+#main-message ~ section:has([data-divider="top"]) path {
+    fill: var(--accent-color-100);
+}
+
 [data-divider="top"],
 [data-divider="bottom"] {
     position: absolute;
@@ -234,6 +253,7 @@ main #content .kg-toggle-card .kg-toggle-content p {
     line-height: 0;
     user-select: none;
     pointer-events: none;
+    height: inherit;
 }
 
 [data-divider="top"] {
@@ -247,21 +267,6 @@ main #content .kg-toggle-card .kg-toggle-content p {
 
 [data-divider="top"] path,
 [data-divider="bottom"] path {
-    fill: var(--accent-color-110);
-}
-
-.page-careers [data-divider="top"] path,
-.page-template.page-support footer [data-divider="top"] path,
-.page-template.page-team footer [data-divider="top"] path,
-.post-template footer [data-divider="top"] path {
-    fill: var(--accent-color-100);
-}
-
-*.post-template footer [data-divider="top"] path {
-    fill: var(--accent-color-110);
-}
-
-*.post-template.tag-solutions [data-divider="top"] path {
     fill: var(--accent-color-110);
 }
 
@@ -581,75 +586,77 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
 }
 
 *.post *.cards.palette {
-    padding: 2rem;
+    padding: 3rem;
 }
 
-*.post *.palette:nth-child(odd) {
+*.post *.palette:nth-child(odd),
+main.post:has(:is(.palette:is(:nth-child(odd):last-of-type))) + section:has([data-divider="top"]) {
     background-color: var(--accent-color-100);
 }
 
-*.post *.palette:nth-child(even) {
+*.post *.palette:nth-child(even),
+main.post:has(:is(.palette:is(:nth-child(even):last-of-type))) + section:has([data-divider="top"]) {
     background-color: var(--accent-color-110);
 }
 
-*.post *.loop.palette {
+*.post *.loop {
     padding: 2rem 5rem;
     gap: 2rem;
 }
 
-*.post *.loop.palette hgroup {
+*.post *.loop hgroup {
     align-content: center;
 }
 
-*.post *.loop.palette hgroup :is(h3, p),
-*.post *.loop.palette *.pagination p {
+*.post *.loop hgroup :is(h3, p),
+*.post *.loop *.pagination p {
     text-align: center;
     width: fit-content;
     width: 100%;
 }
 
-*.post *.loop.palette *.loop-name {
+*.post *.loop *.loop-name {
     text-transform: lowercase;
 }
 
-*.post *.loop.palette *.container {
+*.post *.loop *.container {
     flex: 0 1 fit-content;
     width: fit-content;
     gap: .5rem;
     counter-reset: loop-posts;
 }
 
-*.post *.loop.palette *.container ~ *.total-results {
+*.post *.loop *.container ~ *.total-results {
     display: none;
 }
 
-*.post *.loop.palette *.container a::before {
+*.post *.loop *.container a::before {
     counter-increment: loop-posts;
     content: counter(loop-posts) ". ";
 }
 
-*.post *.loop.palette *.container a:any-link:not(:active, :focus, :hover) {
+*.post *.loop *.container a:any-link:not(:active, :focus, :hover) {
     text-decoration: none;
 }
 
-*.post *.loop.palette *.pagination {
+*.post *.loop *.pagination {
     flex: 0 1 fit-content;
     width: fit-content; 
     color: var(--accent-color-110);
     background-color: transparent;
 }
 
-*.post *.loop.palette nav.pagination {
+*.post *.loop nav.pagination {
     padding: 1rem 4rem;
     color: var(--accent-color-60);
     background-color: var(--accent-color-90);
 }
 
-*.post *.loop.palette nav.pagination a {
+*.post *.loop nav.pagination a {
     text-decoration: none;
 }
 
-*.post *.loop.palette nav.pagination a:hover {
+*.post *.loop nav.pagination a:hover {
     text-decoration: none;
     color: var(--accent-color-50);
 }
@@ -2075,7 +2082,9 @@ ul.solutions-nav span {
 
 nav ul~ul.about-nav,
 nav ul~ul.solutions-nav {
-    flex: 1 1 auto;
+    height: auto;
+    width: fit-content;
+    flex: 0 0 fit-content;
     display: none;
     padding: .5rem;
     place-content: center flex-start;
@@ -2083,8 +2092,6 @@ nav ul~ul.solutions-nav {
     left: 0;
     top: 3.5rem;
     gap: 1rem;
-    height: auto;
-    width: fit-content;
     list-style-type: none;
     font-weight: bold;
     font-size: 1rem;
@@ -2095,10 +2102,15 @@ nav ul~ul.solutions-nav {
     pointer-events: auto;
 }
 
+nav ul~ul.solutions-nav {
+    left: unset;
+    right: 5rem;
+}
+
 ul.about-nav li,
 ul.solutions-nav li {
-    flex: 0 1 100%;
     width: 100%;
+    flex: 0 0 100%;
     text-transform: capitalize;
 }
 
@@ -2108,9 +2120,10 @@ nav li.nav-current {
 }
 
 *.about-nav li,
-*.about-nav li.nav-current {
-    padding: .25rem;
-    padding-right: .5rem;
+*.about-nav li.nav-current,
+*.solutions-nav li,
+*.solutions-nav li.nav-current {
+    padding: .25rem .75rem;
 }
 
 ul.nav.flexy a,
@@ -2152,7 +2165,8 @@ ul.solutions-nav.flexy a:is(:focus, :hover) path {
     fill: var(--accent-color-50);
 }
 
-nav ul~ul.about-nav {
+nav ul~ul.about-nav,
+nav ul~ul.solutions-nav {
     padding: 0;
     gap: 0;
 }
@@ -2403,7 +2417,7 @@ pre {
 }
 
 #main-message {
-    padding: 2rem 5rem;
+    padding: 1rem 5rem;
     color: var(--accent-color-110);
     background-color: var(--accent-color-50);
     flex: 1 1 auto;
@@ -2573,12 +2587,13 @@ body:not(.home-template) *.flexy.row>hgroup {
 }
 
 #more-clients {
+    padding: 2rem;
     justify-content: center;
     text-align: center;
 }
 
 #more-clients .container {
-    padding: 3rem 0;
+    padding: 2rem 0;
     flex-wrap: wrap;
     align-items: safe center;
     gap: 3rem;
@@ -2605,11 +2620,11 @@ body:not(.home-template) *.flexy.row>hgroup {
 
 #more-clients figure {
     padding: .5rem 1rem;
-    flex: 0 0 15rem;
-    width: 15rem;
+    width: 10rem;
     max-width: 100%;
-    height: 10rem;
+    height: 8rem;
     max-height: 100%;
+    flex: 0 0 10rem;
     flex-wrap: nowrap;
     text-align: center;
     mix-blend-mode: normal;
@@ -2797,8 +2812,8 @@ body:not(.home-template) *.flexy.row>hgroup {
 }
 
 #default-footer .cookies.flexy.row hgroup p {
-    flex: 0 1 50rem;
     width: 50rem;
+    flex: 0 0 50rem;
     text-align: start;
 }
 
@@ -3414,7 +3429,8 @@ form#join-newsletter a:is(:focus, :hover) {
     width: 2rem;
 }
 
-.post #sharing-is-caring .social-icons a:is(:focus, :hover) :is(img, svg) {
+.post #sharing-is-caring .social-icons a:is(:focus, :hover) :is(img, svg),
+#default-footer .deeds figure:hover :is(img, svg) {
     scale: 1.1;
 }
 
@@ -4053,10 +4069,10 @@ form#search-support input[type="submit"] {
     max-width: inherit;
 }
 
-#browse-tag hgroup {
-    flex: 0 1 100dvw;
-    width: 100dvw;
+#browse-tag > hgroup {
     height: auto;
+    width: 100dvw;
+    flex: 0 1 100dvw;
     align-items: flex-start;
     gap: 1rem;
 }
@@ -4264,13 +4280,12 @@ form#search-support input[type="submit"] {
     height: inherit;
     perspective: 48rem;
     /* Remove this if you don't want the 3D effect */
-    min-height: auto;
-    flex: 0 1 23rem;
+    width: 24rem;
+    height: 20rem;
+    flex: 0 0 24rem;
     flex-wrap: nowrap;
     align-items: flex-start;
     gap: .5rem;
-    width: 23rem;
-    height: 20rem;
 }
 
 .flip-card-inner {
@@ -4337,7 +4352,7 @@ form#search-support input[type="submit"] {
     position: absolute;
     left: 0;
     text-align: center;
-    padding: .25rem;
+    padding: .5rem;
     width: 100%;
     z-index: 1;
     color: var(--accent-color-110);
@@ -4508,17 +4523,13 @@ footer {
 }
 
 #default-footer {
-    padding: 12rem 2rem 0;
+    padding: 2rem;
     position: relative;
     color: var(--accent-color-110);
     background-color: var(--accent-color-50);
     overflow: hidden;
     font-size: 1rem;
     gap: 1rem;
-}
-
-.page-template.page-contact [data-divider="top"] path {
-    fill: var(--accent-color-100);
 }
 
 #default-footer .columns {
@@ -4590,6 +4601,11 @@ footer {
     max-height: 5rem;
     flex: 0 0 5rem;
     user-select: none;
+    cursor: pointer;
+}
+
+#default-footer .deeds figure :is(svg, img) {
+    transition: all 250ms ease-out 0s;
 }
 
 #default-footer .deeds figure[title="Java"] svg {
@@ -4627,16 +4643,16 @@ footer {
     text-align: start;
 }
 
-*.post *.loop.palette *.container li:has(a:focus, a:hover),
+*.post *.loop *.container li:has(a:focus, a:hover),
 #default-footer li:has(a:focus, a:hover) {
     list-style-type: disclosure-closed;
 }
 
-*.post *.loop.palette *.container li {
+*.post *.loop *.container li {
     position: relative;
 }
 
-*.post *.loop.palette *.container li .featured {
+*.post *.loop *.container li .featured {
     position: absolute;
     left: -5rem;
     color: var(--accent-color-50);
