@@ -281,6 +281,7 @@ section:has([data-divider="top"]) path {
 
 *.prev-next {
     color: var(--accent-color);
+    align-items: flex-start;
     gap: 2rem;
 }
 
@@ -289,16 +290,28 @@ section:has([data-divider="top"]) path {
     user-select: none;
 }
 
-*.prev-next a:hover {
+*.prev-next a:any-link span {
+    padding: 0 .25rem;
+}
 
+*.prev-next a::after {
+    visibility: hidden;
+    flex-basis: 100%;
+    content: attr(data-post-title);
+}
+
+*.prev-next a:is(:active, :focus, :hover)::after {
+    visibility: visible;
 }
 
 *.prev-next a[title="Previous"] {
-
+    justify-content: flex-start;
+    text-align: start;
 }
 
 *.prev-next a[title="Next"] {
-
+    justify-content: flex-end;
+    text-align: end;
 }
 
 /* Elements */
@@ -577,11 +590,11 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
 *.post *.palette {
     padding: 5rem;
     justify-content: space-evenly;
-    flex: 1 1 100%;
     width: 100dvw;
     max-width: 100%;
     height: auto;
     max-height: 100%;
+    flex: 1 0 100%;
     gap: 1rem;
 }
 
@@ -764,6 +777,10 @@ body.post-template {
         font-size: 1.85rem;
         font-weight: 400;
     }
+}
+
+#rapid-captions:has(*.rapid-captions) {
+    padding: 1rem 5rem;
 }
 
 *.post *.rapid-captions {
@@ -1105,6 +1122,16 @@ svg *.feet {
     justify-content: center;
 }
 
+*.post #content {
+    padding: 5rem;
+    width: 100dvw;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    flex: 1 0 100%;
+    gap: 1rem;
+}
+
 *.post #content [data-divider="bottom"] path {
     fill: royalblue;
 }
@@ -1118,6 +1145,13 @@ svg *.feet {
 *.post #content #map {
     padding: 2rem 0;
     background-color: transparent;
+    width: 100dvw;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    flex: 1 0 100%;
+    justify-content: space-evenly;
+    gap: 1rem;
 }
 
 *.post #content #map hgroup {
@@ -1350,18 +1384,6 @@ a[type="text/html"] {
 
 select {
     cursor: pointer;
-}
-
-:root {
-    --link-button-text: rgb(75, 73, 70);
-    --link-button-primary: rgb(47, 192, 82);
-    --link-button-secondary: rgb(238, 237, 233);
-    --link-button-tertiary: rgb(255, 255, 255);
-    --link-button-destructive: rgb(253, 98, 50);
-    --link-button-primary-secondary: rgb(30, 157, 187);
-    --link-button-primary-blue-300: rgb(36, 183, 219);
-    --link-button-primary-tertiary: rgb(246, 172, 47);
-    --link-button-disabled: rgb(244, 243, 241);
 }
 
 a:focus,
@@ -2478,18 +2500,6 @@ a[href*="main-content"] svg {
     transition: all 250ms ease 0s;
 }
 
-:root {
-    --link-button-text: rgb(75, 73, 70);
-    --link-button-primary: rgb(47, 192, 82);
-    --link-button-secondary: rgb(238, 237, 233);
-    --link-button-tertiary: rgb(255, 255, 255);
-    --link-button-destructive: rgb(253, 98, 50);
-    --link-button-primary-secondary: rgb(30, 157, 187);
-    --link-button-primary-blue-300: rgb(36, 183, 219);
-    --link-button-primary-tertiary: rgb(246, 172, 47);
-    --link-button-disabled: rgb(244, 243, 241);
-}
-
 #main-message a[title~="Continue"] svg,
 #default-footer a[href*="main-content"] svg {
     background-color: var(--accent-color-110);
@@ -2593,25 +2603,26 @@ body:not(.home-template) *.flexy.row>hgroup {
 }
 
 #more-clients .container {
-    padding: 2rem 0;
-    flex-wrap: wrap;
+    padding: 2rem 5rem;
+    flex-wrap: nowrap;
     align-items: safe center;
+    justify-content: flex-start;
     gap: 3rem;
     -webkit-animation-name: move;
     -webkit-animation-duration: 24s;
     -webkit-animation-timing-function: linear;
-    -webkit-animation-delay: 0s;
+    -webkit-animation-delay: 1s;
     -webkit-animation-iteration-count: infinite;
-    -webkit-animation-direction: alternate;
+    -webkit-animation-direction: normal;
     -webkit-animation-play-state: running;
     animation-name: move;
     animation-duration: 24s;
     animation-timing-function: linear;
-    animation-delay: 0s;
+    animation-delay: 1s;
     animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation: move 24s linear 0s infinite alternate;
+    animation-direction: normal;
     animation-play-state: running;
+    animation: move 30s linear 1s infinite normal;
 }
 
 #more-clients .container ~ p {
@@ -2620,11 +2631,11 @@ body:not(.home-template) *.flexy.row>hgroup {
 
 #more-clients figure {
     padding: .5rem 1rem;
-    width: 10rem;
+    width: 12rem;
     max-width: 100%;
     height: 8rem;
     max-height: 100%;
-    flex: 0 0 10rem;
+    flex: 0 0 12rem;
     flex-wrap: nowrap;
     text-align: center;
     mix-blend-mode: normal;
@@ -2649,10 +2660,10 @@ body:not(.home-template) *.flexy.row>hgroup {
     animation-play-state: paused;
 }
 
-#more-clients .container {
+/* #more-clients .container {
     -webkit-animation-play-state: paused;
     animation-play-state: paused;
-}
+} */
 
 #more-clients figure:is(:focus, :hover) {
     cursor: pointer;
@@ -2672,26 +2683,6 @@ body:not(.home-template) *.flexy.row>hgroup {
 #more-clients .container svg {
     height: 100%;
     width: 100%;
-}
-
-@-webkit-keyframes move {
-    0% {
-        margin-right: 0;
-    }
-
-    100% {
-        margin-right: 180rem;
-    }
-}
-
-@keyframes move {
-    0% {
-        margin-right: 0;
-    }
-
-    100% {
-        margin-right: 180rem;
-    }
 }
 
 #more-clients .container::before,
@@ -4706,4 +4697,34 @@ button[data-ghost-search]:focus {
 .social-icons a:is(:focus, :hover) :is(img, svg) {
     scale: 1.1;
     transition: all 250ms ease-in 0s;
+}
+
+/* Keyframes */
+
+@-webkit-keyframes move {
+    0% {
+        transform: translateX(0%);
+    }
+
+    97% {
+        transform: translateX(-150%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0%);
+    }
+
+    97% {
+        transform: translateX(-150%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
 }
