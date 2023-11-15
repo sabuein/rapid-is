@@ -12,12 +12,12 @@
         {{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}
     </figure>{{/if}}{{/match}}
 </section>
-<article id="content" class="palette flexy">
-    {{content}}
-</article>
 {{> "captions"}}
+<section id="content" class="palette flexy">
+    {{content}}
+</section>
 {{> "tabs-about"}}
-{{> "integration"}}
+{{!--{{> "integration"}}--}}
 {{> "partners"}}
 {{/post}}
 {{/is}}

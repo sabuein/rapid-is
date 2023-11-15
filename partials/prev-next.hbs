@@ -1,5 +1,5 @@
 <!-- prev-next.hbs -->
 <div class="prev-next flexy row">
-    {{#prev_post in="primary_tag"}}<a href="{{url absolute='true'}}" title="Previous" data-post-title="{{title}}"><span>&LeftArrow;</span> Previous</a>{{/prev_post}}
-    {{#next_post in="primary_tag"}}<a href="{{url absolute='true'}}" title="Next" data-post-title="{{title}}">Next <span>&RightArrow;</span></a>{{/next_post}}
+    {{#prev_post in="primary_tag"}}<a class="flexy row" href="{{url absolute='true'}}" title="Previous" data-post-title="{{title}}"><span>&LeftArrow;</span> Previous</a>{{/prev_post}}
+    {{#next_post in="primary_tag"}}<a class="flexy row" href="{{url absolute='true'}}" title="Next" data-post-title="{{title}}">Next <span>&RightArrow;</span></a>{{/next_post}}
 </div>

@@ -15,11 +15,11 @@
         <p class="reading-time">{{reading_time minute=(t "Only a minute") minutes=(t "Takes % minutes")}} to read&hellip;</p>
     </footer>{{/has}}
 </section>
-<article id="content" class="palette flexy">
+<section id="content" class="flexy">
     <div class="content-body flexy">
         {{content}}
     </div>
-</article>
+</section>
 {{> "cta-contact"}}
 {{#has tag="case studies, software, blog, solutions"}}<footer class="palette flexy">
     {{> "sharing"}}

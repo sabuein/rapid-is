@@ -10,39 +10,13 @@
         <figure class="column rapid-logo"><a href="{{@site.url}}" title="{{@site.title}}">
             {{> "icons/rapid-is"}}
         </a></figure>
-        <div class="column flexy">
+        {{#if @site.navigation}}<div class="column flexy">
             <h6 title="Explore">Explore</h6>
             <ul class="nav flexy">
-                <li role="menuitem"><a href="/" title="Homepage">Homepage</a></li>
-                <li role="menuitem"><a href="/about/" title="About">About</a></li>
-                <li role="menuitem"><a href="/tag/case-studies/" title="Case studies">Case studies</a></li>
-                <li role="menuitem"><a href="/solutions/" title="Solutions">Solutions</a></li>
-                <li role="menuitem"><a href="/contact/" title="Contact">Contact</a></li>
+                <li role="menuitem"><a href="{{@site.url}}" title="Homepage">Homepage</a></li>
+                {{#foreach navigation}}<li role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}">{{label}}</a></li>{{/foreach}}
             </ul>
-        </div>
-        <!--div class="flexy">
-            <h6 title="Solutions">Solutions</h6>
-            <ul class="nav flexy">
-                <li role="menuitem"><a href="/solutions/billing-system/" title="Billing System">Billing System</a></li>
-                <li role="menuitem"><a href="/solutions/communication/" title="Communication">Communication</a></li>
-                <li role="menuitem"><a href="/solutions/education-and-welfare/" title="Education and Welfare">Education &amp; Welfare</a></li>
-                <li role="menuitem"><a href="/solutions/estates/" title="Estates">Estates</a></li>
-                <li role="menuitem"><a href="/solutions/safety-and-compliance/" title="Safety and Compliance">Safety &amp; Compliance</a></li>
-            </ul>
-        </div-->
-        <!--
-        <div class="flexy">
-            <h6 title="Contact">Accreditation&comma; frameworks &amp; partners</h6>
-            <ul class="nav flexy">
-                <li role="menuitem">Cyber Essentials</li>
-                <li role="menuitem">Crown Commercial Service Supplier</li>
-                <li role="menuitem">Amazon Web Services</li>
-                <li role="menuitem">Microsoft Partner</li>
-                <li role="menuitem">Oracle</li>
-                <li role="menuitem">Java</li>
-            </ul>
-        </div>
-        -->
+        </div>{{/if}}
         <div class="column flexy">
             <h6 title="Accreditation">Accreditation</h6>
             <div class="deeds flexy row">
