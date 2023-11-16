@@ -7,14 +7,17 @@
 <nav class="flexy">
     <ul class="nav flexy row" role="menu">
         {{#foreach navigation}}
-        {{#has slug="about"}}<li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}" class="flexy row">
+        {{#has slug="about"}}<li class="nav-{{slug}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}" class="flexy row" onclick="return false;">
             <span>{{label}}</span>
-            {{> "icons/angle-down"}}</a></li>{{else has slug="solutions"}}<li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}" class="flexy row">
+            {{> "icons/angle-down"}}</a></li>{{!--{{else has slug="solutions"}}<li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}" class="flexy row">
                 <span>{{label}}</span>
-                {{> "icons/angle-down"}}</a></li>{{else}}<li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}">{{label}}</a></li>{{/has}}
+                {{> "icons/angle-down"}}</a></li>--}}{{else}}<li class="{{link_class for=(url) class=(concat 'nav-' slug)}}" role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}">{{label}}</a></li>{{/has}}
         {{/foreach}}
     </ul>
     <ul class="about-nav flexy">
+        <li{{#post}}{{#has slug="about"}} class="nav-current"{{/has}}{{/post}} role="menuitem"><a href="/about/" title="About" class="flexy row">
+        {{> "icons/angle-down"}}
+        <span>About</span></a></li>
         <li{{#post}}{{#has slug="team"}} class="nav-current"{{/has}}{{/post}} role="menuitem"><a href="/team/" title="Careers" class="flexy row">
         {{> "icons/angle-down"}}
         <span>Team</span></a></li>
@@ -25,11 +28,11 @@
         {{> "icons/angle-down"}}
         <span>How to buy</span></a></li>
     </ul>
-    <ul class="solutions-nav flexy row">
+    {{!--<ul class="solutions-nav flexy row">
         <li{{#post}}{{#has slug="support"}} class="nav-current"{{/has}}{{/post}} role="menuitem"><a href="/support/" title="Support" class="flexy row">
         {{> "icons/angle-down"}}
         <span>Support</span></a></li>
-    </ul>
+    </ul>--}}
 </nav>
 <span data-html-symbol="trigram-for-heaven">&#9776;</span>
 {{/if}}
