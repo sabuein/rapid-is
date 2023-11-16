@@ -1,0 +1,37 @@
+{
+  "url": "http://localhost:2368/",
+  "server": {
+    "port": 2368,
+    "host": "127.0.0.1"
+  },
+  "database": {
+    "client": "sqlite3",
+    "connection": {
+      "filename": "/home/sabuein/my/instances/ghost/content/data/ghost-local.db"
+    }
+  },
+  "mail": {
+    "transport": "SMTP",
+    "from": "'Rapid Website' website@rapid-is.co.uk",
+    "options": {
+      "service": "IONOS",
+      "host": "smtp.ionos.co.uk",
+      "port": 587,
+      "secure": false,
+      "auth": {
+        "user": "website@rapid-is.co.uk",
+        "pass": "password"
+      }
+    }
+  },
+  "logging": {
+    "transports": [
+      "file",
+      "stdout"
+    ]
+  },
+  "process": "local",
+  "paths": {
+    "contentPath": "/home/sabuein/my/instances/ghost/content"
+  }
+}
