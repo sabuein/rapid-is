@@ -2798,13 +2798,14 @@ body:not(.home-template) *.flexy.row>hgroup {
 }
 
 .cookies.flexy.row h4 {
-    flex: 0 1 12rem;
-    width: 12rem;
+    width: fit-content;
+    flex: 0 0 fit-content;
 }
 
 #default-footer .cookies.flexy.row hgroup p {
-    width: 50rem;
-    flex: 0 0 50rem;
+    width: fit-content;
+    max-width: 50rem;
+    flex: 0 0 fit-content;
     text-align: start;
 }
 
@@ -2822,12 +2823,13 @@ body:not(.home-template) *.flexy.row>hgroup {
 }
 
 .cookies.flexy.row form {
-    flex-basis: 20rem;
     width: 20rem;
-    gap: 2rem;
+    flex-basis: 20rem;
+    gap: 1rem;
 }
 
 .cookies.flexy.row hgroup {
+    justify-content: space-between;
     gap: 1rem;
 }
 
