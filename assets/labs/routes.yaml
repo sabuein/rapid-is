@@ -4,9 +4,14 @@
 routes:
 
 collections:
+  /case-studies/:
+    permalink: /case-studies/{slug}/
+    template: tag
+    filter: primary_tag:case-studies
+    data: tag.case-studies
   /solutions/:
     permalink: /solutions/{slug}/
-    template: solutions
+    template: tag
     filter: primary_tag:solutions
     data: tag.solutions
   /:
