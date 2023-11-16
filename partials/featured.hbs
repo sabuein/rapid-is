@@ -1,7 +1,7 @@
 <!-- featured.hbs -->
 <section id="featured-posts" class="cards palette flexy row">
     {{#get "posts" include="authors, tags" filter="featured:true+visibility:public+tag:{{slug}}" order="featured desc, published_at asc" limit="3" as |featured pages|}}{{^if featured}}<p class="total-results">Found no featured posts&excl;</p>
-    <p class="get-posts-error">{{error}}</p>
+    <p class="get-posts-error">Error&colon; {{error}}</p>
 </section>{{else}}<div class="container flexy row">
         {{#foreach featured}}<article class="{{post_class}} flip-card flexy" data-index="{{@index}}">
             <div class="flip-card-inner flexy" tabindex="0">
