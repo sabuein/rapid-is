@@ -1168,6 +1168,7 @@ svg *.feet {
 
 *.post #content ul {
     list-style-type: square;
+    list-style-position: outside;
 }
 
 *.post blockquote {
@@ -2355,6 +2356,10 @@ pre {
     text-align: center;
 }
 
+*.pagination a {
+    text-decoration: none;
+}
+
 *.total-results {
     line-height: 1.85;
     font-size: .85rem;
@@ -2362,6 +2367,10 @@ pre {
     flex: 1 0 100%;
     width: 100dvw;
     max-width: 100%;
+}
+
+nav p:is(.first-last, .total-results) {
+    display: none;
 }
 
 #get-the-app div {
