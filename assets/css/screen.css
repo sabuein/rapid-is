@@ -19,6 +19,10 @@
     color: currentColor;
 }
 
+*.kg-card.kg-file-card {
+    display: none;
+}
+
 *.kg-card.kg-toggle-card {
     width: 100dvw;
 }
@@ -280,38 +284,43 @@ section:has([data-divider="top"]) path {
 }
 
 *.prev-next {
+    padding: 1rem 2rem;
     color: var(--accent-color);
+    background-color: var(--accent-color-100);
+    width: fit-content;
+    flex: 0 0 fit-content;
     align-items: flex-start;
     gap: 2rem;
+    user-select: none;
+}
+
+*.prev-next p {
+    width: fit-content;
+    flex: 0 0 fit-content;
+    font-size: .85rem;
+    gap: 0;
+}
+
+*.prev-next p > span {
+    text-transform: uppercase;
+}
+
+*.prev-next .prev {
+    align-items: flex-end;
+    text-align: end;
+}
+
+*.prev-next .next {
+    align-items: flex-start;
+    text-align: start;
 }
 
 *.prev-next a:any-link {
     text-decoration: none;
-    user-select: none;
 }
 
 *.prev-next a:any-link span {
     padding: 0 .25rem;
-}
-
-*.prev-next a::after {
-    visibility: hidden;
-    flex-basis: 100%;
-    content: attr(data-post-title);
-}
-
-*.prev-next a:is(:active, :focus, :hover)::after {
-    visibility: visible;
-}
-
-*.prev-next a[title="Previous"] {
-    justify-content: flex-start;
-    text-align: start;
-}
-
-*.prev-next a[title="Next"] {
-    justify-content: flex-end;
-    text-align: end;
 }
 
 /* Elements */
@@ -816,7 +825,7 @@ body.post-template {
     display: none;
 }*/
 
-*.rapid-captions svg #icon path:is(:hover, :active, :focus, :target) {
+*.rapid-captions svg #icon path:is(:hover, :active, :focus, :target, .active) {
     cursor: pointer;
     stroke: var(--accent-color-50);
     stroke-width: 0;
@@ -832,22 +841,22 @@ body.post-template {
     visibility: visible;
 }
 
-*.rapid-captions svg #icon:has(path:is(:hover, :active, :focus, :target)) path:not(:hover, :active, :focus, :target) {
+*.rapid-captions svg #icon:has(path:is(:hover, :active, :focus, :target, .active)) path:not(:hover, :active, :focus, :target, .active) {
     opacity: .75;
     scale: .5;
     transition: all linear 500ms 0s;
 }
 
-*.rapid-captions svg #icon:has(path:is(:hover, :active, :focus))~#name {
+*.rapid-captions svg #icon:has(path:is(:hover, :active, :focus, .active))~#name {
     visibility: hidden;
 }
 
-*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(1):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
-*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :hover, :focus))~figcaption:nth-of-type(2),
-*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :hover, :focus))~figcaption:nth-of-type(3),
-*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :hover, :focus))~figcaption:nth-of-type(4),
-*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :hover, :focus))~figcaption:nth-of-type(5),
-*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :hover, :focus))~figcaption:nth-of-type(6) {
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(1):is(:active, :hover, :focus, .active))~figcaption:nth-of-type(1),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :hover, :focus, .active))~figcaption:nth-of-type(2),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :hover, :focus, .active))~figcaption:nth-of-type(3),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :hover, :focus, .active))~figcaption:nth-of-type(4),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :hover, :focus, .active))~figcaption:nth-of-type(5),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :hover, :focus, .active))~figcaption:nth-of-type(6) {
     animation: fadein 750ms linear 0s 1;
     opacity: 1;
     visibility: visible;
@@ -856,15 +865,15 @@ body.post-template {
     transition: visibility linear 500ms 0s;
 }
 
-*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
-*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
-*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
-*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :hover, :focus))~figcaption:nth-of-type(1),
-*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :hover, :focus))~figcaption:nth-of-type(1) {
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(2):is(:active, :hover, :focus, .active))~figcaption:nth-of-type(1),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(3):is(:active, :hover, :focus, .active))~figcaption:nth-of-type(1),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(4):is(:active, :hover, :focus, .active))~figcaption:nth-of-type(1),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(5):is(:active, :hover, :focus, .active))~figcaption:nth-of-type(1),
+*.rapid-captions svg:has(#rapid-is #icon path:nth-of-type(6):is(:active, :hover, :focus, .active))~figcaption:nth-of-type(1) {
     visibility: hidden;
 }
 
-*.rapid-captions svg:has(#rapid-is #icon path:is(:active, :focus))~figcaption {
+*.rapid-captions svg:has(#rapid-is #icon path:is(:active, :focus, .active))~figcaption {
     z-index: 1;
 }
 
@@ -899,14 +908,6 @@ svg #icon:hover {
     transition: scale 1s linear 250ms;
 }
 
-svg:is(:active, :hover, :focus) #rapid-is #icon,
-svg #rapid-is:hover #icon {
-    animation-play-state: paused;
-    scale: .8;
-    transition: scale 1s linear 250ms;
-}
-
-
 svg #icon path {
     animation: fadein 1s linear 250ms 1;
     pointer-events: bounding-box;
@@ -928,9 +929,15 @@ svg #name {
     pointer-events: none;
 }
 
-*.rapid-captions svg:focus-within,
-*.rapid-captions svg:has(path:is(:hover, :active, :focus, :target)) {
+*.rapid-captions svg:has(.active) {
     animation-play-state: paused;
+}
+
+svg:is(:active, :hover, :focus) #rapid-is #icon,
+svg #rapid-is:hover #icon {
+    animation-play-state: paused;
+    scale: .8;
+    transition: scale 1s linear 250ms;
 }
 
 @keyframes flip {
@@ -1566,6 +1573,10 @@ h6 {
     color: var(--color-red);
     font-size: 1.5rem;
     cursor: wait;
+    user-select: none;
+}
+
+pre:has(*.hearts) {
     user-select: none;
 }
 
@@ -3129,12 +3140,12 @@ fieldset {
 
 *.post>*.heading.flexy.row :is(hgroup, figure) {
     flex-grow: 1;
-    flex-shrink: 0;
+    flex-shrink: 1;
 }
 
 *.post>*.heading.flexy.row hgroup {
-    flex-basis: 50rem;
-    width: 50rem;
+    flex-basis: 55rem;
+    width: 55rem;
     align-content: flex-start;
 }
 
@@ -3145,7 +3156,7 @@ fieldset {
     background-size: contain;
     height: 18rem;
     width: 18rem;
-    flex-basis: 0%;
+    flex-basis: 18rem;
     background-color: transparent !important;
     mix-blend-mode: multiply;
 }
@@ -3847,10 +3858,10 @@ ol {
 }
 
 .page-contact #content aside {
-    padding-top: 2rem;
+    padding: 1rem;
     height: auto;
     width: 25rem;
-    flex: 0 1 25rem;
+    flex: 0 0 25rem;
 }
 
 .page-contact #content aside figure {
@@ -4421,7 +4432,8 @@ form#search-support input[type="submit"] {
 }
 
 .post-template.tag-solutions .post [data-slug="communication"],
-.post-template.tag-solutions .post [data-slug="estates"] {
+.post-template.tag-solutions .post [data-slug="estates"],
+.post-template.tag-solutions .post [data-slug="billing-system"] {
     flex-direction: row-reverse;
 }
 
