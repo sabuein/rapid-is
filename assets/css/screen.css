@@ -933,8 +933,9 @@ svg #name {
     animation-play-state: paused;
 }
 
-svg:is(:active, :hover, :focus) #rapid-is #icon,
-svg #rapid-is:hover #icon {
+svg:is(:active, :hover, :focus, :focus-within) #rapid-is #icon,
+svg #rapid-is:hover #icon,
+svg:has(.active) #icon {
     animation-play-state: paused;
     scale: .8;
     transition: scale 1s linear 250ms;
