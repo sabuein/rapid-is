@@ -13,10 +13,10 @@ const xx = (cont) => {
         cont.forEach((container) => {
             const width = container.scrollWidth;
             if (container.scrollLeft !== width) {
-                container.scrollTo(container.scrollLeft*1.25 + 1, 0);
+                container.scrollTo(container.scrollLeft * 1.25 + 1, 0);
             } else {
                 self.setInterval(() => {
-                    container.scrollTo(container.scrollLeft*1.25 + -1, 0);
+                    container.scrollTo(container.scrollLeft * 1.25 + -1, 0);
                 }, 15);
             }
         });
@@ -30,13 +30,19 @@ window.addEventListener("load", () => {
         // sections.forEach((section) => shakeMe(section));
         const containers = document.querySelectorAll(".horizontal-scrollingXXX") || null;
         //xx(containers);
+
+        const captions = document.getElementById("rapid-captions-auto");
+        if (!!captions) {
+            console.log("Yallah...");
+            simulation(captions);
+        }
     } catch (error) {
         console.error(error);
     }
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    if("virtualKeyboard" in window.navigator) window.navigator.virtualKeyboard.overlaysContent = true;
+    if ("virtualKeyboard" in window.navigator) window.navigator.virtualKeyboard.overlaysContent = true;
     // Get the contact main nav item
     startMainModal("get-in-touch", ".show-modal");
     /*const getInTouchLinks = document.querySelectorAll(`a[href$="/contact/" i]`) || null;
@@ -89,12 +95,12 @@ document.addEventListener("DOMContentLoaded", () => {
             circles[currentIndex].classList.add("currently-active");
             quotes[currentIndex].classList.add("currently-active");
         };
-    
+
         const deactivateAll = () => {
             quotes.forEach(quote => quote.classList.remove("currently-active"));
             circles.forEach(circle => circle.classList.remove("currently-active"));
         };
-    
+
         let currentIndex = 0;
         activateCurrent(currentIndex);
 
@@ -102,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const autoPlay = setInterval(() => document.querySelector(".next-testimonial").click(), 5000);
         const activateTestimonialsPanel = () => {
-            try {                
+            try {
                 quotes.forEach(quote => quote.addEventListener("mouseenter", () => clearInterval(autoPlay), { once: true }));
                 circles.forEach((circle, index) => circle.addEventListener("click", () => activateCurrent(index)));
 
@@ -110,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     e.preventDefault();
                     activateArrow(+1);
                 });
-            
+
                 document.querySelector(".prev-testimonial").addEventListener("click", (e) => {
                     e.preventDefault();
                     activateArrow(-1);
@@ -123,3 +129,28 @@ document.addEventListener("DOMContentLoaded", () => {
         activateTestimonialsPanel();
     }
 });
+
+const simulation = (parent) => {
+    const x = document.querySelector("#rapid-captions-auto > figure > svg");
+    const ttt = x.querySelectorAll("#icon path");
+    ttt.forEach(y => {
+        y.tabIndex = 0;
+        y.addEventListener("click", () => {
+            ttt.forEach(y => y.classList.remove("active"));
+            clearInterval(playing);
+            y.classList.add("active");
+        });
+    });
+    /*ttt[0].classList.add("active");*/
+    console.log("Done");
+    setTimeout(() => {
+        ttt[0].classList.add("active");
+    }, 1000);;
+    let index = 1;
+    const playing = setInterval(() => {
+        ttt.forEach(y => y.classList.remove("active"));
+        ttt[index].classList.add("active");
+        index++;
+        if (index === 5) index = 0;
+    }, 6000);
+};
