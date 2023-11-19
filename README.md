@@ -18,5 +18,6 @@ to
 
 - Demo http://demo.rapid-is.co.uk:8081/
 - Docs https://ghost.org/docs/themes/
-- Configuration https://ghost.org/docs/config/
-- Email 
+- Mail config https://ghost.org/docs/config/#mail
+- Delivering emails to your audience https://ghost.org/help/delivering-emails/
+- Email deliverability explained for publishers https://ghost.org/resources/email-deliverability-for-publishers/
