@@ -317,6 +317,9 @@ section:has([data-divider="top"]) path {
 
 *.prev-next a:any-link {
     text-decoration: none;
+    text-align: start;
+    flex-wrap: nowrap;
+    gap: .5rem;
 }
 
 *.prev-next a:any-link span {
@@ -1185,12 +1188,23 @@ svg *.feet {
     padding: .25rem 0 .25rem 1rem;
     color: currentColor;
     border-left: thick solid var(--accent-color-50);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-style: oblique;
     line-height: 2;
     text-align: start;
     align-self: flex-start;
     font-weight: 700;
+}
+
+*.post #content blockquote {
+    padding: 1rem 0 1rem 1rem;
+    font-weight: 400;
+    font-size: 1.15rem;
+    line-height: 2.25;
+}
+
+*.post #content blockquote strong {
+    font-weight: 600;
 }
 
 *.testimonial-container {
@@ -1199,18 +1213,18 @@ svg *.feet {
 
 *.testimonial-container blockquote {
     margin: 0;
-    padding: 1rem;
-    padding-left: 2rem;
+    padding: 2rem;
     width: 50rem;
     flex: 0 1 50rem;
+
+    gap: .5rem;
 }
 
 *.testimonial-container blockquote *:is(h3, p) {
     width: 100%;
 }
 
-*.testimonial-container blockquote p:last-of-type {
-    padding-top: .5rem;
+*.testimonial-container blockquote strong {
     font-weight: 600;
 }
 
@@ -1358,8 +1372,8 @@ div:has(>[href*="main-content"]) {
     width: fit-content;
     align-items: flex-end;
     position: fixed;
-    bottom: 1rem;
-    right: 1rem;
+    bottom: 6rem;
+    right: 1.75rem;
     z-index: 9999;
 }
 
@@ -1420,6 +1434,11 @@ a:is(:active, :focus, :hover) {
     opacity: 1;
     color: var(--link-button-text);
     transition: all 200ms ease 0s;
+}
+
+input[type="file"]:disabled,
+label:has(:disabled) {
+    cursor: not-allowed;
 }
 
 *:is(button[type="button"],
@@ -2569,7 +2588,7 @@ body:not(.home-template) *.flexy.row>hgroup {
 
 *.flexy.row>hgroup {
     border: 0;
-    padding: 1rem;
+    padding: 0;
     flex: 2 1 58rem;
     width: 58rem;
     height: auto;
@@ -2646,7 +2665,19 @@ body:not(.home-template) *.flexy.row>hgroup {
     animation: move 30s linear 1s infinite normal;
 }
 
+/*#more-clients .container {
+    animation: unset;
+    outline: thick solid red;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}*/
+
 #more-clients .container ~ p {
+    padding: 0 3rem;
     text-align: start;
 }
 
@@ -3369,7 +3400,7 @@ form#join-newsletter a:is(:focus, :hover) {
 
 /* Sharing page/post */
 
-.post #sharing-is-caring {
+*.post #sharing-is-caring {
     width: 100dvw;
     max-width: 100%;
     height: 5rem;
@@ -4119,10 +4150,6 @@ form#search-support input[type="submit"] {
     gap: 2rem;
 }
 
-#browse-tag>.container {
-    padding: 1rem;
-}
-
 #browse-tag .container .post {
     flex: 0 1 60rem;
     width: 60rem;
@@ -4414,17 +4441,17 @@ form#search-support input[type="submit"] {
 
 /* Post template */
 
-.post-template.tag-solutions .post #content {
+*.post-template.tag-solutions .post #content {
     align-content: flex-start;
 }
 
-.post-template.tag-solutions .post section:first-of-type {
+*.post-template.tag-solutions .post section:first-of-type {
     padding: 4rem;
     min-height: 92dvh;
     justify-content: space-evenly;
 }
 
-.post-template.tag-solutions .post section:first-of-type :is(hgroup, figure) {
+*.post-template.tag-solutions .post section:first-of-type :is(hgroup, figure) {
     padding: 1rem;
     flex: 1 0 25rem;
     height: 25rem;
@@ -4506,12 +4533,13 @@ footer {
     width: fit-content;
 }
 
-#default-footer .deeds,
-#default-footer .columns :has(address) {
+#default-footer .last-column {
     width: fit-content;
+    align-items: flex-start;
 }
 
 #default-footer .deeds {
+    width: fit-content;
     gap: 1rem;
 }
 
