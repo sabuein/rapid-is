@@ -36,6 +36,13 @@ window.addEventListener("load", () => {
             console.log("Yallah...");
             simulation(captions);
         }
+
+        const externalLinks = document.querySelectorAll(`a[href^="http"]:not([href^="https://rapid-is"])`);
+        externalLinks.forEach(link => {
+            link.target = "_blank";
+            link.rel = "noopener";
+        });
+
     } catch (error) {
         console.error(error);
     }
@@ -151,6 +158,6 @@ const simulation = (parent) => {
         ttt.forEach(y => y.classList.remove("active"));
         ttt[index].classList.add("active");
         index++;
-        if (index === 5) index = 0;
+        if (index === 6) index = 0;
     }, 6000);
 };
