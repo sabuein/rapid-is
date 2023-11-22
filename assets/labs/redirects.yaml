@@ -2,6 +2,7 @@
 ## For more information https://ghost.org/tutorials/implementing-redirects/
 
 301:
+  ^/support/(.*)?$: https://support.rapid-is.co.uk/$1
   /permanent-redirect-from: /permanent-redirect-to
   /permanent-redirect-from-2: /permanent-redirect-to-2
 
