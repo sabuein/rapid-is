@@ -1,19 +1,107 @@
-<!-- error-404.hbs -->
-<h1>{{statusCode}}&colon; {{message}}</h1>
-<h2>We&apos;re sorry&comma; something unexpected happened&period;</h2>
-<p>The page you requested could not be found&period; If the problem persists&comma; please contact our <a href="/support/" title="Support">support</a> for further assistance&period; That&apos;s all we know&period;</p>
-{{#if errorDetails}}<section class="error-stack">
-    <h3>Theme errors</h3>
-    <ul class="error-stack-list">
-        {{#foreach errorDetails}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{@site.title}} &dash; {{statusCode}}&colon; {{message}}</title>
+    <style>
+
+        *, *::after, *::before {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            opacity: 1;
+            box-sizing: border-box;
+        }
+
+        *.flexy {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        html {
+            font-size: 18px;
+        }
+
+        body {
+            height: 100dvh;
+        }
+
+        body.flexy {
+            padding: 2rem;
+            flex-direction: row-reverse;
+            font-size: 1.5rem;
+            gap: 2rem;
+        }
+
+        hgroup.flexy {
+            gap: 1rem;
+            align-items: flex-start;
+            flex: 0 0 50%;
+        }
+
+        figure.flexy {
+            width: 25rem;
+            flex: 0 0 25rem;
+        }
+
+        figure svg {
+            height: fit-content;
+            width: 25rem;
+        }
+
+        button {
+            padding: 1rem .75rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: .25rem;
+            transition: all 250ms linear 0s;
+        }
+
+        button:hover {
+            color: #ffffff;
+            background-color: #000000;
+        }
+
+        p {
+            line-height: 1.25;
+        }
+    </style>
+</head>
+
+<body class="flexy">
+    <!-- error-404.hbs -->
+    <hgroup class="flexy">
+        <h1>{{statusCode}}&colon; {{message}}</h1>
+        <p>We&apos;re sorry&comma; something unexpected happened&period;</p>
+        <p>The page you requested could not be found&period; If the problem persists&comma; please contact our <a href="/help/" title="Help">help</a> for further assistance&period; That&apos;s all we know&period;</p>
+        <button onclick="history.back()">Go Back</button>
+    </hgroup>
+    <figure class="flexy">
+        {{> "drawings/404"}}
+    </figure>
+    {{#if errorDetails}}<section class="error-stack">
+        <h3>Theme errors</h3>
+        <ul class="error-stack-list">
+            {{#foreach errorDetails}}
             <li>
                 <em class="error-stack-function">{{{rule}}}</em>
 
                 {{#foreach failures}}
-                    <p><span class="error-stack-file">Ref: {{ref}}</span></p>
-                    <p><span class="error-stack-file">Message: {{message}}</span></p>
+                <p><span class="error-stack-file">Ref: {{ref}}</span></p>
+                <p><span class="error-stack-file">Message: {{message}}</span></p>
                 {{/foreach}}
             </li>
-        {{/foreach}}
-    </ul>
-</section>{{/if}}
+            {{/foreach}}
+        </ul>
+    </section>{{/if}}
+</body>
+
+</html>

@@ -13,7 +13,7 @@
         {{#if @site.navigation}}<div class="column flexy">
             <h6 title="Explore">Explore</h6>
             <ul class="nav flexy">
-                <li role="menuitem"><a href="{{@site.url}}" title="Homepage">Homepage</a></li>
+                {{!--<li role="menuitem"><a href="{{@site.url}}" title="Homepage">Homepage</a></li>--}}
                 {{#foreach navigation}}<li role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}">{{label}}</a></li>{{/foreach}}
             </ul>
         </div>{{/if}}
@@ -40,7 +40,7 @@
                 </figure>
             </div>
         </div>
-        <div>
+        <div class="last-column flexy">
             <address class="column contact flexy">
                 <h6 title="Contact">Contact</h6>
                 <ul itemscope itemtype="https://schema.org/LocalBusiness" class="nav flexy">
