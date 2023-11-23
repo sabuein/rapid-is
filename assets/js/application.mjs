@@ -43,6 +43,20 @@ window.addEventListener("load", () => {
             link.rel = "noopener";
         });
 
+        const trigram = document.querySelector(`[data-html-symbol="trigram-for-heaven"]`);
+        const mobileMenu = document.querySelector(`header nav.flexy`);
+
+        trigram.addEventListener("click", () => {
+            trigram.style.rotate = "90deg";
+            mobileMenu.style.display = "flex";
+            document.body.style.overflowY = "hidden";
+            mobileMenu.addEventListener("click", () => {
+                trigram.style.rotate = "none";
+                mobileMenu.style.display = "none";
+                document.body.style.overflowY = "auto";
+            }, false);
+        }, false);
+
     } catch (error) {
         console.error(error);
     }
