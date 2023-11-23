@@ -10,6 +10,14 @@
 
 /* Required by Ghost */
 
+*.gh-search-icon[aria-label="search"] {
+    margin: 0;
+}
+
+*.gh-portal-triggerbtn-wrapper {
+    transition: transform 0.16s linear 0s, opacity 0.08s linear 0s;
+}
+
 *.kg-button-card.kg-align-left {
     padding: 1rem 0;
 }
@@ -142,8 +150,7 @@ main #content .kg-toggle-card .kg-toggle-content p {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
+    place-content: center;
     align-items: safe center;
 }
 
@@ -160,6 +167,9 @@ main #content .kg-toggle-card .kg-toggle-content p {
     background-position: left center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
     background-clip: content-box;
     width: 100dvw;
@@ -461,8 +471,8 @@ body {
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;
-    color: var(--color-white);
-    background-color: var(--color-black);
+    color: var(--accent-color-110);
+    background-color: var(--accent-color);
     max-width: var(--default-max-width);
     min-height: 100dvh;
     overflow-x: hidden;
@@ -593,7 +603,7 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
 
 *.post {
     color: var(--color-black);
-    background-color: var(--color-white);
+    background-color: var(--accent-color-110);
     font-size: 1.25rem;
     overflow: hidden;
     gap: 0;
@@ -1325,12 +1335,11 @@ main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
 /* End of page style */
 
 #partner-with-leaders figure {
-    padding: 1rem;
-    flex: 0 1 10rem;
+    height: 10rem;
     width: 10rem;
     max-width: 100%;
-    height: 10rem;
     max-height: 100%;
+    flex: 0 1 10rem;
     user-select: none;
 }
 
@@ -1374,7 +1383,6 @@ div:has(>[href*="main-content"]) {
     position: fixed;
     bottom: 6rem;
     right: 1.75rem;
-    z-index: 9999;
 }
 
 button,
@@ -2089,7 +2097,7 @@ ul.nav.flexy {
     gap: 1rem;
     font-weight: bold;
     font-size: inherit;
-    text-transform: capitalize;
+    text-transform: none;
     width: fit-content;
 }
 
@@ -2165,7 +2173,7 @@ ul.about-nav li,
 ul.solutions-nav li {
     width: 100%;
     flex: 0 0 100%;
-    text-transform: capitalize;
+    text-transform: none;
 }
 
 nav li.nav-current {
@@ -2479,7 +2487,7 @@ nav p:is(.first-last, .total-results) {
 }
 
 #main-message {
-    padding: 1rem 5rem;
+    padding: 2rem 5rem;
     color: var(--accent-color-110);
     background-color: var(--accent-color-50);
     flex: 1 1 auto;
@@ -2598,10 +2606,10 @@ body:not(.home-template) *.flexy.row>hgroup {
 }
 
 *.flexy.row>figure {
-    padding: 1rem;
-    flex: 0 1 20rem;
-    width: 20rem;
+    padding: 0;
     height: 100%;
+    width: 20rem;
+    flex: 0 0 20rem;
     transform: none;
 }
 
@@ -3185,8 +3193,12 @@ fieldset {
     padding: 0;
     background-position: center center;
     background-attachment: local;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
     background-size: contain;
     height: 18rem;
+    height: 12rem;
     width: 18rem;
     flex-basis: 18rem;
     background-color: transparent !important;
@@ -3822,6 +3834,10 @@ ol {
     fill: var(--color-black);
 }
 
+#meet-our-team article[data-index="5"] svg path:nth-child(3) {
+    fill: #50321e;
+}
+
 .social-icons svg {
     flex: 0 0 1.75rem;
     width: 1.75rem;
@@ -3829,8 +3845,8 @@ ol {
 
 /* page-contact.hbs */
 
-.page-contact .post #content {
-    padding: 3rem 5rem;
+*.page-contact .post #content {
+    padding: 1rem 3rem;
     gap: 3rem;
 }
 
@@ -4001,8 +4017,28 @@ ol {
     gap: .5rem;
 }
 
-[data-html-symbol="trigram-for-heaven"] {
+header button[type="button"][data-html-symbol="trigram-for-heaven"] {
+    margin: 0;
+    padding: 0;
     display: none;
+    position: absolute;
+    right: 5rem;
+    height: auto;
+    width: fit-content;
+    flex: 0 0 fit-content;
+    font-size: 1.65rem;
+    font-weight: 400;
+    cursor: pointer;
+    color: var(--color-black);
+    background-color: transparent;
+    z-index: 999999;
+}
+
+header button[type="button"][data-html-symbol="trigram-for-heaven"]:hover {
+    transform: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    transition: none;
 }
 
 form#search-support {
@@ -4452,10 +4488,9 @@ form#search-support input[type="submit"] {
 }
 
 *.post-template.tag-solutions .post section:first-of-type :is(hgroup, figure) {
-    padding: 1rem;
-    flex: 1 0 25rem;
-    height: 25rem;
+    height: auto;
     width: 25rem;
+    flex: 1 0 25rem;
     align-items: flex-start;
 }
 
@@ -4618,7 +4653,7 @@ footer {
     font-weight: 500;
 }
 
-.social-icons {
+*.social-icons {
     list-style-type: none;
     align-items: flex-start;
     justify-content: flex-start;
@@ -4628,32 +4663,93 @@ footer {
     gap: 1rem;
 }
 
-.social-icons a {
+*.social-icons a {
     flex: 0 1 2rem;
     height: 2rem;
     width: 2rem;
     user-select: none;
 }
 
-.rapid-logo a:focus img,
-.social-icons a:focus img,
-.social-icons a:focus svg,
+*.rapid-logo a:focus img,
+*.social-icons a:focus img,
+*.social-icons a:focus svg,
 button[data-ghost-search]:focus {
     outline: thick solid var(--accent-color) !important;
     transition: all 250ms ease-out 0s;
 }
 
-.social-icons :is(img, svg) {
+*.social-icons :is(img, svg) {
     transition: all 250ms ease-out 0s;
 }
 
-.social-icons svg path {
+*.social-icons svg path {
     fill: var(--accent-color-110);
 }
 
-.social-icons a:is(:focus, :hover) :is(img, svg) {
+*.social-icons a:is(:focus, :hover) :is(img, svg) {
     scale: 1.1;
     transition: all 250ms ease-in 0s;
+}
+
+body:has(hgroup.error) header ul.nav.flexy {
+    display: none;
+}
+
+body:has(hgroup.error) section:has([data-divider="top"]) {
+    background-color: var(--accent-color-110);
+}
+
+*.flexy main:has(hgroup.error) {
+    padding: 2rem;
+    flex-direction: row-reverse;
+    font-size: 1.5rem;
+    gap: 2rem;
+}
+
+*.flexy hgroup.error {
+    gap: 1rem;
+    align-items: flex-start;
+    flex: 0 0 50%;
+}
+
+*.flexy figure.error {
+    width: 25rem;
+    flex: 0 0 25rem;
+}
+
+*.flexy *.error h1 {
+    width: fit-content;
+}
+
+*.flexy *.error svg {
+    height: fit-content;
+    width: 25rem;
+}
+
+*.flexy *.error button {
+    padding: 1rem .75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: .25rem;
+    height: auto;
+    width: fit-content;
+    transition: all 250ms linear 0s;
+    border: thin solid var(--color-black);
+}
+
+*.flexy *.error button:hover {
+    color: #ffffff;
+    background-color: var(--color-black);
+}
+
+*.flexy *.error a {
+    text-decoration: none;
+}
+
+*.flexy *.error p {
+    line-height: 1.25;
+    width: fit-content;
 }
 
 /* Keyframes */

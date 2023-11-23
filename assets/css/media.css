@@ -20,16 +20,40 @@
     
 } */
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (min-width: 1000px) {
 
-    nav.flexy {
+    header nav.flexy {
+        display: flex !important;
+    }
+}
+
+@media only screen and (max-width: 999px) {
+
+    header nav.flexy {
         display: none;
     }
 
-    [data-html-symbol="trigram-for-heaven"] {
-        display: inline-block;
+    header nav.flexy,
+    header ul.about-nav.flexy {
         position: absolute;
-        right: 5rem;
+        inset: 0;
+        height: 100dvh;
+        width: 100dvw;
+        place-content: center;
+        z-index: 9999;
+    }
+
+    header nav.flexy ul.nav {
+        flex-direction: column;
+    }
+
+    header nav.flexy ul li {
+        width: fit-content;
+        flex: 0 0 fit-content;
+    }
+
+    header button[type="button"][data-html-symbol="trigram-for-heaven"] {
+        display: inline-block;
     }
     
 }
@@ -44,10 +68,6 @@
 
 @media only screen and (max-width: 600px) {
 
-    *.post *.cards.palette {
-        padding: 2rem;
-    }
-
     *.post *.palette,
     #default-footer,
     #main-message,
@@ -55,9 +75,12 @@
     #default-footer .finally,
     *.prev-next,
     *.post #content,
+    *.page-contact .post #content,
     *.post *.loop,
     *.post>*.heading.flexy.row,
-    *.post-template.tag-solutions .post section:first-of-type {
+    *.post-template.tag-solutions .post section:first-of-type,
+    *.post *.cards.palette,
+    header:has(nav)  {
         padding: 1rem;
     }
 
@@ -66,19 +89,23 @@
     }
 
     #more-clients .container ~ p {
-        padding: 0 1rem;
+        padding: 0;
     }
 
     #default-footer {
         padding-bottom: 5.5rem;
     }
 
-    *:is(h1, h2, h3, h4, h5, h6) {
+    /**:is(h1, h2, h3, h4, h5, h6) {
         text-wrap: balance;
-    }
+    }*/
 
     h1 {
         font-size: 2.5rem;
+    }
+
+    h1 ~ p {
+        font-size: 1.15rem;
     }
 
     h2 {
@@ -91,12 +118,16 @@
 
     ul.nav.flexy {
         flex-direction: row;
-        justify-content: flex-start;
+        justify-content: center;
     }
 
     *.post #sharing-is-caring {
         height: auto;
         gap: 1rem;
+    }
+
+    *.post *.cards *.container {
+        gap: 2rem;
     }
 
     #default-footer .columns h6 {
@@ -108,7 +139,8 @@
     }
 
     #default-footer .columns .column,
-    *.post>*.heading.flexy.row {
+    *.post>*.heading.flexy.row,
+    *.page-contact .post #content {
         gap: 1rem;
     }
 
@@ -125,12 +157,12 @@
         max-width: 100%;
     }
 
-    body.post-template *.post #content .content-body {
-        padding: 1rem;
+    body.post-template *.post #content h2 {
+        font-size: 2.25rem;
     }
 
     #start-journey hgroup {
-        max-width: 90%;
+        max-width: 100%;
     }
     
 }
