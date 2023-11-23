@@ -7,7 +7,7 @@
 <footer id="default-footer" class="flexy" role="contentinfo">
     <div class="columns flexy row">
         {{!--{{#if @site.logo}}<figure class="rapid-logo flexy"><a href="{{@site.url}}" title="{{@site.title}}"><img src="{{@site.logo}}" alt="{{@site.title}}" loading="lazy" /></a></figure>{{else}}<figure class="rapid-logo"><a href="{{@site.url}}" title="{{@site.title}}"><img src="{{asset 'images/new-logo.png'}}" alt="{{@site.title}}" loading="lazy" /></a></figure>{{/if}}--}}
-        <figure class="column rapid-logo"><a href="{{@site.url}}" title="{{@site.title}}">
+        <figure class="column rapid-logo flexy"><a href="{{@site.url}}" title="{{@site.title}}">
             {{> "icons/rapid-is"}}
         </a></figure>
         {{#if @site.navigation}}<div class="column flexy">

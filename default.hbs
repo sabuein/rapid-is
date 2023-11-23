@@ -3,7 +3,7 @@
 <html lang="{{@site.locale}}">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <link rel="preload" href="{{asset "css/screen.css"}}" type="text/css" as="style" />
         <link rel="preload" href="{{asset "css/media.css"}}" type="text/css" as="style" />
         <link rel="preconnect" href="https://cdn.jsdelivr.net/" crossorigin="anonymous" />
@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="{{asset "css/screen.css"}}" type="text/css" media="screen" />
         <link rel="stylesheet" href="{{asset "css/media.css"}}" type="text/css" media="screen" />
         <script src="{{asset "js/application.mjs"}}" type="module"></script>
-        <title>{{#is "home"}}{{@site.title}} &#8211; {{@site.description}}{{else}}{{meta_title}} &#8211; {{@site.title}}{{/is}}</title>
+        <title>{{#is "home"}}{{@site.title}} &#8211; {{@site.description}}{{else is "page, post"}}{{meta_title}} &#8211; {{@site.title}}{{else}}{{meta_title}}{{/is}}</title>
         {{ghost_head}}
     </head>
     <body class="{{body_class}} flexy">
