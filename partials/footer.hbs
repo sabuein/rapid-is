@@ -13,7 +13,7 @@
         {{#if @site.navigation}}<div class="column flexy">
             <h6 title="Explore">Explore</h6>
             <ul class="nav flexy">
-                {{!--<li role="menuitem"><a href="{{@site.url}}" title="Homepage">Homepage</a></li>--}}
+                <li role="menuitem"><a href="{{@site.url}}" title="Homepage">Homepage</a></li>
                 {{#foreach navigation}}<li role="menuitem"><a href="{{url absolute='true'}}" title="{{label}}">{{label}}</a></li>{{/foreach}}
             </ul>
         </div>{{/if}}
@@ -56,7 +56,7 @@
     <pre>Made with <span class="hearts" title="unconditional love">&hearts;</span> by our team&excl;</pre>
     <pre>Registered in England and Wales. Company registration number 05494744&period;<br />VAT registration number 881993663. ICO registration number ZA471303. D-U-N-S number 346902047&period;</pre>
     <div class="finally flexy row">
-        <p>&copy; 2005 &dash; {{date format="YYYY"}} <a href="{{@site.url}}" title="{{@site.title}} Ltd">{{@site.title}} Ltd</a>&period; All Rights Reserved&period;</p>
+        <pre>&copy; 2005 &dash; {{date format="YYYY"}} <a href="{{@site.url}}" title="{{@site.title}} Ltd">{{@site.title}} Ltd</a>&period; All Rights Reserved&period;</pre>
         {{navigation type="secondary"}}
     </div>
     {{> "cookies"}}

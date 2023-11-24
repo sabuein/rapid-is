@@ -15,7 +15,7 @@
         <p class="reading-time">{{reading_time minute=(t "Only a minute") minutes=(t "Takes % minutes")}} to read&hellip;</p>
     </footer>{{/has}}
 </section>
-<section id="content" class="flexy">
+<section id="content" class="palette flexy">
     <div class="content-body flexy">
         {{content}}
     </div>
@@ -24,7 +24,7 @@
 {{#has tag="case studies, software, blog, solutions"}}<footer class="palette flexy">
     {{> "sharing"}}
     {{> "prev-next"}}
-    {{#primary_tag}}{{> "loop"}}{{/primary_tag}}
+    {{!-- {{#primary_tag}}{{> "loop"}}{{/primary_tag}} --}}
 </footer>{{/has}}
 {{/post}}
 {{/is}}
