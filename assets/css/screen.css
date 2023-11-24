@@ -12,6 +12,11 @@
 
 *.gh-search-icon[aria-label="search"] {
     margin: 0;
+    z-index: 999999;
+}
+
+#announcement-bar-root *.gh-announcement-bar button {
+    right: .5rem;
 }
 
 *.gh-portal-triggerbtn-wrapper {
@@ -294,9 +299,8 @@ section:has([data-divider="top"]) path {
 }
 
 *.prev-next {
-    padding: 1rem 2rem;
     color: var(--accent-color);
-    background-color: var(--accent-color-100);
+    background-color: transparent;
     width: fit-content;
     flex: 0 0 fit-content;
     align-items: flex-start;
@@ -307,12 +311,12 @@ section:has([data-divider="top"]) path {
 *.prev-next p {
     width: fit-content;
     flex: 0 0 fit-content;
-    font-size: .85rem;
-    gap: 0;
+    gap: .25rem;
 }
 
 *.prev-next p > span {
     text-transform: uppercase;
+    font-weight: 700;
 }
 
 *.prev-next .prev {
@@ -327,7 +331,6 @@ section:has([data-divider="top"]) path {
 
 *.prev-next a:any-link {
     text-decoration: none;
-    text-align: start;
     flex-wrap: nowrap;
     gap: .5rem;
 }
@@ -610,7 +613,7 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
 }
 
 *.post *.palette {
-    padding: 5rem;
+    padding: 4rem;
     justify-content: space-evenly;
     width: 100dvw;
     max-width: 100%;
@@ -620,23 +623,18 @@ form[method="dialog"] input:is([type="submit"], *[type="reset"]) {
     gap: 1rem;
 }
 
-*.post *.cards.palette {
-    padding: 3rem;
-}
-
 *.post *.palette:nth-child(odd),
-main.post:has(:is(.palette:is(:nth-child(odd):last-of-type))) + section:has([data-divider="top"]) {
+main.post:has(> *.palette:nth-child(odd):last-child) + section:has([data-divider="top"]) {
     background-color: var(--accent-color-100);
 }
 
 *.post *.palette:nth-child(even),
-main.post:has(:is(.palette:is(:nth-child(even):last-of-type))) + section:has([data-divider="top"]) {
+main.post:has(> *.palette:nth-child(even):last-child) + section:has([data-divider="top"]) {
     background-color: var(--accent-color-110);
 }
 
 *.post *.loop {
-    padding: 2rem 5rem;
-    gap: 2rem;
+    gap: .5rem;
 }
 
 *.post *.loop hgroup {
@@ -668,6 +666,13 @@ main.post:has(:is(.palette:is(:nth-child(even):last-of-type))) + section:has([da
 *.post *.loop *.container a::before {
     counter-increment: loop-posts;
     content: counter(loop-posts) ". ";
+}
+
+*.prev-next a:any-link,
+*.post *.loop *.container a:any-link {
+    text-align: start;
+    font-size: .85rem;
+    font-weight: 500;
 }
 
 *.post *.loop *.container a:any-link:not(:active, :focus, :hover) {
@@ -778,8 +783,8 @@ address a {
 body.post-template {
 
     *.post #content .content-body {
-        max-width: 1440px;
-        gap: 1rem;
+        width: 1440px;
+        gap: .5rem;
     }
 
     *.post #content .content-body > * {
@@ -1144,13 +1149,13 @@ svg *.feet {
 }
 
 *.post #content {
-    padding: 5rem;
     width: 100dvw;
     max-width: 100%;
     height: auto;
     max-height: 100%;
     flex: 1 0 100%;
-    gap: 1rem;
+    align-content: center;
+    gap: .5rem;
 }
 
 *.post #content [data-divider="bottom"] path {
@@ -1164,7 +1169,6 @@ svg *.feet {
 }
 
 *.post #content #map {
-    padding: 2rem 0;
     background-color: transparent;
     width: 100dvw;
     max-width: 100%;
@@ -1172,11 +1176,6 @@ svg *.feet {
     max-height: 100%;
     flex: 1 0 100%;
     justify-content: space-evenly;
-    gap: 1rem;
-}
-
-*.post #content #map hgroup {
-    padding: 0;
 }
 
 *.post #content footer {
@@ -1217,16 +1216,11 @@ svg *.feet {
     font-weight: 600;
 }
 
-*.testimonial-container {
-    gap: 2rem;
-}
-
 *.testimonial-container blockquote {
     margin: 0;
     padding: 2rem;
     width: 50rem;
     flex: 0 1 50rem;
-
     gap: .5rem;
 }
 
@@ -1314,10 +1308,6 @@ main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
     width: fit-content;
 }
 
-#browse-tag {
-    min-height: auto;
-}
-
 #browse-tag .container .controls {
     gap: 1rem;
 }
@@ -1382,7 +1372,7 @@ div:has(>[href*="main-content"]) {
     align-items: flex-end;
     position: fixed;
     bottom: 6rem;
-    right: 1.75rem;
+    right: 1.5rem;
 }
 
 button,
@@ -2487,12 +2477,9 @@ nav p:is(.first-last, .total-results) {
 }
 
 #main-message {
-    padding: 2rem 5rem;
     color: var(--accent-color-110);
     background-color: var(--accent-color-50);
     flex: 1 1 auto;
-    min-height: 92dvh;
-    min-height: auto;
 }
 
 #main-message *:has([title="Continue"]),
@@ -2503,7 +2490,7 @@ nav p:is(.first-last, .total-results) {
 
 #client-testimonials {
     justify-content: center;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 a[title~="Continue"],
@@ -2580,8 +2567,12 @@ a[href*="main-content"]:is(:focus, :hover) path {
     transition: all 250ms ease 0s;
 }
 
-*.flexy.row>hgroup>:is(h1, h2) {
+*.flexy.row>hgroup>:is(h1, h2, h3) {
     line-height: 1.25;
+}
+
+*.flexy.row>hgroup>:is(h1, h2, h3, p) {
+    width: fit-content;
 }
 
 body:not(.home-template) *.flexy.row>hgroup {
@@ -2615,7 +2606,8 @@ body:not(.home-template) *.flexy.row>hgroup {
 
 *.home-template section.flexy.row>hgroup {
     width: 50rem;
-    flex: 2 1 50rem;
+    flex-basis: 50rem;
+    justify-content: flex-start;
 }
 
 *.home-template section.flexy.row>figure {
@@ -2645,7 +2637,6 @@ body:not(.home-template) *.flexy.row>hgroup {
 }
 
 #more-clients {
-    padding: 2rem;
     justify-content: center;
     text-align: center;
 }
@@ -2685,7 +2676,6 @@ body:not(.home-template) *.flexy.row>hgroup {
 }*/
 
 #more-clients .container ~ p {
-    padding: 0 3rem;
     text-align: start;
 }
 
@@ -2768,6 +2758,13 @@ body:not(.home-template) *.flexy.row>hgroup {
     right: 0;
 }
 
+#main-message,
+#compliance-app,
+*.testimonial-container,
+*.post-template.tag-solutions .post section:first-of-type {
+    gap: 3rem;
+}
+
 #compliance-app figure {
     user-select: none;
 }
@@ -2833,44 +2830,43 @@ body:not(.home-template) *.flexy.row>hgroup {
     background-color: var(--color-turquoise);
 }
 
-.cookies.flexy.row {
+*.cookies.flexy.row {
     display: none;
-    padding: 3rem;
+    padding: 1rem;
     position: fixed;
     left: 0;
     bottom: 0;
     color: var(--accent-color-100);
     background-color: var(--accent-color-20);
     gap: 2rem;
-    opacity: .9;
+    opacity: .95;
     z-index: 999;
-    height: 10rem;
     flex: 1 1 100dvw;
     width: 100dvw;
     max-width: 100%;
-    z-index: 99999;
+    z-index: 9999999;
 }
 
-.cookies.flexy.row :is(h4, p, a)::selection {
+*.cookies.flexy.row :is(h4, p, a)::selection {
     color: var(--accent-color-20);
     background-color: var(--accent-color-100);
     line-height: 1.5;
 }
 
-.cookies.flexy.row h4 {
+*.cookies.flexy.row h4 {
     width: fit-content;
     flex: 0 0 fit-content;
 }
 
-#default-footer .cookies.flexy.row hgroup p {
+#default-footer *.cookies.flexy.row hgroup p {
     width: fit-content;
     max-width: 50rem;
     flex: 0 0 fit-content;
     text-align: start;
 }
 
-.cookies.flexy.row hgroup,
-.cookies.flexy.row form {
+*.cookies.flexy.row hgroup,
+*.cookies.flexy.row form {
     padding: 0;
     flex: 0 1 65rem;
     width: 65rem;
@@ -2880,20 +2876,19 @@ body:not(.home-template) *.flexy.row>hgroup {
     align-content: center;
     justify-content: center;
     align-items: safe center;
+    gap: .5rem;
 }
 
-.cookies.flexy.row form {
+*.cookies.flexy.row form {
     width: 20rem;
     flex-basis: 20rem;
-    gap: 1rem;
 }
 
-.cookies.flexy.row hgroup {
+*.cookies.flexy.row hgroup {
     justify-content: space-between;
-    gap: 1rem;
 }
 
-.cookies.flexy.row button[type="button"] {
+*.cookies.flexy.row button[type="button"] {
     opacity: 1;
     flex: 0 1 fit-content;
     width: fit-content;
@@ -3157,7 +3152,6 @@ fieldset {
 }
 
 #start-journey hgroup {
-    max-width: 75%;
     gap: .5rem;
 }
 
@@ -3172,10 +3166,9 @@ fieldset {
 }
 
 *.post>*.heading.flexy.row {
-    padding: 2rem 5rem;
-    flex: 1 1 auto;
     min-height: auto;
-    gap: 2rem;
+    flex: 1 1 auto;
+    gap: 3rem;
 }
 
 *.post>*.heading.flexy.row :is(hgroup, figure) {
@@ -3196,7 +3189,7 @@ fieldset {
     -webkit-background-size: contain;
     -moz-background-size: contain;
     -o-background-size: contain;
-    background-size: contain;
+    background-size: cover;
     height: 18rem;
     height: 12rem;
     width: 18rem;
@@ -3457,7 +3450,7 @@ form#join-newsletter a:is(:focus, :hover) {
     width: fit-content;
     height: 3rem;
     list-style-type: none;
-    gap: 1rem;
+    gap: .5rem;
 }
 
 .post #sharing-is-caring li {
@@ -3838,7 +3831,7 @@ ol {
     fill: #50321e;
 }
 
-.social-icons svg {
+*.social-icons svg {
     flex: 0 0 1.75rem;
     width: 1.75rem;
 }
@@ -3846,85 +3839,88 @@ ol {
 /* page-contact.hbs */
 
 *.page-contact .post #content {
-    padding: 1rem 3rem;
     gap: 3rem;
 }
 
-.page-contact .post h2 {
+*.page-contact #content {
+    width: 100dvw;
+    max-width: 100%;
+    flex: 1 0 100%;
+}
+
+*.page-contact #content article {
+    padding: 0;
+    align-items: flex-start;
+    height: auto;
+    width: 50rem;
+    flex: 2 1 50rem;
+    gap: 1rem;
+}
+
+*.page-contact #content aside {
+    width: 25rem;
+    flex: 10 1 25rem;
+    gap: 1rem;
+}
+
+*.page-contact #content aside figure {
+    padding: 1rem;
+    width: 10rem;
+    flex: 1 0 10rem;
+}
+
+*.page-contact aside form[method="post"],
+*.page-contact aside form[method="post"] fieldset {
+    width: 100%;
+    flex: 1 1 100%;
+}
+
+*.page-contact aside form[method="post"] fieldset {
+    padding: 1rem;
+}
+
+*.page-contact form[method="post"] h2 {
     width: fit-content;
     text-align: center;
 }
 
-.page-contact .post legend {
-    flex: 1 0 100%;
+*.page-contact form[method="post"] legend {
     padding-bottom: 1.5rem;
+    text-align: center;
     width: 100%;
+    flex: 1 1 100%;
     gap: 1rem;
 }
 
-.page-contact .post .controls {
+*.page-contact form[method="post"] .controls {
     flex: 1 1 fit-content;
     width: fit-content;
     align-self: center;
     gap: 1rem;
 }
 
-.page-contact .post .controls input {
+*.page-contact form[method="post"] .controls input {
     width: fit-content;
 }
 
-.page-contact .post input[type="submit"] {
+*.page-contact form[method="post"] input[type="submit"] {
     align-self: center;
 }
 
-.page-contact .post label {
-    font-size: 1rem;
-    font-weight: 500;
+*.page-contact form[method="post"] label {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    flex: 1 1 0%;
-    width: 100dvw;
-    max-width: 23rem;
+    place-content: flex-start;
+    font-size: 1rem;
+    font-weight: 500;
+    width: 100%;
+    height: fit-content;
+    flex: 0 0 fit-content;
     gap: .5rem;
 }
 
-.page-contact #content {
-    padding: 1rem;
-    flex: 1 0 100%;
-    width: 100dvw;
-    max-width: 100%;
-}
-
-.page-contact #content article {
-    padding: 0;
-    align-items: flex-start;
-    height: auto;
-    width: 45rem;
-    flex: 2 1 45rem;
-    gap: 1rem;
-}
-
-.page-contact #content aside {
-    padding: 1rem;
-    height: auto;
-    width: 25rem;
-    flex: 0 0 25rem;
-}
-
-.page-contact #content aside figure {
-    padding: 1rem;
-    flex: 0 1 10rem;
-    width: 10rem;
-}
-
-.page-contact #content aside form[method="get"] {
-    flex: 0 1 25rem;
-    width: 25rem;
-}
-
-.page-contact aside form[method="get"] fieldset {
-    padding: 1rem;
+*.page-contact form[method="post"] textarea {
+    width: 100%;
 }
 
 #grab-coffee {
@@ -3982,35 +3978,18 @@ ol {
     gap: 2rem;
 }
 
-#map hgroup {
-    padding: 8rem 6rem;
-    padding-bottom: 0;
-}
-
 #map figure {
-    height: 50rem;
-}
-
-#map figure img {
-    margin: 5rem;
-    width: 40rem;
-    height: 50rem;
-    border-top-left-radius: 10rem;
-    z-index: 2;
+    gap: 0;
 }
 
 #map figcaption {
-    position: absolute;
-    bottom: -.25rem;
-    left: 0;
-    font-size: 1rem;
-    border-bottom: thin dashed currentColor;
-    z-index: 1;
-    border-bottom-right-radius: 3rem;
+    position: static;
+    padding: .5rem;
+    text-align: center;
 }
 
-#map figcaption:hover {
-    z-index: 3;
+#map figcaption a:is(:active, :focus, :hover) {
+    color: var(--accent-color-100);
 }
 
 #map figcaption span {
@@ -4032,13 +4011,14 @@ header button[type="button"][data-html-symbol="trigram-for-heaven"] {
     color: var(--color-black);
     background-color: transparent;
     z-index: 999999;
+    transition: rotate 200ms linear 0s;
 }
 
-header button[type="button"][data-html-symbol="trigram-for-heaven"]:hover {
+header button[type="button"][data-html-symbol="trigram-for-heaven"]:is(:focus, :focus-within, :hover) {
     transform: none;
     -webkit-box-shadow: none;
     box-shadow: none;
-    transition: none;
+    transition: rotate 200ms linear 0s;
 }
 
 form#search-support {
@@ -4183,7 +4163,7 @@ form#search-support input[type="submit"] {
 
 #browse-tag>.container {
     align-items: flex-start;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 #browse-tag .container .post {
@@ -4477,21 +4457,15 @@ form#search-support input[type="submit"] {
 
 /* Post template */
 
-*.post-template.tag-solutions .post #content {
-    align-content: flex-start;
-}
-
-*.post-template.tag-solutions .post section:first-of-type {
-    padding: 4rem;
-    min-height: 92dvh;
-    justify-content: space-evenly;
-}
-
 *.post-template.tag-solutions .post section:first-of-type :is(hgroup, figure) {
-    height: auto;
-    width: 25rem;
-    flex: 1 0 25rem;
+    width: 30rem;
+    flex: 1 0 30rem;
     align-items: flex-start;
+}
+
+*.post-template.tag-solutions .post section:first-of-type hgroup {
+    flex-grow: 2;
+    justify-content: flex-start;
 }
 
 .post-template.tag-solutions .post [data-slug="communication"],
@@ -4516,8 +4490,8 @@ footer {
 
 #default-footer .columns {
     min-height: fit-content;
-    justify-content: space-around;
-    align-items: flex-start;
+    justify-content: space-evenly;
+    align-items: safe flex-start;
     gap: 1rem;
 }
 
@@ -4527,12 +4501,6 @@ footer {
     font-size: .85rem;
     text-align: center;
     justify-content: space-evenly;
-}
-
-#default-footer p {
-    font-size: inherit;
-    width: fit-content;
-    text-align: center;
 }
 
 #default-footer .rapid-logo {
@@ -4547,9 +4515,7 @@ footer {
 }
 
 #default-footer .columns .column {
-    /*min-width: 20%;
-    width: 100dvw;
-    max-width: 100%;*/
+    padding: .5rem;
     width: fit-content;
     flex: 0 1 fit-content;
     align-items: flex-start;
@@ -4571,6 +4537,7 @@ footer {
 #default-footer .last-column {
     width: fit-content;
     align-items: flex-start;
+    gap: .5rem;
 }
 
 #default-footer .deeds {
@@ -4607,10 +4574,6 @@ footer {
     mix-blend-mode: screen;
 }
 
-#default-footer #follow-us-on {
-    padding-top: 1rem;
-}
-
 #default-footer ul {
     width: fit-content;
     list-style-type: none;
@@ -4618,12 +4581,12 @@ footer {
     gap: .5rem;
 }
 
-#default-footer ul[itemscope] {
-    gap: 0;
+#default-footer ul:not([itemscope]) li[role="menuitem"] {
+    text-align: start;
 }
 
-#default-footer ul li[role="menuitem"] {
-    text-align: start;
+#default-footer ul li[role="menuitem"]::marker {
+    left: .5rem;
 }
 
 *.post *.loop *.container li:has(a:focus, a:hover),
