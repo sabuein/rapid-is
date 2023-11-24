@@ -38,7 +38,7 @@ window.addEventListener("load", () => {
         }
 
         const externalLinks = document.querySelectorAll(`a[href^="http"]:not([href^="https://rapid-is"])`);
-        externalLinks.forEach(link => {
+        if (window.location.hostname !== "localhost") externalLinks.forEach(link => {
             link.target = "_blank";
             link.rel = "noopener";
         });
