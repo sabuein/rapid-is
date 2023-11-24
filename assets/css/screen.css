@@ -16,7 +16,7 @@
 }
 
 #announcement-bar-root *.gh-announcement-bar button {
-    right: .5rem;
+    right: 1rem;
 }
 
 *.gh-portal-triggerbtn-wrapper {

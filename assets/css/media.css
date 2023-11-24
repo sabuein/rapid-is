@@ -76,6 +76,10 @@
 
 @media only screen and (max-width: 600px) {
 
+    #announcement-bar-root *.gh-announcement-bar button {
+        right: .5rem;
+    }
+
     *.post *.palette,
     *.page-contact .post #content,
     *.post-template.tag-solutions .post section:first-of-type,
