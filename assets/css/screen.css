@@ -157,6 +157,7 @@ main #content .kg-toggle-card .kg-toggle-content p {
     flex-wrap: wrap;
     place-content: center;
     align-items: safe center;
+    gap: 0;
 }
 
 *.flexy.row {
@@ -299,19 +300,27 @@ section:has([data-divider="top"]) path {
 }
 
 *.prev-next {
+    padding: 2rem 0;
     color: var(--accent-color);
     background-color: transparent;
-    width: fit-content;
-    flex: 0 0 fit-content;
-    align-items: flex-start;
-    gap: 2rem;
+    gap: 1rem;
     user-select: none;
+    transition: background-color 250ms linear 0s;
 }
 
 *.prev-next p {
+    padding: 1rem;
     width: fit-content;
     flex: 0 0 fit-content;
+    background-color: var(--accent-color-100);
     gap: .25rem;
+    transition: background-color 250ms linear 0s;
+}
+
+*.prev-next p:is(:focus-within, :hover),
+*.post #content p:has(*.post-path):is(:focus-within, :hover) {
+    background-color: transparent;
+    transition: background-color 250ms linear 0s;
 }
 
 *.prev-next p > span {
@@ -327,6 +336,10 @@ section:has([data-divider="top"]) path {
 *.prev-next .next {
     align-items: flex-start;
     text-align: start;
+}
+
+.prev-next *:is(a, span) {
+    background-color: transparent;
 }
 
 *.prev-next a:any-link {
@@ -435,6 +448,9 @@ section:has([data-divider="top"]) path {
     height: auto;
     max-height: 100%;
     background-color: transparent;
+}
+
+*:is(hgroup, section, footer).flexy {
     gap: .5rem;
 }
 
@@ -782,28 +798,48 @@ address a {
 
 body.post-template {
 
-    *.post #content .content-body {
+    *.post #content *.content-body {
+        margin: 0 auto;
+        margin-top: 4rem;
         width: 1440px;
         gap: .5rem;
     }
 
-    *.post #content .content-body > * {
+    *.post #content *.content-body > * {
         width: 75%;
     }
 
-    *.post :is(h2, h3, h4, h5, h6) {
+    *.post *:is(h2, h3, h4, h5, h6) {
         color: var(--accent-color);
     }
 
     *.post #content h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: 600;
     }
 
     *.post #content h3 {
-        font-size: 1.85rem;
-        font-weight: 400;
+        font-size: 1.9rem;
+        font-weight: 500;
     }
+
+    *.post #content *:is(h2, h3, h4, h5, h6) {
+        margin-top: 1rem;
+        line-height: 1.25;
+    }
+}
+
+*.check-mark,
+*.cross-mark {
+    padding: .25rem;
+    border-radius: 50%;
+    background-color: var(--color-light-green);
+    filter: invert(1)drop-shadow(0.1rem 0.1rem 0.1rem var(--accent-color));
+    opacity: .85;
+}
+
+*.cross-mark {
+    background-color: var(--color-light-pink);
 }
 
 #rapid-captions:has(*.rapid-captions) {
@@ -829,6 +865,7 @@ body.post-template {
     height: 100%;
     user-select: text;
     z-index: 0;
+    gap: .5rem;
 }
 
 *.rapid-captions figcaption:nth-of-type(1) {
@@ -1149,6 +1186,7 @@ svg *.feet {
 }
 
 *.post #content {
+    margin-bottom: 1rem;
     width: 100dvw;
     max-width: 100%;
     height: auto;
@@ -1156,6 +1194,33 @@ svg *.feet {
     flex: 1 0 100%;
     align-content: center;
     gap: .5rem;
+}
+
+*.post #content p:has(*.post-path) {
+    padding: 1rem 4rem;
+    background-color: var(--accent-color-100);
+    transition: background-color 250ms linear 0s;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+*.post #content *.post-path {
+    background-color: transparent;
+    place-content: flex-start;
+    gap: .25rem;
+}
+
+*.post #content *.post-path *:is(a, span) {
+    background-color: transparent;
+}
+
+*.post #content *.post-path a {
+    font-weight: 400;
+}
+
+*.post #content *.post-path a:last-child {
+    font-weight: bold;
 }
 
 *.post #content [data-divider="bottom"] path {
@@ -1187,6 +1252,10 @@ svg *.feet {
 }
 
 *.post #content ul {
+    margin-inline: 0;
+    margin-block: 0;
+    padding-inline: 0;
+    padding-block: .5rem;
     list-style-type: square;
     list-style-position: outside;
 }
@@ -1250,14 +1319,43 @@ main #content *:is(:focus, :hover).kg-btn {
 }
 
 main #content table {
+    margin: .5rem 0;
     border-collapse: collapse;
-    display: inline-table;
-    margin: 2rem 4rem;
+    border-spacing: .5rem;
+    display: table;
     border: dashed .1rem;
-    line-height: 2;
+    line-height: 1.5;
     text-align: start;
     font-weight: 400;
     font-size: 1rem;
+}
+
+main #content table thead {
+    display: table-header-group;
+    border: .5rem solid transparent;
+}
+
+main #content table tbody {
+    display: table-row-group;
+    border: .5rem solid transparent;
+}
+
+main #content table tbody tr {
+    position: relative;    
+}
+
+/*
+main #content table tbody tr::before {
+    content: "1. ";
+    position: absolute;
+    inset: 0;
+    left: -1rem;
+}
+*/
+
+main #content table tfoot {
+    display: table-footer-group;
+    border: .5rem solid transparent;
 }
 
 main #content table thead tr {
@@ -1268,13 +1366,14 @@ main #content table thead tr {
 }
 
 main #content table thead th {
-    padding: 1rem;
+    padding: .5rem 1rem;
+    white-space: nowrap;
 }
 
 main #content table tbody tr:is(:focus, :hover) {
     cursor: pointer;
     color: var(--color-white);
-    background-color: var(--accent-color-50);
+    background-color: var(--accent-color-90);
 }
 
 main #content table tbody tr:active {
@@ -1286,21 +1385,50 @@ main #content table tbody tr:active {
 }
 
 main #content table tr td {
-    padding: 1rem 2rem;
+    padding: .5rem 1rem;
     vertical-align: text-top;
+    font-size: .9rem;
 }
 
-main #content table tr td:nth-of-type(1) {
+main #content *.product-overview tr th:first-child {
+    text-align: start;
+}
+
+main #content *.product-overview tr td {
+    vertical-align: middle;
+}
+
+main #content *.product-overview td:first-child {
+    text-wrap: nowrap;
+}
+
+main #content *.product-overview td:not(:first-child) {
+    text-align: center;
+}
+
+main #content *.product-overview.texty *:is(th, td) {
+    text-align: start;
+}
+
+main #content *.product-overview td.with-text {
+    text-align: start;
+    font-size: smaller;
+}
+
+main #content *.product-overview *.asterisk {
+    margin-left: .25rem;
+}
+
+/* main #content table tr td:nth-of-type(1) {
     width: 20%;
 }
 
 main #content table tr td:nth-of-type(2) {
     width: 80%;
-}
+} */
 
 main #content figure.kg-card.kg-image-card.kg-card-hascaption {
     text-align: start;
-
 }
 
 main #content figure.kg-card.kg-image-card.kg-card-hascaption img {
@@ -1416,10 +1544,12 @@ a:-webkit-any-link {
     font-weight: 600;
     width: fit-content;
     max-width: 100%;
+    transition: all 150ms linear 0s;
 }
 
 a:is(:active, :focus, :hover) {
     color: var(--accent-color-50);
+    transition: all 150ms linear 0s;
 }
 
 *:is(button,
@@ -1680,7 +1810,7 @@ strong {
 
 header:has(nav) {
     padding: 1rem 2rem;
-    justify-content: space-between !important;
+    /*justify-content: space-between !important;*/
     color: var(--link-button-text);
     background-color: var(--accent-color-110);
     animation: menu-go-down 500ms linear 0s 1 forwards;
@@ -1713,12 +1843,12 @@ header.loose:is(:active, :focus-within, :hover) {
     animation: menu-go-down 500ms linear 0s 1 forwards;
 }
 
-ul.nav.flexy:has(:where(li.nav-solutions:focus-within, li.nav-solutions > a:is(:focus, :hover)))~ul.solutions-nav,
+/* ul.nav.flexy:has(:where(li.nav-solutions:focus-within, li.nav-solutions > a:is(:focus, :hover)))~ul.solutions-nav,
 ul.solutions-nav.flexy:has(a:active),
 ul.nav.flexy:has(:where(li.nav-about:focus-within, li.nav-about > a:is(:focus, :hover)))~ul.about-nav,
 ul.about-nav.flexy:has(a:active) {
-    display: flex;
-}
+    display: flex !important;
+} */
 
 nav ul~ul.solutions-nav:focus-visible,
 nav ul~ul.solutions-nav:focus-within,
@@ -1745,7 +1875,7 @@ hr {
     pointer-events: auto;
 }
 
-.rapid-logo {
+*.rapid-logo {
     padding: 0 !important;
     user-select: none;
     height: fit-content !important;
@@ -1754,11 +1884,16 @@ hr {
     animation: none !important;
 }
 
-.rapid-logo img {
+header *.rapid-logo {
+    position: absolute;
+    left: 2rem;
+}
+
+*.rapid-logo img {
     mix-blend-mode: normal;
 }
 
-footer .rapid-logo {
+footer *.rapid-logo {
     max-width: 280px;
 }
 
@@ -2379,10 +2514,14 @@ pre {
     flex: 1 1 100%;
     width: 100dvw;
     max-width: 100%;
-    color: var(--accent-color-110);
-    background-color: var(--accent-color-80);
+    color: currentColor;
+    background-color: transparent;
     user-select: none;
     text-align: center;
+}
+
+nav.pagination {
+    padding: 1rem;
 }
 
 *.pagination a {
@@ -2575,11 +2714,6 @@ a[href*="main-content"]:is(:focus, :hover) path {
     width: fit-content;
 }
 
-body:not(.home-template) *.flexy.row>hgroup {
-    padding: 0;
-    height: auto;
-}
-
 *.flexy:not(.row)>hgroup {
     border: 0;
     padding: 0;
@@ -2598,10 +2732,80 @@ body:not(.home-template) *.flexy.row>hgroup {
 
 *.flexy.row>figure {
     padding: 0;
-    height: 100%;
     width: 20rem;
     flex: 0 0 20rem;
     transform: none;
+}
+
+*.author-fixed {
+    flex-direction: row;
+    gap: .5rem;
+    font-size: 1rem;
+    place-content: flex-start;
+}
+
+*.author-meta {
+    flex-direction: row;
+    gap: .5rem;
+    font-size: .85rem;
+    place-content: flex-start;
+}
+
+*.author-meta a {
+    text-decoration: none;
+}
+
+*.author-meta *:is(svg, img) {
+    height: 1.5rem;
+    width: 2rem;
+}
+
+*.author-meta path {
+    fill: var(--accent-color);
+}
+
+*.author-profile {
+    padding: 2rem 4rem;
+    max-width: 75%;
+    align-items: flex-start;
+    flex-basis: 25rem;
+    width: 90dvw;
+}
+
+*.author-profile.flexy {
+    gap: .75rem;
+}
+
+*.author-profile h1 {
+    font-size: 2.5rem;
+}
+
+*.author-profile h2 {
+    font-size: 1.5rem;
+}
+
+*.author-articles {
+    max-width: 85%;
+}
+
+*.author-articles *.post hgroup {
+    padding: 1rem;
+    place-content: flex-start;
+}
+
+*.author-articles *.post hgroup p {
+    line-height: 1.75;
+}
+
+*.author-articles *.post hgroup a {
+    text-decoration: none;
+}
+
+*.author-articles *.bg-image {
+    margin: 1rem;
+    margin-right: 0;
+    height: 15rem;
+    background-attachment: local;
 }
 
 *.home-template section.flexy.row>hgroup {
@@ -2761,8 +2965,12 @@ body:not(.home-template) *.flexy.row>hgroup {
 #main-message,
 #compliance-app,
 *.testimonial-container,
-*.post-template.tag-solutions .post section:first-of-type {
+*.post-template.tag-solutions *.post section:first-of-type {
     gap: 3rem;
+}
+
+*.post-template.tag-solutions *.post section:first-of-type {
+    max-height: 85dvh;
 }
 
 #compliance-app figure {
@@ -3130,6 +3338,9 @@ fieldset {
     max-width: inherit;
     height: inherit;
     max-height: inherit;
+}
+
+fieldset.flexy {
     align-items: flex-start;
     gap: 1rem;
 }
@@ -3218,6 +3429,31 @@ fieldset {
     text-align: start;
 }
 
+*.tag-hash {
+    align-self: flex-end;
+    width: fit-content;
+    position: absolute;
+    right: 5rem;
+    bottom: 0;
+    user-select: none;
+}
+
+*.tag-hash a {
+    text-decoration: none;
+    flex-direction: row;
+    gap: .25rem;
+    font-size: 1.25rem;
+    font-weight: 200;
+    opacity: .8;
+    color: var(--accent-color-90);
+    transition: color 250ms linear 0s;
+}
+
+*.tag-hash a:is(:active, :focus, :hover) {
+    color: var(--accent-color-50);
+    transition: color 250ms linear 0s;
+}
+
 #check-our-vacancies {
     justify-content: center;
 }
@@ -3249,6 +3485,7 @@ fieldset {
 
 #tabs-about header {
     align-items: start;
+    gap: .5rem;
 }
 
 #tabs-about header h2 {
@@ -3262,7 +3499,7 @@ fieldset {
     gap: 0;
 }
 
-#tabs-about .buttons a {
+#tabs-about *.buttons a {
     flex: 1 0 fit-content;
     padding: .5rem 1rem;
     width: fit-content;
@@ -3276,14 +3513,19 @@ fieldset {
     transition: all ease-in-out 250ms 0s;
 }
 
-#tabs-about .buttons a:hover {
+#tabs-about *.buttons a:hover {
     flex-grow: 2;
     color: var(--color-white);
     background-color: var(--accent-color-50);
     transition: all ease-in-out 250ms 0s;
 }
 
-#tabs-about .buttons a.active {
+#tabs-about *.buttons a:active {
+    background-color: var(--accent-color-80);
+    transition: all ease-in-out 250ms 0s;
+}
+
+#tabs-about *.buttons a.active {
     flex-grow: 3;
     color: var(--accent-color);
     background-color: transparent;
@@ -4161,33 +4403,38 @@ form#search-support input[type="submit"] {
     gap: .25rem;
 }
 
-#browse-tag>.container {
+#browse-tag>*.container {
     align-items: flex-start;
     gap: 3rem;
 }
 
-#browse-tag .container .post {
+#browse-tag *.container *.post {
     flex: 0 1 60rem;
     width: 60rem;
 }
 
-#browse-tag .container .post> :is(hgroup, figure) {
+#browse-tag *.container *.post> *:is(hgroup, figure) {
     border: 0;
     flex: 1 0 0%;
     width: 40rem;
     height: auto;
 }
 
-#browse-tag .container .post>hgroup {
+#browse-tag *.container *.post>hgroup {
     padding: 1rem;
     flex: 2 1 40rem;
     width: 40rem;
+    align-content: flex-start;
     gap: .5rem;
 }
 
-#browse-tag .container .post>hgroup h3 {
+#browse-tag *.container *.post>hgroup h3 {
     line-height: 1.25;
     font-size: 1.5rem;
+}
+
+#browse-tag *.container *.post hgroup h3 a {
+    text-decoration: none;
 }
 
 #browse-tag .container .post>hgroup a:any-link:not(:active, :focus, :hover) {
@@ -4196,6 +4443,7 @@ form#search-support input[type="submit"] {
 
 #browse-tag .container .post>figure {
     margin: 1rem;
+    margin-right: 0;
     padding: 0;
     font-size: .85rem;
     height: 15rem;
@@ -4457,20 +4705,20 @@ form#search-support input[type="submit"] {
 
 /* Post template */
 
-*.post-template.tag-solutions .post section:first-of-type :is(hgroup, figure) {
+*.post-template.tag-solutions *.post section:first-of-type :is(hgroup, figure) {
     width: 30rem;
     flex: 1 0 30rem;
     align-items: flex-start;
 }
 
-*.post-template.tag-solutions .post section:first-of-type hgroup {
+*.post-template.tag-solutions *.post section:first-of-type hgroup {
     flex-grow: 2;
     justify-content: flex-start;
 }
 
-.post-template.tag-solutions .post [data-slug="communication"],
-.post-template.tag-solutions .post [data-slug="estates"],
-.post-template.tag-solutions .post [data-slug="billing-system"] {
+.post-template.tag-solutions *.post [data-slug="communication"],
+.post-template.tag-solutions *.post [data-slug="estates"],
+.post-template.tag-solutions *.post [data-slug="billing-system"] {
     flex-direction: row-reverse;
 }
 
@@ -4488,33 +4736,38 @@ footer {
     gap: 1rem;
 }
 
-#default-footer .columns {
+#default-footer *.columns {
     min-height: fit-content;
     justify-content: space-evenly;
     align-items: safe flex-start;
     gap: 1rem;
 }
 
-#default-footer .finally {
-    padding: 0 4rem;
+#default-footer *.company {
+    gap: .5rem;
+}
+
+#default-footer *.finally {
+    padding: 0 2rem;
     font-weight: 500;
     font-size: .85rem;
     text-align: center;
     justify-content: space-evenly;
+    gap: .5rem;
 }
 
-#default-footer .rapid-logo {
+#default-footer *.rapid-logo {
     flex-basis: 18%;
     min-width: 18%;
     gap: .5rem;
 }
 
-#default-footer .rapid-logo img {
+#default-footer *.rapid-logo img {
     -webkit-filter: brightness(0) invert(1);
     filter: brightness(0) invert(1);
 }
 
-#default-footer .columns .column {
+#default-footer *.columns *.column {
     padding: .5rem;
     width: fit-content;
     flex: 0 1 fit-content;
@@ -4525,7 +4778,7 @@ footer {
     gap: .5rem;
 }
 
-#default-footer .columns h6 {
+#default-footer *.columns h6 {
     font-weight: 600;
     font-style: italic;
     color: var(--accent-color-100);
@@ -4534,18 +4787,18 @@ footer {
     width: fit-content;
 }
 
-#default-footer .last-column {
+#default-footer *.last-column {
     width: fit-content;
     align-items: flex-start;
     gap: .5rem;
 }
 
-#default-footer .deeds {
+#default-footer *.deeds {
     width: fit-content;
     gap: 1rem;
 }
 
-#default-footer .deeds figure {
+#default-footer *.deeds figure {
     padding: 0;
     width: 5rem;
     max-height: 5rem;
@@ -4554,21 +4807,21 @@ footer {
     cursor: pointer;
 }
 
-#default-footer .deeds figure :is(svg, img) {
+#default-footer *.deeds figure *:is(svg, img) {
     transition: all 250ms ease-out 0s;
 }
 
-#default-footer .deeds figure[title="Java"] svg {
+#default-footer *.deeds figure[title="Java"] svg {
     max-height: inherit;
 }
 
-#default-footer .deeds img[alt="Microsoft Partner"] {
+#default-footer *.deeds img[alt="Microsoft Partner"] {
     -webkit-filter: invert(1);
     filter: invert(1);
     mix-blend-mode: screen;
 }
 
-#default-footer .deeds img[alt="Cyber Essentials"] {
+#default-footer *.deeds img[alt="Cyber Essentials"] {
     -webkit-filter: grayscale(1) invert(1);
     filter: grayscale(1) invert(1);
     mix-blend-mode: screen;
