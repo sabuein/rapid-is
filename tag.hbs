@@ -29,5 +29,8 @@
         {{#match pagination.pages ">" 1}}{{pagination}}{{/match}}
     </div>
     {{!--{{#tag}}{{> "loop"}}{{/tag}}--}}
+    {{#tag}}<div class="tag-hash flexy">
+        <a href="{{url}}" title="{{name}}" class="flexy"><span>&num;</span><span>{{name}}</span></a>
+    </div>{{/tag}}
 </section>
 {{/is}}

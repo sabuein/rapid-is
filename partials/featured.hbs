@@ -15,6 +15,6 @@
                 <p class="flip-card-back flexy">{{#if custom_excerpt}}{{custom_excerpt}}{{else}}{{excerpt words="35"}}{{/if}} <a href="{{url absolute='true'}}" title="{{title}}" type="text/html" class="shadowed flexy">Learn more</a></p>
             </div>
         </article>{{/foreach}}
-        <p class="total-results">{{plural pages.total empty="Found no results" singular="Found % result" plural="Found % results"}}&excl;</p>
+        <p class="total-results">{{plural pages.total empty="Found no results" singular="Found % result" plural="Found % results"}}&period;</p>
     </div>{{/if}}{{/get}}
 </section>

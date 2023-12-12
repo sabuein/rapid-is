@@ -16,15 +16,19 @@
     </footer>{{/has}}
 </section>
 <section id="content" class="palette flexy">
+    <p title="Post path">
+        <small class="post-path flexy row"><a href="{{@site.url}}" title="{{@site.title}}">{{@site.title}}</a><span>&sol;</span>{{#if primary_tag}}{{#primary_tag}}<a href="{{url}}" title="{{name}}">{{name}}</a><span>&sol;</span>{{/primary_tag}}{{/if}}<a href="{{url}}" title="{{title}}">{{title}}</a></small>
+    </p>
     <div class="content-body flexy">
         {{content}}
     </div>
+    {{#if primary_tag}}{{#primary_tag}}<div class="tag-hash flexy">
+        <a href="{{url}}" title="{{name}}" class="flexy"><span>&num;</span><span>{{name}}</span></a>
+    </div>{{/primary_tag}}{{/if}}
+    {{#has tag="case studies, software, blog, solutions"}}{{> "prev-next"}}
+    {{> "sharing"}}
+    {{!-- {{#primary_tag}}{{> "loop"}}{{/primary_tag}} --}}{{/has}}
 </section>
 {{> "cta-contact"}}
-{{#has tag="case studies, software, blog, solutions"}}<footer class="palette flexy">
-    {{> "sharing"}}
-    {{> "prev-next"}}
-    {{!-- {{#primary_tag}}{{> "loop"}}{{/primary_tag}} --}}
-</footer>{{/has}}
 {{/post}}
 {{/is}}
