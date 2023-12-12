@@ -43,18 +43,46 @@ window.addEventListener("load", () => {
             link.rel = "noopener";
         });
 
-        const trigram = document.querySelector(`[data-html-symbol="trigram-for-heaven"]`);
-        const mobileMenu = document.querySelector(`header nav.flexy`);
+        const trigram = document.querySelector(`header [data-html-symbol="trigram-for-heaven"]`);
+        const mainMenu = document.querySelector(`header nav.flexy`);
+        const aboutMenu = document.querySelector(`header ul.about-nav`);
+        const aboutButton = document.querySelector(`header ul.nav.flexy li:first-child a`);
 
-        trigram.addEventListener("click", () => {
+        const openMainMenu = () => {
             trigram.style.rotate = "90deg";
-            mobileMenu.style.display = "flex";
+            mainMenu.style.display = "flex";
             document.body.style.overflowY = "hidden";
-            mobileMenu.addEventListener("click", () => {
-                trigram.style.rotate = "none";
-                mobileMenu.style.display = "none";
-                document.body.style.overflowY = "auto";
-            }, false);
+        };
+
+        const closeMainMenu = () => {
+            trigram.style.rotate = "none";
+            mainMenu.style.display = "none";
+            document.body.style.overflowY = "auto";
+        };
+
+        trigram.addEventListener("click", (event) => {
+            if (event.target === trigram) {
+                openMainMenu();
+            }
+        });
+
+        mainMenu.addEventListener("click", (event) => {
+            if (event.target === mainMenu) {
+                closeMainMenu();
+            }
+        });
+
+        aboutButton.addEventListener("click", (event) => {
+            // event.preventDefault();
+            aboutMenu.style.display = "flex";
+            aboutMenu.addEventListener("click", () => aboutMenu.style.display = "none", false);
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.code === "Escape") {
+                aboutMenu.style.display = "none";
+                closeMainMenu();
+            }
         }, false);
 
     } catch (error) {
