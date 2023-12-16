@@ -834,7 +834,7 @@ body.post-template {
     padding: .25rem;
     border-radius: 50%;
     background-color: var(--color-light-green);
-    filter: invert(1)drop-shadow(0.1rem 0.1rem 0.1rem var(--accent-color));
+    filter: drop-shadow(0.1rem 0.1rem 0.1rem var(--accent-color));
     opacity: .85;
 }
 
@@ -1199,10 +1199,11 @@ svg *.feet {
 *.post #content p:has(*.post-path) {
     padding: 1rem 4rem;
     background-color: var(--accent-color-100);
-    transition: background-color 250ms linear 0s;
     position: absolute;
     right: 0;
     top: 0;
+    color: var(--accent-color);
+    transition: background-color 250ms linear 0s;
 }
 
 *.post #content *.post-path {
