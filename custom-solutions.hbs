@@ -22,8 +22,10 @@
         {{> "drawings/inspection"}}
         {{else has slug="kpi-data-collection-and-reporting"}}
         {{> "drawings/visual-data"}}
+        {{else has slug="data-integration-and-transformation"}}
+        {{> "drawings/visual-data"}}
         {{else}}
-        <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" loading="lazy" />
+        <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" loading="lazy" onerror="this.style.display = 'none';" />
         {{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}
         {{/has}}
     </figure>{{/if}}
@@ -35,9 +37,9 @@
     <div class="content-body flexy">
         {{content}}
     </div>
-    {{#has tag="solutions"}}{{> "prev-next"}}
-    {{> "sharing"}}{{/has}}
-    {{#if primary_tag}}{{#primary_tag}}<div class="tag-hash flexy">
+    {{#if primary_tag}}{{> "prev-next"}}
+    {{> "sharing"}}
+    {{#primary_tag}}<div class="tag-hash flexy">
         <a href="{{url}}" title="{{name}}" class="flexy"><span>&num;</span><span>{{name}}</span></a>
     </div>{{/primary_tag}}{{/if}}
 </article>

@@ -8,7 +8,7 @@
         {{#if description}}<p>{{description}}</p>{{else}}A collection of {{plural ../pagination.total empty="zero posts" singular="% post" plural="% posts"}}&period;{{/if}}
     </hgroup>
     {{#if feature_image}}<figure class="flexy bg-image" style="{{#primary_tag}}{{#if accent_color}}background-color: {{accent_color}}; {{/if}}{{/primary_tag}}background-image: url({{img_url feature_image absolute='true'}})">
-        <img src="{{img_url feature_image absolute='true'}}" alt="{{title}}" loading="lazy" />
+        <img src="{{img_url feature_image absolute='true'}}" alt="{{title}}" loading="lazy" onerror="this.style.display = 'none';" />
     </figure>{{/if}}
 </section>
 {{> "featured"}}
@@ -17,7 +17,7 @@
     <div class="container disable-scrollbar flexy row">
         {{#foreach posts visibility="all"}}<article class="{{post_class}} flexy row shadowed" data-index="{{@index}}" data-play-state="running" title="{{title}}">
             {{#if feature_image}}<figure class="flexy bg-image" style="{{#primary_tag}}{{#if accent_color}}background-color: {{accent_color}};{{/if}}{{/primary_tag}} background-image: url({{img_url feature_image absolute='true'}})">
-                <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" loading="lazy" />
+                <img src="{{img_url feature_image absolute='true'}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" title="{{title}}" loading="lazy" onerror="this.style.display = 'none';" />
                 {{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}
             </figure>{{/if}}
             <hgroup class="flexy">
