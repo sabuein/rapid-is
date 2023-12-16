@@ -45,8 +45,12 @@ window.addEventListener("load", () => {
 
         const trigram = document.querySelector(`header [data-html-symbol="trigram-for-heaven"]`);
         const mainMenu = document.querySelector(`header nav.flexy`);
+
         const aboutMenu = document.querySelector(`header ul.about-nav`);
         const aboutButton = document.querySelector(`header ul.nav.flexy li:first-child a`);
+
+        const solutionsMenu = document.querySelector(`header ul.solutions-nav`);
+        const solutionsButton = document.querySelector(`header ul.nav.flexy li:nth-child(3) a`);
 
         const openMainMenu = () => {
             trigram.style.rotate = "90deg";
@@ -78,9 +82,16 @@ window.addEventListener("load", () => {
             aboutMenu.addEventListener("click", () => aboutMenu.style.display = "none", false);
         });
 
+        solutionsButton.addEventListener("click", (event) => {
+            // event.preventDefault();
+            solutionsMenu.style.display = "flex";
+            solutionsMenu.addEventListener("click", () => solutionsMenu.style.display = "none", false);
+        });
+
         document.addEventListener("keydown", (event) => {
             if (event.code === "Escape") {
                 aboutMenu.style.display = "none";
+                solutionsMenu.style.display = "none";
                 closeMainMenu();
             }
         }, false);
