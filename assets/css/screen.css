@@ -245,7 +245,7 @@ main #content .kg-toggle-card .kg-toggle-content p {
 /* Elements with data attributes */
 
 section:has([data-divider="top"]) {
-    height: 8rem;
+    height: 7rem;
     background-color: var(--accent-color-50);
     transform: scale(-1);
 }
@@ -2226,45 +2226,40 @@ ul.nav.flexy {
     width: fit-content;
 }
 
-li.nav-about svg,
-li.nav-solutions svg,
-ul.about-nav svg,
-ul.solutions-nav svg {
-    width: 1.25rem;
-    vertical-align: middle;
+li[role="menuitem"] {
+    user-select: none;
 }
 
-ul.about-nav svg,
-ul.solutions-nav svg {
+ul[role="menu"] svg {
+    width: 1.25rem;
+    vertical-align: middle;
+    background-color: transparent;
+}
+
+ul[role="menu"] svg path {
+    fill: var(--color-orange);
+}
+
+*.about-nav svg,
+*.solutions-nav svg,
+*.nav-case-studies svg,
+*.nav-contact svg {
     rotate: -90deg;
 }
 
-li.nav-about:focus-within svg,
-li.nav-about:focus-visible svg,
-li.nav-about a:is(:focus, :hover) svg,
-li.nav-solutions:focus-within svg,
-li.nav-solutions:focus-visible svg,
-li.nav-solutions a:is(:focus, :hover) svg {
+ul[role="menu"] li:is(:focus-within, :focus-visible) svg,
+ul[role="menu"] a:is(:focus, :hover, :active) svg {
     animation: point-down 1s linear 0s infinite;
 }
 
-ul.about-nav a:is(:focus, :hover) svg,
-ul.solutions-nav a:is(:focus, :hover) svg {
-    animation: point-right 1s linear 0s infinite;
-}
-
-li.nav-about span,
-li.nav-solutions span {
-    margin-right: .25rem;
+ul[role="menu"] li:is(:focus-within, :focus-visible) path,
+ul[role="menu"] a:is(:focus, :hover, :active) path {
+    fill: var(--accent-color-50);
 }
 
 ul.about-nav svg span,
 ul.solutions-nav span {
     margin: 0 .25rem;
-}
-
-.social-icons svg path {
-    fill: var(--accent-color-110);
 }
 
 nav ul~ul.about-nav,
@@ -2334,22 +2329,6 @@ body>footer ul.nav.flexy a:is(:focus, :hover),
 body>footer ul.about-nav.flexy a:is(:focus, :hover),
 body>footer ul.solutions-nav.flexy a:is(:focus, :hover) {
     color: var(--color-yellow);
-}
-
-li.nav-about svg path,
-li.nav-solutions svg path,
-ul.about-nav.flexy svg path,
-ul.solutions-nav.flexy svg path {
-    fill: var(--color-orange);
-}
-
-li.nav-about a:is(:focus, :hover) path,
-li.nav-about:focus-within path,
-ul.about-nav.flexy a:is(:focus, :hover) path,
-li.nav-solutions a:is(:focus, :hover) path,
-li.nav-solutions:focus-within path,
-ul.solutions-nav.flexy a:is(:focus, :hover) path {
-    fill: var(--accent-color-50);
 }
 
 nav ul~ul.about-nav,
@@ -2755,13 +2734,20 @@ a[href*="main-content"]:is(:focus, :hover) path {
     text-decoration: none;
 }
 
-*.author-meta *:is(svg, img) {
+*.author-meta *:is(img, svg) {
     height: 1.5rem;
     width: 2rem;
+    scale: 1;
+    transition: all 250ms ease-out 0s;
 }
 
 *.author-meta path {
     fill: var(--accent-color);
+}
+
+*.author-meta a:is(:focus, :hover) *:is(img, svg) {
+    scale: 1.1;
+    transition: all 250ms ease-in 0s;
 }
 
 *.author-profile {
@@ -3343,6 +3329,47 @@ fieldset {
 fieldset.flexy {
     align-items: flex-start;
     gap: 1rem;
+}
+
+*.subscription p:where(.loading, .error, .success) {
+    display: none;
+}
+
+*.subscription *.loading *.loading,
+*.subscription *.error *.error,
+*.subscription *.success *.success {
+    display: block;
+}
+
+*.subscription [data-members-form="subscribe"] {
+    gap: .5rem;
+}
+
+*.subscription p {
+    text-align: center;
+    width: 100%;
+    flex: 2 1 100%;
+}
+
+*.subscription label {
+    flex-direction: row;
+    gap: .25rem;
+}
+
+*.subscription input[type="checkbox"] {
+    height: auto;
+}
+
+*.subscription *.inputs,
+*.subscription *.controls {
+    flex-direction: row;
+    gap: 1rem;
+}
+
+*.subscription h3,
+*.subscription input[type="submit"],
+*.subscription input[type="reset"] {
+    width: fit-content;
 }
 
 /* Start of general partials styles */
@@ -4577,23 +4604,21 @@ form#search-support input[type="submit"] {
     width: fit-content;
 }
 
-.flip-card {
+*.flip-card {
     margin: 0;
     padding: 0;
     background-color: transparent;
-    width: inherit;
-    height: inherit;
     perspective: 48rem;
     /* Remove this if you don't want the 3D effect */
-    width: 24rem;
     height: 20rem;
+    width: 24rem;
     flex: 0 0 24rem;
     flex-wrap: nowrap;
     align-items: flex-start;
     gap: .5rem;
 }
 
-.flip-card-inner {
+*.flip-card-inner {
     position: relative;
     width: 100%;
     height: 100%;
@@ -4618,7 +4643,7 @@ form#search-support input[type="submit"] {
     transition: transform 500ms cubic-bezier(2, 1, 1, 2) 0s;
 }
 
-.flip-card:is(:active, :focus, :focus-within, :hover) .flip-card-inner {
+*.flip-card:is(:active, :focus, :focus-within, :hover) .flip-card-inner {
     transform: rotateY(-180deg);
     cursor: pointer;
 }
@@ -4627,8 +4652,8 @@ form#search-support input[type="submit"] {
     animation: shut-down 500ms linear 0s 1 normal forwards;
   }*/
 
-.flip-card-front,
-.flip-card-back {
+*.flip-card-front,
+*.flip-card-back {
     position: absolute;
     width: inherit;
     height: inherit;
@@ -4637,23 +4662,23 @@ form#search-support input[type="submit"] {
     flex-wrap: nowrap;
 }
 
-.flip-card-front {
+*.flip-card-front {
     background-color: #bbb;
     color: black;
     cursor: pointer;
 }
 
-.flip-card-front .bg-image {
+*.flip-card-front .bg-image {
     background-color: var(--accent-color-50);
     background-blend-mode: soft-light;
 }
 
-.flip-card-front figcaption {
+*.flip-card-front figcaption {
     display: none;
     height: 5rem;
 }
 
-.flip-card-front h3 {
+*.flip-card-front h3 {
     position: absolute;
     left: 0;
     text-align: center;
@@ -4663,7 +4688,7 @@ form#search-support input[type="submit"] {
     color: var(--accent-color-110);
 }
 
-.flip-card-back {
+*.flip-card-back {
     padding: 1rem;
     background-color: var(--accent-color-50);
     color: var(--accent-color-110);
@@ -4672,31 +4697,31 @@ form#search-support input[type="submit"] {
     cursor: text;
 }
 
-.flip-card-back a[type="text/html"]:any-link {
+*.flip-card-back a[type="text/html"]:any-link {
     margin: 1rem;
     margin-bottom: 0;
     color: var(--accent-color-70);
     background-color: var(--accent-color-110);
 }
 
-.flip-card-back a[type="text/html"]:is(:active, :focus, :hover) {
+*.flip-card-back a[type="text/html"]:is(:active, :focus, :hover) {
     color: var(--accent-color-50);
 }
 
-.urlbuilder input[type="text"] {
+*.urlbuilder input[type="text"] {
     width: 100%;
 }
 
-.urlbuilder td {
+*.urlbuilder td {
     min-width: 130px;
 }
 
-.urlbuilder .urllable {
+*.urlbuilder .urllable {
     padding-bottom: 20px;
     color: #888;
 }
 
-.urlbuilder select {
+*.urlbuilder select {
     padding: 10px;
     background: white;
     color: #7F8488;
@@ -4711,6 +4736,10 @@ form#search-support input[type="submit"] {
     align-items: flex-start;
 }
 
+*.post-template.tag-solutions *.post section:first-of-type svg {
+    max-height: 35rem;
+}
+
 *.post-template.tag-solutions *.post section:first-of-type hgroup {
     flex-grow: 2;
     justify-content: flex-start;
@@ -4718,7 +4747,8 @@ form#search-support input[type="submit"] {
 
 .post-template.tag-solutions *.post [data-slug="communication"],
 .post-template.tag-solutions *.post [data-slug="estates"],
-.post-template.tag-solutions *.post [data-slug="billing-system"] {
+.post-template.tag-solutions *.post [data-slug="billing-system"],
+.post-template.tag-solutions *.post [data-slug="data-integration-and-transformation"] {
     flex-direction: row-reverse;
 }
 

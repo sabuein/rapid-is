@@ -1,19 +1,42 @@
-/* @media only screen and (min-width: 1400px) {
+@media only screen and (max-width: 1550px) {
 
-
-    .tag-solutions .post .container {
-        padding: 8rem 6rem;
-        justify-content: center;
-        gap: 5rem;
+    *.post *.palette {
+        padding: 3rem;
     }
-    
+
+    *.post>*.heading.flexy.row {
+        gap: 2rem;
+    }
+
+    *.flip-card {
+        height: 18rem;
+        width: 22rem;
+        flex-basis: 22rem;
+    }
+
+    *.flip-card-back {
+        padding: .75rem;
+    }
+
+    *.post>*.heading.flexy.row hgroup {
+        width: 50rem;
+        flex-basis: 50rem;
+    }
+
 }
 
-*/
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1410px) {
+
+    html {
+        font-size: 16px;
+    }
+
+}
+
+@media only screen and (max-width: 1280px) {
 
     #default-footer ul:not([itemscope]).nav.flexy,
-    #default-footer .last-column {
+    #default-footer *.last-column {
         flex-direction: row;
     }
 
@@ -21,11 +44,11 @@
         align-self: center;
     }
 
-    #default-footer .columns h6:has(+ ul:not([itemscope], .social-icons)),
+    #default-footer *.columns h6:has(+ ul:not([itemscope], *.social-icons)),
     #default-footer ul:not([itemscope]) li[role="menuitem"] {
         margin-left: 1.25rem;
     }
-    
+
 }
 
 @media only screen and (min-width: 1000px) {
@@ -33,6 +56,7 @@
     header nav.flexy {
         display: flex !important;
     }
+
 }
 
 @media only screen and (max-width: 999px) {
@@ -42,7 +66,8 @@
     }
 
     header nav.flexy,
-    header ul.about-nav.flexy {
+    header ul.about-nav.flexy,
+    header ul.solutions-nav.flexy {
         position: absolute;
         inset: 0;
         height: 100dvh;
@@ -63,7 +88,17 @@
     header button[type="button"][data-html-symbol="trigram-for-heaven"] {
         display: inline-block;
     }
-    
+
+    *.post *.palette {
+        padding: 2.25rem;
+    }
+
+    *.flip-card {
+        height: 15rem;
+        width: 18rem;
+        flex-basis: 18rem;
+    }
+
 }
 
 @media only screen and (max-width: 800px) {
@@ -72,6 +107,7 @@
         padding: 6rem 2rem;
         gap: 2rem;
     } */
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -81,23 +117,33 @@
     }
 
     *.post *.palette,
-    *.page-contact .post #content,
-    *.post-template.tag-solutions .post section:first-of-type,
-    header:has(nav)  {
+    *.page-contact *.post #content,
+    *.post-template.tag-solutions *.post section:first-of-type,
+    header:has(nav) {
         padding: 1.5rem;
     }
 
-    #main-message ~ section:has([data-divider="top"]),
+    *.flip-card {
+        height: 18rem;
+        width: 22rem;
+        flex-basis: 22rem;
+    }
+
+    *.flip-card-back {
+        padding: .5rem;
+    }
+
+    #main-message~section:has([data-divider="top"]),
     section:has([data-divider="top"]) {
         height: 2rem;
     }
 
-    *.post-template.tag-solutions .post section:first-of-type hgroup {
+    *.post-template.tag-solutions *.post section:first-of-type hgroup {
         flex-direction: row;
     }
 
     #default-footer,
-    #default-footer .finally {
+    #default-footer *.finally {
         padding: .5rem;
     }
 
@@ -114,7 +160,7 @@
         font-size: 2.5rem;
     }
 
-    h1 ~ p {
+    h1~p {
         font-size: 1.15rem;
     }
 
@@ -140,17 +186,17 @@
         gap: 2rem;
     }
 
-    #default-footer .columns :has(address) {
+    #default-footer *.columns :has(address) {
         align-items: center;
     }
 
-    #default-footer .columns .column,
+    #default-footer *.columns *.column,
     *.post>*.heading.flexy.row,
-    *.page-contact .post #content,
+    *.page-contact *.post #content,
     #main-message,
     #compliance-app,
     *.testimonial-container,
-    *.post-template.tag-solutions .post section:first-of-type {
+    *.post-template.tag-solutions *.post section:first-of-type {
         gap: 1rem;
     }
 
@@ -158,17 +204,17 @@
         flex-direction: column;
     }
 
-    #default-footer .deeds {
+    #default-footer *.deeds {
         gap: .5rem;
     }
 
     body.post-template *.post #content h2 {
         font-size: 2.25rem;
     }
-    
-    body.post-template *.post #content .content-body > * {
+
+    body.post-template *.post #content *.content-body>* {
         width: 100dvw;
         max-width: 100%;
     }
-    
+
 }
