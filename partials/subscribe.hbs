@@ -18,7 +18,13 @@
         <p class="loading"><small>⏲️ Please hold while we check our collection.</small></p>
         <p class="error"><small>❗Something's gone wrong. Please try again.</small></p>
         <p class="success"><small>🎸 Success! Check your inbox for our email.</small></p>
-    </form>{{else}}<p><small><span>Welcome back&comma; {{@member.firstname}}&period;</span> <a href="javascript:void(0);" data-members-signout="" title="{{t 'Sign out'}}">{{t "Sign out"}}</a></small></p>{{/if}}
+    </form>{{else}}<p><small class="portal-links flexy">
+        <span>Welcome back&comma; {{@member.firstname}}&period;</span>
+        <a href="#/portal/account" data-portal="account" title="{{t 'Account'}}">{{t "Account"}}</a>
+        <a href="#/portal/account/profile" data-portal="account/profile" title="{{t 'Profile'}}">{{t "Profile"}}</a>
+        <a href="#/portal/account/newsletters" data-portal="account/newsletters" title="{{t 'Newsletters'}}">{{t "Newsletters"}}</a>
+        <a href="javascript:void(0);" data-members-signout="" title="{{t 'Sign out'}}">{{t "Sign out"}}</a>
+    </small></p>{{/if}}
 </aside>
 {{!--<form data-members-form="signin" data-members-autoredirect="true" class="flexy">
     <label for="memberEmail" class="flexy" title="{{t 'Email'}}"><strong>{{t "Email"}}&colon;</strong><input type="email" name="emailX" id="memberEmail" autocomplete="email" title="{{t 'Please enter a valid email address'}}" placeholder="{{t 'Your email'}}" required="true" data-members-email="" /></label>
