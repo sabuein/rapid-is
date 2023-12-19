@@ -1,3 +1,8 @@
+# Labs
+
+config.development.json
+config.production.json
+
 # Logs
 logs
 *.log
