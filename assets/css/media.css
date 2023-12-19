@@ -49,6 +49,14 @@
         margin-left: 1.25rem;
     }
 
+    *.post #content p:has(*.post-path) {
+        padding: 1rem 3rem;
+    }
+
+    body.post-template *.post #content *.content-body > * {
+        width: 80%;
+    }
+
 }
 
 @media only screen and (min-width: 1000px) {
@@ -99,14 +107,30 @@
         flex-basis: 18rem;
     }
 
+    main #content div:has(table) {
+        overflow-x: scroll;
+    }
+
+    body.post-template *.post #content *.content-body > * {
+        width: 85%;
+    }
+
 }
 
 @media only screen and (max-width: 800px) {
 
-    /* .tag-solutions .post .container {
-        padding: 6rem 2rem;
-        gap: 2rem;
-    } */
+    *.post #content p:has(*.post-path) {
+        padding: 1rem 2rem;
+    }
+
+    main #content table thead th,
+    main #content table tr td {
+        padding: .25rem;
+    }
+
+    body.post-template *.post #content *.content-body > * {
+        width: 90%;
+    }
 
 }
 
@@ -121,6 +145,10 @@
     *.post-template.tag-solutions *.post section:first-of-type,
     header:has(nav) {
         padding: 1.5rem;
+    }
+
+    *.post #content {
+        align-items: center;
     }
 
     *.flip-card {
@@ -212,9 +240,14 @@
         font-size: 2.25rem;
     }
 
-    body.post-template *.post #content *.content-body>* {
+    body.post-template *.post #content *.content-body > * {
         width: 100dvw;
         max-width: 100%;
+    }
+
+    *.post #content p:has(*.post-path) {
+        padding: 1rem;
+        font-size: .85rem;
     }
 
 }

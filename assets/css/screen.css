@@ -180,7 +180,6 @@ main #content .kg-toggle-card .kg-toggle-content p {
     background-clip: content-box;
     width: 100dvw;
     max-width: 100%;
-    height: 100dvh;
     max-height: 100%;
     user-select: none;
 }
@@ -190,6 +189,7 @@ main #content .kg-toggle-card .kg-toggle-content p {
 }
 
 *.bg-image:has(svg) {
+    padding: 1rem !important;
     background-image: none !important;
     background-color: transparent !important;
 }
@@ -842,6 +842,11 @@ body.post-template {
     background-color: var(--color-light-pink);
 }
 
+*.portal-links {
+    flex-direction: row;
+    gap: .5rem;
+}
+
 #rapid-captions:has(*.rapid-captions) {
     padding: 1rem 5rem;
 }
@@ -1317,6 +1322,10 @@ main #content a {
 
 main #content *:is(:focus, :hover).kg-btn {
     color: var(--color-white);
+}
+
+main #content div:has(table) {
+    overflow-x: hidden;
 }
 
 main #content table {
@@ -4271,7 +4280,7 @@ header button[type="button"][data-html-symbol="trigram-for-heaven"] {
     padding: 0;
     display: none;
     position: absolute;
-    right: 5rem;
+    right: 2rem;
     height: auto;
     width: fit-content;
     flex: 0 0 fit-content;
@@ -4670,6 +4679,7 @@ form#search-support input[type="submit"] {
 }
 
 *.flip-card-front .bg-image {
+    height: 100dvh;
     background-color: var(--accent-color-50);
     background-blend-mode: soft-light;
 }
