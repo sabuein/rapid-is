@@ -1,7 +1,6 @@
 # Labs
 
-*/assets/labs/config/config.development.json
-*/assets/labs/config/config.production.json
+assets/labs/config
 
 # Logs
 logs
