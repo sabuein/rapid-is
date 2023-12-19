@@ -12,15 +12,14 @@
   },
   "mail": {
     "transport": "SMTP",
-    "from": "'Rapid Website' website@rapid-is.co.uk",
+    "from": "****",
     "options": {
-      "service": "IONOS",
-      "host": "smtp.ionos.co.uk",
+      "host": "****",
       "port": 587,
       "secure": false,
       "auth": {
-        "user": "website@rapid-is.co.uk",
-        "pass": "password"
+        "user": "****",
+        "pass": "****"
       }
     }
   },

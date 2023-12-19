@@ -1,0 +1,39 @@
+{
+    "url": "https://rapid-is.co.uk",
+    "server": {
+        "port": 2368,
+        "host": "127.0.0.1"
+    },
+    "database": {
+        "client": "mysql",
+        "connection": {
+            "host": "****",
+            "user": "****",
+            "password": "****",
+            "database": "****"
+        }
+    },
+    "mail": {
+        "transport": "SMTP",
+        "from": "****",
+        "options": {
+            "host": "****",
+            "port": 587,
+            "secure": false,
+            "auth": {
+                "user": "****",
+                "pass": "****"
+            }
+        }
+    },
+    "logging": {
+        "transports": [
+            "file",
+            "stdout"
+        ]
+    },
+    "process": "systemd",
+    "paths": {
+        "contentPath": "/var/www/rapid-is/content"
+    }
+}
