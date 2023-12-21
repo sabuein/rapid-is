@@ -1,6 +1,6 @@
 # Labs
 
-/assets/labs/config/config*
+/assets/labs/config/*
 
 # Logs
 logs
